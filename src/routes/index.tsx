@@ -204,7 +204,7 @@ function Home() {
             {productCases.map((c) => {
               const Icon = c.icon;
               return (
-                <a key={c.title} href="#" className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
+                <Link key={c.title} to={c.to} className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
                   <div className="aspect-[4/3] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
                     <Icon className="h-14 w-14 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
                   </div>
@@ -213,7 +213,7 @@ function Home() {
                     <h3 className="font-sans font-semibold text-lg mb-3">{c.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
                   </div>
-                </a>
+                </Link>
               );
             })}
           </div>
