@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle, Car, Music, Sparkles, AudioLines } from "lucide-react";
 
 export const Route = createFileRoute("/")({
