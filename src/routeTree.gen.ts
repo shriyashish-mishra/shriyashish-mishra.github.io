@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as BlusmartMumbaiExpansionRouteImport } from './routes/blusmart-mumbai-expansion'
 import { Route as IndexRouteImport } from './routes/index'
 
+const BlusmartMumbaiExpansionRoute = BlusmartMumbaiExpansionRouteImport.update({
+  id: '/blusmart-mumbai-expansion',
+  path: '/blusmart-mumbai-expansion',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +25,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/blusmart-mumbai-expansion'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/blusmart-mumbai-expansion'
+  id: '__root__' | '/' | '/blusmart-mumbai-expansion'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlusmartMumbaiExpansionRoute: typeof BlusmartMumbaiExpansionRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/blusmart-mumbai-expansion': {
+      id: '/blusmart-mumbai-expansion'
+      path: '/blusmart-mumbai-expansion'
+      fullPath: '/blusmart-mumbai-expansion'
+      preLoaderRoute: typeof BlusmartMumbaiExpansionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +70,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlusmartMumbaiExpansionRoute: BlusmartMumbaiExpansionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
