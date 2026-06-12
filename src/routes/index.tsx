@@ -28,9 +28,9 @@ const metrics = [
 ];
 
 const productCases = [
-  { icon: MessageCircle, tag: "HEALTHCARE / SAFETY", title: "WhatsApp Medication Safety", body: "Designing a safety layer for healthcare communication via messaging platforms." },
-  { icon: Car, tag: "MOBILITY / GROWTH", title: "BluSmart Mumbai Expansion", body: "Scaling the electric mobility fleet through hyper-local operations and strategy." },
-  { icon: Music, tag: "CONSUMER / ENGAGEMENT", title: "Spotify Loyalty Engine", body: "Gamification of user acquisition flows for premium subscriptions." },
+  { icon: MessageCircle, tag: "HEALTHCARE / SAFETY", title: "WhatsApp Medication Safety", body: "Designing a safety layer for healthcare communication via messaging platforms.", to: "/" as const },
+  { icon: Car, tag: "MOBILITY / GROWTH", title: "BluSmart Mumbai Expansion", body: "Scaling the electric mobility fleet through hyper-local operations and strategy.", to: "/blusmart-mumbai-expansion" as const },
+  { icon: Music, tag: "CONSUMER / ENGAGEMENT", title: "Spotify Loyalty Engine", body: "Gamification of user acquisition flows for premium subscriptions.", to: "/" as const },
 ];
 
 const aiCases = [
