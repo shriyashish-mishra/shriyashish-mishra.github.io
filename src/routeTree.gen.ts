@@ -9,12 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as BlusmartMumbaiExpansionRouteImport } from './routes/blusmart-mumbai-expansion'
+import { Route as BlusmartMumbaiRouteImport } from './routes/blusmart-mumbai'
 import { Route as IndexRouteImport } from './routes/index'
 
-const BlusmartMumbaiExpansionRoute = BlusmartMumbaiExpansionRouteImport.update({
-  id: '/blusmart-mumbai-expansion',
-  path: '/blusmart-mumbai-expansion',
+const BlusmartMumbaiRoute = BlusmartMumbaiRouteImport.update({
+  id: '/blusmart-mumbai',
+  path: '/blusmart-mumbai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,37 +25,37 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
+  '/blusmart-mumbai': typeof BlusmartMumbaiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
+  '/blusmart-mumbai': typeof BlusmartMumbaiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
+  '/blusmart-mumbai': typeof BlusmartMumbaiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blusmart-mumbai-expansion'
+  fullPaths: '/' | '/blusmart-mumbai'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blusmart-mumbai-expansion'
-  id: '__root__' | '/' | '/blusmart-mumbai-expansion'
+  to: '/' | '/blusmart-mumbai'
+  id: '__root__' | '/' | '/blusmart-mumbai'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BlusmartMumbaiExpansionRoute: typeof BlusmartMumbaiExpansionRoute
+  BlusmartMumbaiRoute: typeof BlusmartMumbaiRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/blusmart-mumbai-expansion': {
-      id: '/blusmart-mumbai-expansion'
-      path: '/blusmart-mumbai-expansion'
-      fullPath: '/blusmart-mumbai-expansion'
-      preLoaderRoute: typeof BlusmartMumbaiExpansionRouteImport
+    '/blusmart-mumbai': {
+      id: '/blusmart-mumbai'
+      path: '/blusmart-mumbai'
+      fullPath: '/blusmart-mumbai'
+      preLoaderRoute: typeof BlusmartMumbaiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,7 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BlusmartMumbaiExpansionRoute: BlusmartMumbaiExpansionRoute,
+  BlusmartMumbaiRoute: BlusmartMumbaiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
