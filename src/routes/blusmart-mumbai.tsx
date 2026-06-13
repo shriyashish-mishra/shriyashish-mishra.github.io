@@ -512,10 +512,10 @@ function BluSmartCaseStudy() {
 
         {/* PREV / NEXT NAV */}
         <section className="py-16 border-t border-border/50 grid sm:grid-cols-2 gap-6">
-          <Link to="/" className="group block">
+          <Link to="/whatsapp-group-engagement" className="group block">
             <div className="label-mono mb-3">PREVIOUS</div>
             <div className="flex items-center gap-3 font-serif italic text-2xl text-muted-foreground group-hover:text-foreground transition">
-              <ArrowLeft className="h-5 w-5" /> WhatsApp Medication Safety
+              <ArrowLeft className="h-5 w-5" /> WhatsApp Group User Engagement
             </div>
           </Link>
           <Link to="/" className="group block sm:text-right">
