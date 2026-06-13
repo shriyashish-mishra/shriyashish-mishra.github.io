@@ -9,15 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WhatsappGroupEngagementRouteImport } from './routes/whatsapp-group-engagement'
 import { Route as BlusmartMumbaiRouteImport } from './routes/blusmart-mumbai'
 import { Route as IndexRouteImport } from './routes/index'
 
-const WhatsappGroupEngagementRoute = WhatsappGroupEngagementRouteImport.update({
-  id: '/whatsapp-group-engagement',
-  path: '/whatsapp-group-engagement',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlusmartMumbaiRoute = BlusmartMumbaiRouteImport.update({
   id: '/blusmart-mumbai',
   path: '/blusmart-mumbai',
@@ -32,42 +26,31 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blusmart-mumbai': typeof BlusmartMumbaiRoute
-  '/whatsapp-group-engagement': typeof WhatsappGroupEngagementRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blusmart-mumbai': typeof BlusmartMumbaiRoute
-  '/whatsapp-group-engagement': typeof WhatsappGroupEngagementRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blusmart-mumbai': typeof BlusmartMumbaiRoute
-  '/whatsapp-group-engagement': typeof WhatsappGroupEngagementRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blusmart-mumbai' | '/whatsapp-group-engagement'
+  fullPaths: '/' | '/blusmart-mumbai'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blusmart-mumbai' | '/whatsapp-group-engagement'
-  id: '__root__' | '/' | '/blusmart-mumbai' | '/whatsapp-group-engagement'
+  to: '/' | '/blusmart-mumbai'
+  id: '__root__' | '/' | '/blusmart-mumbai'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlusmartMumbaiRoute: typeof BlusmartMumbaiRoute
-  WhatsappGroupEngagementRoute: typeof WhatsappGroupEngagementRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/whatsapp-group-engagement': {
-      id: '/whatsapp-group-engagement'
-      path: '/whatsapp-group-engagement'
-      fullPath: '/whatsapp-group-engagement'
-      preLoaderRoute: typeof WhatsappGroupEngagementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/blusmart-mumbai': {
       id: '/blusmart-mumbai'
       path: '/blusmart-mumbai'
@@ -88,7 +71,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlusmartMumbaiRoute: BlusmartMumbaiRoute,
-  WhatsappGroupEngagementRoute: WhatsappGroupEngagementRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

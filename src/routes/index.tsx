@@ -13,6 +13,10 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const RESUME_URL = "https://drive.google.com/file/d/19mbhHCeIVmJ8NG_GDBZqh_mZI0tt4TjD/view?usp=sharing";
+const LINKEDIN_URL = "https://www.linkedin.com/in/shriyashish-mishra/";
+const EMAIL = "shriyashishm@gmail.com";
+
 const principles = [
   { num: "01", tag: "DISCOVERY", title: "Problem Discovery", body: "Understanding deep user needs and technical constraints before jumping into solutioning." },
   { num: "02", tag: "VALIDATION", title: "Experimentation", body: "Rigorous testing of assumptions through MVPs and data before committing to scale." },
@@ -28,14 +32,14 @@ const metrics = [
 ];
 
 const productCases = [
-  { icon: MessageCircle, tag: "HEALTHCARE / SAFETY", title: "WhatsApp Medication Safety", body: "Designing a safety layer for healthcare communication via messaging platforms.", to: "/" as const },
-  { icon: Car, tag: "MOBILITY / GROWTH", title: "BluSmart Mumbai Expansion", body: "Scaling the electric mobility fleet through hyper-local operations and strategy.", to: "/blusmart-mumbai-expansion" as const },
-  { icon: Music, tag: "CONSUMER / ENGAGEMENT", title: "Spotify Loyalty Engine", body: "Gamification of user acquisition flows for premium subscriptions.", to: "/" as const },
+  { icon: MessageCircle, tag: "GROWTH / ENGAGEMENT", title: "WhatsApp Group User Engagement", body: "Designing product interventions to increase participation, retention, and meaningful interactions within WhatsApp groups.", to: "/whatsapp-group-engagement" as const },
+  { icon: Car, tag: "MOBILITY / GROWTH", title: "BluSmart Mumbai Expansion", body: "Scaling the electric mobility fleet through hyper-local operations and strategy.", to: "/blusmart-mumbai" as const },
+  { icon: Music, tag: "CONSUMER / ENGAGEMENT", title: "Spotify Loyalty Engine", body: "Gamification of user acquisition flows for premium subscriptions.", to: "/spotify-premium-quest" as const },
 ];
 
 const aiCases = [
-  { icon: Sparkles, tag: "LLM / TOOLING", title: "ProductBattle AI", body: "Competitive analysis engine leveraging AI to evaluate product positioning.", url: "https://example.com/productbattle" },
-  { icon: AudioLines, tag: "SOCIAL / VIBE", title: "Flat Vibecheck", body: "AI-powered roommate and living space compatibility assessment.", url: "https://example.com/vibecheck" },
+  { icon: Sparkles, tag: "LLM / TOOLING", title: "ProductBattle AI", body: "Competitive analysis engine leveraging AI to evaluate product positioning.", url: "https://productbattle.lovable.app/" },
+  { icon: AudioLines, tag: "SOCIAL / VIBE", title: "Flat Vibecheck", body: "AI-powered roommate and living space compatibility assessment.", url: "https://claude.ai/public/artifacts/d4f620b0-bda3-4ee0-9ea3-561214fd2c30" },
 ];
 
 const capabilities = [
@@ -96,9 +100,9 @@ function Home() {
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#050505]/70 border-b border-border/40">
         <div className="max-w-[1400px] mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
-          <a href="#top" className="font-mono text-xs tracking-[0.18em] text-foreground/90 hover:text-foreground transition">
+          <Link to="/" className="font-mono text-xs tracking-[0.18em] text-foreground/90 hover:text-foreground transition">
             SM <span className="text-muted-foreground">//</span> PORTFOLIO
-          </a>
+          </Link>
           <nav className="flex items-center gap-10">
             {[["WORK", "#work"], ["EXPERIENCE", "#experience"], ["CONTACT", "#contact"]].map(([l, h]) => (
               <a key={l} href={h} className="font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition-colors">
@@ -129,37 +133,16 @@ function Home() {
               <a href="#work" className="inline-flex items-center gap-2 bg-foreground text-background px-7 py-4 text-sm hover:opacity-90 transition">
                 View Selected Work <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="#resume" className="inline-flex items-center gap-2 border border-border px-7 py-4 text-sm hover:bg-accent transition">
+              <a href={RESUME_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-7 py-4 text-sm hover:bg-accent transition">
                 Download Resume
               </a>
             </div>
           </div>
         </section>
 
-        {/* THE JOURNEY */}
-        <section className="py-28 grid md:grid-cols-[1fr_2fr] gap-12">
-          <div>
-            <SectionLabel>SECTION 01 / NARRATIVE</SectionLabel>
-            <h2 className="font-serif italic text-5xl">The Journey</h2>
-          </div>
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            <p>My path started with a deep curiosity for how things work, which naturally evolved into a fascination with <span className="text-foreground">technology as a problem-solving tool</span>.</p>
-            <p>Transitioning into product management allowed me to combine technical intuition with <span className="text-foreground">structured product thinking</span>. From initial research at Meril to scaling platforms at Eka Care, I've focused on translating complex needs into elegant solutions.</p>
-            <p>Today, I view <em className="text-foreground">AI as the ultimate lever</em>—a modern frontier that redefines how we architect user experiences and automate value delivery.</p>
-            <div className="pt-10 border-t border-border/50 mt-10 grid grid-cols-3 gap-8 max-w-xl">
-              {[["CURRENTLY","Meril"],["PREVIOUSLY","Eka Care"],["EARLY CAREER","Qure.ai"]].map(([l,v]) => (
-                <div key={l}>
-                  <div className="label-mono mb-2">{l}</div>
-                  <div className="text-foreground">{v}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CORE PRINCIPLES */}
         <section className="py-28">
-          <SectionLabel>SECTION 02 / FRAMEWORKS</SectionLabel>
+          <SectionLabel>SECTION 01 / FRAMEWORKS</SectionLabel>
           <h2 className="font-serif text-5xl mb-16">Core Principles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {principles.map((p) => (
@@ -176,7 +159,7 @@ function Home() {
 
         {/* MEASURED IMPACT */}
         <section className="py-28">
-          <SectionLabel>SECTION 03 / OUTCOMES</SectionLabel>
+          <SectionLabel>SECTION 02 / OUTCOMES</SectionLabel>
           <h2 className="font-serif italic text-5xl mb-20">Measured Impact</h2>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-20">
             {metrics.map((m) => (
@@ -191,8 +174,35 @@ function Home() {
           </div>
         </section>
 
+        {/* EXPERIENCE */}
+        <section id="experience" className="py-28 scroll-mt-20">
+          <SectionLabel>SECTION 03 / CAREER</SectionLabel>
+          <h2 className="font-serif italic text-5xl mb-16">Experience Summary</h2>
+          <div className="border border-border/60 rounded-md p-8 md:p-12 bg-card/30">
+            {experience.map((e, idx) => (
+              <div key={e.company} className={idx > 0 ? "pt-10 mt-10 border-t border-border/50" : ""}>
+                <div className="flex flex-wrap justify-between items-start gap-2 mb-6">
+                  <div>
+                    <h3 className="font-sans font-bold text-xl">{e.company}</h3>
+                    <div className="font-serif italic text-muted-foreground mt-1">{e.role}</div>
+                  </div>
+                  <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground pt-2">{e.period}</div>
+                </div>
+                <ul className="grid md:grid-cols-2 gap-x-12 gap-y-3">
+                  {e.bullets.map((b) => (
+                    <li key={b} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                      <span className="mt-1.5 h-1 w-1 rounded-full bg-muted-foreground shrink-0" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* PRODUCT CASE STUDIES */}
-        <section id="work" className="py-28">
+        <section id="work" className="py-28 scroll-mt-20">
           <div className="flex items-end justify-between mb-10">
             <div>
               <SectionLabel>GROUP A</SectionLabel>
@@ -286,33 +296,6 @@ function Home() {
           <div className="mt-16 border-t border-border/50" />
         </section>
 
-        {/* EXPERIENCE */}
-        <section id="experience" className="py-28">
-          <SectionLabel>SECTION 06 / CAREER</SectionLabel>
-          <h2 className="font-serif italic text-5xl mb-16">Experience Summary</h2>
-          <div className="border border-border/60 rounded-md p-8 md:p-12 bg-card/30">
-            {experience.map((e, idx) => (
-              <div key={e.company} className={idx > 0 ? "pt-10 mt-10 border-t border-border/50" : ""}>
-                <div className="flex flex-wrap justify-between items-start gap-2 mb-6">
-                  <div>
-                    <h3 className="font-sans font-bold text-xl">{e.company}</h3>
-                    <div className="font-serif italic text-muted-foreground mt-1">{e.role}</div>
-                  </div>
-                  <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground pt-2">{e.period}</div>
-                </div>
-                <ul className="grid md:grid-cols-2 gap-x-12 gap-y-3">
-                  {e.bullets.map((b) => (
-                    <li key={b} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                      <span className="mt-1.5 h-1 w-1 rounded-full bg-muted-foreground shrink-0" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* CONCLUDING NOTE */}
         <section className="py-32 text-center max-w-3xl mx-auto">
           <h2 className="font-serif text-5xl md:text-6xl mb-12">Building Products That Matter</h2>
@@ -326,22 +309,21 @@ function Home() {
         </section>
 
         {/* FOOTER / CONTACT */}
-        <footer id="contact" className="border-t border-border/50 py-16">
+        <footer id="contact" className="border-t border-border/50 py-16 scroll-mt-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
             <div>
               <SectionLabel>CONTACT</SectionLabel>
               <p className="font-serif italic text-3xl max-w-md">
                 I'm always interested in product conversations, ambitious teams, and <em>difficult problems worth solving</em>.
               </p>
-              <a href="mailto:hello@shriyashish.com" className="inline-block mt-6 font-serif italic text-xl underline-offset-4 hover:underline">
-                Get in touch
+              <a href={`mailto:${EMAIL}`} className="inline-block mt-6 font-serif italic text-xl underline underline-offset-4 hover:text-foreground text-muted-foreground">
+                {EMAIL}
               </a>
             </div>
             <div className="flex gap-8 font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">
-              <a href="#" className="hover:text-foreground">LINKEDIN</a>
-              <a href="#" id="resume" className="hover:text-foreground">RESUME</a>
-              <a href="#" className="hover:text-foreground">X / TWITTER</a>
-              <a href="mailto:hello@shriyashish.com" className="hover:text-foreground">EMAIL</a>
+              <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="hover:text-foreground">LINKEDIN</a>
+              <a href={`mailto:${EMAIL}`} className="hover:text-foreground">EMAIL</a>
+              <a href={RESUME_URL} target="_blank" rel="noreferrer" className="hover:text-foreground">RESUME</a>
             </div>
           </div>
           <div className="mt-12 font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground/60">
