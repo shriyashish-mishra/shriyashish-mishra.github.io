@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-export const Route = createFileRoute("/blusmart-mumbai")({
+export const Route = createFileRoute("/blusmart-mumbai-expansion")({
   head: () => ({
     meta: [
       { title: "Launching BluSmart in Mumbai — Case Study" },
