@@ -33,8 +33,8 @@ const metrics = [
 
 const productCases = [
   { icon: MessageCircle, tag: "GROWTH / ENGAGEMENT", title: "WhatsApp Group User Engagement", body: "Designing product interventions to increase participation, retention, and meaningful interactions within WhatsApp groups.", to: "/whatsapp-group-engagement" as const },
-  { icon: Car, tag: "MOBILITY / GROWTH", title: "BluSmart Mumbai Expansion", body: "Scaling the electric mobility fleet through hyper-local operations and strategy.", to: "/blusmart-mumbai" as const },
-  { icon: Music, tag: "CONSUMER / ENGAGEMENT", title: "Spotify Loyalty Engine", body: "Gamification of user acquisition flows for premium subscriptions.", to: "/spotify-premium-quest" as const },
+  { icon: Car, tag: "MOBILITY / GROWTH", title: "BluSmart Mumbai Expansion", body: "Scaling the electric mobility fleet through hyper-local operations and strategy.", to: "/blusmart-mumbai-expansion" as const },
+  { icon: Music, tag: "CONSUMER / ENGAGEMENT", title: "Spotify Loyalty Engine", body: "Gamification of user acquisition flows for premium subscriptions.", to: "/spotify-loyalty-engine" as const },
 ];
 
 const aiCases = [

@@ -10,7 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhatsappGroupEngagementRouteImport } from './routes/whatsapp-group-engagement'
-import { Route as BlusmartMumbaiRouteImport } from './routes/blusmart-mumbai'
+import { Route as SpotifyLoyaltyEngineRouteImport } from './routes/spotify-loyalty-engine'
+import { Route as BlusmartMumbaiExpansionRouteImport } from './routes/blusmart-mumbai-expansion'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WhatsappGroupEngagementRoute = WhatsappGroupEngagementRouteImport.update({
@@ -18,9 +19,14 @@ const WhatsappGroupEngagementRoute = WhatsappGroupEngagementRouteImport.update({
   path: '/whatsapp-group-engagement',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlusmartMumbaiRoute = BlusmartMumbaiRouteImport.update({
-  id: '/blusmart-mumbai',
-  path: '/blusmart-mumbai',
+const SpotifyLoyaltyEngineRoute = SpotifyLoyaltyEngineRouteImport.update({
+  id: '/spotify-loyalty-engine',
+  path: '/spotify-loyalty-engine',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlusmartMumbaiExpansionRoute = BlusmartMumbaiExpansionRouteImport.update({
+  id: '/blusmart-mumbai-expansion',
+  path: '/blusmart-mumbai-expansion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,31 +37,48 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/blusmart-mumbai': typeof BlusmartMumbaiRoute
+  '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
+  '/spotify-loyalty-engine': typeof SpotifyLoyaltyEngineRoute
   '/whatsapp-group-engagement': typeof WhatsappGroupEngagementRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blusmart-mumbai': typeof BlusmartMumbaiRoute
+  '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
+  '/spotify-loyalty-engine': typeof SpotifyLoyaltyEngineRoute
   '/whatsapp-group-engagement': typeof WhatsappGroupEngagementRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/blusmart-mumbai': typeof BlusmartMumbaiRoute
+  '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
+  '/spotify-loyalty-engine': typeof SpotifyLoyaltyEngineRoute
   '/whatsapp-group-engagement': typeof WhatsappGroupEngagementRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blusmart-mumbai' | '/whatsapp-group-engagement'
+  fullPaths:
+    | '/'
+    | '/blusmart-mumbai-expansion'
+    | '/spotify-loyalty-engine'
+    | '/whatsapp-group-engagement'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blusmart-mumbai' | '/whatsapp-group-engagement'
-  id: '__root__' | '/' | '/blusmart-mumbai' | '/whatsapp-group-engagement'
+  to:
+    | '/'
+    | '/blusmart-mumbai-expansion'
+    | '/spotify-loyalty-engine'
+    | '/whatsapp-group-engagement'
+  id:
+    | '__root__'
+    | '/'
+    | '/blusmart-mumbai-expansion'
+    | '/spotify-loyalty-engine'
+    | '/whatsapp-group-engagement'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BlusmartMumbaiRoute: typeof BlusmartMumbaiRoute
+  BlusmartMumbaiExpansionRoute: typeof BlusmartMumbaiExpansionRoute
+  SpotifyLoyaltyEngineRoute: typeof SpotifyLoyaltyEngineRoute
   WhatsappGroupEngagementRoute: typeof WhatsappGroupEngagementRoute
 }
 
@@ -68,11 +91,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhatsappGroupEngagementRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blusmart-mumbai': {
-      id: '/blusmart-mumbai'
-      path: '/blusmart-mumbai'
-      fullPath: '/blusmart-mumbai'
-      preLoaderRoute: typeof BlusmartMumbaiRouteImport
+    '/spotify-loyalty-engine': {
+      id: '/spotify-loyalty-engine'
+      path: '/spotify-loyalty-engine'
+      fullPath: '/spotify-loyalty-engine'
+      preLoaderRoute: typeof SpotifyLoyaltyEngineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blusmart-mumbai-expansion': {
+      id: '/blusmart-mumbai-expansion'
+      path: '/blusmart-mumbai-expansion'
+      fullPath: '/blusmart-mumbai-expansion'
+      preLoaderRoute: typeof BlusmartMumbaiExpansionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,7 +117,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BlusmartMumbaiRoute: BlusmartMumbaiRoute,
+  BlusmartMumbaiExpansionRoute: BlusmartMumbaiExpansionRoute,
+  SpotifyLoyaltyEngineRoute: SpotifyLoyaltyEngineRoute,
   WhatsappGroupEngagementRoute: WhatsappGroupEngagementRoute,
 }
 export const routeTree = rootRouteImport

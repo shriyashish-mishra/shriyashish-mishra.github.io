@@ -145,6 +145,8 @@ function WhatsAppCase() {
       </header>
 
       <main className="max-w-[1200px] mx-auto px-8 lg:px-16">
+        {/* tailwind-safelist */}
+        <div className="hidden bg-emerald-400/70 bg-amber-400/70 bg-rose-400/70 text-emerald-200 text-emerald-300 text-amber-200 text-amber-300 text-rose-200 text-rose-300 border-emerald-500/30 border-amber-500/30 border-rose-500/30 bg-emerald-500/5 bg-emerald-500/10 bg-amber-500/10 bg-rose-500/10" />
         {/* HERO */}
         <section className="pt-24 pb-20">
           <Label>CASE_STUDY_01</Label>
@@ -300,6 +302,172 @@ function WhatsAppCase() {
 
         <div className="border-t border-border/40" />
 
+        {/* PRODUCT MOCKUPS */}
+        <section className="py-24">
+          <Label>V.04.1 / PRODUCT_MOCKUPS</Label>
+          <SectionH>WhatsApp In-Product Experience</SectionH>
+          <p className="text-muted-foreground max-w-2xl mb-14 leading-relaxed">
+            End-to-end engagement layer designed to feel native inside WhatsApp — surfacing health, nudges, prompts, and milestones without breaking the chat-first metaphor.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                label: "GROUP HEALTH DASHBOARD", title: "Family Trip Planning",
+                render: () => (
+                  <div className="p-3 space-y-3 text-[10px]">
+                    <div className="flex items-center justify-between">
+                      <div className="font-semibold text-white text-xs">Group Health</div>
+                      <span className="text-emerald-400">Healthy</span>
+                    </div>
+                    <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/30 p-3">
+                      <div className="text-2xl font-semibold text-emerald-300">87<span className="text-xs text-emerald-400/70">/100</span></div>
+                      <div className="text-emerald-300/70 mt-0.5">Engagement Score</div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="rounded bg-white/5 p-2"><div className="text-white font-semibold">142</div><div className="text-white/50">Msgs / wk</div></div>
+                      <div className="rounded bg-white/5 p-2"><div className="text-white font-semibold">18/22</div><div className="text-white/50">Active</div></div>
+                      <div className="rounded bg-white/5 p-2"><div className="text-white font-semibold">94%</div><div className="text-white/50">Read</div></div>
+                      <div className="rounded bg-white/5 p-2"><div className="text-white font-semibold">+12%</div><div className="text-emerald-300">Vs last wk</div></div>
+                    </div>
+                  </div>
+                ),
+              },
+              {
+                label: "ENGAGEMENT INSIGHTS", title: "Weekly Pulse",
+                render: () => (
+                  <div className="p-3 space-y-2 text-[10px]">
+                    <div className="text-white font-semibold text-xs mb-1">Top Contributors</div>
+                    {[["Priya M.", 38, "emerald"], ["Arjun K.", 27, "emerald"], ["Mona S.", 19, "amber"], ["Rohan D.", 11, "amber"], ["Ayush R.", 4, "rose"]].map(([n, v, c]) => (
+                      <div key={n as string} className="space-y-1">
+                        <div className="flex justify-between"><span className="text-white/80">{n}</span><span className="text-white/50">{v}%</span></div>
+                        <div className="h-1.5 rounded bg-white/10"><div className={`h-full rounded bg-${c}-400/70`} style={{ width: `${v}%` }} /></div>
+                      </div>
+                    ))}
+                    <div className="pt-2 border-t border-white/10 text-white/50">Peak hour: 9–11 PM</div>
+                  </div>
+                ),
+              },
+              {
+                label: "SUGGESTED PROMPTS", title: "Conversation Starters",
+                render: () => (
+                  <div className="p-3 space-y-2 text-[10px]">
+                    <div className="text-white font-semibold text-xs">For your group</div>
+                    {["Plan this weekend's outing?", "Share a song you can't stop replaying", "Drop a photo from this week", "Quick poll: pizza or biryani?"].map((p) => (
+                      <div key={p} className="rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-2 text-emerald-100/90">{p}</div>
+                    ))}
+                    <button className="w-full mt-1 rounded-lg bg-emerald-500 text-black font-semibold py-1.5">Send to group</button>
+                  </div>
+                ),
+              },
+              {
+                label: "SMART NUDGES", title: "Re-engage gently",
+                render: () => (
+                  <div className="p-3 space-y-2 text-[10px]">
+                    <div className="rounded-lg bg-amber-500/10 border border-amber-500/30 p-2.5">
+                      <div className="font-semibold text-amber-200 mb-0.5">3 members silent for 7+ days</div>
+                      <div className="text-amber-100/70">Send a soft check-in?</div>
+                    </div>
+                    <div className="space-y-1.5">
+                      {["Mona Saha", "Arjun Kapoor", "Priya Mehta"].map((n) => (
+                        <div key={n} className="flex items-center justify-between rounded bg-white/5 p-2">
+                          <span className="text-white/80">{n}</span>
+                          <button className="text-emerald-300">Nudge</button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ),
+              },
+              {
+                label: "ADMIN ANALYTICS", title: "Group Operator View",
+                render: () => (
+                  <div className="p-3 space-y-2 text-[10px]">
+                    <div className="text-white font-semibold text-xs">Last 30 days</div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="rounded bg-white/5 p-2"><div className="text-white font-semibold">4,218</div><div className="text-white/50">Msgs</div></div>
+                      <div className="rounded bg-white/5 p-2"><div className="text-white font-semibold">86%</div><div className="text-white/50">Active</div></div>
+                      <div className="rounded bg-white/5 p-2"><div className="text-emerald-300 font-semibold">+22%</div><div className="text-white/50">Growth</div></div>
+                      <div className="rounded bg-white/5 p-2"><div className="text-white font-semibold">12</div><div className="text-white/50">Polls</div></div>
+                    </div>
+                    <div className="h-16 rounded bg-gradient-to-t from-emerald-500/20 to-transparent flex items-end gap-1 p-1">
+                      {[40,55,30,70,60,85,75,90,65,80,72,95].map((h,i) => (
+                        <div key={i} className="flex-1 bg-emerald-400/60 rounded-sm" style={{ height: `${h}%` }} />
+                      ))}
+                    </div>
+                  </div>
+                ),
+              },
+              {
+                label: "DORMANT RE-ENGAGEMENT", title: "Win back members",
+                render: () => (
+                  <div className="p-3 space-y-2 text-[10px]">
+                    <div className="rounded-lg bg-rose-500/10 border border-rose-500/30 p-2.5">
+                      <div className="font-semibold text-rose-200">8 dormant members</div>
+                      <div className="text-rose-100/70">Inactive 14+ days</div>
+                    </div>
+                    <div className="text-white/60">Suggested DM:</div>
+                    <div className="rounded-lg bg-white/5 p-2 text-white/80 italic">"Hey! Group missed you this week — Priya shared trip photos. Catch up here →"</div>
+                    <button className="w-full rounded-lg bg-emerald-500 text-black font-semibold py-1.5">Send personalised</button>
+                  </div>
+                ),
+              },
+              {
+                label: "COMMUNITY MILESTONES", title: "Celebrate together",
+                render: () => (
+                  <div className="p-3 space-y-2 text-[10px]">
+                    <div className="text-center py-2">
+                      <div className="text-3xl">🎉</div>
+                      <div className="text-white font-semibold mt-1">1 Year Together</div>
+                      <div className="text-white/50">22 members · 14,820 msgs</div>
+                    </div>
+                    <div className="space-y-1.5">
+                      {[["First poll", "Jan 12"], ["100th member", "Mar 04"], ["Trip planned", "Jun 28"], ["Anniversary", "Nov 02"]].map(([t, d]) => (
+                        <div key={t} className="flex justify-between rounded bg-white/5 p-2">
+                          <span className="text-emerald-200">★ {t}</span><span className="text-white/40">{d}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ),
+              },
+              {
+                label: "CHAT INTEGRATION", title: "In-thread surfacing",
+                render: () => (
+                  <div className="p-3 space-y-1.5 text-[10px]">
+                    <div className="self-start max-w-[80%] rounded-lg rounded-tl-none bg-white/10 p-2 text-white/90">Anyone up for chai later?</div>
+                    <div className="ml-auto max-w-[80%] rounded-lg rounded-tr-none bg-emerald-500/30 p-2 text-emerald-50">Count me in 🙌</div>
+                    <div className="my-2 rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-2">
+                      <div className="text-emerald-300 font-semibold mb-1">📊 Quick poll</div>
+                      <div className="text-emerald-100/90">CCD or Blue Tokai?</div>
+                      <div className="mt-1 space-y-1">
+                        <div className="flex justify-between"><span>CCD</span><span>3</span></div>
+                        <div className="h-1 rounded bg-white/10"><div className="h-full bg-emerald-400/70 rounded" style={{ width: "60%" }} /></div>
+                      </div>
+                    </div>
+                  </div>
+                ),
+              },
+            ].map((s) => (
+              <div key={s.label} className="space-y-3">
+                <div className="font-mono text-[0.6rem] tracking-[0.18em] text-emerald-400/80">{s.label}</div>
+                <div className="mx-auto w-full max-w-[240px] rounded-[2rem] border border-border bg-[#0a0a0a] p-2 shadow-2xl">
+                  <div className="rounded-[1.6rem] overflow-hidden bg-[#0b141a] border border-white/5">
+                    <div className="flex items-center justify-between px-3 py-2 bg-[#1f2c33] text-white/90 text-[10px]">
+                      <span>9:41</span><span className="font-semibold">WhatsApp</span><span>100%</span>
+                    </div>
+                    <div className="px-3 py-2 bg-[#202c33] border-b border-white/5 text-white/80 text-[11px] font-semibold">{s.title}</div>
+                    {s.render()}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <div className="border-t border-border/40" />
+
+
+
         {/* PRIORITIZATION */}
         <section className="py-24">
           <Label>V.05 / PRIORITIZATION</Label>
@@ -429,7 +597,7 @@ function WhatsAppCase() {
               <ArrowLeft className="h-5 w-5" /> Portfolio Home
             </div>
           </Link>
-          <Link to="/blusmart-mumbai" className="group block sm:text-right">
+          <Link to="/blusmart-mumbai-expansion" className="group block sm:text-right">
             <div className="label-mono mb-3">NEXT</div>
             <div className="flex items-center gap-3 sm:justify-end font-serif italic text-2xl text-muted-foreground group-hover:text-foreground transition">
               BluSmart Mumbai Expansion <ArrowRight className="h-5 w-5" />
