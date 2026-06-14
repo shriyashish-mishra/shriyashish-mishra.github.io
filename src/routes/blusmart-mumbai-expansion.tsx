@@ -518,7 +518,7 @@ function BluSmartCaseStudy() {
               <ArrowLeft className="h-5 w-5" /> WhatsApp Group User Engagement
             </div>
           </Link>
-          <Link to="/" className="group block sm:text-right">
+          <Link to="/spotify-loyalty-engine" className="group block sm:text-right">
             <div className="label-mono mb-3">NEXT</div>
             <div className="flex items-center gap-3 sm:justify-end font-serif italic text-2xl text-muted-foreground group-hover:text-foreground transition">
               Spotify Loyalty Engine <ArrowRight className="h-5 w-5" />

@@ -429,7 +429,7 @@ function WhatsAppCase() {
               <ArrowLeft className="h-5 w-5" /> Portfolio Home
             </div>
           </Link>
-          <Link to="/blusmart-mumbai" className="group block sm:text-right">
+          <Link to="/blusmart-mumbai-expansion" className="group block sm:text-right">
             <div className="label-mono mb-3">NEXT</div>
             <div className="flex items-center gap-3 sm:justify-end font-serif italic text-2xl text-muted-foreground group-hover:text-foreground transition">
               BluSmart Mumbai Expansion <ArrowRight className="h-5 w-5" />
