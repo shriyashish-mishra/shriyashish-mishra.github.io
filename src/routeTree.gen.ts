@@ -56,23 +56,10 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/blusmart-mumbai-expansion'
-    | '/spotify-loyalty-engine'
-    | '/whatsapp-group-engagement'
+  fullPaths: '/' | '/blusmart-mumbai-expansion' | '/spotify-loyalty-engine' | '/whatsapp-group-engagement'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/blusmart-mumbai-expansion'
-    | '/spotify-loyalty-engine'
-    | '/whatsapp-group-engagement'
-  id:
-    | '__root__'
-    | '/'
-    | '/blusmart-mumbai-expansion'
-    | '/spotify-loyalty-engine'
-    | '/whatsapp-group-engagement'
+  to: '/' | '/blusmart-mumbai-expansion' | '/spotify-loyalty-engine' | '/whatsapp-group-engagement'
+  id: '__root__' | '/' | '/blusmart-mumbai-expansion' | '/spotify-loyalty-engine' | '/whatsapp-group-engagement'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -124,13 +111,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
