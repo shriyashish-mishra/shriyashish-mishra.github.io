@@ -138,6 +138,8 @@ function SpotifyCase() {
       </header>
 
       <main className="max-w-[1400px] mx-auto px-8 lg:px-16">
+        {/* tailwind-safelist */}
+        <div className="hidden bg-emerald-400/70 bg-emerald-400/80 bg-emerald-500 bg-emerald-500/10 bg-emerald-500/15 bg-emerald-500/30 border-emerald-500/30 border-emerald-500/40 border-emerald-500/60 text-emerald-100 text-emerald-200 text-emerald-300 text-emerald-400/80 text-emerald-400/90 bg-amber-400/70 bg-amber-500/10 bg-amber-500/20 bg-amber-500/30 border-amber-500/30 border-amber-500/40 text-amber-100 text-amber-200 text-amber-300 bg-sky-500/30 border-sky-500/40 text-sky-200 text-sky-300 bg-fuchsia-500/30 border-fuchsia-500/40 text-fuchsia-200 text-fuchsia-300 bg-rose-400/70 bg-rose-500/5 bg-rose-500/10 bg-rose-500/20 border-rose-500/30 border-rose-500/40 text-rose-100 text-rose-200 text-rose-300 bg-purple-400/70 text-purple-300 border-l-sky-400 border-l-amber-400 border-l-rose-400 border-t-sky-400 border-t-purple-400 border-t-emerald-400 border-t-amber-400 border-t-rose-400" />
         {/* HERO */}
         <section className="pt-32 pb-24 text-center">
           <Label>CASE_STUDY_02</Label>
