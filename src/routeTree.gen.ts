@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhatsappGroupEngagementRouteImport } from './routes/whatsapp-group-engagement'
+import { Route as SpotifyLoyaltyEngineRouteImport } from './routes/spotify-loyalty-engine'
 import { Route as BlusmartMumbaiExpansionRouteImport } from './routes/blusmart-mumbai-expansion'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WhatsappGroupEngagementRoute = WhatsappGroupEngagementRouteImport.update({
   id: '/whatsapp-group-engagement',
   path: '/whatsapp-group-engagement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpotifyLoyaltyEngineRoute = SpotifyLoyaltyEngineRouteImport.update({
+  id: '/spotify-loyalty-engine',
+  path: '/spotify-loyalty-engine',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlusmartMumbaiExpansionRoute = BlusmartMumbaiExpansionRouteImport.update({
@@ -32,34 +38,47 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
+  '/spotify-loyalty-engine': typeof SpotifyLoyaltyEngineRoute
   '/whatsapp-group-engagement': typeof WhatsappGroupEngagementRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
+  '/spotify-loyalty-engine': typeof SpotifyLoyaltyEngineRoute
   '/whatsapp-group-engagement': typeof WhatsappGroupEngagementRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blusmart-mumbai-expansion': typeof BlusmartMumbaiExpansionRoute
+  '/spotify-loyalty-engine': typeof SpotifyLoyaltyEngineRoute
   '/whatsapp-group-engagement': typeof WhatsappGroupEngagementRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blusmart-mumbai-expansion' | '/whatsapp-group-engagement'
+  fullPaths:
+    | '/'
+    | '/blusmart-mumbai-expansion'
+    | '/spotify-loyalty-engine'
+    | '/whatsapp-group-engagement'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blusmart-mumbai-expansion' | '/whatsapp-group-engagement'
+  to:
+    | '/'
+    | '/blusmart-mumbai-expansion'
+    | '/spotify-loyalty-engine'
+    | '/whatsapp-group-engagement'
   id:
     | '__root__'
     | '/'
     | '/blusmart-mumbai-expansion'
+    | '/spotify-loyalty-engine'
     | '/whatsapp-group-engagement'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlusmartMumbaiExpansionRoute: typeof BlusmartMumbaiExpansionRoute
+  SpotifyLoyaltyEngineRoute: typeof SpotifyLoyaltyEngineRoute
   WhatsappGroupEngagementRoute: typeof WhatsappGroupEngagementRoute
 }
 
@@ -70,6 +89,13 @@ declare module '@tanstack/react-router' {
       path: '/whatsapp-group-engagement'
       fullPath: '/whatsapp-group-engagement'
       preLoaderRoute: typeof WhatsappGroupEngagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/spotify-loyalty-engine': {
+      id: '/spotify-loyalty-engine'
+      path: '/spotify-loyalty-engine'
+      fullPath: '/spotify-loyalty-engine'
+      preLoaderRoute: typeof SpotifyLoyaltyEngineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blusmart-mumbai-expansion': {
@@ -92,8 +118,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlusmartMumbaiExpansionRoute: BlusmartMumbaiExpansionRoute,
+  SpotifyLoyaltyEngineRoute: SpotifyLoyaltyEngineRoute,
   WhatsappGroupEngagementRoute: WhatsappGroupEngagementRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
