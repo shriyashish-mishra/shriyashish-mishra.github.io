@@ -145,6 +145,8 @@ function WhatsAppCase() {
       </header>
 
       <main className="max-w-[1200px] mx-auto px-8 lg:px-16">
+        {/* tailwind-safelist */}
+        <div className="hidden bg-emerald-400/70 bg-amber-400/70 bg-rose-400/70 text-emerald-200 text-emerald-300 text-amber-200 text-amber-300 text-rose-200 text-rose-300 border-emerald-500/30 border-amber-500/30 border-rose-500/30 bg-emerald-500/5 bg-emerald-500/10 bg-amber-500/10 bg-rose-500/10" />
         {/* HERO */}
         <section className="pt-24 pb-20">
           <Label>CASE_STUDY_01</Label>
