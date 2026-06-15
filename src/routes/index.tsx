@@ -56,61 +56,61 @@ const experience = [
   {
     company: "Meril Life Sciences", role: "Product Manager", period: "FEB 2026 — PRESENT",
     scope: "Leading AI product development for next-generation clinical and enterprise workflows.",
-    owned: ["AI Product Discovery", "Agentic Workflow Design", "User Research"],
-    delivered: [
+    responsibilities: ["AI Product Discovery", "Agentic Workflow Design", "User Research", "Clinical AI Strategy"],
+    initiatives: [
       "Defined high-impact AI opportunities through structured user research",
       "Designed complex workflow systems integrated with agentic AI models",
       "Established architectural evaluation for mission-critical AI use cases",
     ],
-    impact: [
-      { k: "0 → 1", v: "AI Product Charter" },
-      { k: "Agentic", v: "Workflow Systems" },
-      { k: "Clinical", v: "Enterprise Domain" },
+    stats: [
+      { value: "0 → 1", label: "AI Product Charter", context: "Building AI-native clinical workflows from first principles" },
+      { value: "Enterprise", label: "Clinical Scale", context: "Agentic workflow systems across enterprise healthcare" },
+      { value: "Mission-Critical", label: "AI Evaluation", context: "Architectural evaluation for regulated clinical use cases" },
     ],
   },
   {
     company: "Eka Care", role: "Product Manager", period: "MAY 2024 — DEC 2025",
     scope: "Owned CRM product and growth charter across healthcare providers and clinical partners.",
-    owned: ["CRM Product", "Growth Initiatives", "Enterprise Workflows"],
-    delivered: [
+    responsibilities: ["CRM Product", "Growth Initiatives", "Enterprise Workflows", "Lead Funnel Optimization"],
+    initiatives: [
       "Shipped major platform features across the full product lifecycle",
       "Scaled enterprise workflows for healthcare and clinical partners",
       "Optimized CRM latency and reporting pipelines with engineering",
     ],
-    impact: [
-      { k: "+60%", v: "Activated Users" },
-      { k: "+40%", v: "Product Adoption" },
-      { k: "+20%", v: "Lead Conversion" },
+    stats: [
+      { value: "+60%", label: "Activated Users", context: "Increase in user activation through onboarding and engagement" },
+      { value: "3,000–4,000", label: "Monthly Leads", context: "CRM managing 3,000–4,000 monthly leads at scale" },
+      { value: "+20%", label: "Lead Conversion", context: "Increase in lead conversion through refined funnels" },
     ],
   },
   {
     company: "Qure.ai", role: "Product Manager", period: "JULY 2023 — MAY 2024",
     scope: "Drove product adoption for radiology AI across Tier-1 global markets.",
-    owned: ["Product Adoption", "Global Rollouts", "Workflow Optimization"],
-    delivered: [
+    responsibilities: ["Product Adoption", "Global Rollouts", "Workflow Optimization", "Cross-Functional Alignment"],
+    initiatives: [
       "Led global product rollouts across Tier-1 markets",
       "Reduced operational bottlenecks through workflow optimization",
       "Aligned technical, clinical, and sales teams on delivery",
     ],
-    impact: [
-      { k: "Tier-1", v: "Global Markets" },
-      { k: "3 Teams", v: "Tech · Clinical · Sales" },
-      { k: "Radiology", v: "AI Solutions" },
+    stats: [
+      { value: "+40%", label: "Product Adoption", context: "Increase in product adoption across radiology workflows" },
+      { value: "20+", label: "Agile Sprints", context: "Delivered across 20+ agile sprints with global stakeholders" },
+      { value: "Global", label: "Deployments", context: "Screening and diagnostic program deployments worldwide" },
     ],
   },
   {
     company: "AltWorld", role: "Product Management Intern", period: "FEB 2020 — AUG 2020",
     scope: "Analyzed engagement loops and shaped early community discovery features.",
-    owned: ["User Journey Analysis", "Engagement Experiments", "Wireframing"],
-    delivered: [
+    responsibilities: ["User Journey Analysis", "Engagement Experiments", "Wireframing", "Product Specs"],
+    initiatives: [
       "Identified drop-off points across consumer journeys",
       "Ran engagement optimization experiments on social discovery",
       "Authored wireframes and user stories for community tools",
     ],
-    impact: [
-      { k: "Consumer", v: "Social Discovery" },
-      { k: "0 → 1", v: "Community Tools" },
-      { k: "Discovery", v: "Engagement Loops" },
+    stats: [
+      { value: "0 → 1", label: "Community Tools", context: "Shaped early discovery and engagement features" },
+      { value: "Consumer", label: "Social Discovery", context: "Analyzed drop-offs and engagement loops in user journeys" },
+      { value: "Wireframes", label: "Product Specs", context: "Authored user stories and interaction flows" },
     ],
   },
 ];
@@ -211,72 +211,61 @@ function Home() {
             </p>
           </div>
 
-          <div className="relative">
-            {/* timeline rail */}
-            <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border/50 hidden md:block" aria-hidden />
-
-            <div className="space-y-6">
-              {experience.map((e) => (
-                <div key={e.company} className="relative md:pl-12">
-                  {/* timeline node */}
-                  <span className="hidden md:block absolute left-0 top-8 h-[15px] w-[15px] rounded-full border border-border bg-background ring-4 ring-[#050505]" aria-hidden />
-
-                  <article className="border border-border/60 rounded-md bg-card/40 hover:bg-card/60 transition-colors">
-                    {/* Header */}
-                    <header className="p-7 md:p-9 border-b border-border/50">
-                      <div className="flex flex-wrap justify-between items-start gap-3">
-                        <div>
-                          <h3 className="font-sans font-bold text-xl md:text-2xl">{e.company}</h3>
-                          <div className="font-serif italic text-muted-foreground mt-1">{e.role}</div>
-                        </div>
-                        <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground pt-2">{e.period}</div>
-                      </div>
-                      <p className="mt-5 font-serif italic text-lg text-foreground/85 max-w-3xl leading-snug">
-                        {e.scope}
-                      </p>
-                    </header>
-
-                    {/* Impact strip — most visually prominent */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 border-b border-border/50">
-                      {e.impact.map((m, i) => (
-                        <div
-                          key={m.k + m.v}
-                          className={`p-7 md:p-8 ${i > 0 ? "sm:border-l border-t sm:border-t-0 border-border/50" : ""}`}
-                        >
-                          <div className="font-serif text-3xl md:text-4xl leading-none mb-3">{m.k}</div>
-                          <div className="label-mono">{m.v}</div>
-                        </div>
-                      ))}
+          <div className="space-y-14">
+            {experience.map((e) => (
+              <article key={e.company} className="border border-border/60 rounded-md bg-card/40 hover:bg-card/60 transition-colors overflow-hidden">
+                {/* Header */}
+                <header className="p-7 md:p-9 border-b border-border/50">
+                  <div className="flex flex-wrap justify-between items-start gap-3">
+                    <div>
+                      <h3 className="font-sans font-bold text-xl md:text-2xl">{e.company}</h3>
+                      <div className="font-serif italic text-muted-foreground mt-1">{e.role}</div>
                     </div>
+                    <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground pt-2">{e.period}</div>
+                  </div>
+                  <p className="mt-5 font-serif italic text-lg text-foreground/85 max-w-3xl leading-snug">
+                    {e.scope}
+                  </p>
+                </header>
 
-                    {/* Owned / Delivered */}
-                    <div className="grid md:grid-cols-[1fr_2fr] gap-x-12 gap-y-8 p-7 md:p-9">
-                      <div>
-                        <div className="label-mono mb-4">OWNED</div>
-                        <div className="flex flex-wrap gap-2">
-                          {e.owned.map((o) => (
-                            <span key={o} className="rounded-full border border-border/70 px-3 py-1 font-mono text-[0.7rem] tracking-[0.05em] text-foreground/80">
-                              {o}
-                            </span>
-                          ))}
-                        </div>
+                {/* Impact Highlights — most visually prominent */}
+                <div className="p-7 md:p-9 border-b border-border/50 bg-gradient-to-r from-white/[0.02] to-transparent">
+                  <div className="label-mono mb-6">IMPACT HIGHLIGHTS</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    {e.stats.map((s) => (
+                      <div key={s.label} className="border border-border/50 rounded-md p-6 bg-card/30">
+                        <div className="font-serif text-4xl md:text-5xl leading-none mb-3">{s.value}</div>
+                        <div className="label-mono mb-2">{s.label}</div>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{s.context}</p>
                       </div>
-                      <div>
-                        <div className="label-mono mb-4">DELIVERED</div>
-                        <ul className="space-y-3">
-                          {e.delivered.map((d) => (
-                            <li key={d} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                              <span className="mt-2 h-1 w-1 rounded-full bg-muted-foreground shrink-0" />
-                              <span>{d}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </article>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
+
+                {/* Initiatives & Responsibilities */}
+                <div className="grid md:grid-cols-[2fr_1fr] gap-x-12 gap-y-8 p-7 md:p-9">
+                  <div>
+                    <div className="label-mono mb-4">KEY INITIATIVES</div>
+                    <ul className="space-y-3">
+                      {e.initiatives.map((item) => (
+                        <li key={item} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                          <span className="mt-2 h-1 w-1 rounded-full bg-muted-foreground shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="label-mono mb-4">RESPONSIBILITIES</div>
+                    <ul className="space-y-2.5">
+                      {e.responsibilities.map((r) => (
+                        <li key={r} className="text-sm text-foreground/80 leading-relaxed">{r}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
