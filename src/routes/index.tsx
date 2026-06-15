@@ -55,37 +55,62 @@ const exploring = ["AI PM", "Agentic Workflows", "Product Strategy", "Growth Sys
 const experience = [
   {
     company: "Meril Life Sciences", role: "Product Manager", period: "FEB 2026 — PRESENT",
-    bullets: [
-      "Leading AI Product Development and initial Product Discovery for next-gen workflows.",
-      "Conducting extensive User Research to define high-impact AI opportunities.",
-      "Designing complex Workflow systems integrated with agentic AI models.",
-      "Overseeing the architectural evaluation of AI systems for mission-critical use cases.",
+    scope: "Leading AI product development for next-generation clinical and enterprise workflows.",
+    owned: ["AI Product Discovery", "Agentic Workflow Design", "User Research"],
+    delivered: [
+      "Defined high-impact AI opportunities through structured user research",
+      "Designed complex workflow systems integrated with agentic AI models",
+      "Established architectural evaluation for mission-critical AI use cases",
+    ],
+    impact: [
+      { k: "0 → 1", v: "AI Product Charter" },
+      { k: "Agentic", v: "Workflow Systems" },
+      { k: "Clinical", v: "Enterprise Domain" },
     ],
   },
   {
     company: "Eka Care", role: "Product Manager", period: "MAY 2024 — DEC 2025",
-    bullets: [
-      "Owned CRM Product and Growth initiatives, driving significant lifts in user activation.",
-      "Developed and scaled Enterprise Workflows for healthcare providers and clinical partners.",
-      "Executed full product lifecycle from hypothesis to shipping major platform features.",
-      "Collaborated with engineering to optimize CRM latency and data reporting pipelines.",
+    scope: "Owned CRM product and growth charter across healthcare providers and clinical partners.",
+    owned: ["CRM Product", "Growth Initiatives", "Enterprise Workflows"],
+    delivered: [
+      "Shipped major platform features across the full product lifecycle",
+      "Scaled enterprise workflows for healthcare and clinical partners",
+      "Optimized CRM latency and reporting pipelines with engineering",
+    ],
+    impact: [
+      { k: "+60%", v: "Activated Users" },
+      { k: "+40%", v: "Product Adoption" },
+      { k: "+20%", v: "Lead Conversion" },
     ],
   },
   {
     company: "Qure.ai", role: "Product Manager", period: "JULY 2023 — MAY 2024",
-    bullets: [
-      "Managed Product Adoption strategies for global product rollouts across Tier-1 markets.",
-      "Spearheaded Workflow Optimization projects that reduced operational bottlenecks.",
-      "Facilitated cross-functional leadership between technical, clinical, and sales teams.",
-      "Streamlined Product Delivery processes for radiology-focused AI solutions.",
+    scope: "Drove product adoption for radiology AI across Tier-1 global markets.",
+    owned: ["Product Adoption", "Global Rollouts", "Workflow Optimization"],
+    delivered: [
+      "Led global product rollouts across Tier-1 markets",
+      "Reduced operational bottlenecks through workflow optimization",
+      "Aligned technical, clinical, and sales teams on delivery",
+    ],
+    impact: [
+      { k: "Tier-1", v: "Global Markets" },
+      { k: "3 Teams", v: "Tech · Clinical · Sales" },
+      { k: "Radiology", v: "AI Solutions" },
     ],
   },
   {
     company: "AltWorld", role: "Product Management Intern", period: "FEB 2020 — AUG 2020",
-    bullets: [
-      "Analyzed consumer product user journeys to identify engagement drop-off points.",
-      "Assisted in engagement optimization experiments for social discovery features.",
-      "Developed initial wireframes and user stories for community engagement tools.",
+    scope: "Analyzed engagement loops and shaped early community discovery features.",
+    owned: ["User Journey Analysis", "Engagement Experiments", "Wireframing"],
+    delivered: [
+      "Identified drop-off points across consumer journeys",
+      "Ran engagement optimization experiments on social discovery",
+      "Authored wireframes and user stories for community tools",
+    ],
+    impact: [
+      { k: "Consumer", v: "Social Discovery" },
+      { k: "0 → 1", v: "Community Tools" },
+      { k: "Discovery", v: "Engagement Loops" },
     ],
   },
 ];
