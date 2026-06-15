@@ -201,30 +201,85 @@ function Home() {
 
         {/* EXPERIENCE */}
         <section id="experience" className="py-28 scroll-mt-20">
-          <SectionLabel>SECTION 03 / CAREER</SectionLabel>
-          <h2 className="font-serif italic text-5xl mb-16">Experience Summary</h2>
-          <div className="border border-border/60 rounded-md p-8 md:p-12 bg-card/30">
-            {experience.map((e, idx) => (
-              <div key={e.company} className={idx > 0 ? "pt-10 mt-10 border-t border-border/50" : ""}>
-                <div className="flex flex-wrap justify-between items-start gap-2 mb-6">
-                  <div>
-                    <h3 className="font-sans font-bold text-xl">{e.company}</h3>
-                    <div className="font-serif italic text-muted-foreground mt-1">{e.role}</div>
-                  </div>
-                  <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground pt-2">{e.period}</div>
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-16">
+            <div>
+              <SectionLabel>SECTION 03 / CAREER</SectionLabel>
+              <h2 className="font-serif italic text-5xl">Experience Summary</h2>
+            </div>
+            <p className="font-serif italic text-muted-foreground max-w-sm text-sm leading-relaxed">
+              Four roles. A consistent arc — from discovery and engagement loops to owning growth charters and shaping AI-native product surfaces.
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* timeline rail */}
+            <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border/50 hidden md:block" aria-hidden />
+
+            <div className="space-y-6">
+              {experience.map((e) => (
+                <div key={e.company} className="relative md:pl-12">
+                  {/* timeline node */}
+                  <span className="hidden md:block absolute left-0 top-8 h-[15px] w-[15px] rounded-full border border-border bg-background ring-4 ring-[#050505]" aria-hidden />
+
+                  <article className="border border-border/60 rounded-md bg-card/40 hover:bg-card/60 transition-colors">
+                    {/* Header */}
+                    <header className="p-7 md:p-9 border-b border-border/50">
+                      <div className="flex flex-wrap justify-between items-start gap-3">
+                        <div>
+                          <h3 className="font-sans font-bold text-xl md:text-2xl">{e.company}</h3>
+                          <div className="font-serif italic text-muted-foreground mt-1">{e.role}</div>
+                        </div>
+                        <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground pt-2">{e.period}</div>
+                      </div>
+                      <p className="mt-5 font-serif italic text-lg text-foreground/85 max-w-3xl leading-snug">
+                        {e.scope}
+                      </p>
+                    </header>
+
+                    {/* Impact strip — most visually prominent */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 border-b border-border/50">
+                      {e.impact.map((m, i) => (
+                        <div
+                          key={m.k + m.v}
+                          className={`p-7 md:p-8 ${i > 0 ? "sm:border-l border-t sm:border-t-0 border-border/50" : ""}`}
+                        >
+                          <div className="font-serif text-3xl md:text-4xl leading-none mb-3">{m.k}</div>
+                          <div className="label-mono">{m.v}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Owned / Delivered */}
+                    <div className="grid md:grid-cols-[1fr_2fr] gap-x-12 gap-y-8 p-7 md:p-9">
+                      <div>
+                        <div className="label-mono mb-4">OWNED</div>
+                        <div className="flex flex-wrap gap-2">
+                          {e.owned.map((o) => (
+                            <span key={o} className="rounded-full border border-border/70 px-3 py-1 font-mono text-[0.7rem] tracking-[0.05em] text-foreground/80">
+                              {o}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="label-mono mb-4">DELIVERED</div>
+                        <ul className="space-y-3">
+                          {e.delivered.map((d) => (
+                            <li key={d} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                              <span className="mt-2 h-1 w-1 rounded-full bg-muted-foreground shrink-0" />
+                              <span>{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
                 </div>
-                <ul className="grid md:grid-cols-2 gap-x-12 gap-y-3">
-                  {e.bullets.map((b) => (
-                    <li key={b} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                      <span className="mt-1.5 h-1 w-1 rounded-full bg-muted-foreground shrink-0" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
+
 
         {/* PRODUCT CASE STUDIES */}
         <section id="work" className="py-28 scroll-mt-20">
