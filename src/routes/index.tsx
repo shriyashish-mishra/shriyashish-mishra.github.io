@@ -211,72 +211,61 @@ function Home() {
             </p>
           </div>
 
-          <div className="relative">
-            {/* timeline rail */}
-            <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border/50 hidden md:block" aria-hidden />
-
-            <div className="space-y-6">
-              {experience.map((e) => (
-                <div key={e.company} className="relative md:pl-12">
-                  {/* timeline node */}
-                  <span className="hidden md:block absolute left-0 top-8 h-[15px] w-[15px] rounded-full border border-border bg-background ring-4 ring-[#050505]" aria-hidden />
-
-                  <article className="border border-border/60 rounded-md bg-card/40 hover:bg-card/60 transition-colors">
-                    {/* Header */}
-                    <header className="p-7 md:p-9 border-b border-border/50">
-                      <div className="flex flex-wrap justify-between items-start gap-3">
-                        <div>
-                          <h3 className="font-sans font-bold text-xl md:text-2xl">{e.company}</h3>
-                          <div className="font-serif italic text-muted-foreground mt-1">{e.role}</div>
-                        </div>
-                        <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground pt-2">{e.period}</div>
-                      </div>
-                      <p className="mt-5 font-serif italic text-lg text-foreground/85 max-w-3xl leading-snug">
-                        {e.scope}
-                      </p>
-                    </header>
-
-                    {/* Impact strip — most visually prominent */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 border-b border-border/50">
-                      {e.impact.map((m, i) => (
-                        <div
-                          key={m.k + m.v}
-                          className={`p-7 md:p-8 ${i > 0 ? "sm:border-l border-t sm:border-t-0 border-border/50" : ""}`}
-                        >
-                          <div className="font-serif text-3xl md:text-4xl leading-none mb-3">{m.k}</div>
-                          <div className="label-mono">{m.v}</div>
-                        </div>
-                      ))}
+          <div className="space-y-14">
+            {experience.map((e) => (
+              <article key={e.company} className="border border-border/60 rounded-md bg-card/40 hover:bg-card/60 transition-colors overflow-hidden">
+                {/* Header */}
+                <header className="p-7 md:p-9 border-b border-border/50">
+                  <div className="flex flex-wrap justify-between items-start gap-3">
+                    <div>
+                      <h3 className="font-sans font-bold text-xl md:text-2xl">{e.company}</h3>
+                      <div className="font-serif italic text-muted-foreground mt-1">{e.role}</div>
                     </div>
+                    <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground pt-2">{e.period}</div>
+                  </div>
+                  <p className="mt-5 font-serif italic text-lg text-foreground/85 max-w-3xl leading-snug">
+                    {e.scope}
+                  </p>
+                </header>
 
-                    {/* Owned / Delivered */}
-                    <div className="grid md:grid-cols-[1fr_2fr] gap-x-12 gap-y-8 p-7 md:p-9">
-                      <div>
-                        <div className="label-mono mb-4">OWNED</div>
-                        <div className="flex flex-wrap gap-2">
-                          {e.owned.map((o) => (
-                            <span key={o} className="rounded-full border border-border/70 px-3 py-1 font-mono text-[0.7rem] tracking-[0.05em] text-foreground/80">
-                              {o}
-                            </span>
-                          ))}
-                        </div>
+                {/* Impact Highlights — most visually prominent */}
+                <div className="p-7 md:p-9 border-b border-border/50 bg-gradient-to-r from-white/[0.02] to-transparent">
+                  <div className="label-mono mb-6">IMPACT HIGHLIGHTS</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    {e.stats.map((s) => (
+                      <div key={s.label} className="border border-border/50 rounded-md p-6 bg-card/30">
+                        <div className="font-serif text-4xl md:text-5xl leading-none mb-3">{s.value}</div>
+                        <div className="label-mono mb-2">{s.label}</div>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{s.context}</p>
                       </div>
-                      <div>
-                        <div className="label-mono mb-4">DELIVERED</div>
-                        <ul className="space-y-3">
-                          {e.delivered.map((d) => (
-                            <li key={d} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                              <span className="mt-2 h-1 w-1 rounded-full bg-muted-foreground shrink-0" />
-                              <span>{d}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </article>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
+
+                {/* Initiatives & Responsibilities */}
+                <div className="grid md:grid-cols-[2fr_1fr] gap-x-12 gap-y-8 p-7 md:p-9">
+                  <div>
+                    <div className="label-mono mb-4">KEY INITIATIVES</div>
+                    <ul className="space-y-3">
+                      {e.initiatives.map((item) => (
+                        <li key={item} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                          <span className="mt-2 h-1 w-1 rounded-full bg-muted-foreground shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="label-mono mb-4">RESPONSIBILITIES</div>
+                    <ul className="space-y-2.5">
+                      {e.responsibilities.map((r) => (
+                        <li key={r} className="text-sm text-foreground/80 leading-relaxed">{r}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
