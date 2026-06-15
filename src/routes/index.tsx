@@ -56,61 +56,61 @@ const experience = [
   {
     company: "Meril Life Sciences", role: "Product Manager", period: "FEB 2026 — PRESENT",
     scope: "Leading AI product development for next-generation clinical and enterprise workflows.",
-    owned: ["AI Product Discovery", "Agentic Workflow Design", "User Research"],
-    delivered: [
+    responsibilities: ["AI Product Discovery", "Agentic Workflow Design", "User Research", "Clinical AI Strategy"],
+    initiatives: [
       "Defined high-impact AI opportunities through structured user research",
       "Designed complex workflow systems integrated with agentic AI models",
       "Established architectural evaluation for mission-critical AI use cases",
     ],
-    impact: [
-      { k: "0 → 1", v: "AI Product Charter" },
-      { k: "Agentic", v: "Workflow Systems" },
-      { k: "Clinical", v: "Enterprise Domain" },
+    stats: [
+      { value: "0 → 1", label: "AI Product Charter", context: "Building AI-native clinical workflows from first principles" },
+      { value: "Enterprise", label: "Clinical Scale", context: "Agentic workflow systems across enterprise healthcare" },
+      { value: "Mission-Critical", label: "AI Evaluation", context: "Architectural evaluation for regulated clinical use cases" },
     ],
   },
   {
     company: "Eka Care", role: "Product Manager", period: "MAY 2024 — DEC 2025",
     scope: "Owned CRM product and growth charter across healthcare providers and clinical partners.",
-    owned: ["CRM Product", "Growth Initiatives", "Enterprise Workflows"],
-    delivered: [
+    responsibilities: ["CRM Product", "Growth Initiatives", "Enterprise Workflows", "Lead Funnel Optimization"],
+    initiatives: [
       "Shipped major platform features across the full product lifecycle",
       "Scaled enterprise workflows for healthcare and clinical partners",
       "Optimized CRM latency and reporting pipelines with engineering",
     ],
-    impact: [
-      { k: "+60%", v: "Activated Users" },
-      { k: "+40%", v: "Product Adoption" },
-      { k: "+20%", v: "Lead Conversion" },
+    stats: [
+      { value: "+60%", label: "Activated Users", context: "Increase in user activation through onboarding and engagement" },
+      { value: "3,000–4,000", label: "Monthly Leads", context: "CRM managing 3,000–4,000 monthly leads at scale" },
+      { value: "+20%", label: "Lead Conversion", context: "Increase in lead conversion through refined funnels" },
     ],
   },
   {
     company: "Qure.ai", role: "Product Manager", period: "JULY 2023 — MAY 2024",
     scope: "Drove product adoption for radiology AI across Tier-1 global markets.",
-    owned: ["Product Adoption", "Global Rollouts", "Workflow Optimization"],
-    delivered: [
+    responsibilities: ["Product Adoption", "Global Rollouts", "Workflow Optimization", "Cross-Functional Alignment"],
+    initiatives: [
       "Led global product rollouts across Tier-1 markets",
       "Reduced operational bottlenecks through workflow optimization",
       "Aligned technical, clinical, and sales teams on delivery",
     ],
-    impact: [
-      { k: "Tier-1", v: "Global Markets" },
-      { k: "3 Teams", v: "Tech · Clinical · Sales" },
-      { k: "Radiology", v: "AI Solutions" },
+    stats: [
+      { value: "+40%", label: "Product Adoption", context: "Increase in product adoption across radiology workflows" },
+      { value: "20+", label: "Agile Sprints", context: "Delivered across 20+ agile sprints with global stakeholders" },
+      { value: "Global", label: "Deployments", context: "Screening and diagnostic program deployments worldwide" },
     ],
   },
   {
     company: "AltWorld", role: "Product Management Intern", period: "FEB 2020 — AUG 2020",
     scope: "Analyzed engagement loops and shaped early community discovery features.",
-    owned: ["User Journey Analysis", "Engagement Experiments", "Wireframing"],
-    delivered: [
+    responsibilities: ["User Journey Analysis", "Engagement Experiments", "Wireframing", "Product Specs"],
+    initiatives: [
       "Identified drop-off points across consumer journeys",
       "Ran engagement optimization experiments on social discovery",
       "Authored wireframes and user stories for community tools",
     ],
-    impact: [
-      { k: "Consumer", v: "Social Discovery" },
-      { k: "0 → 1", v: "Community Tools" },
-      { k: "Discovery", v: "Engagement Loops" },
+    stats: [
+      { value: "0 → 1", label: "Community Tools", context: "Shaped early discovery and engagement features" },
+      { value: "Consumer", label: "Social Discovery", context: "Analyzed drop-offs and engagement loops in user journeys" },
+      { value: "Wireframes", label: "Product Specs", context: "Authored user stories and interaction flows" },
     ],
   },
 ];
