@@ -306,14 +306,19 @@ function Home() {
               <SectionLabel>GROUP B</SectionLabel>
               <h2 className="font-serif italic text-5xl">AI Case Studies</h2>
             </div>
-            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">04 — 05</div>
+            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">04 — 06</div>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {aiCases.map((c) => {
               const Icon = c.icon;
               return (
                 <a key={c.title} href={c.url} target="_blank" rel="noreferrer" className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
+                  <div className="relative aspect-[4/3] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
+                    {c.featured && (
+                      <div className="absolute top-4 left-4 inline-flex items-center rounded-full bg-foreground text-background px-3 py-1.5">
+                        <span className="font-mono text-[0.65rem] tracking-[0.18em] font-semibold">FEATURED</span>
+                      </div>
+                    )}
                     <Icon className="h-14 w-14 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
                   </div>
                   <div className="p-7">
