@@ -38,6 +38,7 @@ const productCases = [
 ];
 
 const aiCases = [
+  { icon: Scale, tag: "REGTECH / AI", title: "RegImpact AI", body: "Evidence-backed AI compliance platform for modern fintech.", url: "https://reg-impact-ai.vercel.app", featured: true },
   { icon: Sparkles, tag: "LLM / TOOLING", title: "ProductBattle AI", body: "Competitive analysis engine leveraging AI to evaluate product positioning.", url: "https://productbattle.lovable.app/" },
   { icon: AudioLines, tag: "SOCIAL / VIBE", title: "Flat Vibecheck", body: "AI-powered roommate and living space compatibility assessment.", url: "https://claude.ai/public/artifacts/d4f620b0-bda3-4ee0-9ea3-561214fd2c30" },
 ];
@@ -298,71 +299,6 @@ function Home() {
           </div>
         </section>
 
-        {/* FEATURED AI PROJECT */}
-        <section className="py-28">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <SectionLabel>FEATURED</SectionLabel>
-              <h2 className="font-serif italic text-5xl">Featured AI Project</h2>
-            </div>
-            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">AI / REGTECH</div>
-          </div>
-          <a
-            href="https://reg-impact-ai.vercel.app"
-            target="_blank"
-            rel="noreferrer"
-            className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all"
-          >
-            <div className="relative aspect-[4/3] md:aspect-[16/7] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
-              <div className="absolute top-5 left-5 inline-flex items-center rounded-full bg-foreground text-background px-3 py-1.5">
-                <span className="font-mono text-[0.65rem] tracking-[0.18em] font-semibold">FEATURED</span>
-              </div>
-              <Scale className="h-20 w-20 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
-            </div>
-            <div className="p-7 md:p-9">
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                <div className="label-mono">REGTECH / AI</div>
-                <span className="h-px w-6 bg-border/70" />
-                <div className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground">FINTECH COMPLIANCE</div>
-              </div>
-              <h3 className="font-sans font-semibold text-2xl md:text-3xl mb-4">RegImpact AI</h3>
-              <p className="font-serif italic text-lg text-muted-foreground mb-6">Evidence-backed AI compliance platform for modern fintech.</p>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mb-8">
-                An AI-powered regulatory impact assessment platform that helps fintech teams identify compliance gaps using adaptive questioning, explainable AI, deterministic rule engines, intelligent caching, and verified regulatory citations.
-              </p>
-
-              {/* Highlight chips */}
-              <div className="mb-6">
-                <div className="label-mono mb-4">HIGHLIGHTS</div>
-                <div className="flex flex-wrap gap-3">
-                  {["AI Product", "FinTech", "RegTech", "Explainable AI", "RAG", "Adaptive Discovery", "Evidence-backed Findings"].map((chip) => (
-                    <span key={chip} className="rounded-full border border-border/70 px-4 py-1.5 font-mono text-xs text-muted-foreground">
-                      {chip}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Technology badges */}
-              <div className="mb-8">
-                <div className="label-mono mb-4">TECHNOLOGY</div>
-                <div className="flex flex-wrap gap-2">
-                  {["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "AI", "RAG", "Prompt Engineering", "Explainable AI", "Rule Engine", "Citation Verification", "Intelligent Caching"].map((tech) => (
-                    <span key={tech} className="rounded-md border border-border/50 px-2.5 py-1 font-mono text-[0.65rem] tracking-wider text-muted-foreground">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* CTA */}
-              <div className="inline-flex items-center gap-2 text-sm font-medium text-foreground group-hover:opacity-80 transition">
-                Explore Project <ArrowRight className="h-4 w-4" />
-              </div>
-            </div>
-          </a>
-        </section>
-
         {/* AI CASE STUDIES */}
         <section className="py-28">
           <div className="flex items-end justify-between mb-10">
@@ -370,14 +306,19 @@ function Home() {
               <SectionLabel>GROUP B</SectionLabel>
               <h2 className="font-serif italic text-5xl">AI Case Studies</h2>
             </div>
-            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">04 — 05</div>
+            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">04 — 06</div>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {aiCases.map((c) => {
               const Icon = c.icon;
               return (
                 <a key={c.title} href={c.url} target="_blank" rel="noreferrer" className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
+                  <div className="relative aspect-[4/3] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
+                    {c.featured && (
+                      <div className="absolute top-4 left-4 inline-flex items-center rounded-full bg-foreground text-background px-3 py-1.5">
+                        <span className="font-mono text-[0.65rem] tracking-[0.18em] font-semibold">FEATURED</span>
+                      </div>
+                    )}
                     <Icon className="h-14 w-14 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
                   </div>
                   <div className="p-7">
@@ -388,9 +329,6 @@ function Home() {
                 </a>
               );
             })}
-            <div className="hidden md:flex items-center justify-center">
-              <span className="font-serif italic text-muted-foreground/60">More in progress...</span>
-            </div>
           </div>
         </section>
 
