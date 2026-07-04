@@ -329,9 +329,6 @@ function Home() {
                 </a>
               );
             })}
-            <div className="hidden md:flex items-center justify-center">
-              <span className="font-serif italic text-muted-foreground/60">More in progress...</span>
-            </div>
           </div>
         </section>
 
