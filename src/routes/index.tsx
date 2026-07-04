@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Car, Music, Sparkles, AudioLines } from "lucide-react";
+import { ArrowRight, MessageCircle, Car, Music, Sparkles, AudioLines, Scale } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -296,6 +296,71 @@ function Home() {
               );
             })}
           </div>
+        </section>
+
+        {/* FEATURED AI PROJECT */}
+        <section className="py-28">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <SectionLabel>FEATURED</SectionLabel>
+              <h2 className="font-serif italic text-5xl">Featured AI Project</h2>
+            </div>
+            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">AI / REGTECH</div>
+          </div>
+          <a
+            href="https://reg-impact-ai.vercel.app"
+            target="_blank"
+            rel="noreferrer"
+            className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all"
+          >
+            <div className="relative aspect-[4/3] md:aspect-[16/7] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
+              <div className="absolute top-5 left-5 inline-flex items-center rounded-full bg-foreground text-background px-3 py-1.5">
+                <span className="font-mono text-[0.65rem] tracking-[0.18em] font-semibold">FEATURED</span>
+              </div>
+              <Scale className="h-20 w-20 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
+            </div>
+            <div className="p-7 md:p-9">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <div className="label-mono">REGTECH / AI</div>
+                <span className="h-px w-6 bg-border/70" />
+                <div className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground">FINTECH COMPLIANCE</div>
+              </div>
+              <h3 className="font-sans font-semibold text-2xl md:text-3xl mb-4">RegImpact AI</h3>
+              <p className="font-serif italic text-lg text-muted-foreground mb-6">Evidence-backed AI compliance platform for modern fintech.</p>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mb-8">
+                An AI-powered regulatory impact assessment platform that helps fintech teams identify compliance gaps using adaptive questioning, explainable AI, deterministic rule engines, intelligent caching, and verified regulatory citations.
+              </p>
+
+              {/* Highlight chips */}
+              <div className="mb-6">
+                <div className="label-mono mb-4">HIGHLIGHTS</div>
+                <div className="flex flex-wrap gap-3">
+                  {["AI Product", "FinTech", "RegTech", "Explainable AI", "RAG", "Adaptive Discovery", "Evidence-backed Findings"].map((chip) => (
+                    <span key={chip} className="rounded-full border border-border/70 px-4 py-1.5 font-mono text-xs text-muted-foreground">
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Technology badges */}
+              <div className="mb-8">
+                <div className="label-mono mb-4">TECHNOLOGY</div>
+                <div className="flex flex-wrap gap-2">
+                  {["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "AI", "RAG", "Prompt Engineering", "Explainable AI", "Rule Engine", "Citation Verification", "Intelligent Caching"].map((tech) => (
+                    <span key={tech} className="rounded-md border border-border/50 px-2.5 py-1 font-mono text-[0.65rem] tracking-wider text-muted-foreground">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-foreground group-hover:opacity-80 transition">
+                Explore Project <ArrowRight className="h-4 w-4" />
+              </div>
+            </div>
+          </a>
         </section>
 
         {/* AI CASE STUDIES */}
