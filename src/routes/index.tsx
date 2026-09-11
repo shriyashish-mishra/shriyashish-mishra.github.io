@@ -196,7 +196,7 @@ function Home() {
               <h2 className="font-serif italic text-5xl">Experience Summary</h2>
             </div>
             <p className="font-serif italic text-muted-foreground max-w-sm text-sm leading-relaxed">
-              Four roles. A consistent arc — from discovery and engagement loops to owning growth charters and shaping AI-native product surfaces.
+              Three roles. A consistent arc — from owning growth charters to shaping AI-native product surfaces.
             </p>
           </div>
 
