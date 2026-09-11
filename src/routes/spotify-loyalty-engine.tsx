@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ChevronRight, Check, Lock, Music, Play, Sparkles, Star, Download, Headphones } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/spotify-loyalty-engine")({
   head: () => ({
@@ -30,7 +31,7 @@ function Phone({ label, title, accent = "emerald", children }: { label: string; 
   return (
     <div className="space-y-3">
       <div className={`font-mono text-[0.6rem] tracking-[0.18em] text-${accent}-400/80`}>{label}</div>
-      <div className="mx-auto w-full max-w-[260px] rounded-[2.2rem] border border-border bg-[#0a0a0a] p-2 shadow-2xl">
+      <div className="mockup mx-auto w-full max-w-[260px] rounded-[2.2rem] border border-border bg-[#0a0a0a] p-2 shadow-2xl">
         <div className="rounded-[1.8rem] overflow-hidden bg-black border border-white/5">
           <div className="flex items-center justify-between px-4 py-2 text-white/80 text-[10px]">
             <span>9:41</span><span>•••</span><span>100%</span>
@@ -128,12 +129,15 @@ const learnings = [
 function SpotifyCase() {
   return (
     <div className="relative z-10 min-h-screen text-foreground">
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#050505]/70 border-b border-border/40">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
         <div className="max-w-[1400px] mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
           <Link to="/" className="font-mono text-xs tracking-[0.18em] text-foreground/90 hover:text-foreground transition">SM <span className="text-muted-foreground">//</span> PORTFOLIO</Link>
-          <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
-            <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO
-          </Link>
+          <div className="flex items-center gap-5">
+            <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
+              <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO
+            </Link>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
@@ -630,7 +634,7 @@ function SpotifyCase() {
               <ArrowLeft className="h-4 w-4" /> BluSmart Mumbai Expansion
             </div>
           </Link>
-          <Link to="/" className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-xs tracking-[0.22em] hover:bg-white hover:text-black transition justify-self-center">
+          <Link to="/" className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-xs tracking-[0.22em] hover:bg-foreground hover:text-background transition justify-self-center">
             BACK TO PORTFOLIO
           </Link>
           <Link to="/whatsapp-group-engagement" className="group block sm:text-right">

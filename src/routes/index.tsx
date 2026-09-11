@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle, Car, Music, Sparkles, AudioLines, Scale } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -117,24 +118,25 @@ const experience = [
 ];
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <div className="label-mono mb-6">{children}</div>;
+  return <div className="eyebrow mb-6">{children}</div>;
 }
 
 function Home() {
   return (
     <div className="relative z-10 min-h-screen text-foreground">
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#050505]/70 border-b border-border/40">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
         <div className="max-w-[1400px] mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
           <Link to="/" className="font-mono text-xs tracking-[0.18em] text-foreground/90 hover:text-foreground transition">
             SM <span className="text-muted-foreground">//</span> PORTFOLIO
           </Link>
-          <nav className="flex items-center gap-10">
+          <nav className="flex items-center gap-6 md:gap-10">
             {[["WORK", "#work"], ["EXPERIENCE", "#experience"], ["CONTACT", "#contact"]].map(([l, h]) => (
-              <a key={l} href={h} className="font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition-colors">
+              <a key={l} href={h} className="hidden sm:inline font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-brand transition-colors">
                 {l}
               </a>
             ))}
+            <ThemeToggle />
           </nav>
         </div>
       </header>
@@ -143,10 +145,11 @@ function Home() {
         {/* HERO */}
         <section className="min-h-[88vh] flex flex-col justify-center py-24">
           <div className="fade-up">
-            <div className="inline-flex items-center rounded-full border border-border/70 px-5 py-2 mb-12">
-              <span className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">AVAILABLE FOR NEW CHALLENGES</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand-soft px-5 py-2 mb-12">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              <span className="font-mono text-[0.7rem] tracking-[0.18em] text-brand">AVAILABLE FOR NEW CHALLENGES</span>
             </div>
-            <h1 className="font-serif text-[clamp(3.5rem,11vw,10rem)] leading-[1.02] tracking-[-0.03em]">
+            <h1 className="display-sans text-[clamp(3rem,9vw,8rem)]">
               Shriyashish Mishra
             </h1>
             <p className="font-serif italic text-2xl md:text-4xl text-muted-foreground mt-10 max-w-4xl leading-tight">
@@ -230,7 +233,7 @@ function Home() {
                 </header>
 
                 {/* Impact Highlights — most visually prominent */}
-                <div className="p-7 md:p-9 border-b border-border/50 bg-gradient-to-r from-white/[0.02] to-transparent">
+                <div className="p-7 md:p-9 border-b border-border/50 bg-gradient-to-r from-accent to-transparent">
                   <div className="label-mono mb-6">IMPACT HIGHLIGHTS</div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     {e.stats.map((s) => (
@@ -285,7 +288,7 @@ function Home() {
               const Icon = c.icon;
               return (
                 <Link key={c.title} to={c.to} className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-brand-soft to-transparent flex items-center justify-center">
                     <Icon className="h-14 w-14 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
                   </div>
                   <div className="p-7">
@@ -313,7 +316,7 @@ function Home() {
               const Icon = c.icon;
               return (
                 <a key={c.title} href={c.url} target="_blank" rel="noreferrer" className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
-                  <div className="relative aspect-[4/3] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
+                  <div className="relative aspect-[4/3] bg-gradient-to-br from-brand-soft to-transparent flex items-center justify-center">
                     {c.featured && (
                       <div className="absolute top-4 left-4 inline-flex items-center rounded-full bg-foreground text-background px-3 py-1.5">
                         <span className="font-mono text-[0.65rem] tracking-[0.18em] font-semibold">FEATURED</span>
