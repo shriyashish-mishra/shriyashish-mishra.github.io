@@ -143,3 +143,39 @@
   letter-spacing: -0.035em;
   line-height: 1.05;
 }
+
+/* -----------------------------------------------------------
+   Light-mode contrast repair for case-study pages.
+   Several blocks were authored with white-on-dark utilities.
+   Phone mockups (.mockup) keep their dark UI on purpose.
+   ----------------------------------------------------------- */
+@layer utilities {
+  :root:not(.dark) .mockup { color-scheme: dark; }
+
+  :root:not(.dark) [class~="text-white"]:not(.mockup *),
+  :root:not(.dark) [class~="text-white/90"]:not(.mockup *),
+  :root:not(.dark) [class~="text-white/80"]:not(.mockup *) {
+    color: var(--color-foreground);
+  }
+
+  :root:not(.dark) [class~="text-white/70"]:not(.mockup *),
+  :root:not(.dark) [class~="text-white/60"]:not(.mockup *) {
+    color: oklch(0.42 0.008 260);
+  }
+
+  :root:not(.dark) [class~="text-white/50"]:not(.mockup *),
+  :root:not(.dark) [class~="text-white/40"]:not(.mockup *) {
+    color: var(--color-muted-foreground);
+  }
+
+  :root:not(.dark) [class~="bg-white/5"]:not(.mockup *),
+  :root:not(.dark) [class~="bg-white/10"]:not(.mockup *) {
+    background-color: oklch(0.17 0.005 260 / 4%);
+  }
+
+  :root:not(.dark) [class~="border-white/5"]:not(.mockup *),
+  :root:not(.dark) [class~="border-white/10"]:not(.mockup *),
+  :root:not(.dark) [class~="border-white/15"]:not(.mockup *) {
+    border-color: var(--color-border);
+  }
+}
