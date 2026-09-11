@@ -259,42 +259,14 @@ function Home() {
         </section>
 
 
-        {/* PRODUCT CASE STUDIES */}
+        {/* AI CASE STUDIES */}
         <section id="work" className="py-28 scroll-mt-20">
           <div className="flex items-end justify-between mb-10">
             <div>
               <SectionLabel>GROUP A</SectionLabel>
-              <h2 className="font-serif italic text-5xl">Product Case Studies</h2>
-            </div>
-            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">01 — 03</div>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {productCases.map((c) => {
-              const Icon = c.icon;
-              return (
-                <Link key={c.title} to={c.to} className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-brand-soft to-transparent flex items-center justify-center">
-                    <Icon className="h-14 w-14 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
-                  </div>
-                  <div className="p-7">
-                    <div className="label-mono mb-3">{c.tag}</div>
-                    <h3 className="font-sans font-semibold text-lg mb-3">{c.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* AI CASE STUDIES */}
-        <section className="py-28">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <SectionLabel>GROUP B</SectionLabel>
               <h2 className="font-serif italic text-5xl">AI Case Studies</h2>
             </div>
-            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">04 — 06</div>
+            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">01 — 03</div>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {aiCases.map((c) => {
@@ -315,6 +287,34 @@ function Home() {
                     <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
                   </div>
                 </a>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* PRODUCT CASE STUDIES */}
+        <section className="py-28">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <SectionLabel>GROUP B</SectionLabel>
+              <h2 className="font-serif italic text-5xl">Product Case Studies</h2>
+            </div>
+            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">04 — 06</div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {productCases.map((c) => {
+              const Icon = c.icon;
+              return (
+                <Link key={c.title} to={c.to} className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-brand-soft to-transparent flex items-center justify-center">
+                    <Icon className="h-14 w-14 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
+                  </div>
+                  <div className="p-7">
+                    <div className="label-mono mb-3">{c.tag}</div>
+                    <h3 className="font-sans font-semibold text-lg mb-3">{c.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+                  </div>
+                </Link>
               );
             })}
           </div>
