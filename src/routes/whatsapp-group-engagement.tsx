@@ -454,7 +454,7 @@ function WhatsAppCase() {
             ].map((s) => (
               <div key={s.label} className="space-y-3">
                 <div className="font-mono text-[0.6rem] tracking-[0.18em] text-emerald-400/80">{s.label}</div>
-                <div className="mx-auto w-full max-w-[240px] rounded-[2rem] border border-border bg-[#0a0a0a] p-2 shadow-2xl">
+                <div className="mockup mx-auto w-full max-w-[240px] rounded-[2rem] border border-border bg-[#0a0a0a] p-2 shadow-2xl">
                   <div className="rounded-[1.6rem] overflow-hidden bg-[#0b141a] border border-white/5">
                     <div className="flex items-center justify-between px-3 py-2 bg-[#1f2c33] text-white/90 text-[10px]">
                       <span>9:41</span><span className="font-semibold">WhatsApp</span><span>100%</span>

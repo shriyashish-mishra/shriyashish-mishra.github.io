@@ -31,7 +31,7 @@ function Phone({ label, title, accent = "emerald", children }: { label: string; 
   return (
     <div className="space-y-3">
       <div className={`font-mono text-[0.6rem] tracking-[0.18em] text-${accent}-400/80`}>{label}</div>
-      <div className="mx-auto w-full max-w-[260px] rounded-[2.2rem] border border-border bg-[#0a0a0a] p-2 shadow-2xl">
+      <div className="mockup mx-auto w-full max-w-[260px] rounded-[2.2rem] border border-border bg-[#0a0a0a] p-2 shadow-2xl">
         <div className="rounded-[1.8rem] overflow-hidden bg-black border border-white/5">
           <div className="flex items-center justify-between px-4 py-2 text-white/80 text-[10px]">
             <span>9:41</span><span>•••</span><span>100%</span>
