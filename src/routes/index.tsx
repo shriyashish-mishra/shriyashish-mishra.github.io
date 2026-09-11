@@ -100,21 +100,6 @@ const experience = [
       { value: "Global", label: "Deployments", context: "Screening and diagnostic program deployments worldwide" },
     ],
   },
-  {
-    company: "AltWorld", role: "Product Management Intern", period: "FEB 2020 — AUG 2020",
-    scope: "Analyzed engagement loops and shaped early community discovery features.",
-    responsibilities: ["User Journey Analysis", "Engagement Experiments", "Wireframing", "Product Specs"],
-    initiatives: [
-      "Identified drop-off points across consumer journeys",
-      "Ran engagement optimization experiments on social discovery",
-      "Authored wireframes and user stories for community tools",
-    ],
-    stats: [
-      { value: "0 → 1", label: "Community Tools", context: "Shaped early discovery and engagement features" },
-      { value: "Consumer", label: "Social Discovery", context: "Analyzed drop-offs and engagement loops in user journeys" },
-      { value: "Wireframes", label: "Product Specs", context: "Authored user stories and interaction flows" },
-    ],
-  },
 ];
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
