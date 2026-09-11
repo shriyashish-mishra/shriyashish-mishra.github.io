@@ -128,7 +128,10 @@ function BluSmartCaseStudy() {
           <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
             <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO
           </Link>
-          <div className="font-mono text-xs tracking-[0.18em] text-muted-foreground">CASE_STUDY_03</div>
+          <div className="flex items-center gap-5">
+            <div className="font-mono text-xs tracking-[0.18em] text-muted-foreground">CASE_STUDY_03</div>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 

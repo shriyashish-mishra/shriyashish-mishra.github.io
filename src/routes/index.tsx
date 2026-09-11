@@ -233,7 +233,7 @@ function Home() {
                 </header>
 
                 {/* Impact Highlights — most visually prominent */}
-                <div className="p-7 md:p-9 border-b border-border/50 bg-gradient-to-r from-white/[0.02] to-transparent">
+                <div className="p-7 md:p-9 border-b border-border/50 bg-gradient-to-r from-accent to-transparent">
                   <div className="label-mono mb-6">IMPACT HIGHLIGHTS</div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     {e.stats.map((s) => (
@@ -288,7 +288,7 @@ function Home() {
               const Icon = c.icon;
               return (
                 <Link key={c.title} to={c.to} className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-brand-soft to-transparent flex items-center justify-center">
                     <Icon className="h-14 w-14 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
                   </div>
                   <div className="p-7">
@@ -316,7 +316,7 @@ function Home() {
               const Icon = c.icon;
               return (
                 <a key={c.title} href={c.url} target="_blank" rel="noreferrer" className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
-                  <div className="relative aspect-[4/3] bg-gradient-to-br from-white/[0.03] to-white/[0.01] flex items-center justify-center">
+                  <div className="relative aspect-[4/3] bg-gradient-to-br from-brand-soft to-transparent flex items-center justify-center">
                     {c.featured && (
                       <div className="absolute top-4 left-4 inline-flex items-center rounded-full bg-foreground text-background px-3 py-1.5">
                         <span className="font-mono text-[0.65rem] tracking-[0.18em] font-semibold">FEATURED</span>

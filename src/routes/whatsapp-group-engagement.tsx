@@ -138,9 +138,12 @@ function WhatsAppCase() {
           <Link to="/" className="font-mono text-xs tracking-[0.18em] text-foreground/90 hover:text-foreground transition">
             SM <span className="text-muted-foreground">//</span> PORTFOLIO
           </Link>
-          <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
-            <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO
-          </Link>
+          <div className="flex items-center gap-5">
+            <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
+              <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO
+            </Link>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
