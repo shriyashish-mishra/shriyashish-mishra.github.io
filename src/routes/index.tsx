@@ -368,45 +368,6 @@ function Home() {
           </div>
         </section>
 
-        {/* CONTACT FORM */}
-        <section className="py-24 border-t border-border/50">
-          <SectionLabel>SEND A MESSAGE</SectionLabel>
-          <form
-            className="mt-8 max-w-2xl space-y-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const f = e.currentTarget;
-              const email = (f.elements.namedItem("email") as HTMLInputElement).value;
-              const name = (f.elements.namedItem("name") as HTMLInputElement).value;
-              const message = (f.elements.namedItem("message") as HTMLTextAreaElement).value;
-              const subject = encodeURIComponent(`Portfolio enquiry from ${name || email}`);
-              const body = encodeURIComponent(`${message}\n\n—\n${name}\n${email}`);
-              window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-            }}
-          >
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground">NAME</label>
-                <input id="name" name="name" required
-                  className="mt-2 w-full bg-transparent border-b border-border/60 py-3 text-lg outline-none focus:border-foreground transition-colors" />
-              </div>
-              <div>
-                <label htmlFor="email" className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground">YOUR EMAIL</label>
-                <input id="email" name="email" type="email" required
-                  className="mt-2 w-full bg-transparent border-b border-border/60 py-3 text-lg outline-none focus:border-foreground transition-colors" />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="message" className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground">MESSAGE</label>
-              <textarea id="message" name="message" rows={5} required
-                className="mt-2 w-full bg-transparent border-b border-border/60 py-3 text-lg outline-none focus:border-foreground transition-colors resize-none" />
-            </div>
-            <button type="submit"
-              className="font-mono text-[0.7rem] tracking-[0.18em] border border-border rounded-full px-8 py-4 hover:bg-foreground hover:text-background transition-colors">
-              SEND MESSAGE →
-            </button>
-          </form>
-        </section>
 
         {/* FOOTER / CONTACT */}
         <footer id="contact" className="border-t border-border/50 py-16 scroll-mt-20">
