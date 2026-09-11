@@ -40,8 +40,8 @@ const productCases = [
 
 const aiCases = [
   { icon: Scale, tag: "REGTECH / AI", title: "RegImpact AI", body: "Evidence-backed AI compliance platform for modern fintech.", url: "https://reg-impact-ai.vercel.app", featured: true },
+  { icon: Dumbbell, tag: "FITNESS / AI", title: "Project Hulk", body: "AI-powered fitness operating system that connects workouts, nutrition, recovery, and progress into personalized insights.", url: "#" },
   { icon: Sparkles, tag: "LLM / TOOLING", title: "ProductBattle AI", body: "Competitive analysis engine leveraging AI to evaluate product positioning.", url: "https://productbattle.lovable.app/" },
-  { icon: AudioLines, tag: "SOCIAL / VIBE", title: "Flat Vibecheck", body: "AI-powered roommate and living space compatibility assessment.", url: "https://claude.ai/public/artifacts/d4f620b0-bda3-4ee0-9ea3-561214fd2c30" },
 ];
 
 const capabilities = [
