@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Car, Music, Sparkles, AudioLines, Scale } from "lucide-react";
+import { ArrowRight, MessageCircle, Car, Music, Sparkles, Scale, Dumbbell } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/")({
@@ -40,8 +40,8 @@ const productCases = [
 
 const aiCases = [
   { icon: Scale, tag: "REGTECH / AI", title: "RegImpact AI", body: "Evidence-backed AI compliance platform for modern fintech.", url: "https://reg-impact-ai.vercel.app", featured: true },
+  { icon: Dumbbell, tag: "FITNESS / AI", title: "Project Hulk", body: "AI-powered fitness operating system that connects workouts, nutrition, recovery, and progress into personalized insights.", url: "#" },
   { icon: Sparkles, tag: "LLM / TOOLING", title: "ProductBattle AI", body: "Competitive analysis engine leveraging AI to evaluate product positioning.", url: "https://productbattle.lovable.app/" },
-  { icon: AudioLines, tag: "SOCIAL / VIBE", title: "Flat Vibecheck", body: "AI-powered roommate and living space compatibility assessment.", url: "https://claude.ai/public/artifacts/d4f620b0-bda3-4ee0-9ea3-561214fd2c30" },
 ];
 
 const capabilities = [
@@ -98,21 +98,6 @@ const experience = [
       { value: "+40%", label: "Product Adoption", context: "Increase in product adoption across radiology workflows" },
       { value: "20+", label: "Agile Sprints", context: "Delivered across 20+ agile sprints with global stakeholders" },
       { value: "Global", label: "Deployments", context: "Screening and diagnostic program deployments worldwide" },
-    ],
-  },
-  {
-    company: "AltWorld", role: "Product Management Intern", period: "FEB 2020 — AUG 2020",
-    scope: "Analyzed engagement loops and shaped early community discovery features.",
-    responsibilities: ["User Journey Analysis", "Engagement Experiments", "Wireframing", "Product Specs"],
-    initiatives: [
-      "Identified drop-off points across consumer journeys",
-      "Ran engagement optimization experiments on social discovery",
-      "Authored wireframes and user stories for community tools",
-    ],
-    stats: [
-      { value: "0 → 1", label: "Community Tools", context: "Shaped early discovery and engagement features" },
-      { value: "Consumer", label: "Social Discovery", context: "Analyzed drop-offs and engagement loops in user journeys" },
-      { value: "Wireframes", label: "Product Specs", context: "Authored user stories and interaction flows" },
     ],
   },
 ];
@@ -211,7 +196,7 @@ function Home() {
               <h2 className="font-serif italic text-5xl">Experience Summary</h2>
             </div>
             <p className="font-serif italic text-muted-foreground max-w-sm text-sm leading-relaxed">
-              Four roles. A consistent arc — from discovery and engagement loops to owning growth charters and shaping AI-native product surfaces.
+              Three roles. A consistent arc — from owning growth charters to shaping AI-native product surfaces.
             </p>
           </div>
 
@@ -274,42 +259,14 @@ function Home() {
         </section>
 
 
-        {/* PRODUCT CASE STUDIES */}
+        {/* AI CASE STUDIES */}
         <section id="work" className="py-28 scroll-mt-20">
           <div className="flex items-end justify-between mb-10">
             <div>
               <SectionLabel>GROUP A</SectionLabel>
-              <h2 className="font-serif italic text-5xl">Product Case Studies</h2>
-            </div>
-            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">01 — 03</div>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {productCases.map((c) => {
-              const Icon = c.icon;
-              return (
-                <Link key={c.title} to={c.to} className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-brand-soft to-transparent flex items-center justify-center">
-                    <Icon className="h-14 w-14 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
-                  </div>
-                  <div className="p-7">
-                    <div className="label-mono mb-3">{c.tag}</div>
-                    <h3 className="font-sans font-semibold text-lg mb-3">{c.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* AI CASE STUDIES */}
-        <section className="py-28">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <SectionLabel>GROUP B</SectionLabel>
               <h2 className="font-serif italic text-5xl">AI Case Studies</h2>
             </div>
-            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">04 — 06</div>
+            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">01 — 03</div>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {aiCases.map((c) => {
@@ -330,6 +287,34 @@ function Home() {
                     <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
                   </div>
                 </a>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* PRODUCT CASE STUDIES */}
+        <section className="py-28">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <SectionLabel>GROUP B</SectionLabel>
+              <h2 className="font-serif italic text-5xl">Product Case Studies</h2>
+            </div>
+            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">04 — 06</div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {productCases.map((c) => {
+              const Icon = c.icon;
+              return (
+                <Link key={c.title} to={c.to} className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-brand-soft to-transparent flex items-center justify-center">
+                    <Icon className="h-14 w-14 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
+                  </div>
+                  <div className="p-7">
+                    <div className="label-mono mb-3">{c.tag}</div>
+                    <h3 className="font-sans font-semibold text-lg mb-3">{c.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+                  </div>
+                </Link>
               );
             })}
           </div>
