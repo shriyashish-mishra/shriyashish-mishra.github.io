@@ -123,7 +123,7 @@ function BluSmartCaseStudy() {
   return (
     <div className="relative z-10 min-h-screen text-foreground">
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#050505]/70 border-b border-border/40">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-16 h-16 flex items-center justify-between">
           <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
             <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO

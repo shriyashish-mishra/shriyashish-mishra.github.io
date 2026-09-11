@@ -128,7 +128,7 @@ const learnings = [
 function SpotifyCase() {
   return (
     <div className="relative z-10 min-h-screen text-foreground">
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#050505]/70 border-b border-border/40">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
         <div className="max-w-[1400px] mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
           <Link to="/" className="font-mono text-xs tracking-[0.18em] text-foreground/90 hover:text-foreground transition">SM <span className="text-muted-foreground">//</span> PORTFOLIO</Link>
           <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
@@ -630,7 +630,7 @@ function SpotifyCase() {
               <ArrowLeft className="h-4 w-4" /> BluSmart Mumbai Expansion
             </div>
           </Link>
-          <Link to="/" className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-xs tracking-[0.22em] hover:bg-white hover:text-black transition justify-self-center">
+          <Link to="/" className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-xs tracking-[0.22em] hover:bg-foreground hover:text-background transition justify-self-center">
             BACK TO PORTFOLIO
           </Link>
           <Link to="/whatsapp-group-engagement" className="group block sm:text-right">
