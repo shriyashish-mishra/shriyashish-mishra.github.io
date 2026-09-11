@@ -22,9 +22,34 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
 }
 
+/* Light theme (Zamp-like: warm off-white, hairline rules, blue accent) */
 :root {
+  --background: oklch(0.985 0.002 90);
+  --foreground: oklch(0.17 0.005 260);
+  --muted: oklch(0.96 0.003 90);
+  --muted-foreground: oklch(0.52 0.008 260);
+  --border: oklch(0.2 0.01 260 / 12%);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.17 0.005 260);
+  --accent: oklch(0.955 0.004 260);
+  --accent-foreground: oklch(0.17 0.005 260);
+  --primary: oklch(0.17 0.005 260);
+  --primary-foreground: oklch(0.99 0 0);
+  --brand: oklch(0.55 0.22 262);
+  --brand-soft: oklch(0.55 0.22 262 / 10%);
+
+  --page-bg: #fbfbf9;
+  --dot-color: rgba(0, 0, 0, 0.05);
+  --grain-opacity: 0.25;
+  --grain-rgb: 0 0 0;
+  --surface-tint: rgba(0, 0, 0, 0.02);
+}
+
+.dark {
   --background: oklch(0.04 0 0);
   --foreground: oklch(0.97 0 0);
   --muted: oklch(0.12 0 0);
@@ -36,20 +61,29 @@
   --accent-foreground: oklch(0.97 0 0);
   --primary: oklch(0.97 0 0);
   --primary-foreground: oklch(0.04 0 0);
+  --brand: oklch(0.72 0.16 258);
+  --brand-soft: oklch(0.72 0.16 258 / 14%);
+
+  --page-bg: #050505;
+  --dot-color: rgba(255, 255, 255, 0.025);
+  --grain-opacity: 0.4;
+  --grain-rgb: 1 1 1;
+  --surface-tint: rgba(255, 255, 255, 0.02);
 }
 
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }
   body {
-    background-color: #050505;
+    background-color: var(--page-bg);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, var(--dot-color) 1px, transparent 0);
     background-size: 32px 32px;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   body::before {
     content: "";
@@ -57,8 +91,8 @@
     inset: 0;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.4;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
   h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.02em; }
 }
@@ -80,4 +114,32 @@
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: none; }
   }
+}
+
+/* Zamp-style eyebrow: blue mono label with a leading dot */
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand);
+
+  &::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    background: var(--brand);
+  }
+}
+
+/* Tight, bold sans display headings (hybrid with the editorial serif) */
+@utility display-sans {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
 }
