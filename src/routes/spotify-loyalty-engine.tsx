@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ChevronRight, Check, Lock, Music, Play, Sparkles, Star, Download, Headphones } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export const Route = createFileRoute("/spotify-loyalty-engine")({
   head: () => ({
