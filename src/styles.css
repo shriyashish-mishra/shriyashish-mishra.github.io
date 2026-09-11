@@ -143,3 +143,128 @@
   letter-spacing: -0.035em;
   line-height: 1.05;
 }
+
+/* -----------------------------------------------------------
+   Light-mode contrast repair for case-study pages.
+   Several blocks were authored with white-on-dark utilities.
+   Phone mockups (.mockup) keep their dark UI on purpose.
+   ----------------------------------------------------------- */
+@layer utilities {
+  :root:not(.dark) .mockup { color-scheme: dark; }
+
+  :root:not(.dark) [class~="text-white"]:not(.mockup *),
+  :root:not(.dark) [class~="text-white/90"]:not(.mockup *),
+  :root:not(.dark) [class~="text-white/80"]:not(.mockup *) {
+    color: var(--color-foreground);
+  }
+
+  :root:not(.dark) [class~="text-white/70"]:not(.mockup *),
+  :root:not(.dark) [class~="text-white/60"]:not(.mockup *) {
+    color: oklch(0.42 0.008 260);
+  }
+
+  :root:not(.dark) [class~="text-white/50"]:not(.mockup *),
+  :root:not(.dark) [class~="text-white/40"]:not(.mockup *) {
+    color: var(--color-muted-foreground);
+  }
+
+  :root:not(.dark) [class~="bg-white/5"]:not(.mockup *),
+  :root:not(.dark) [class~="bg-white/10"]:not(.mockup *) {
+    background-color: oklch(0.17 0.005 260 / 4%);
+  }
+
+  :root:not(.dark) [class~="border-white/5"]:not(.mockup *),
+  :root:not(.dark) [class~="border-white/10"]:not(.mockup *),
+  :root:not(.dark) [class~="border-white/15"]:not(.mockup *) {
+    border-color: var(--color-border);
+  }
+}
+
+/* Pale accent text needs darker shades on the light background */
+@layer utilities {
+  :root:not(.dark) [class~="text-emerald-50"]:not(.mockup *) { color: oklch(0.52 0.13 162); }
+  :root:not(.dark) [class~="text-emerald-100"]:not(.mockup *) { color: oklch(0.52 0.13 162); }
+  :root:not(.dark) [class~="text-emerald-200"]:not(.mockup *) { color: oklch(0.52 0.13 162); }
+  :root:not(.dark) [class~="text-emerald-300"]:not(.mockup *) { color: oklch(0.52 0.13 162); }
+  :root:not(.dark) [class~="text-emerald-400"]:not(.mockup *) { color: oklch(0.52 0.13 162); }
+  :root:not(.dark) [class~="text-amber-50"]:not(.mockup *) { color: oklch(0.55 0.12 75); }
+  :root:not(.dark) [class~="text-amber-100"]:not(.mockup *) { color: oklch(0.55 0.12 75); }
+  :root:not(.dark) [class~="text-amber-200"]:not(.mockup *) { color: oklch(0.55 0.12 75); }
+  :root:not(.dark) [class~="text-amber-300"]:not(.mockup *) { color: oklch(0.55 0.12 75); }
+  :root:not(.dark) [class~="text-amber-400"]:not(.mockup *) { color: oklch(0.55 0.12 75); }
+  :root:not(.dark) [class~="text-rose-50"]:not(.mockup *) { color: oklch(0.53 0.17 15); }
+  :root:not(.dark) [class~="text-rose-100"]:not(.mockup *) { color: oklch(0.53 0.17 15); }
+  :root:not(.dark) [class~="text-rose-200"]:not(.mockup *) { color: oklch(0.53 0.17 15); }
+  :root:not(.dark) [class~="text-rose-300"]:not(.mockup *) { color: oklch(0.53 0.17 15); }
+  :root:not(.dark) [class~="text-rose-400"]:not(.mockup *) { color: oklch(0.53 0.17 15); }
+  :root:not(.dark) [class~="text-sky-50"]:not(.mockup *) { color: oklch(0.52 0.14 240); }
+  :root:not(.dark) [class~="text-sky-100"]:not(.mockup *) { color: oklch(0.52 0.14 240); }
+  :root:not(.dark) [class~="text-sky-200"]:not(.mockup *) { color: oklch(0.52 0.14 240); }
+  :root:not(.dark) [class~="text-sky-300"]:not(.mockup *) { color: oklch(0.52 0.14 240); }
+  :root:not(.dark) [class~="text-sky-400"]:not(.mockup *) { color: oklch(0.52 0.14 240); }
+  :root:not(.dark) [class~="text-purple-50"]:not(.mockup *) { color: oklch(0.5 0.18 300); }
+  :root:not(.dark) [class~="text-purple-100"]:not(.mockup *) { color: oklch(0.5 0.18 300); }
+  :root:not(.dark) [class~="text-purple-200"]:not(.mockup *) { color: oklch(0.5 0.18 300); }
+  :root:not(.dark) [class~="text-purple-300"]:not(.mockup *) { color: oklch(0.5 0.18 300); }
+  :root:not(.dark) [class~="text-purple-400"]:not(.mockup *) { color: oklch(0.5 0.18 300); }
+  :root:not(.dark) [class~="text-fuchsia-50"]:not(.mockup *) { color: oklch(0.52 0.2 325); }
+  :root:not(.dark) [class~="text-fuchsia-100"]:not(.mockup *) { color: oklch(0.52 0.2 325); }
+  :root:not(.dark) [class~="text-fuchsia-200"]:not(.mockup *) { color: oklch(0.52 0.2 325); }
+  :root:not(.dark) [class~="text-fuchsia-300"]:not(.mockup *) { color: oklch(0.52 0.2 325); }
+  :root:not(.dark) [class~="text-fuchsia-400"]:not(.mockup *) { color: oklch(0.52 0.2 325); }
+  :root:not(.dark) [class~="text-orange-50"]:not(.mockup *) { color: oklch(0.55 0.15 55); }
+  :root:not(.dark) [class~="text-orange-100"]:not(.mockup *) { color: oklch(0.55 0.15 55); }
+  :root:not(.dark) [class~="text-orange-200"]:not(.mockup *) { color: oklch(0.55 0.15 55); }
+  :root:not(.dark) [class~="text-orange-300"]:not(.mockup *) { color: oklch(0.55 0.15 55); }
+  :root:not(.dark) [class~="text-orange-400"]:not(.mockup *) { color: oklch(0.55 0.15 55); }
+  :root:not(.dark) [class~="text-yellow-50"]:not(.mockup *) { color: oklch(0.53 0.12 90); }
+  :root:not(.dark) [class~="text-yellow-100"]:not(.mockup *) { color: oklch(0.53 0.12 90); }
+  :root:not(.dark) [class~="text-yellow-200"]:not(.mockup *) { color: oklch(0.53 0.12 90); }
+  :root:not(.dark) [class~="text-yellow-300"]:not(.mockup *) { color: oklch(0.53 0.12 90); }
+  :root:not(.dark) [class~="text-yellow-400"]:not(.mockup *) { color: oklch(0.53 0.12 90); }
+  :root:not(.dark) [class~="text-violet-50"]:not(.mockup *) { color: oklch(0.5 0.2 292); }
+  :root:not(.dark) [class~="text-violet-100"]:not(.mockup *) { color: oklch(0.5 0.2 292); }
+  :root:not(.dark) [class~="text-violet-200"]:not(.mockup *) { color: oklch(0.5 0.2 292); }
+  :root:not(.dark) [class~="text-violet-300"]:not(.mockup *) { color: oklch(0.5 0.2 292); }
+  :root:not(.dark) [class~="text-violet-400"]:not(.mockup *) { color: oklch(0.5 0.2 292); }
+  :root:not(.dark) [class~="text-blue-50"]:not(.mockup *) { color: oklch(0.5 0.2 262); }
+  :root:not(.dark) [class~="text-blue-100"]:not(.mockup *) { color: oklch(0.5 0.2 262); }
+  :root:not(.dark) [class~="text-blue-200"]:not(.mockup *) { color: oklch(0.5 0.2 262); }
+  :root:not(.dark) [class~="text-blue-300"]:not(.mockup *) { color: oklch(0.5 0.2 262); }
+  :root:not(.dark) [class~="text-blue-400"]:not(.mockup *) { color: oklch(0.5 0.2 262); }
+  :root:not(.dark) [class~="text-green-50"]:not(.mockup *) { color: oklch(0.5 0.14 150); }
+  :root:not(.dark) [class~="text-green-100"]:not(.mockup *) { color: oklch(0.5 0.14 150); }
+  :root:not(.dark) [class~="text-green-200"]:not(.mockup *) { color: oklch(0.5 0.14 150); }
+  :root:not(.dark) [class~="text-green-300"]:not(.mockup *) { color: oklch(0.5 0.14 150); }
+  :root:not(.dark) [class~="text-green-400"]:not(.mockup *) { color: oklch(0.5 0.14 150); }
+  :root:not(.dark) [class~="text-teal-50"]:not(.mockup *) { color: oklch(0.5 0.11 185); }
+  :root:not(.dark) [class~="text-teal-100"]:not(.mockup *) { color: oklch(0.5 0.11 185); }
+  :root:not(.dark) [class~="text-teal-200"]:not(.mockup *) { color: oklch(0.5 0.11 185); }
+  :root:not(.dark) [class~="text-teal-300"]:not(.mockup *) { color: oklch(0.5 0.11 185); }
+  :root:not(.dark) [class~="text-teal-400"]:not(.mockup *) { color: oklch(0.5 0.11 185); }
+  :root:not(.dark) [class~="text-cyan-50"]:not(.mockup *) { color: oklch(0.5 0.11 220); }
+  :root:not(.dark) [class~="text-cyan-100"]:not(.mockup *) { color: oklch(0.5 0.11 220); }
+  :root:not(.dark) [class~="text-cyan-200"]:not(.mockup *) { color: oklch(0.5 0.11 220); }
+  :root:not(.dark) [class~="text-cyan-300"]:not(.mockup *) { color: oklch(0.5 0.11 220); }
+  :root:not(.dark) [class~="text-cyan-400"]:not(.mockup *) { color: oklch(0.5 0.11 220); }
+  :root:not(.dark) [class~="text-indigo-50"]:not(.mockup *) { color: oklch(0.48 0.2 275); }
+  :root:not(.dark) [class~="text-indigo-100"]:not(.mockup *) { color: oklch(0.48 0.2 275); }
+  :root:not(.dark) [class~="text-indigo-200"]:not(.mockup *) { color: oklch(0.48 0.2 275); }
+  :root:not(.dark) [class~="text-indigo-300"]:not(.mockup *) { color: oklch(0.48 0.2 275); }
+  :root:not(.dark) [class~="text-indigo-400"]:not(.mockup *) { color: oklch(0.48 0.2 275); }
+  :root:not(.dark) [class~="text-pink-50"]:not(.mockup *) { color: oklch(0.53 0.17 350); }
+  :root:not(.dark) [class~="text-pink-100"]:not(.mockup *) { color: oklch(0.53 0.17 350); }
+  :root:not(.dark) [class~="text-pink-200"]:not(.mockup *) { color: oklch(0.53 0.17 350); }
+  :root:not(.dark) [class~="text-pink-300"]:not(.mockup *) { color: oklch(0.53 0.17 350); }
+  :root:not(.dark) [class~="text-pink-400"]:not(.mockup *) { color: oklch(0.53 0.17 350); }
+  :root:not(.dark) [class~="text-red-50"]:not(.mockup *) { color: oklch(0.52 0.19 25); }
+  :root:not(.dark) [class~="text-red-100"]:not(.mockup *) { color: oklch(0.52 0.19 25); }
+  :root:not(.dark) [class~="text-red-200"]:not(.mockup *) { color: oklch(0.52 0.19 25); }
+  :root:not(.dark) [class~="text-red-300"]:not(.mockup *) { color: oklch(0.52 0.19 25); }
+  :root:not(.dark) [class~="text-red-400"]:not(.mockup *) { color: oklch(0.52 0.19 25); }
+  :root:not(.dark) [class~="text-lime-50"]:not(.mockup *) { color: oklch(0.52 0.14 130); }
+  :root:not(.dark) [class~="text-lime-100"]:not(.mockup *) { color: oklch(0.52 0.14 130); }
+  :root:not(.dark) [class~="text-lime-200"]:not(.mockup *) { color: oklch(0.52 0.14 130); }
+  :root:not(.dark) [class~="text-lime-300"]:not(.mockup *) { color: oklch(0.52 0.14 130); }
+  :root:not(.dark) [class~="text-lime-400"]:not(.mockup *) { color: oklch(0.52 0.14 130); }
+}
