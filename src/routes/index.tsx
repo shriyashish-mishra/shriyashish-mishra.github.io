@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle, Car, Music, Sparkles, Scale, Dumbbell } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import portraitCutout from "@/assets/shriyashish-editorial-cutout.png";
+import playfulPortrait from "@/assets/shriyashish-playful-original.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -141,15 +141,14 @@ function Home() {
             <h1 className="playful-heading relative z-10 max-w-6xl text-[clamp(3.4rem,10vw,9rem)]">
               Shriyashish <span className="hero-word-mark block md:inline">Mishra</span>
             </h1>
-            <figure className="portrait-wrap relative z-20 mx-auto my-10 w-[min(78vw,19rem)] md:absolute md:right-[1%] md:top-[43%] md:my-0 md:w-[clamp(13rem,21vw,19rem)] lg:right-[4%]">
-              <div className="portrait-shape portrait-shape-one" aria-hidden="true" />
-              <div className="portrait-shape portrait-shape-two" aria-hidden="true" />
-              <div className="portrait-dot-field" aria-hidden="true" />
-              <img
-                src={portraitCutout}
-                alt="Shriyashish Mishra"
-                className="relative z-10 w-full"
-              />
+            <figure className="portrait-wrap relative z-20 mx-auto my-10 w-[min(72vw,18rem)] md:absolute md:right-[1%] md:top-[43%] md:my-0 md:w-[clamp(12rem,19vw,18rem)] lg:right-[4%]">
+              <div className="portrait-frame">
+                <img
+                  src={playfulPortrait}
+                  alt="Shriyashish Mishra"
+                  className="w-full"
+                />
+              </div>
               <figcaption className="portrait-caption">HELLO, THAT'S ME <span>↗</span></figcaption>
             </figure>
             <p className="mt-10 max-w-4xl font-serif text-2xl leading-tight text-foreground md:ml-[7%] md:max-w-[58%] md:text-4xl">
