@@ -1,12 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { PlayfulPage } from "@/components/playful-page";
 
 export const Route = createFileRoute("/blusmart-mumbai-expansion")({
   head: () => ({
     meta: [
       { title: "Launching BluSmart in Mumbai — Case Study" },
       { name: "description", content: "Go-to-market strategy for launching BluSmart in Mumbai with an initial fleet of 150 Tata Ziptron EVs." },
+      { property: "og:title", content: "Launching BluSmart in Mumbai — Case Study" },
+      { property: "og:description", content: "Go-to-market strategy for launching BluSmart in Mumbai with an initial fleet of 150 Tata Ziptron EVs." },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: BluSmartCaseStudy,
@@ -122,7 +127,8 @@ const learnings = [
 function BluSmartCaseStudy() {
   const accent = "text-[#5b8def]";
   return (
-    <div className="relative z-10 min-h-screen text-foreground">
+    <div className="case-playful case-blusmart relative z-10 min-h-screen overflow-hidden text-foreground">
+      <PlayfulPage />
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-16 h-16 flex items-center justify-between">

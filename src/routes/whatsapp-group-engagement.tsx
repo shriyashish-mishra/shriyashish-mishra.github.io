@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { PlayfulPage } from "@/components/playful-page";
 
 export const Route = createFileRoute("/whatsapp-group-engagement")({
   head: () => ({
@@ -9,6 +10,8 @@ export const Route = createFileRoute("/whatsapp-group-engagement")({
       { name: "description", content: "Designing product interventions to increase participation, retention, and meaningful interactions within WhatsApp groups." },
       { property: "og:title", content: "Increasing WhatsApp Group Engagement" },
       { property: "og:description", content: "Product interventions to drive participation and retention inside WhatsApp groups." },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: WhatsAppCase,
@@ -132,7 +135,8 @@ const colorMap: Record<string, string> = {
 
 function WhatsAppCase() {
   return (
-    <div className="relative z-10 min-h-screen text-foreground">
+    <div className="case-playful case-whatsapp relative z-10 min-h-screen overflow-hidden text-foreground">
+      <PlayfulPage />
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
         <div className="max-w-[1200px] mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
