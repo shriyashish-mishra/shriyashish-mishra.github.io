@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle, Car, Music, Sparkles, Scale, Dumbbell } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import portraitAsset from "@/assets/shriyashish-portrait.png.asset.json";
+import portraitCutout from "@/assets/shriyashish-editorial-cutout.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -141,21 +141,16 @@ function Home() {
             <h1 className="playful-heading relative z-10 max-w-6xl text-[clamp(3.4rem,10vw,9rem)]">
               Shriyashish <span className="hero-word-mark block md:inline">Mishra</span>
             </h1>
-            <figure className="portrait-wrap relative z-20 mx-auto my-12 w-[min(72vw,18rem)] md:absolute md:right-[2%] md:top-[48%] md:my-0 md:w-[clamp(12rem,19vw,18rem)] lg:right-[5%]">
-              <div className="portrait-orbit" aria-hidden="true">
-                <span>DISCOVER</span><span>BUILD</span><span>LEARN</span>
-              </div>
-              <div className="portrait-frame">
-                <span className="portrait-tape" aria-hidden="true" />
-                <img
-                  src={portraitAsset.url}
-                  alt="Shriyashish Mishra"
-                  className="aspect-[4/5] w-full object-cover object-top"
-                />
-                <figcaption className="flex items-center justify-between gap-3 px-3 py-3 font-mono text-[0.62rem] text-foreground">
-                  <span>HELLO, THAT'S ME</span><span className="text-brand">↗</span>
-                </figcaption>
-              </div>
+            <figure className="portrait-wrap relative z-20 mx-auto my-10 w-[min(78vw,19rem)] md:absolute md:right-[1%] md:top-[43%] md:my-0 md:w-[clamp(13rem,21vw,19rem)] lg:right-[4%]">
+              <div className="portrait-shape portrait-shape-one" aria-hidden="true" />
+              <div className="portrait-shape portrait-shape-two" aria-hidden="true" />
+              <div className="portrait-dot-field" aria-hidden="true" />
+              <img
+                src={portraitCutout}
+                alt="Shriyashish Mishra"
+                className="relative z-10 w-full"
+              />
+              <figcaption className="portrait-caption">HELLO, THAT'S ME <span>↗</span></figcaption>
             </figure>
             <p className="mt-10 max-w-4xl font-serif text-2xl leading-tight text-foreground md:ml-[7%] md:max-w-[58%] md:text-4xl">
               Product Manager building products through strategy, experimentation, execution, and AI.
