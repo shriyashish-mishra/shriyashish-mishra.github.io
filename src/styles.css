@@ -166,6 +166,108 @@
     -webkit-text-stroke: 1px var(--brand);
     color: transparent;
   }
+
+  .playful-home .portrait-wrap {
+    animation: portrait-float 5s ease-in-out infinite;
+  }
+
+  .playful-home .portrait-frame {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--brand);
+    border-radius: 0.35rem;
+    background: var(--card);
+    box-shadow: 12px 12px 0 var(--brand-soft);
+    transform: rotate(3deg);
+    transition: transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 350ms ease;
+  }
+
+  .playful-home .portrait-frame:hover {
+    transform: rotate(-1deg) scale(1.03);
+    box-shadow: 17px 17px 0 var(--brand-soft);
+  }
+
+  .playful-home .portrait-frame img {
+    filter: saturate(0.9) contrast(1.03);
+    transition: filter 350ms ease, transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .playful-home .portrait-frame:hover img {
+    filter: saturate(1.05) contrast(1.02);
+    transform: scale(1.035);
+  }
+
+  .playful-home .portrait-tape {
+    position: absolute;
+    z-index: 2;
+    top: -0.35rem;
+    left: 50%;
+    width: 4.5rem;
+    height: 1.35rem;
+    transform: translateX(-50%) rotate(-4deg);
+    background: color-mix(in oklab, var(--brand) 48%, transparent);
+    backdrop-filter: blur(2px);
+  }
+
+  .playful-home .portrait-orbit {
+    position: absolute;
+    inset: -1.8rem;
+    z-index: -1;
+    border: 1px dashed var(--brand);
+    border-radius: 50%;
+    animation: orbit-spin 18s linear infinite;
+  }
+
+  .playful-home .portrait-orbit span {
+    position: absolute;
+    border: 1px solid var(--play-line);
+    background: var(--background);
+    padding: 0.3rem 0.5rem;
+    color: var(--brand);
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+  }
+
+  .playful-home .portrait-orbit span:nth-child(1) { left: 6%; top: 5%; }
+  .playful-home .portrait-orbit span:nth-child(2) { right: -3%; top: 49%; }
+  .playful-home .portrait-orbit span:nth-child(3) { bottom: 2%; left: 18%; }
+
+  .playful-home .hero-sticker {
+    animation: sticker-wiggle 4s ease-in-out infinite;
+  }
+
+  .playful-home .play-icon-stage svg {
+    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1), color 250ms ease;
+  }
+
+  .playful-home .play-card:hover .play-icon-stage svg {
+    color: var(--brand);
+    transform: rotate(-8deg) scale(1.15);
+  }
+
+  .playful-home .play-chip {
+    transition: transform 180ms ease, background-color 180ms ease;
+  }
+
+  .playful-home .play-chip:hover {
+    transform: translateY(-4px) rotate(-2deg);
+    background: color-mix(in oklab, var(--brand-soft) 75%, var(--card));
+  }
+
+  @keyframes portrait-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes orbit-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes sticker-wiggle {
+    0%, 100% { transform: rotate(6deg) translateY(0); }
+    50% { transform: rotate(3deg) translateY(-5px); }
+  }
 }
 
 @media (min-width: 768px) {
@@ -176,7 +278,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .playful-home .play-card,
-  .playful-home .fade-up { animation: none; transition: none; }
+  .playful-home .fade-up,
+  .playful-home .portrait-wrap,
+  .playful-home .portrait-orbit,
+  .playful-home .hero-sticker { animation: none; transition: none; }
   .playful-home .play-card:hover { transform: none; }
 }
 

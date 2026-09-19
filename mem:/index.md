@@ -5,3 +5,4 @@ Homepage personality is playful and professional, using neon mint accents, Outfi
 
 ## Memories
 - [Homepage visual direction](mem://design/homepage-personality) — Playful visual system and interaction rules
+- [Portfolio portrait](mem://features/portrait) — User photo used as a playful homepage visual
