@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Car, Music, Sparkles, Scale, Dumbbell } from "lucide-react";
+import { ArrowRight, MessageCircle, Car, Music, Sparkles, Scale, Dumbbell, MoveUpRight } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { CountUp, PlayfulPage } from "@/components/playful-page";
 import playfulPortrait from "@/assets/shriyashish-playful-original.png";
 
 export const Route = createFileRoute("/")({
@@ -10,6 +11,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Product Manager building products through strategy, experimentation, execution, and AI." },
       { property: "og:title", content: "Shriyashish Mishra — Portfolio" },
       { property: "og:description", content: "Product Manager building products through strategy, experimentation, execution, and AI." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Home,
@@ -110,6 +113,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 function Home() {
   return (
     <div className="playful-home relative z-10 min-h-screen overflow-hidden text-foreground">
+      <PlayfulPage />
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
         <div className="max-w-[1400px] mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
@@ -169,7 +173,7 @@ function Home() {
         </section>
 
         {/* CORE PRINCIPLES */}
-        <section className="py-28">
+        <section className="py-28 section-spark section-spark-right">
           <SectionLabel>SECTION 01 / FRAMEWORKS</SectionLabel>
           <h2 className="playful-heading text-5xl mb-16 md:text-6xl">Core Principles</h2>
           <div className="broken-grid grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -186,13 +190,13 @@ function Home() {
         </section>
 
         {/* MEASURED IMPACT */}
-        <section className="py-28">
+        <section className="py-28 section-spark">
           <SectionLabel>SECTION 02 / OUTCOMES</SectionLabel>
            <h2 className="playful-heading text-5xl mb-20 md:text-6xl">Measured Impact</h2>
            <div className="metric-grid grid gap-7 md:grid-cols-2">
             {metrics.map((m) => (
               <div key={m.title} className="play-card grid grid-cols-[auto_1fr] items-start gap-6 rounded-md p-7 md:p-9">
-                <div className="play-index text-6xl leading-none md:text-7xl">{m.value}</div>
+                 <div className="play-index text-6xl leading-none md:text-7xl"><CountUp value={m.value} /></div>
                 <div>
                   <h3 className="font-sans font-semibold text-foreground mb-3">{m.title}</h3>
                   <p className="italic text-sm text-muted-foreground leading-relaxed max-w-sm">{m.body}</p>
@@ -215,8 +219,8 @@ function Home() {
           </div>
 
           <div className="space-y-14">
-            {experience.map((e) => (
-               <article key={e.company} className="play-card rounded-md overflow-hidden">
+            {experience.map((e, index) => (
+               <article key={e.company} className="play-card experience-stop rounded-md overflow-hidden" style={{ "--journey-index": index } as React.CSSProperties}>
                 {/* Header */}
                 <header className="p-7 md:p-9 border-b border-border/50">
                   <div className="flex flex-wrap justify-between items-start gap-3">
@@ -272,6 +276,12 @@ function Home() {
           </div>
         </section>
 
+        <div className="play-ticker" aria-hidden="true">
+          <div>
+            <span>DISCOVER DEEPLY</span><i>✦</i><span>BUILD BOLDLY</span><i>✦</i><span>MEASURE HONESTLY</span><i>✦</i><span>LEARN CONSTANTLY</span><i>✦</i>
+            <span>DISCOVER DEEPLY</span><i>✦</i><span>BUILD BOLDLY</span><i>✦</i><span>MEASURE HONESTLY</span><i>✦</i><span>LEARN CONSTANTLY</span><i>✦</i>
+          </div>
+        </div>
 
         {/* AI CASE STUDIES */}
         <section id="work" className="py-28 scroll-mt-20">
@@ -299,6 +309,7 @@ function Home() {
                     <div className="label-mono mb-3">{c.tag}</div>
                     <h3 className="font-sans font-semibold text-lg mb-3">{c.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+                     <div className="project-action">EXPLORE PROJECT <MoveUpRight className="h-3.5 w-3.5" /></div>
                   </div>
                 </a>
               );
@@ -327,6 +338,7 @@ function Home() {
                     <div className="label-mono mb-3">{c.tag}</div>
                     <h3 className="font-sans font-semibold text-lg mb-3">{c.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+                     <div className="project-action">READ CASE STUDY <ArrowRight className="h-3.5 w-3.5" /></div>
                   </div>
                 </Link>
               );
@@ -371,7 +383,7 @@ function Home() {
         </section>
 
         {/* CONCLUDING NOTE */}
-         <section className="py-32 text-center max-w-4xl mx-auto">
+         <section className="play-finale py-32 text-center max-w-4xl mx-auto">
            <div className="mx-auto mb-8 w-fit rotate-[-2deg] bg-brand px-4 py-2 font-mono text-xs font-semibold text-background">ONE LAST THING</div>
            <h2 className="playful-heading text-5xl md:text-7xl mb-12">Building Products That Matter</h2>
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
@@ -385,10 +397,11 @@ function Home() {
 
 
         {/* FOOTER / CONTACT */}
-        <footer id="contact" className="border-t border-border/50 py-16 scroll-mt-20">
+         <footer id="contact" className="play-contact border-t border-border/50 py-16 scroll-mt-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
             <div>
               <SectionLabel>CONTACT</SectionLabel>
+               <div className="availability-pulse mb-5"><span /> OPEN TO GOOD CONVERSATIONS</div>
               <p className="font-serif italic text-3xl max-w-md">
                 I'm always interested in product conversations, ambitious teams, and <em>difficult problems worth solving</em>.
               </p>
