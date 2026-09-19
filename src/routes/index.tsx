@@ -108,7 +108,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 function Home() {
   return (
-    <div className="relative z-10 min-h-screen text-foreground">
+    <div className="playful-home relative z-10 min-h-screen overflow-hidden text-foreground">
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
         <div className="max-w-[1400px] mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
@@ -128,23 +128,26 @@ function Home() {
 
       <main id="top" className="max-w-[1400px] mx-auto px-8 lg:px-16">
         {/* HERO */}
-        <section className="min-h-[88vh] flex flex-col justify-center py-24">
-          <div className="fade-up">
+        <section className="min-h-[88vh] flex flex-col justify-center py-24 md:py-28">
+          <div className="fade-up relative">
             <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand-soft px-5 py-2 mb-12">
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />
               <span className="font-mono text-[0.7rem] tracking-[0.18em] text-brand">AVAILABLE FOR NEW CHALLENGES</span>
             </div>
-            <h1 className="display-sans text-[clamp(3rem,9vw,8rem)]">
-              Shriyashish Mishra
+            <div className="absolute right-0 top-2 hidden rotate-6 border border-brand/40 bg-brand-soft px-5 py-3 font-mono text-xs text-brand lg:block">
+              PRODUCT × GROWTH × AI
+            </div>
+            <h1 className="playful-heading max-w-6xl text-[clamp(3.4rem,10vw,9rem)]">
+              Shriyashish <span className="hero-word-mark block md:inline">Mishra</span>
             </h1>
-            <p className="font-serif italic text-2xl md:text-4xl text-muted-foreground mt-10 max-w-4xl leading-tight">
+            <p className="mt-10 max-w-4xl font-serif text-2xl leading-tight text-foreground md:ml-[12%] md:text-4xl">
               Product Manager building products through strategy, experimentation, execution, and AI.
             </p>
-            <p className="mt-10 text-base text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="mt-10 max-w-2xl text-base leading-relaxed text-muted-foreground md:ml-[12%]">
               I enjoy solving ambiguous problems, understanding user behavior, and building products that create measurable impact in fast-paced environments.
             </p>
-            <div className="mt-14 flex flex-wrap gap-4">
-              <a href="#work" className="inline-flex items-center gap-2 bg-foreground text-background px-7 py-4 text-sm hover:opacity-90 transition">
+            <div className="mt-14 flex flex-wrap gap-4 md:ml-[12%]">
+              <a href="#work" className="inline-flex items-center gap-2 bg-brand px-7 py-4 text-sm font-semibold text-background shadow-[6px_6px_0_var(--brand-soft)] transition hover:-translate-y-1">
                 View Selected Work <ArrowRight className="h-4 w-4" />
               </a>
               <a href={RESUME_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-border px-7 py-4 text-sm hover:bg-accent transition">
@@ -157,10 +160,10 @@ function Home() {
         {/* CORE PRINCIPLES */}
         <section className="py-28">
           <SectionLabel>SECTION 01 / FRAMEWORKS</SectionLabel>
-          <h2 className="font-serif text-5xl mb-16">Core Principles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="playful-heading text-5xl mb-16 md:text-6xl">Core Principles</h2>
+          <div className="broken-grid grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {principles.map((p) => (
-              <div key={p.num} className="border border-border/60 rounded-md p-7 bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
+              <div key={p.num} className="play-card rounded-md p-7">
                 <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground mb-8">
                   {p.num} / {p.tag}
                 </div>
@@ -174,11 +177,11 @@ function Home() {
         {/* MEASURED IMPACT */}
         <section className="py-28">
           <SectionLabel>SECTION 02 / OUTCOMES</SectionLabel>
-          <h2 className="font-serif italic text-5xl mb-20">Measured Impact</h2>
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-20">
+           <h2 className="playful-heading text-5xl mb-20 md:text-6xl">Measured Impact</h2>
+           <div className="metric-grid grid gap-7 md:grid-cols-2">
             {metrics.map((m) => (
-              <div key={m.title} className="grid grid-cols-[auto_1fr] gap-8 items-start">
-                <div className="font-serif text-7xl md:text-8xl leading-none">{m.value}</div>
+              <div key={m.title} className="play-card grid grid-cols-[auto_1fr] items-start gap-6 rounded-md p-7 md:p-9">
+                <div className="play-index text-6xl leading-none md:text-7xl">{m.value}</div>
                 <div>
                   <h3 className="font-sans font-semibold text-foreground mb-3">{m.title}</h3>
                   <p className="italic text-sm text-muted-foreground leading-relaxed max-w-sm">{m.body}</p>
@@ -193,7 +196,7 @@ function Home() {
           <div className="flex flex-wrap items-end justify-between gap-6 mb-16">
             <div>
               <SectionLabel>SECTION 03 / CAREER</SectionLabel>
-              <h2 className="font-serif italic text-5xl">Experience Summary</h2>
+               <h2 className="playful-heading text-5xl md:text-6xl">Experience Summary</h2>
             </div>
             <p className="font-serif italic text-muted-foreground max-w-sm text-sm leading-relaxed">
               Three roles. A consistent arc — from owning growth charters to shaping AI-native product surfaces.
@@ -202,7 +205,7 @@ function Home() {
 
           <div className="space-y-14">
             {experience.map((e) => (
-              <article key={e.company} className="border border-border/60 rounded-md bg-card/40 hover:bg-card/60 transition-colors overflow-hidden">
+               <article key={e.company} className="play-card rounded-md overflow-hidden">
                 {/* Header */}
                 <header className="p-7 md:p-9 border-b border-border/50">
                   <div className="flex flex-wrap justify-between items-start gap-3">
@@ -223,7 +226,7 @@ function Home() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     {e.stats.map((s) => (
                       <div key={s.label} className="border border-border/50 rounded-md p-6 bg-card/30">
-                        <div className="font-serif text-4xl md:text-5xl leading-none mb-3">{s.value}</div>
+                         <div className="play-index text-4xl md:text-5xl leading-none mb-3">{s.value}</div>
                         <div className="label-mono mb-2">{s.label}</div>
                         <p className="text-sm text-muted-foreground leading-relaxed">{s.context}</p>
                       </div>
@@ -264,16 +267,16 @@ function Home() {
           <div className="flex items-end justify-between mb-10">
             <div>
               <SectionLabel>GROUP A</SectionLabel>
-              <h2 className="font-serif italic text-5xl">AI Case Studies</h2>
+               <h2 className="playful-heading text-5xl md:text-6xl">AI Case Studies</h2>
             </div>
             <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">01 — 03</div>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+           <div className="broken-grid grid gap-6 md:grid-cols-3">
             {aiCases.map((c) => {
               const Icon = c.icon;
               return (
-                <a key={c.title} href={c.url} target="_blank" rel="noreferrer" className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
-                  <div className="relative aspect-[4/3] bg-gradient-to-br from-brand-soft to-transparent flex items-center justify-center">
+                 <a key={c.title} href={c.url} target="_blank" rel="noreferrer" className="play-card group block rounded-md overflow-hidden">
+                   <div className="play-icon-stage relative aspect-[4/3] flex items-center justify-center">
                     {c.featured && (
                       <div className="absolute top-4 left-4 inline-flex items-center rounded-full bg-foreground text-background px-3 py-1.5">
                         <span className="font-mono text-[0.65rem] tracking-[0.18em] font-semibold">FEATURED</span>
@@ -297,16 +300,16 @@ function Home() {
           <div className="flex items-end justify-between mb-10">
             <div>
               <SectionLabel>GROUP B</SectionLabel>
-              <h2 className="font-serif italic text-5xl">Product Case Studies</h2>
+               <h2 className="playful-heading text-5xl md:text-6xl">Product Case Studies</h2>
             </div>
             <div className="font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground">04 — 06</div>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+           <div className="broken-grid grid gap-6 md:grid-cols-3">
             {productCases.map((c) => {
               const Icon = c.icon;
               return (
-                <Link key={c.title} to={c.to} className="group block border border-border/60 rounded-md overflow-hidden bg-card/40 hover:bg-card/70 hover:-translate-y-0.5 transition-all">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-brand-soft to-transparent flex items-center justify-center">
+                 <Link key={c.title} to={c.to} className="play-card group block rounded-md overflow-hidden">
+                   <div className="play-icon-stage aspect-[4/3] flex items-center justify-center">
                     <Icon className="h-14 w-14 text-muted-foreground/50 group-hover:text-muted-foreground transition" strokeWidth={1.2} />
                   </div>
                   <div className="p-7">
@@ -323,10 +326,10 @@ function Home() {
         {/* CAPABILITIES */}
         <section className="py-28">
           <SectionLabel>SECTION 04 / TOOLING</SectionLabel>
-          <h2 className="font-serif italic text-5xl mb-16">Capabilities</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
+           <h2 className="playful-heading text-5xl mb-16 md:text-6xl">Capabilities</h2>
+           <div className="broken-grid grid grid-cols-2 gap-5 md:grid-cols-5">
             {capabilities.map((col) => (
-              <div key={col.group}>
+               <div key={col.group} className="play-card rounded-md p-5">
                 <div className="label-mono mb-6">{col.group}</div>
                 <ul className="space-y-3">
                   {col.items.map((i) => (
@@ -343,11 +346,11 @@ function Home() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <SectionLabel>SECTION 05 / CURIOSITIES</SectionLabel>
-              <h2 className="font-serif italic text-5xl">Currently Exploring</h2>
+               <h2 className="playful-heading text-5xl md:text-6xl">Currently Exploring</h2>
             </div>
             <div className="flex flex-wrap gap-3">
               {exploring.map((t) => (
-                <span key={t} className="rounded-full border border-border/70 px-4 py-1.5 font-mono text-xs text-muted-foreground">
+                 <span key={t} className="play-chip rounded-full px-4 py-1.5 font-mono text-xs">
                   {t}
                 </span>
               ))}
@@ -357,8 +360,9 @@ function Home() {
         </section>
 
         {/* CONCLUDING NOTE */}
-        <section className="py-32 text-center max-w-3xl mx-auto">
-          <h2 className="font-serif text-5xl md:text-6xl mb-12">Building Products That Matter</h2>
+         <section className="py-32 text-center max-w-4xl mx-auto">
+           <div className="mx-auto mb-8 w-fit rotate-[-2deg] bg-brand px-4 py-2 font-mono text-xs font-semibold text-background">ONE LAST THING</div>
+           <h2 className="playful-heading text-5xl md:text-7xl mb-12">Building Products That Matter</h2>
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>I enjoy working at the intersection of user behavior, business outcomes, execution, and emerging technologies.</p>
             <p>Whether solving operational challenges, improving growth systems, or designing AI-powered experiences, my focus remains the same:</p>
