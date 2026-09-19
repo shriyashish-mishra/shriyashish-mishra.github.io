@@ -47,6 +47,9 @@
   --grain-opacity: 0.25;
   --grain-rgb: 0 0 0;
   --surface-tint: rgba(0, 0, 0, 0.02);
+  --play-coral: oklch(0.69 0.19 28);
+  --play-sky: oklch(0.67 0.14 235);
+  --play-yellow: oklch(0.82 0.15 88);
 }
 
 .dark {
@@ -69,6 +72,9 @@
   --grain-opacity: 0.4;
   --grain-rgb: 1 1 1;
   --surface-tint: rgba(255, 255, 255, 0.02);
+  --play-coral: oklch(0.75 0.17 28);
+  --play-sky: oklch(0.75 0.12 235);
+  --play-yellow: oklch(0.87 0.14 88);
 }
 
 @layer base {
@@ -130,6 +136,22 @@
     line-height: 0.96;
   }
 
+  .playful-home .playful-heading::after,
+  .case-playful h2::after {
+    display: block;
+    width: min(7rem, 28%);
+    height: 0.55rem;
+    margin-top: 0.45rem;
+    background: repeating-linear-gradient(-12deg, transparent 0 5px, var(--brand) 5px 7px, transparent 7px 11px);
+    content: "";
+    transform: skewX(-15deg);
+    transform-origin: left;
+    transition: width 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .playful-home section:hover .playful-heading::after,
+  .case-playful section:hover h2::after { width: min(11rem, 42%); }
+
   .playful-home .play-card {
     border: 1px solid var(--play-line);
     background: color-mix(in oklab, var(--card) 88%, var(--brand-soft));
@@ -141,6 +163,12 @@
     transform: translate(-3px, -3px) rotate(-0.35deg);
     box-shadow: 11px 11px 0 var(--brand-soft);
     border-color: var(--brand);
+  }
+
+  .playful-home .play-card:focus-visible,
+  .case-playful a:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 5px;
   }
 
   .playful-home .play-chip {
@@ -242,6 +270,126 @@
     background: color-mix(in oklab, var(--brand-soft) 75%, var(--card));
   }
 
+  .playful-home .section-spark::before {
+    position: absolute;
+    top: 5rem;
+    left: -1.4rem;
+    color: var(--play-coral);
+    content: "✦";
+    font-size: 2.2rem;
+    animation: sparkle-turn 6s linear infinite;
+  }
+
+  .playful-home .section-spark-right::before { right: -1rem; left: auto; color: var(--play-yellow); }
+
+  .playful-home .experience-stop {
+    position: relative;
+  }
+
+  .playful-home .experience-stop::before {
+    position: absolute;
+    top: -2.4rem;
+    left: 1.75rem;
+    z-index: 2;
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border: 1px solid var(--brand);
+    border-radius: 50%;
+    background: var(--background);
+    color: var(--brand);
+    content: counter(journey);
+    counter-increment: journey;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    box-shadow: 3px 3px 0 var(--brand-soft);
+  }
+
+  .playful-home #experience .space-y-14 { position: relative; counter-reset: journey; }
+  .playful-home #experience .space-y-14::before {
+    position: absolute;
+    top: -1.4rem;
+    bottom: 0;
+    left: 2.7rem;
+    width: 1px;
+    background: repeating-linear-gradient(to bottom, var(--brand) 0 7px, transparent 7px 13px);
+    content: "";
+  }
+
+  .playful-home .project-action {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: fit-content;
+    margin-top: 1.4rem;
+    color: var(--brand);
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+  }
+
+  .playful-home .project-action svg { transition: transform 220ms ease; }
+  .playful-home .play-card:hover .project-action svg { transform: translate(3px, -3px) rotate(4deg); }
+
+  .playful-home .play-ticker {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    border-block: 1px solid var(--brand);
+    background: var(--brand);
+    color: var(--background);
+    transform: rotate(-1deg);
+  }
+
+  .playful-home .play-ticker > div {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.8rem 0;
+    animation: ticker-roll 24s linear infinite;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+
+  .playful-home .play-ticker i { font-style: normal; }
+
+  .playful-home .play-finale::before {
+    position: absolute;
+    inset: 16% 4%;
+    z-index: -1;
+    border: 1px dashed var(--brand);
+    border-radius: 50%;
+    content: "";
+    animation: finale-breathe 7s ease-in-out infinite;
+  }
+
+  .playful-home .availability-pulse {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--brand);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
+  .playful-home .availability-pulse span {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--brand);
+    box-shadow: 0 0 0 0 var(--brand-soft);
+    animation: availability-ping 2s ease-out infinite;
+  }
+
+  .playful-home .play-contact a { position: relative; transition: color 180ms ease, transform 180ms ease; }
+  .playful-home .play-contact a:hover { color: var(--brand); transform: translateY(-2px); }
+
   @keyframes portrait-float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -251,7 +399,118 @@
     0%, 100% { transform: rotate(6deg) translateY(0); }
     50% { transform: rotate(3deg) translateY(-5px); }
   }
+
+  @keyframes sparkle-turn { to { transform: rotate(360deg); } }
+  @keyframes ticker-roll { to { transform: translateX(-50%); } }
+  @keyframes finale-breathe { 50% { transform: scale(1.035) rotate(1deg); } }
+  @keyframes availability-ping { 70% { box-shadow: 0 0 0 8px transparent; } }
 }
+
+.play-progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  height: 3px;
+  pointer-events: none;
+}
+
+.play-progress > div {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand), var(--play-yellow), var(--play-coral));
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
+
+.play-cursor {
+  position: fixed;
+  top: -1.1rem;
+  left: -1.1rem;
+  z-index: 90;
+  display: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  place-items: center;
+  border: 1px solid var(--brand);
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--background) 72%, transparent);
+  color: var(--brand);
+  pointer-events: none;
+  transition: width 180ms ease, height 180ms ease, margin 180ms ease, background-color 180ms ease;
+  backdrop-filter: blur(4px);
+  will-change: transform;
+}
+
+.play-cursor span { opacity: 0; font-family: var(--font-mono); font-size: 0.7rem; transition: opacity 150ms ease; }
+.play-cursor.is-active { width: 3.2rem; height: 3.2rem; margin: -0.5rem; background: var(--brand); color: var(--background); }
+.play-cursor.is-active span { opacity: 1; }
+
+.play-reveal {
+  opacity: 0;
+  transform: translateY(30px) rotate(0.2deg);
+  transition: opacity 750ms ease var(--reveal-delay, 0ms), transform 750ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+.play-reveal.is-visible { opacity: 1; transform: none; }
+
+.case-playful {
+  --case-accent: var(--brand);
+  --case-soft: var(--brand-soft);
+}
+
+.case-spotify { --case-accent: var(--play-yellow); --case-soft: color-mix(in oklab, var(--play-yellow) 12%, transparent); }
+.case-blusmart { --case-accent: var(--play-sky); --case-soft: color-mix(in oklab, var(--play-sky) 12%, transparent); }
+
+.case-playful main > section { position: relative; }
+.case-playful main > section::before {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  color: color-mix(in oklab, var(--case-accent) 55%, transparent);
+  content: "✦";
+  font-size: 1rem;
+  transition: transform 350ms ease, color 350ms ease;
+}
+.case-playful main > section:hover::before { color: var(--case-accent); transform: rotate(45deg) scale(1.35); }
+
+.case-playful h1 {
+  position: relative;
+  text-wrap: balance;
+}
+
+.case-playful h1::after {
+  display: block;
+  width: 5.5rem;
+  height: 0.55rem;
+  margin-top: 1.25rem;
+  background: var(--case-accent);
+  content: "";
+  transform: rotate(-2deg);
+  box-shadow: 5px 5px 0 var(--case-soft);
+}
+
+.case-spotify h1::after { margin-inline: auto; }
+
+.case-playful main [class*="rounded"]:not(.mockup):not(.mockup *) {
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .play-cursor { display: grid; }
+  .case-playful main [class*="rounded"]:not(.mockup):not(.mockup *):hover {
+    border-color: var(--case-accent);
+    box-shadow: 7px 7px 0 var(--case-soft);
+    transform: translate(-2px, -2px);
+  }
+  .case-playful .mockup { transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 300ms ease; }
+  .case-playful .mockup:hover { transform: translateY(-8px) rotate(-1deg); box-shadow: 12px 18px 0 var(--case-soft); }
+}
+
+.case-playful main svg:not(.mockup svg) { transition: transform 320ms ease; }
+.case-playful main section:hover > svg:not(.mockup svg) { transform: scale(1.015); }
 
 @media (min-width: 768px) {
   .playful-home .broken-grid > :nth-child(2) { transform: translateY(2rem); }
@@ -263,8 +522,16 @@
   .playful-home .play-card,
   .playful-home .fade-up,
   .playful-home .portrait-wrap,
-  .playful-home .hero-sticker { animation: none; transition: none; }
+  .playful-home .hero-sticker,
+  .playful-home .play-ticker > div,
+  .playful-home .section-spark::before,
+  .playful-home .play-finale::before,
+  .playful-home .availability-pulse span { animation: none; transition: none; }
   .playful-home .play-card:hover { transform: none; }
+  .play-reveal { opacity: 1; transform: none; transition: none; }
+  .play-cursor { display: none; }
+  .case-playful main [class*="rounded"]:not(.mockup):not(.mockup *),
+  .case-playful .mockup { transition: none; }
 }
 
 /* Zamp-style eyebrow: blue mono label with a leading dot */
