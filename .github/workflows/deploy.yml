@@ -30,6 +30,16 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check build output
+        run: |
+          echo "=== ROOT DIRECTORY ==="
+          ls -la
+          echo ""
+          echo "=== BUILD DIRECTORIES ==="
+          find . -maxdepth 2 -type d \
+            -not -path './node_modules*' \
+            -not -path './.git*' | sort
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
