@@ -30,17 +30,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Find build output
+      - name: Check build output
         run: |
-          echo "=== ROOT ==="
-          ls -la
-          echo ""
-          echo "=== BUILD OUTPUT ==="
-          find . -maxdepth 3 -type f \
-            \( -name "index.html" -o -name "vite.svg" \) \
-            -not -path "./node_modules/*" \
-            -not -path "./.git/*" \
-            -print
+          echo "=== .output ==="
+          find .output -maxdepth 3 -type f | sort
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -48,7 +41,10 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: .output/public
 
       - name: Deploy
+        id: deployment
         uses: actions/deploy-pages@v4
+        env:
+          NODE_ENV: production
