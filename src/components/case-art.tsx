@@ -99,88 +99,153 @@ export function BluSmartArt({ className }: ArtProps) {
   );
 }
 
-// Small marks for the AI builds.
+// A phone: today's calories and protein, plus the nightly coach report.
 export function HulkArt({ className }: ArtProps) {
+  const mono = "ui-monospace, SFMono-Regular, Menlo, monospace";
   return (
     <Frame className={className}>
-      <path d="M 40 170 L 110 170 L 130 120 L 150 200 L 170 90 L 190 170 L 360 170" stroke="currentColor" strokeOpacity="0.35" strokeWidth="2" />
-      <path className="art-drift stroke-brand" d="M 40 190 C 140 186, 220 150, 360 70" strokeWidth="2" />
-      <circle cx="360" cy="70" r="5" className="fill-brand" />
+      <rect x="140" y="16" width="120" height="216" rx="18" stroke="currentColor" strokeOpacity="0.5" strokeWidth="1.5" />
+      <rect x="186" y="22" width="28" height="4" rx="2" fill="currentColor" fillOpacity="0.25" />
+      <text x="154" y="52" fontSize="10" fontWeight="600" fill="currentColor">Today</text>
+      <rect x="154" y="62" width="48" height="36" rx="7" stroke="currentColor" strokeOpacity="0.35" />
+      <text x="160" y="76" fontSize="6" fill="currentColor" fillOpacity="0.55" fontFamily={mono}>Calories</text>
+      <text x="160" y="91" fontSize="12" fontWeight="600" fill="currentColor">1,742</text>
+      <rect x="208" y="62" width="48" height="36" rx="7" stroke="currentColor" strokeOpacity="0.35" />
+      <text x="214" y="76" fontSize="6" fill="currentColor" fillOpacity="0.55" fontFamily={mono}>Workout</text>
+      <text x="214" y="91" fontSize="9" fontWeight="600" fill="currentColor">Pull day</text>
+      <text x="154" y="114" fontSize="7" fill="currentColor" fillOpacity="0.6" fontFamily={mono}>Protein 112/130g</text>
+      <rect x="154" y="120" width="102" height="6" rx="3" fill="currentColor" fillOpacity="0.15" />
+      <rect x="154" y="120" width="88" height="6" rx="3" className="fill-brand" />
+      <g className="art-rise">
+        <rect x="152" y="140" width="106" height="62" rx="8" className="stroke-brand" strokeWidth="1.5" />
+        <text x="160" y="155" fontSize="7" fontWeight="600" className="fill-brand" fontFamily={mono}>Nightly coach report</text>
+        <line x1="160" y1="167" x2="248" y2="167" stroke="currentColor" strokeOpacity="0.4" strokeWidth="3" strokeLinecap="round" />
+        <line x1="160" y1="177" x2="232" y2="177" stroke="currentColor" strokeOpacity="0.4" strokeWidth="3" strokeLinecap="round" />
+        <line x1="160" y1="187" x2="240" y2="187" stroke="currentColor" strokeOpacity="0.4" strokeWidth="3" strokeLinecap="round" />
+      </g>
+      <path d="M 40 150 L 70 150 L 82 120 L 94 170 L 106 100 L 118 150 L 134 150" stroke="currentColor" strokeOpacity="0.3" strokeWidth="2" />
+      <path d="M 266 110 C 290 108, 310 90, 360 60" className="stroke-brand" strokeWidth="2" />
+      <circle cx="360" cy="60" r="4" className="fill-brand" />
     </Frame>
   );
 }
 
+// A compliance finding: the flagged product feature, the RBI clause it cites, and a risk rating.
 export function RegImpactArt({ className }: ArtProps) {
+  const mono = "ui-monospace, SFMono-Regular, Menlo, monospace";
   return (
     <Frame className={className}>
-      <rect x="120" y="36" width="160" height="176" rx="10" stroke="currentColor" strokeOpacity="0.5" />
-      {[0, 1, 2, 3].map((i) => (
-        <g key={i} className={i === 1 ? "art-rise" : ""}>
-          <rect x="140" y={64 + i * 36} width="14" height="14" rx="3" className={i === 1 ? "fill-brand" : ""} stroke="currentColor" strokeOpacity={i === 1 ? 0 : 0.4} />
-          <line x1="166" y1={71 + i * 36} x2={i === 1 ? 260 : 240 - i * 10} y2={71 + i * 36} stroke="currentColor" strokeOpacity="0.35" strokeWidth="4" strokeLinecap="round" />
+      <rect x="40" y="26" width="320" height="188" rx="10" stroke="currentColor" strokeOpacity="0.45" />
+      <text x="56" y="50" fontSize="10" fontWeight="600" fill="currentColor">Compliance findings</text>
+      <rect x="276" y="38" width="68" height="16" rx="8" stroke="currentColor" strokeOpacity="0.4" />
+      <text x="310" y="49" textAnchor="middle" fontSize="7" fill="currentColor" fillOpacity="0.6" fontFamily={mono}>RBI · KYC/AML</text>
+      {[0, 1, 2].map((i) => (
+        <g key={i} className={i === 0 ? "art-rise" : ""}>
+          <rect x="52" y={66 + i * 46} width="296" height="38" rx="7" stroke="currentColor" strokeOpacity={i === 0 ? 0 : 0.3} className={i === 0 ? "stroke-brand" : ""} strokeWidth={i === 0 ? 1.5 : 1} />
+          <rect x="62" y={78 + i * 46} width="40" height="14" rx="7" className={i === 0 ? "fill-brand" : ""} fill={i === 0 ? undefined : "currentColor"} fillOpacity={i === 0 ? 0.9 : 0.15} />
+          <text x="82" y={88 + i * 46} textAnchor="middle" fontSize="7" fontWeight="600" fill={i === 0 ? "#04130f" : "currentColor"} fillOpacity={i === 0 ? 1 : 0.6} fontFamily={mono}>{["HIGH", "MED", "LOW"][i]}</text>
+          <line x1="112" y1={82 + i * 46} x2={300 - i * 30} y2={82 + i * 46} stroke="currentColor" strokeOpacity="0.45" strokeWidth="3" strokeLinecap="round" />
+          <text x="112" y={96 + i * 46} fontSize="7" fill="currentColor" fillOpacity="0.55" fontFamily={mono}>{["Digital Lending Guidelines §4.2", "KYC Master Direction §16", "AML/CFT guidance §9"][i]}</text>
         </g>
       ))}
     </Frame>
   );
 }
 
+// Head-to-head: two products scored on the same dimensions, with a verdict.
 export function ProductBattleArt({ className }: ArtProps) {
-  const a = [60, 96, 72, 120];
-  const b = [84, 70, 110, 90];
+  const rows: [string, number, number][] = [["Onboarding", 78, 52], ["Pricing", 44, 70], ["Retention", 66, 88]];
   return (
     <Frame className={className}>
-      {a.map((h, i) => (
-        <g key={i}>
-          <rect x={104 + i * 52} y={190 - h} width="16" height={h} rx="3" fill="currentColor" fillOpacity="0.2" />
-          <rect x={124 + i * 52} y={190 - b[i]} width="16" height={b[i]} rx="3" className="art-rise fill-brand" />
+      <rect x="40" y="30" width="320" height="180" rx="10" stroke="currentColor" strokeOpacity="0.45" />
+      <text x="90" y="58" textAnchor="middle" fontSize="11" fontWeight="600" fill="currentColor">Product A</text>
+      <text x="200" y="58" textAnchor="middle" fontSize="10" className="fill-brand" fontFamily="ui-monospace, monospace">VS</text>
+      <text x="310" y="58" textAnchor="middle" fontSize="11" fontWeight="600" fill="currentColor">Product B</text>
+      {rows.map(([label, a, b], i) => (
+        <g key={label}>
+          <text x="200" y={90 + i * 34} textAnchor="middle" fontSize="9" fill="currentColor" fillOpacity="0.55" fontFamily="ui-monospace, monospace">{label}</text>
+          <rect x={190 - a} y={96 + i * 34} width={a} height="8" rx="4" fill="currentColor" fillOpacity={a > b ? 0.55 : 0.2} />
+          <rect x="210" y={96 + i * 34} width={b} height="8" rx="4" className={b > a ? "art-rise fill-brand" : ""} fill={b > a ? undefined : "currentColor"} fillOpacity={b > a ? undefined : 0.2} />
         </g>
       ))}
-      <line x1="90" y1="190" x2="320" y2="190" stroke="currentColor" strokeOpacity="0.3" />
+      <rect x="60" y="184" width="280" height="18" rx="9" className="fill-brand" fillOpacity="0.18" />
+      <text x="200" y="196.5" textAnchor="middle" fontSize="9" className="fill-brand" fontFamily="ui-monospace, monospace">Verdict: B wins on retention and pricing</text>
     </Frame>
   );
 }
 
+// Two front doors: a plain-language prompt on one side, the code and live preview on the other.
 export function ArchitectArt({ className }: ArtProps) {
+  const mono = "ui-monospace, SFMono-Regular, Menlo, monospace";
   return (
     <Frame className={className}>
-      <rect x="70" y="50" width="110" height="140" rx="8" stroke="currentColor" strokeOpacity="0.5" />
-      {[0, 1, 2, 3].map((i) => (
-        <line key={i} x1="86" y1={76 + i * 28} x2={150 - (i % 2) * 24} y2={76 + i * 28} stroke="currentColor" strokeOpacity="0.35" strokeWidth="4" strokeLinecap="round" />
-      ))}
-      <rect x="210" y="50" width="120" height="140" rx="8" className="art-rise stroke-brand" strokeWidth="2" />
-      <rect x="226" y="68" width="88" height="30" rx="4" className="fill-brand" fillOpacity="0.25" />
-      <rect x="226" y="108" width="40" height="64" rx="4" stroke="currentColor" strokeOpacity="0.4" />
-      <rect x="274" y="108" width="40" height="64" rx="4" stroke="currentColor" strokeOpacity="0.4" />
+      <rect x="30" y="34" width="150" height="172" rx="10" stroke="currentColor" strokeOpacity="0.45" />
+      <text x="44" y="56" fontSize="8" fill="currentColor" fillOpacity="0.55" fontFamily={mono}>&gt; Build a waitlist page</text>
+      <text x="44" y="70" fontSize="8" fill="currentColor" fillOpacity="0.55" fontFamily={mono}>  with an admin view</text>
+      <text x="44" y="94" fontSize="8" className="fill-brand" fontFamily={mono}>• Planning pages, form</text>
+      <text x="44" y="108" fontSize="8" fill="currentColor" fillOpacity="0.45" fontFamily={mono}>writing app/page.tsx…</text>
+      <text x="44" y="122" fontSize="8" fill="currentColor" fillOpacity="0.45" fontFamily={mono}>writing SignupForm.tsx…</text>
+      <text x="44" y="146" fontSize="8" className="fill-brand" fontFamily={mono}>✓ Build passed</text>
+      <rect x="44" y="164" width="122" height="24" rx="6" stroke="currentColor" strokeOpacity="0.3" />
+      <path d="M 186 120 L 214 120 M 208 114 L 214 120 L 208 126" className="stroke-brand" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <g className="art-rise">
+        <rect x="220" y="34" width="150" height="172" rx="10" className="stroke-brand" strokeWidth="1.5" />
+        <line x1="220" y1="56" x2="370" y2="56" stroke="currentColor" strokeOpacity="0.25" />
+        {[0, 1, 2].map((i) => <circle key={i} cx={232 + i * 10} cy="45" r="2.5" fill="currentColor" fillOpacity="0.3" />)}
+        <text x="295" y="86" textAnchor="middle" fontSize="12" fontWeight="600" fill="currentColor">Join the waitlist</text>
+        <rect x="244" y="98" width="102" height="16" rx="4" stroke="currentColor" strokeOpacity="0.4" />
+        <rect x="244" y="122" width="102" height="16" rx="4" className="fill-brand" fillOpacity="0.9" />
+        <text x="295" y="133" textAnchor="middle" fontSize="8" fontWeight="600" fill="#04130f">Sign up</text>
+        <text x="295" y="164" textAnchor="middle" fontSize="7" fill="currentColor" fillOpacity="0.5" fontFamily={mono}>Live preview</text>
+        <line x1="250" y1="180" x2="340" y2="180" stroke="currentColor" strokeOpacity="0.25" strokeWidth="3" strokeLinecap="round" />
+      </g>
     </Frame>
   );
 }
 
+// A terminal showing `wbi blame` flagging a changed contract and its downstream tasks.
 export function WhoBrokeItArt({ className }: ArtProps) {
-  const nodes: [number, number][] = [[200, 50], [120, 120], [280, 120], [80, 190], [160, 190], [320, 190]];
-  const edges: [number, number][] = [[0, 1], [0, 2], [1, 3], [1, 4], [2, 5]];
+  const mono = "ui-monospace, SFMono-Regular, Menlo, monospace";
   return (
     <Frame className={className}>
-      {edges.map(([a, b], i) => (
-        <line key={i} x1={nodes[a][0]} y1={nodes[a][1]} x2={nodes[b][0]} y2={nodes[b][1]} stroke="currentColor" strokeOpacity="0.35" strokeWidth="2" />
-      ))}
-      {nodes.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r={i === 2 ? 9 : 7} className={i === 2 ? "art-rise fill-brand" : ""} stroke="currentColor" strokeOpacity={i === 2 ? 0 : 0.5} strokeWidth="2" />
-      ))}
+      <rect x="36" y="28" width="328" height="184" rx="10" stroke="currentColor" strokeOpacity="0.45" />
+      <line x1="36" y1="52" x2="364" y2="52" stroke="currentColor" strokeOpacity="0.25" />
+      {[0, 1, 2].map((i) => <circle key={i} cx={52 + i * 14} cy="40" r="3.5" fill="currentColor" fillOpacity="0.3" />)}
+      <g fontFamily={mono} fontSize="10">
+        <text x="52" y="76" fill="currentColor" fillOpacity="0.7">$ wbi blame src/api/billing/</text>
+        <text x="52" y="100" fill="currentColor" fillOpacity="0.55">Claude  TASK-007  feat(billing): add paused</text>
+        <text x="52" y="116" fill="currentColor" fillOpacity="0.55">Maya    initial commit</text>
+        <g className="art-rise">
+          <rect x="48" y="130" width="304" height="22" rx="4" className="fill-brand" fillOpacity="0.16" />
+          <text x="56" y="144" className="fill-brand">⚠ Contract BillingStatus changed</text>
+        </g>
+        <text x="52" y="172" fill="currentColor" fillOpacity="0.7">→ 3 downstream tasks affected:</text>
+        <text x="52" y="190" fill="currentColor" fillOpacity="0.55">TASK-008  TASK-009  TASK-016</text>
+      </g>
     </Frame>
   );
 }
 
+// Three panelists each score a resume; the CEO is the harshest.
 export function CookedOrHiredArt({ className }: ArtProps) {
-  const scores = [70, 48, 90];
+  const mono = "ui-monospace, SFMono-Regular, Menlo, monospace";
+  const panel: [string, string, number][] = [["HR", "72", 72], ["Hiring Mgr", "58", 58], ["CEO", "41", 41]];
   return (
     <Frame className={className}>
-      {scores.map((h, i) => (
-        <g key={i}>
-          <circle cx={120 + i * 80} cy="70" r="14" stroke="currentColor" strokeOpacity="0.5" strokeWidth="2" />
-          <rect x={106 + i * 80} y={200 - h} width="28" height={h} rx="4" className={i === 2 ? "art-rise fill-brand" : ""} fill={i === 2 ? undefined : "currentColor"} fillOpacity={i === 2 ? undefined : 0.2} />
+      {panel.map(([who, score, v], i) => (
+        <g key={who} className={i === 2 ? "art-rise" : ""}>
+          <rect x={36 + i * 112} y="34" width="104" height="120" rx="10" stroke="currentColor" strokeOpacity={i === 2 ? 0 : 0.45} className={i === 2 ? "stroke-brand" : ""} strokeWidth={i === 2 ? 2 : 1} />
+          <text x={88 + i * 112} y="58" textAnchor="middle" fontSize="10" fill="currentColor" fillOpacity="0.6" fontFamily={mono}>{who}</text>
+          <text x={88 + i * 112} y="100" textAnchor="middle" fontSize="30" fontWeight="600" fill="currentColor">{score}</text>
+          <rect x={52 + i * 112} y="124" width="72" height="6" rx="3" fill="currentColor" fillOpacity="0.15" />
+          <rect x={52 + i * 112} y="124" width={(72 * v) / 100} height="6" rx="3" className="fill-brand" />
         </g>
       ))}
-      <line x1="90" y1="200" x2="330" y2="200" stroke="currentColor" strokeOpacity="0.3" />
+      <rect x="36" y="168" width="328" height="40" rx="8" stroke="currentColor" strokeOpacity="0.3" />
+      <g fontFamily={mono} fontSize="9" fill="currentColor" fillOpacity="0.6">
+        <text x="48" y="184">Fix-it list</text>
+        <text x="48" y="198">Quantify impact · cut the buzzwords · lead with outcomes</text>
+      </g>
     </Frame>
   );
 }

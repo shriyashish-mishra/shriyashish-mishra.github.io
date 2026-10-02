@@ -6,9 +6,6 @@ import { ArchitectArt, CookedOrHiredArt, HulkArt, ProductBattleArt, RegImpactArt
 import {
   CASES, Cover, EMAIL, GITHUB_URL, LINKEDIN_URL, RESUME_URL, SectionHeading, SiteFooter, SiteHeader, Tag, container,
 } from "@/components/site-frame";
-import hulkShot from "@/assets/projects/hulk.png";
-import regImpactShot from "@/assets/projects/regimpact.png";
-import architectShot from "@/assets/projects/architect.png";
 import portrait from "@/assets/shriyashish-playful-original.png";
 
 export const Route = createFileRoute("/")({
@@ -117,13 +114,13 @@ function Logo({ id }: { id: string }) {
 }
 
 const aiBuilds: {
-  title: string; kind: string; body: string; url: string; cta?: string; shot?: string;
+  title: string; kind: string; body: string; url: string; cta?: string;
   Art: React.ComponentType<{ className?: string }>;
 }[] = [
-  { title: "Architect 2.0", kind: "Vibe coding · Platform", body: "A vibe-coding platform with two front doors: prompt an app into existence, or drop into the file tree and terminal and take over. Real auth, database and GitHub import; the agent run is simulated.", url: "https://architect-20-ten.vercel.app", Art: ArchitectArt, shot: architectShot },
+  { title: "Architect 2.0", kind: "Vibe coding · Platform", body: "A vibe-coding platform with two front doors: prompt an app into existence, or drop into the file tree and terminal and take over. Real auth, database and GitHub import; the agent run is simulated.", url: "https://architect-20-ten.vercel.app", Art: ArchitectArt },
   { title: "Who Broke It?", kind: "Open source · Agents", body: "A coordination layer for teams building with humans and AI coding agents. Keeps a living graph of tasks, owners and contracts in the repo, and shows what an agent's change breaks downstream.", url: "https://github.com/shriyashish-mishra/who-broke-it", Art: WhoBrokeItArt, cta: "View on GitHub" },
-  { title: "Project Hulk", kind: "Fitness · AI", body: "An AI fitness app that ties together workouts, nutrition, recovery and progress, and turns them into personalized insights.", url: "https://project-hulk.vercel.app", Art: HulkArt, shot: hulkShot },
-  { title: "RegImpact AI", kind: "RegTech · AI", body: "Checks Indian fintech products against RBI's digital lending and KYC/AML rules, with a citation for every finding.", url: "https://reg-impact-ai.vercel.app", Art: RegImpactArt, shot: regImpactShot },
+  { title: "Project Hulk", kind: "Fitness · AI", body: "An AI fitness app that ties together workouts, nutrition, recovery and progress, and turns them into personalized insights.", url: "https://project-hulk.vercel.app", Art: HulkArt },
+  { title: "RegImpact AI", kind: "RegTech · AI", body: "Checks Indian fintech products against RBI's digital lending and KYC/AML rules, with a citation for every finding.", url: "https://reg-impact-ai.vercel.app", Art: RegImpactArt },
   { title: "ProductBattle AI", kind: "LLM · Tooling", body: "Compares products head to head and evaluates how each one is positioned.", url: "https://productbattle.lovable.app/", Art: ProductBattleArt },
   { title: "Cooked or Hired", kind: "Career · Claude skills", body: "A brutally honest hiring simulator. Three panelists (HR, hiring manager, CEO) score your resume for a given company and role, then hand you a fix-it list and likely interview questions.", url: "https://github.com/shriyashish-mishra/Cooked-or-Hired", Art: CookedOrHiredArt, cta: "View on GitHub" },
 ];
@@ -213,13 +210,7 @@ function Home() {
           <div className="grid gap-5 md:grid-cols-3">
             {aiBuilds.map((b) => (
               <a key={b.title} href={b.url} target="_blank" rel="noreferrer" className="card group flex flex-col overflow-hidden rounded-3xl border border-border">
-                {b.shot ? (
-                  <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-muted/50">
-                    <img src={b.shot} alt={`${b.title} screenshot`} loading="lazy" className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
-                  </div>
-                ) : (
-                  <Cover Art={b.Art} className="aspect-[16/10]" />
-                )}
+                <Cover Art={b.Art} className="aspect-[16/10]" />
                 <div className="flex flex-1 flex-col p-6">
                   <div className="flex items-center gap-3">
                     <Logo id={b.title} />
