@@ -4,7 +4,7 @@ I'm a product manager working on growth, engagement, and AI products. I like amb
 
 Right now I'm leading AI product development for clinical and enterprise workflows at **Meril Life Sciences**.
 
-🌐 **Portfolio**: https://shriyashish.lovable.app
+🌐 **Portfolio**: https://shriyashish-mishra.github.io
 💼 **LinkedIn**: https://www.linkedin.com/in/shriyashish-mishra/
 ✉️ **Email**: shriyashishm@gmail.com
 📄 **Resume**: [View on Google Drive](https://drive.google.com/file/d/19mbhHCeIVmJ8NG_GDBZqh_mZI0tt4TjD/view?usp=sharing)
