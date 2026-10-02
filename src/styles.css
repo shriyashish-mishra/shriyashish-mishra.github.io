@@ -270,60 +270,38 @@
   opacity: 0.55;
 }
 
-/* List rows: a thin accent marker slides in on hover */
-.row-link { position: relative; transition: background-color 200ms ease; }
-.row-link::before {
-  position: absolute;
-  top: 0.75rem;
-  bottom: 0.75rem;
-  left: -1px;
-  width: 2px;
-  background: var(--brand);
-  content: "";
-  transform: scaleY(0);
-  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+/* Project cards: lift the border and nudge the cover art on hover */
+.card {
+  background: var(--card);
+  transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
 }
-.row-link:hover { background-color: color-mix(in oklab, var(--accent) 60%, transparent); }
-.row-link:hover::before, .row-link:focus-visible::before { transform: scaleY(1); }
-.row-link:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
-
-/* Career arc (homepage Fig. 1): the line draws in once */
-.arc-path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: arc-draw 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;
+.card:hover {
+  border-color: color-mix(in oklab, var(--foreground) 22%, var(--border));
+  box-shadow: 0 12px 32px -18px color-mix(in oklab, var(--foreground) 35%, transparent);
+  transform: translateY(-2px);
 }
-.arc-node { opacity: 0; animation: arc-fade 500ms ease forwards; }
-@keyframes arc-draw { to { stroke-dashoffset: 0; } }
-@keyframes arc-fade { to { opacity: 1; } }
-.arc-pulse { transform-box: fill-box; transform-origin: center; animation: arc-pulse 2.4s ease-out infinite; }
-@keyframes arc-pulse { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(3.2); opacity: 0; } }
+.card:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+.cover svg .art-drift,
+.cover svg .art-rise { transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.card:hover .cover svg .art-drift { transform: translateX(6px); }
+.card:hover .cover svg .art-rise { transform: translateY(-6px); }
+.cover svg .art-hatch {
+  fill: color-mix(in oklab, var(--foreground) 6%, transparent);
+}
 
-/* Case-study content: the long-form sections sit in the same framed column.
+/* Case-study content sits in the same open column as the homepage.
    Unlayered on purpose so it overrides the per-section Tailwind spacing. */
 .case-frame {
   max-width: 64rem;
   margin-inline: auto;
-  border-inline: 1px solid var(--border);
+  padding-inline: 1.5rem;
 }
 .case-frame > section {
-  position: relative;
   max-width: none;
   margin: 0;
-  padding: 3.5rem 1.5rem;
+  padding: 4.5rem 0;
 }
-.case-frame > section + section { padding-top: calc(2rem + 3.5rem); }
-.case-frame > section + section::before {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 100vw;
-  height: 2rem;
-  border-block: 1px solid var(--border);
-  background-image: repeating-linear-gradient(-45deg, var(--hatch) 0 1px, transparent 1px 8px);
-  content: "";
-  transform: translateX(-50%);
-}
+.case-frame > section + section { border-top: 1px solid var(--border); }
 .case-frame h2 {
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 600;
@@ -333,10 +311,9 @@
 .case-frame .label-mono { font-size: 0.7rem; }
 
 @media (prefers-reduced-motion: reduce) {
-  .arc-path { animation: none; stroke-dashoffset: 0; }
-  .arc-node { animation: none; opacity: 1; }
-  .arc-pulse { animation: none; opacity: 0; }
-  .row-link::before { transition: none; }
+  .card, .cover svg .art-drift, .cover svg .art-rise { transition: none; }
+  .card:hover { transform: none; }
+  .card:hover .cover svg .art-drift, .card:hover .cover svg .art-rise { transform: none; }
 }
 
 /* Zamp-style eyebrow: blue mono label with a leading dot */
