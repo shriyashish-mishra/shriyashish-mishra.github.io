@@ -1,10 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState, type ReactNode } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   ArrowRight, ArrowUpRight, Briefcase, Car, Dumbbell, FileText, Linkedin, Mail,
   MessageCircle, Music, Scale, Sparkles, Target,
 } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { CountUp } from "@/components/playful-page";
+import {
+  CASES, EMAIL, Gap, IconBox, LINKEDIN_URL, RESUME_URL, Row, SectionTitle, SiteFooter, SiteHeader, Tag,
+} from "@/components/site-frame";
 import portrait from "@/assets/shriyashish-playful-original.png";
 
 export const Route = createFileRoute("/")({
@@ -21,10 +25,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const RESUME_URL = "https://drive.google.com/file/d/19mbhHCeIVmJ8NG_GDBZqh_mZI0tt4TjD/view?usp=sharing";
-const LINKEDIN_URL = "https://www.linkedin.com/in/shriyashish-mishra/";
-const EMAIL = "shriyashishm@gmail.com";
-
 const principles = [
   { num: "01", tag: "DISCOVERY", title: "Problem Discovery", body: "Understanding deep user needs and technical constraints before jumping into solutioning." },
   { num: "02", tag: "VALIDATION", title: "Experimentation", body: "Rigorous testing of assumptions through MVPs and data before committing to scale." },
@@ -33,22 +33,22 @@ const principles = [
 ];
 
 const metrics = [
-  { value: "60%", title: "Increase in Activated Users", body: "Achieved through streamlined onboarding flows and targeted growth experiments during expansion phases." },
-  { value: "40%", title: "Product Adoption Lift", body: "Optimization of core product features and data-driven improvements in the user journey." },
-  { value: "20%", title: "Lead Conversion Growth", body: "Refining the funnel through API-driven integrations and enhanced engagement strategies." },
-  { value: "3+", title: "Years in Product Management", body: "Of dedicated experience leading cross-functional teams from discovery to global rollout." },
+  { value: "60%", src: "Eka Care", title: "Increase in Activated Users", body: "Achieved through streamlined onboarding flows and targeted growth experiments during expansion phases." },
+  { value: "40%", src: "Qure.ai", title: "Product Adoption Lift", body: "Optimization of core product features and data-driven improvements in the user journey." },
+  { value: "20%", src: "Eka Care", title: "Lead Conversion Growth", body: "Refining the funnel through API-driven integrations and enhanced engagement strategies." },
+  { value: "3+", src: "Since 2023", title: "Years in Product Management", body: "Of dedicated experience leading cross-functional teams from discovery to global rollout." },
 ];
 
 const productCases = [
-  { icon: MessageCircle, tag: "GROWTH / ENGAGEMENT", title: "WhatsApp Group User Engagement", body: "Designing product interventions to increase participation, retention, and meaningful interactions within WhatsApp groups.", to: "/whatsapp-group-engagement" as const },
-  { icon: Car, tag: "MOBILITY / GROWTH", title: "BluSmart Mumbai Expansion", body: "Scaling the electric mobility fleet through hyper-local operations and strategy.", to: "/blusmart-mumbai-expansion" as const },
-  { icon: Music, tag: "CONSUMER / ENGAGEMENT", title: "Spotify Loyalty Engine", body: "Gamification of user acquisition flows for premium subscriptions.", to: "/spotify-loyalty-engine" as const },
+  { icon: MessageCircle, tag: "growth · engagement", title: "WhatsApp Group User Engagement", body: "Designing product interventions to increase participation, retention, and meaningful interactions within WhatsApp groups.", to: "/whatsapp-group-engagement" as const },
+  { icon: Music, tag: "consumer · engagement", title: "Spotify Loyalty Engine", body: "Gamification of user acquisition flows for premium subscriptions.", to: "/spotify-loyalty-engine" as const },
+  { icon: Car, tag: "mobility · growth", title: "BluSmart Mumbai Expansion", body: "Scaling the electric mobility fleet through hyper-local operations and strategy.", to: "/blusmart-mumbai-expansion" as const },
 ];
 
 const aiCases = [
-  { icon: Dumbbell, tag: "FITNESS / AI", title: "Project Hulk", body: "AI-powered fitness operating system that connects workouts, nutrition, recovery, and progress into personalized insights.", url: "https://project-hulk.vercel.app", featured: true },
-  { icon: Scale, tag: "REGTECH / AI", title: "RegImpact AI", body: "Evidence-backed AI compliance platform for modern fintech.", url: "https://reg-impact-ai.vercel.app" },
-  { icon: Sparkles, tag: "LLM / TOOLING", title: "ProductBattle AI", body: "Competitive analysis engine leveraging AI to evaluate product positioning.", url: "https://productbattle.lovable.app/" },
+  { icon: Dumbbell, tag: "fitness · ai", title: "Project Hulk", body: "AI-powered fitness operating system that connects workouts, nutrition, recovery, and progress into personalized insights.", url: "https://project-hulk.vercel.app", featured: true },
+  { icon: Scale, tag: "regtech · ai", title: "RegImpact AI", body: "Evidence-backed AI compliance platform for modern fintech.", url: "https://reg-impact-ai.vercel.app" },
+  { icon: Sparkles, tag: "llm · tooling", title: "ProductBattle AI", body: "Competitive analysis engine leveraging AI to evaluate product positioning.", url: "https://productbattle.lovable.app/" },
 ];
 
 const capabilities = [
@@ -128,48 +128,49 @@ function Duration({ start, end }: { start: string; end: string | null }) {
   return <span>{text}</span>;
 }
 
-/* Layout primitives: every row spans the viewport with a hairline rule,
-   while its content sits in one centered column framed by guide lines. */
-function Row({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return (
-    <div className="border-b border-border">
-      <div className={`mx-auto max-w-3xl border-x border-border ${className}`}>{children}</div>
-    </div>
-  );
-}
+/* Fig. 1 — scope over time. Roles are spaced evenly (not by date) so the
+   prerendered SVG never goes stale. */
+const arc = [
+  { company: "Qure.ai", theme: "Adoption", year: "2023", x: 110, y: 118 },
+  { company: "Eka Care", theme: "Growth", year: "2024", x: 350, y: 84 },
+  { company: "Meril", theme: "AI 0→1", year: "2026", x: 590, y: 48 },
+];
 
-function Gap() {
+function CareerArc() {
+  const pts = [{ x: 24, y: 140 }, ...arc, { x: 744, y: 40 }];
+  const d = pts.reduce((acc, p, i) => {
+    if (i === 0) return `M ${p.x} ${p.y}`;
+    const a = pts[i - 1];
+    const mid = (p.x - a.x) / 2;
+    return `${acc} C ${a.x + mid} ${a.y}, ${p.x - mid} ${p.y}, ${p.x} ${p.y}`;
+  }, "");
   return (
-    <div className="hatch h-8 border-b border-border">
-      <div className="mx-auto h-full max-w-3xl border-x border-border" />
-    </div>
-  );
-}
-
-function SectionTitle({ id, children, count }: { id?: string; children: ReactNode; count?: number }) {
-  return (
-    <Row>
-      <h2 id={id} className="scroll-mt-16 px-4 py-2 text-3xl font-semibold tracking-tight">
-        {children}
-        {count !== undefined && <sup className="ml-1 font-mono text-sm font-normal text-muted-foreground">({count})</sup>}
-      </h2>
-    </Row>
-  );
-}
-
-function Tag({ children }: { children: ReactNode }) {
-  return (
-    <span className="inline-flex items-center rounded-md border border-border bg-muted/60 px-1.5 py-0.5 font-mono text-xs text-muted-foreground">
-      {children}
-    </span>
-  );
-}
-
-function IconBox({ children }: { children: ReactNode }) {
-  return (
-    <span className="flex size-7 shrink-0 items-center justify-center rounded-md border border-border bg-muted/60 text-muted-foreground [&_svg]:size-3.5">
-      {children}
-    </span>
+    <figure className="relative hidden h-44 sm:block">
+      <svg viewBox="0 0 768 176" className="absolute inset-0 size-full" role="img" aria-label="Career arc: Qure.ai (adoption, 2023), Eka Care (growth, 2024), Meril Life Sciences (AI zero to one, 2026)">
+        <defs>
+          <pattern id="arc-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="currentColor" strokeWidth="1" className="text-muted-foreground" />
+          </pattern>
+        </defs>
+        <path d={`${d} L 744 176 L 24 176 Z`} fill="url(#arc-hatch)" className="arc-node" style={{ animationDelay: "1.1s", fillOpacity: 0.35 }} />
+        <path d={d} pathLength={1} fill="none" stroke="currentColor" strokeWidth="1.25" className="arc-path text-foreground" vectorEffect="non-scaling-stroke" />
+        {arc.map((p, i) => {
+          const current = i === arc.length - 1;
+          return (
+            <g key={p.company} className="arc-node" style={{ animationDelay: `${0.5 + i * 0.4}s` }}>
+              {current && <circle cx={p.x} cy={p.y} r="4" className="arc-pulse fill-brand" />}
+              <circle cx={p.x} cy={p.y} r="4" className={current ? "fill-brand" : "fill-background stroke-foreground"} strokeWidth="1.25" />
+              <text x={p.x} y={p.y - 14} textAnchor="middle" className="fill-foreground font-mono text-[11px]">{p.company}</text>
+              <text x={p.x} y={p.y + 22} textAnchor="middle" className="fill-muted-foreground font-mono text-[10px]">{p.theme} · {p.year}</text>
+            </g>
+          );
+        })}
+        <text x="744" y="28" textAnchor="end" className="arc-node fill-muted-foreground font-mono text-[10px]" style={{ animationDelay: "1.6s" }}>now →</text>
+      </svg>
+      <figcaption className="absolute bottom-2 left-4 font-mono text-[0.65rem] text-muted-foreground">
+        Fig. 1 — Scope over time
+      </figcaption>
+    </figure>
   );
 }
 
@@ -179,36 +180,29 @@ const socials = [
   { label: "Resume", href: RESUME_URL, icon: FileText },
 ];
 
+const loopVerbs = ["Discover", "Validate", "Deliver", "Amplify"];
+
 function Home() {
   return (
-    <div className="min-h-screen text-foreground">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-12 max-w-3xl items-center justify-between border-x border-border px-4">
-          <Link to="/" className="font-mono text-sm font-medium tracking-tight">SM</Link>
-          <nav className="flex items-center gap-5 text-sm text-muted-foreground">
-            <a href="#experience" className="hidden transition-colors hover:text-foreground sm:inline">Experience</a>
-            <a href="#work" className="hidden transition-colors hover:text-foreground sm:inline">Work</a>
-            <a href="#contact" className="hidden transition-colors hover:text-foreground sm:inline">Contact</a>
-            <ThemeToggle />
-          </nav>
-        </div>
-      </header>
+    <div className="min-h-screen overflow-x-clip text-foreground">
+      <SiteHeader>
+        <a href="#experience" className="hidden transition-colors hover:text-foreground sm:inline">Experience</a>
+        <a href="#work" className="hidden transition-colors hover:text-foreground sm:inline">Work</a>
+        <a href="#contact" className="hidden transition-colors hover:text-foreground sm:inline">Contact</a>
+      </SiteHeader>
 
       <main>
         {/* Profile */}
-        <Row>
-          <div className="grid-pattern h-28 border-b border-border sm:h-36" />
-          <div className="flex">
+        <Row className="relative">
+          <div className="grid-pattern absolute inset-x-0 top-0 h-44" />
+          <div className="relative h-16 sm:hidden" />
+          <CareerArc />
+          <div className="relative flex border-t border-border">
             <div className="shrink-0 border-r border-border p-1">
-              <img
-                src={portrait}
-                alt="Shriyashish Mishra"
-                className="size-28 rounded-full border border-border object-cover sm:size-36"
-              />
+              <img src={portrait} alt="Shriyashish Mishra" className="size-28 rounded-full border border-border object-cover sm:size-32" />
             </div>
             <div className="flex flex-1 flex-col justify-end">
-              <h1 className="border-t border-border px-4 py-1.5 text-3xl font-semibold tracking-tight">Shriyashish Mishra</h1>
+              <h1 className="px-4 py-1.5 text-3xl font-semibold tracking-tight">Shriyashish Mishra</h1>
               <p className="border-t border-border px-4 py-1.5 font-mono text-sm text-muted-foreground">
                 Product Manager · Growth · AI · Execution
               </p>
@@ -218,7 +212,6 @@ function Home() {
 
         <Gap />
 
-        {/* Socials + overview */}
         <Row className="flex flex-wrap gap-2 p-4">
           {socials.map(({ label, href, icon: Icon }) => (
             <a
@@ -226,47 +219,53 @@ function Home() {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-sm transition-colors hover:bg-accent"
+              className="group inline-flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-sm transition-colors hover:border-brand/40 hover:bg-accent"
             >
-              <Icon className="size-4 text-muted-foreground" /> {label}
+              <Icon className="size-4 text-muted-foreground transition-colors group-hover:text-brand" /> {label}
             </a>
           ))}
         </Row>
         <Row className="grid gap-x-4 gap-y-2.5 p-4 font-mono text-sm sm:grid-cols-2">
           <div className="flex items-center gap-3"><IconBox><Briefcase /></IconBox>Product Manager @ Meril Life Sciences</div>
-          <div className="flex items-center gap-3"><IconBox><Mail /></IconBox><a href={`mailto:${EMAIL}`} className="hover:underline underline-offset-4">{EMAIL}</a></div>
+          <div className="flex items-center gap-3"><IconBox><Mail /></IconBox><a href={`mailto:${EMAIL}`} className="underline-offset-4 hover:underline">{EMAIL}</a></div>
           <div className="flex items-center gap-3"><IconBox><Target /></IconBox>Growth · Engagement · AI products</div>
           <div className="flex items-center gap-3">
-            <IconBox><span className="size-2 rounded-full bg-brand" /></IconBox>Available for new challenges
+            <IconBox><span className="relative flex size-2"><span className="absolute inset-0 animate-ping rounded-full bg-brand opacity-60 motion-reduce:hidden" /><span className="relative size-2 rounded-full bg-brand" /></span></IconBox>
+            Available for new challenges
           </div>
         </Row>
 
         <Gap />
 
         {/* About */}
-        <SectionTitle>About</SectionTitle>
+        <SectionTitle n="01" note="tl;dr">About</SectionTitle>
         <Row className="p-4">
           <ul className="space-y-2.5 text-[0.95rem] leading-relaxed">
             <li className="bullet">Product Manager building products through strategy, experimentation, execution, and AI.</li>
             <li className="bullet">I enjoy solving ambiguous problems, understanding user behavior, and building products that create measurable impact in fast-paced environments.</li>
             <li className="bullet">I work at the intersection of user behavior, business outcomes, execution, and emerging technologies — across operational challenges, growth systems, and AI-powered experiences.</li>
           </ul>
-          <p className="mt-4 font-mono text-sm text-muted-foreground">Understand deeply. Validate rigorously. Execute relentlessly.</p>
+        </Row>
+        <Row className="flex flex-wrap gap-x-6 gap-y-1 px-4 py-3 font-mono text-sm">
+          <span>Understand deeply.</span>
+          <span className="text-muted-foreground">Validate rigorously.</span>
+          <span className="text-muted-foreground/70">Execute relentlessly.</span>
         </Row>
 
         <Gap />
 
         {/* Impact */}
-        <SectionTitle>Impact</SectionTitle>
+        <SectionTitle n="02" note="measured outcomes">Impact</SectionTitle>
         <Row className="grid grid-cols-2 sm:grid-cols-4">
           {metrics.map((m, i) => (
             <div
               key={m.title}
               title={m.body}
-              className={`p-4 ${i % 2 ? "" : "border-r"} ${i < 2 ? "border-b sm:border-b-0" : ""} ${i === 1 ? "sm:border-r" : ""} border-border`}
+              className={`flex flex-col p-4 ${i % 2 ? "" : "border-r"} ${i < 2 ? "border-b sm:border-b-0" : ""} ${i === 1 ? "sm:border-r" : ""} border-border`}
             >
-              <div className="text-2xl font-semibold tracking-tight tabular-nums">{m.value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{m.title}</div>
+              <div className="text-3xl font-semibold tracking-tight tabular-nums"><CountUp value={m.value} /></div>
+              <div className="mt-1 text-sm leading-snug">{m.title}</div>
+              <div className="mt-auto pt-3 font-mono text-[0.7rem] text-muted-foreground">@ {m.src}</div>
             </div>
           ))}
         </Row>
@@ -274,7 +273,7 @@ function Home() {
         <Gap />
 
         {/* Experience */}
-        <SectionTitle id="experience">Experience</SectionTitle>
+        <SectionTitle id="experience" n="03" note="3 roles · 2023 → now">Experience</SectionTitle>
         {experience.map((e) => (
           <Row key={e.company} className="p-4">
             <div className="flex items-center gap-3">
@@ -282,10 +281,10 @@ function Home() {
                 {e.company[0]}
               </span>
               <h3 className="text-lg font-medium">{e.company}</h3>
-              {!e.end && <span className="ml-auto size-2 rounded-full bg-brand" title="Current role" />}
+              {!e.end && <span className="ml-auto inline-flex items-center gap-1.5 font-mono text-xs text-brand"><span className="size-1.5 rounded-full bg-brand" />current</span>}
             </div>
 
-            <div className="relative mt-3 pl-9 before:absolute before:left-3 before:top-0 before:bottom-1 before:w-px before:bg-border">
+            <div className="relative mt-3 pl-9 before:absolute before:bottom-1 before:left-3 before:top-0 before:w-px before:bg-border">
               <div className="flex items-start gap-3">
                 <span className="absolute left-0"><IconBox><Briefcase /></IconBox></span>
                 <div>
@@ -321,20 +320,21 @@ function Home() {
 
         <Gap />
 
-        {/* Product case studies */}
-        <SectionTitle id="work" count={productCases.length}>Case Studies</SectionTitle>
-        {productCases.map((c) => {
+        {/* Case studies */}
+        <SectionTitle id="work" n="04" note="long reads">Case Studies</SectionTitle>
+        {productCases.map((c, i) => {
           const Icon = c.icon;
           return (
             <Row key={c.title}>
-              <Link to={c.to} className="group flex items-start gap-4 p-4 transition-colors hover:bg-accent/50">
+              <Link to={c.to} className="row-link group flex items-start gap-4 p-4">
+                <span className="w-5 pt-1 font-mono text-xs text-muted-foreground">{CASES[i].n}</span>
                 <IconBox><Icon /></IconBox>
                 <div className="min-w-0 flex-1">
-                  <h3 className="font-medium underline-offset-4 group-hover:underline">{c.title}</h3>
+                  <h3 className="font-medium">{c.title}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-                  <div className="mt-2"><Tag>{c.tag.toLowerCase().replace(" / ", " · ")}</Tag></div>
+                  <div className="mt-2"><Tag>{c.tag}</Tag></div>
                 </div>
-                <ArrowRight className="mt-1 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight className="mt-1 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-brand" />
               </Link>
             </Row>
           );
@@ -343,22 +343,22 @@ function Home() {
         <Gap />
 
         {/* AI projects */}
-        <SectionTitle count={aiCases.length}>AI Projects</SectionTitle>
+        <SectionTitle n="05" note="built & shipped">AI Projects</SectionTitle>
         {aiCases.map((c) => {
           const Icon = c.icon;
           return (
             <Row key={c.title}>
-              <a href={c.url} target="_blank" rel="noreferrer" className="group flex items-start gap-4 p-4 transition-colors hover:bg-accent/50">
+              <a href={c.url} target="_blank" rel="noreferrer" className="row-link group flex items-start gap-4 p-4">
                 <IconBox><Icon /></IconBox>
                 <div className="min-w-0 flex-1">
                   <h3 className="flex items-center gap-2 font-medium">
-                    <span className="underline-offset-4 group-hover:underline">{c.title}</span>
-                    {c.featured && <Tag>Featured</Tag>}
+                    {c.title}
+                    {c.featured && <span className="rounded-md bg-foreground px-1.5 py-0.5 font-mono text-[0.65rem] text-background">featured</span>}
                   </h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-                  <div className="mt-2"><Tag>{c.tag.toLowerCase().replace(" / ", " · ")}</Tag></div>
+                  <div className="mt-2"><Tag>{c.tag}</Tag></div>
                 </div>
-                <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand" />
               </a>
             </Row>
           );
@@ -366,22 +366,38 @@ function Home() {
 
         <Gap />
 
-        {/* Principles */}
-        <SectionTitle>Principles</SectionTitle>
-        {principles.map((p) => (
-          <Row key={p.num} className="grid sm:grid-cols-[14rem_1fr]">
-            <div className="flex items-baseline gap-2 border-border px-4 pt-3 sm:border-r sm:py-3">
-              <span className="font-mono text-sm text-muted-foreground">{p.num}</span>
-              <span className="font-medium">{p.title}</span>
+        {/* Principles as a loop */}
+        <SectionTitle n="06" note="how I work">Principles</SectionTitle>
+        <Row className="grid sm:grid-cols-4">
+          {principles.map((p, i) => (
+            <div key={p.num} className={`group relative border-border p-4 ${i < 3 ? "border-b sm:border-b-0 sm:border-r" : ""}`}>
+              <div className="flex items-center justify-between font-mono text-xs text-muted-foreground">
+                <span>{p.num}</span>
+                <span className="text-brand">{loopVerbs[i]}</span>
+              </div>
+              <div className="mt-3 font-medium">{p.title}</div>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+              {i < 3 && (
+                <span className="absolute -right-2.5 top-4 z-10 hidden size-5 items-center justify-center rounded-full border border-border bg-background text-muted-foreground sm:flex">
+                  <ArrowRight className="size-3" />
+                </span>
+              )}
             </div>
-            <p className="px-4 pb-3 pt-1 text-sm leading-relaxed text-muted-foreground sm:py-3">{p.body}</p>
-          </Row>
-        ))}
+          ))}
+        </Row>
+        <Row className="relative h-10 px-4">
+          <svg className="absolute inset-x-4 top-0 h-6 w-[calc(100%-2rem)]" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 88 0 V 14 H 12 V 0" fill="none" stroke="currentColor" strokeDasharray="3 3" vectorEffect="non-scaling-stroke" className="text-muted-foreground/60" />
+          </svg>
+          <span className="absolute left-1/2 top-[0.55rem] -translate-x-1/2 bg-background px-2 font-mono text-[0.7rem] text-muted-foreground">
+            ↺ every launch feeds the next discovery
+          </span>
+        </Row>
 
         <Gap />
 
-        {/* Capabilities */}
-        <SectionTitle>Stack</SectionTitle>
+        {/* Stack */}
+        <SectionTitle n="07" note="toolkit">Stack</SectionTitle>
         {[...capabilities, { group: "EXPLORING", items: exploring }].map((col, i) => (
           <Row key={col.group} className="grid sm:grid-cols-[14rem_1fr]">
             <div className="flex items-baseline gap-2 border-border px-4 pt-3 sm:border-r sm:py-3">
@@ -396,32 +412,24 @@ function Home() {
 
         <Gap />
 
-        {/* Contact / footer */}
-        <SectionTitle id="contact">Contact</SectionTitle>
+        {/* Contact */}
+        <SectionTitle id="contact" n="08" note="say hello">Contact</SectionTitle>
         <Row className="p-4">
-          <p className="text-[0.95rem] leading-relaxed">
-            I'm always interested in product conversations, ambitious teams, and difficult problems worth solving.
+          <p className="text-xl font-medium leading-snug tracking-tight">
+            I'm always interested in product conversations, ambitious teams, and{" "}
+            <span className="text-muted-foreground">difficult problems worth solving.</span>
           </p>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="group mt-5 inline-flex items-center gap-2 rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90"
+          >
+            <Mail className="size-4" /> {EMAIL}
+            <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
         </Row>
-        <Row className="grid grid-cols-2 font-mono text-sm sm:grid-cols-4">
-          {[
-            ["Email", <a key="e" href={`mailto:${EMAIL}`} className="underline underline-offset-4">Write to me</a>],
-            ["LinkedIn", <a key="l" href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="underline underline-offset-4">shriyashish-mishra</a>],
-            ["Resume", <a key="r" href={RESUME_URL} target="_blank" rel="noreferrer" className="underline underline-offset-4">View PDF</a>],
-            ["Status", <span key="s" className="inline-flex items-center gap-2"><span className="size-2 rounded-full bg-brand" />Open to roles</span>],
-          ].map(([label, value], i) => (
-            <div key={label as string} className={`p-4 border-border ${i % 2 ? "" : "border-r"} ${i < 2 ? "border-b sm:border-b-0" : ""} ${i === 1 ? "sm:border-r" : ""} ${i === 2 ? "sm:border-r" : ""}`}>
-              <div className="mb-1 text-[0.65rem] uppercase tracking-widest text-muted-foreground">{label}</div>
-              {value}
-            </div>
-          ))}
-        </Row>
-        <Row className="px-4 py-3 font-mono text-xs text-muted-foreground">
-          © 2026 Shriyashish Mishra
-        </Row>
-        <div className="h-16">
-          <div className="mx-auto h-full max-w-3xl border-x border-border" />
-        </div>
+
+        <Gap />
+        <SiteFooter />
       </main>
     </div>
   );

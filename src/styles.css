@@ -157,8 +157,7 @@
     border-color: color-mix(in oklab, var(--brand) 45%, var(--border));
   }
 
-  .playful-home .play-card:focus-visible,
-  .case-playful a:focus-visible {
+  .playful-home .play-card:focus-visible {
     outline: 2px solid var(--brand);
     outline-offset: 4px;
   }
@@ -255,22 +254,89 @@
 
 .play-reveal.is-visible { opacity: 1; }
 
-.case-playful main > section { position: relative; }
-.case-playful h1 { text-wrap: balance; }
-
-.case-playful main [class*="rounded"]:not(.mockup):not(.mockup *) {
-  transition: border-color 200ms ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .case-playful main [class*="rounded"][class*="border"]:not(.mockup):not(.mockup *):hover {
-    border-color: color-mix(in oklab, var(--brand) 40%, var(--border));
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .playful-home .fade-up { animation: none; }
   .play-reveal { opacity: 1; transition: none; }
+}
+
+/* ---------- Shared frame (homepage + case studies) ---------- */
+
+/* Hatched text: the big footer wordmark and case numbers */
+.wordmark {
+  color: transparent;
+  background-image: repeating-linear-gradient(-45deg, var(--muted-foreground) 0 1px, transparent 1px 6px);
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0.55;
+}
+
+/* List rows: a thin accent marker slides in on hover */
+.row-link { position: relative; transition: background-color 200ms ease; }
+.row-link::before {
+  position: absolute;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  left: -1px;
+  width: 2px;
+  background: var(--brand);
+  content: "";
+  transform: scaleY(0);
+  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.row-link:hover { background-color: color-mix(in oklab, var(--accent) 60%, transparent); }
+.row-link:hover::before, .row-link:focus-visible::before { transform: scaleY(1); }
+.row-link:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
+
+/* Career arc (homepage Fig. 1): the line draws in once */
+.arc-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: arc-draw 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;
+}
+.arc-node { opacity: 0; animation: arc-fade 500ms ease forwards; }
+@keyframes arc-draw { to { stroke-dashoffset: 0; } }
+@keyframes arc-fade { to { opacity: 1; } }
+.arc-pulse { transform-box: fill-box; transform-origin: center; animation: arc-pulse 2.4s ease-out infinite; }
+@keyframes arc-pulse { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(3.2); opacity: 0; } }
+
+/* Case-study content: the long-form sections sit in the same framed column.
+   Unlayered on purpose so it overrides the per-section Tailwind spacing. */
+.case-frame {
+  max-width: 64rem;
+  margin-inline: auto;
+  border-inline: 1px solid var(--border);
+}
+.case-frame > section {
+  position: relative;
+  max-width: none;
+  margin: 0;
+  padding: 3.5rem 1.5rem;
+}
+.case-frame > section + section { padding-top: calc(2rem + 3.5rem); }
+.case-frame > section + section::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 2rem;
+  border-block: 1px solid var(--border);
+  background-image: repeating-linear-gradient(-45deg, var(--hatch) 0 1px, transparent 1px 8px);
+  content: "";
+  transform: translateX(-50%);
+}
+.case-frame h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+.case-frame .label-mono { font-size: 0.7rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .arc-path { animation: none; stroke-dashoffset: 0; }
+  .arc-node { animation: none; opacity: 1; }
+  .arc-pulse { animation: none; opacity: 0; }
+  .row-link::before { transition: none; }
 }
 
 /* Zamp-style eyebrow: blue mono label with a leading dot */

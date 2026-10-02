@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { PlayfulPage } from "@/components/playful-page";
+import { CaseShell } from "@/components/site-frame";
 
 export const Route = createFileRoute("/whatsapp-group-engagement")({
   head: () => ({
@@ -27,7 +27,7 @@ function Tag({ children }: { children: React.ReactNode }) {
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-mono text-[0.7rem] tracking-[0.22em] text-emerald-400/90 mb-6">
+    <div className="font-mono text-xs tracking-[0.18em] text-brand mb-6">
       {children}
     </div>
   );
@@ -135,41 +135,15 @@ const colorMap: Record<string, string> = {
 
 function WhatsAppCase() {
   return (
-    <div className="case-playful case-whatsapp relative z-10 min-h-screen overflow-hidden text-foreground">
-      <PlayfulPage />
-      {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
-        <div className="max-w-[1200px] mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
-          <Link to="/" className="font-mono text-xs tracking-[0.18em] text-foreground/90 hover:text-foreground transition">
-            SM <span className="text-muted-foreground">//</span> PORTFOLIO
-          </Link>
-          <div className="flex items-center gap-5">
-            <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
-              <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO
-            </Link>
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
-
-      <main className="max-w-[1200px] mx-auto px-8 lg:px-16">
+    <CaseShell
+      path="/whatsapp-group-engagement"
+      title="Increasing WhatsApp Group Engagement"
+      summary="Designing product interventions to increase participation, retention, and meaningful interactions within WhatsApp groups."
+      tags={["Growth Strategy", "Engagement", "Retention", "Community Building"]}
+      meta={[["Role", "Product Manager"], ["Focus", "Growth strategy"], ["Domain", "Messaging · Community"], ["Read", "6–8 min"]]}
+    >
         {/* tailwind-safelist */}
         <div className="hidden bg-emerald-400/70 bg-amber-400/70 bg-rose-400/70 text-emerald-200 text-emerald-300 text-amber-200 text-amber-300 text-rose-200 text-rose-300 border-emerald-500/30 border-amber-500/30 border-rose-500/30 bg-emerald-500/5 bg-emerald-500/10 bg-amber-500/10 bg-rose-500/10" />
-        {/* HERO */}
-        <section className="pt-24 pb-20">
-          <Label>CASE_STUDY_01</Label>
-          <h1 className="font-serif text-[clamp(3rem,8vw,7rem)] leading-[1.02] tracking-[-0.03em] mb-12">
-            Increasing WhatsApp Group Engagement
-          </h1>
-          <div className="flex flex-wrap gap-3">
-            <Tag>Growth Strategy</Tag>
-            <Tag>Product Manager</Tag>
-            <Tag>Engagement · Retention · Community Building</Tag>
-            <Tag>6–8 mins</Tag>
-          </div>
-        </section>
-
-        <div className="border-t border-border/40" />
 
         {/* CONTEXT */}
         <section className="py-24">
@@ -179,8 +153,6 @@ function WhatsAppCase() {
             WhatsApp is the most widely used messaging platform globally. While one-to-one messaging remains highly active, engagement within groups declines over time due to information overload, notification fatigue, and fragmented conversations.
           </p>
         </section>
-
-        <div className="border-t border-border/40" />
 
         {/* PROBLEM STATEMENT */}
         <section className="py-24 grid md:grid-cols-2 gap-12 items-start">
@@ -200,8 +172,6 @@ function WhatsAppCase() {
             </p>
           </div>
         </section>
-
-        <div className="border-t border-border/40" />
 
         {/* USER PERSONAS */}
         <section className="py-24">
@@ -241,8 +211,6 @@ function WhatsAppCase() {
           </div>
         </section>
 
-        <div className="border-t border-border/40" />
-
         {/* INSIGHTS */}
         <section className="py-24">
           <Label>V.02 / RESEARCH_INSIGHTS</Label>
@@ -256,8 +224,6 @@ function WhatsAppCase() {
             ))}
           </div>
         </section>
-
-        <div className="border-t border-border/40" />
 
         {/* COMPETITIVE ANALYSIS */}
         <section className="py-24">
@@ -279,8 +245,6 @@ function WhatsAppCase() {
             ))}
           </div>
         </section>
-
-        <div className="border-t border-border/40" />
 
         {/* SOLUTIONS */}
         <section className="py-24">
@@ -307,8 +271,6 @@ function WhatsAppCase() {
             ))}
           </div>
         </section>
-
-        <div className="border-t border-border/40" />
 
         {/* PRODUCT MOCKUPS */}
         <section className="py-24">
@@ -472,8 +434,6 @@ function WhatsAppCase() {
           </div>
         </section>
 
-        <div className="border-t border-border/40" />
-
 
 
         {/* PRIORITIZATION */}
@@ -490,8 +450,6 @@ function WhatsAppCase() {
             ))}
           </div>
         </section>
-
-        <div className="border-t border-border/40" />
 
         {/* SUCCESS METRICS */}
         <section className="py-24">
@@ -515,8 +473,6 @@ function WhatsAppCase() {
           </div>
         </section>
 
-        <div className="border-t border-border/40" />
-
         {/* RISKS & TRADEOFFS */}
         <section className="py-24">
           <Label>V.07 / RISKS_TRADEOFFS</Label>
@@ -536,8 +492,6 @@ function WhatsAppCase() {
           </div>
         </section>
 
-        <div className="border-t border-border/40" />
-
         {/* PRODUCT THINKING */}
         <section className="py-24 grid md:grid-cols-[1fr_2fr] gap-12">
           <div>
@@ -550,8 +504,6 @@ function WhatsAppCase() {
             <p>Each intervention preserves WhatsApp's minimalism while unlocking depth for the users who want it.</p>
           </div>
         </section>
-
-        <div className="border-t border-border/40" />
 
         {/* ROLLOUT */}
         <section className="py-24">
@@ -571,8 +523,6 @@ function WhatsAppCase() {
           </div>
         </section>
 
-        <div className="border-t border-border/40" />
-
         {/* KEY LEARNINGS */}
         <section className="py-24">
           <Label>V.10 / KEY_LEARNINGS</Label>
@@ -587,8 +537,6 @@ function WhatsAppCase() {
           </div>
         </section>
 
-        <div className="border-t border-border/40" />
-
         {/* FINAL REFLECTION */}
         <section className="py-28 text-center max-w-2xl mx-auto">
           <Label>FINAL_REFLECTION</Label>
@@ -596,32 +544,6 @@ function WhatsAppCase() {
             The best engagement features are the ones users don't notice — they simply feel the group is alive again.
           </p>
         </section>
-
-        {/* PREV / NEXT NAV */}
-        <section className="py-16 border-t border-border/50 grid sm:grid-cols-2 gap-6">
-          <Link to="/" className="group block">
-            <div className="label-mono mb-3">PREVIOUS</div>
-            <div className="flex items-center gap-3 font-serif italic text-2xl text-muted-foreground group-hover:text-foreground transition">
-              <ArrowLeft className="h-5 w-5" /> Portfolio Home
-            </div>
-          </Link>
-          <Link to="/blusmart-mumbai-expansion" className="group block sm:text-right">
-            <div className="label-mono mb-3">NEXT</div>
-            <div className="flex items-center gap-3 sm:justify-end font-serif italic text-2xl text-muted-foreground group-hover:text-foreground transition">
-              BluSmart Mumbai Expansion <ArrowRight className="h-5 w-5" />
-            </div>
-          </Link>
-        </section>
-
-        <footer className="border-t border-border/50 py-12 flex flex-wrap items-center justify-between gap-4">
-          <div className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground/60">
-            © 2026 SHRIYASHISH MISHRA — ALL RIGHTS RESERVED
-          </div>
-          <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
-            <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO
-          </Link>
-        </footer>
-      </main>
-    </div>
+    </CaseShell>
   );
 }

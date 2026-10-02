@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { PlayfulPage } from "@/components/playful-page";
+import { CaseShell } from "@/components/site-frame";
 
 export const Route = createFileRoute("/blusmart-mumbai-expansion")({
   head: () => ({
@@ -22,7 +22,7 @@ function Label({ children, className = "" }: { children: React.ReactNode; classN
 }
 
 function SectionTag({ v, label }: { v: string; label: string }) {
-  return <div className="label-mono mb-8">V.{v} / {label}</div>;
+  return <div className="mb-8 font-mono text-xs tracking-[0.18em] text-muted-foreground"><span className="text-brand">V.{v}</span> / {label}</div>;
 }
 
 const challengeLeft = ["Serviceable zones", "Driver requirements", "User acquisition strategy"];
@@ -125,36 +125,16 @@ const learnings = [
 ];
 
 function BluSmartCaseStudy() {
-  const accent = "text-[#5b8def]";
+  const accent = "text-brand";
   return (
-    <div className="case-playful case-blusmart relative z-10 min-h-screen overflow-hidden text-foreground">
-      <PlayfulPage />
-      {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-16 h-16 flex items-center justify-between">
-          <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
-            <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO
-          </Link>
-          <div className="flex items-center gap-5">
-            <div className="font-mono text-xs tracking-[0.18em] text-muted-foreground">CASE_STUDY_03</div>
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
+    <CaseShell
+      path="/blusmart-mumbai-expansion"
+      title="Launching BluSmart in Mumbai"
+      summary="A launch strategy for Mumbai with an initial fleet of 150 Tata Ziptron EVs — zones, supply, charging and user acquisition."
+      tags={["Go-to-Market Strategy", "Market Expansion", "Operations", "Supply Strategy", "User Acquisition"]}
+      meta={[["Role", "Product Manager"], ["Focus", "Go-to-market"], ["Domain", "Mobility · EV"], ["Fleet", "150 EVs"]]}
+    >
 
-      <main className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-16">
-        {/* HERO */}
-        <section className="pt-24 pb-32">
-          <div className={`label-mono mb-10 ${accent}`}>CASE_STUDY_03</div>
-          <h1 className="font-serif text-[clamp(3rem,9vw,8rem)] leading-[1.02] tracking-[-0.02em]">
-            Launching BluSmart in Mumbai
-          </h1>
-          <div className="mt-14 flex flex-wrap items-center gap-4">
-            <span className={`rounded-full border border-[#5b8def]/40 px-5 py-2 font-mono text-[0.7rem] tracking-[0.18em] ${accent}`}>GO-TO-MARKET STRATEGY</span>
-            <span className={`rounded-full border border-[#5b8def]/40 px-5 py-2 font-mono text-[0.7rem] tracking-[0.18em] ${accent}`}>PRODUCT MANAGER</span>
-            <span className="font-mono text-xs text-muted-foreground ml-2">Market Expansion · Operations · Supply Strategy · User Acquisition</span>
-          </div>
-        </section>
 
         {/* BUSINESS CONTEXT */}
         <section className="pb-28">
@@ -167,7 +147,7 @@ function BluSmartCaseStudy() {
             <div className="grid sm:grid-cols-2 gap-x-10 gap-y-3 mb-8">
               {[...challengeLeft, ...challengeRight].map((c) => (
                 <div key={c} className="flex items-center gap-3 text-sm">
-                  <span className={`h-1.5 w-1.5 rounded-full bg-[#5b8def] shrink-0`} />
+                  <span className={`h-1.5 w-1.5 rounded-full bg-brand shrink-0`} />
                   <span>{c}</span>
                 </div>
               ))}
@@ -192,7 +172,7 @@ function BluSmartCaseStudy() {
               ))}
             </ol>
           </div>
-          <div className="border border-[#5b8def]/40 rounded-2xl p-8 bg-[#5b8def]/[0.04] self-start">
+          <div className="border border-brand/40 rounded-2xl p-8 bg-brand/[0.04] self-start">
             <div className={`label-mono mb-5 ${accent}`}>STRATEGIC OBJECTIVE</div>
             <p className="font-serif text-lg leading-snug">
               The goal is to maximize: Orders, User acquisition, User retention, Competitive conversion while maintaining operational efficiency.
@@ -231,7 +211,7 @@ function BluSmartCaseStudy() {
               </div>
             ))}
           </div>
-          <div className="border border-[#5b8def]/40 rounded-2xl p-10 bg-[#5b8def]/[0.04] text-center">
+          <div className="border border-brand/40 rounded-2xl p-10 bg-brand/[0.04] text-center">
             <div className={`label-mono mb-4 ${accent}`}>HIGHLIGHT</div>
             <p className="font-serif text-xl md:text-2xl">In 24 hours: One cab can complete approximately 12 trips.</p>
             <p className="font-mono text-xs text-muted-foreground mt-3 tracking-wider">These assumptions are used throughout fleet planning.</p>
@@ -283,7 +263,7 @@ function BluSmartCaseStudy() {
               </div>
             </div>
           </div>
-          <div className="border border-[#5b8def]/40 rounded-2xl p-8 bg-[#5b8def]/[0.04] mt-5 grid md:grid-cols-2 gap-8">
+          <div className="border border-brand/40 rounded-2xl p-8 bg-brand/[0.04] mt-5 grid md:grid-cols-2 gap-8">
             <div>
               <div className={`label-mono mb-4 ${accent}`}>RECOMMENDATION</div>
               <p className="font-serif text-xl md:text-2xl">Launch with approximately 300 driver partners.</p>
@@ -306,7 +286,7 @@ function BluSmartCaseStudy() {
               </div>
             ))}
           </div>
-          <div className="border border-[#5b8def]/40 rounded-2xl p-10 bg-[#5b8def]/[0.04]">
+          <div className="border border-brand/40 rounded-2xl p-10 bg-brand/[0.04]">
             <div className={`label-mono mb-5 ${accent}`}>RECOMMENDATION</div>
             <h3 className="font-serif text-2xl md:text-3xl mb-10">Establish a minimum of 5 strategic charging hubs across Mumbai.</h3>
             <div className="grid sm:grid-cols-3 gap-8">
@@ -333,14 +313,14 @@ function BluSmartCaseStudy() {
               <ol className="space-y-3 mb-10">
                 {["High order volume density","Convert competitor users","Improve retention rates"].map((t, i) => (
                   <li key={t} className="flex items-center gap-4">
-                    <span className={`font-mono text-[0.65rem] rounded-full border border-[#5b8def]/50 ${accent} px-2 py-0.5`}>{String(i+1).padStart(2,"0")}</span>
+                    <span className={`font-mono text-[0.65rem] rounded-full border border-brand/50 ${accent} px-2 py-0.5`}>{String(i+1).padStart(2,"0")}</span>
                     <span>{t}</span>
                   </li>
                 ))}
               </ol>
               <div className="flex flex-wrap gap-2">
                 {zones.map((z) => (
-                  <span key={z} className={`rounded-full border border-[#5b8def]/40 px-3 py-1 font-mono text-[0.7rem] ${accent}`}>{z}</span>
+                  <span key={z} className={`rounded-full border border-brand/40 px-3 py-1 font-mono text-[0.7rem] ${accent}`}>{z}</span>
                 ))}
               </div>
             </div>
@@ -351,7 +331,7 @@ function BluSmartCaseStudy() {
                 {n:"Worli", x:48, y:75},{n:"Churchgate", x:38, y:88},
               ].map((p) => (
                 <div key={p.n} className="absolute flex items-center gap-2" style={{ left: `${p.x}%`, top: `${p.y}%` }}>
-                  <span className="h-2 w-2 rounded-full bg-[#5b8def]" />
+                  <span className="h-2 w-2 rounded-full bg-brand" />
                   <span className="font-mono text-[0.65rem] text-muted-foreground -rotate-[20deg] origin-left">{p.n}</span>
                 </div>
               ))}
@@ -383,12 +363,12 @@ function BluSmartCaseStudy() {
               </div>
             ))}
           </div>
-          <div className="border border-[#5b8def]/40 rounded-2xl p-10 bg-[#5b8def]/[0.04] flex flex-wrap items-center justify-between gap-8">
+          <div className="border border-brand/40 rounded-2xl p-10 bg-brand/[0.04] flex flex-wrap items-center justify-between gap-8">
             <div className="max-w-2xl">
               <h3 className="font-serif text-3xl md:text-4xl mb-4">Airport (Primary Zone)</h3>
               <p className="text-muted-foreground">Users are highly sensitive to surge pricing and cancellations. BluSmart's fixed pricing and guaranteed availability create massive differentiation in this high-margin segment.</p>
             </div>
-            <div className={`h-28 w-28 rounded-full border border-[#5b8def]/60 flex items-center justify-center text-center font-mono text-[0.65rem] tracking-wider ${accent}`}>
+            <div className={`h-28 w-28 rounded-full border border-brand/60 flex items-center justify-center text-center font-mono text-[0.65rem] tracking-wider ${accent}`}>
               HIGH MARGIN<br />REVENUE
             </div>
           </div>
@@ -402,7 +382,7 @@ function BluSmartCaseStudy() {
               <div className="label-mono absolute top-6 left-6">DISTRIBUTED_HUB_TOPOLOGY.V1</div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative h-2/3 w-2/3 rounded-full border border-border/50">
-                  <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4 w-4 rounded-full bg-[#5b8def]`} />
+                  <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4 w-4 rounded-full bg-brand`} />
                   {[
                     { style: { top: 0, left: "50%", transform: "translate(-50%,-50%)" } },
                     { style: { top: "50%", right: 0, transform: "translate(50%,-50%)" } },
@@ -419,7 +399,7 @@ function BluSmartCaseStudy() {
               <p className="text-muted-foreground mb-8">
                 Charging hubs must be distributed across key zones to minimize empty runs for charging. Strategic placement at zone intersections ensures maximum coverage.
               </p>
-              <div className="border-l-2 border-[#5b8def] pl-6 py-2">
+              <div className="border-l-2 border-brand pl-6 py-2">
                 <div className={`label-mono mb-3 ${accent}`}>CORE OBJECTIVE</div>
                 <p className="font-serif italic text-lg">"Minimize charging downtime between pickup and drop-off locations to maximize fleet revenue hours."</p>
               </div>
@@ -463,7 +443,7 @@ function BluSmartCaseStudy() {
           <h2 className="font-serif text-3xl md:text-4xl mb-10">Operational Planning Framework</h2>
           <div className="grid md:grid-cols-2 gap-5">
             {opFramework.map((f) => (
-              <div key={f.t} className="border border-border/60 border-l-2 border-l-[#5b8def] rounded-2xl p-7 bg-card/30">
+              <div key={f.t} className="border border-border/60 border-l-2 border-l-brand rounded-2xl p-7 bg-card/30">
                 <h3 className={`font-serif text-2xl mb-4 ${accent}`}>{f.t}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{f.b}</p>
               </div>
@@ -475,7 +455,7 @@ function BluSmartCaseStudy() {
         <section className="pb-28">
           <SectionTag v="13" label="KPI_DASHBOARD" />
           <h2 className="font-serif text-3xl md:text-4xl mb-10">Success Metrics</h2>
-          <div className="border border-[#5b8def]/40 rounded-2xl p-12 md:p-16 bg-[#5b8def]/[0.04] text-center mb-6">
+          <div className="border border-brand/40 rounded-2xl p-12 md:p-16 bg-brand/[0.04] text-center mb-6">
             <div className={`label-mono mb-6 ${accent}`}>NORTH STAR METRIC</div>
             <h3 className="font-serif text-4xl md:text-6xl mb-6">Completed Rides per Day</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">The primary indicator of both fleet utilization efficiency and market demand capture.</p>
@@ -519,32 +499,6 @@ function BluSmartCaseStudy() {
             ))}
           </div>
         </section>
-
-        {/* PREV / NEXT NAV */}
-        <section className="py-16 border-t border-border/50 grid sm:grid-cols-2 gap-6">
-          <Link to="/whatsapp-group-engagement" className="group block">
-            <div className="label-mono mb-3">PREVIOUS</div>
-            <div className="flex items-center gap-3 font-serif italic text-2xl text-muted-foreground group-hover:text-foreground transition">
-              <ArrowLeft className="h-5 w-5" /> WhatsApp Group User Engagement
-            </div>
-          </Link>
-          <Link to="/spotify-loyalty-engine" className="group block sm:text-right">
-            <div className="label-mono mb-3">NEXT</div>
-            <div className="flex items-center gap-3 sm:justify-end font-serif italic text-2xl text-muted-foreground group-hover:text-foreground transition">
-              Spotify Loyalty Engine <ArrowRight className="h-5 w-5" />
-            </div>
-          </Link>
-        </section>
-
-        <footer className="border-t border-border/50 py-12 flex flex-wrap items-center justify-between gap-4">
-          <div className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground/60">
-            © 2026 SHRIYASHISH MISHRA — ALL RIGHTS RESERVED
-          </div>
-          <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
-            <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO
-          </Link>
-        </footer>
-      </main>
-    </div>
+    </CaseShell>
   );
 }

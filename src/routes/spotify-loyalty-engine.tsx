@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ChevronRight, Check, Lock, Music, Play, Sparkles, Star, Download, Headphones } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { PlayfulPage } from "@/components/playful-page";
+import { CaseShell } from "@/components/site-frame";
 
 export const Route = createFileRoute("/spotify-loyalty-engine")({
   head: () => ({
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/spotify-loyalty-engine")({
 });
 
 function Label({ children }: { children: React.ReactNode }) {
-  return <div className="font-mono text-[0.7rem] tracking-[0.22em] text-emerald-400/90 mb-6">{children}</div>;
+  return <div className="font-mono text-xs tracking-[0.18em] text-brand mb-6">{children}</div>;
 }
 function SectionH({ children }: { children: React.ReactNode }) {
   return <h2 className="font-serif text-4xl md:text-5xl mb-8">{children}</h2>;
@@ -131,36 +131,15 @@ const learnings = [
 
 function SpotifyCase() {
   return (
-    <div className="case-playful case-spotify relative z-10 min-h-screen overflow-hidden text-foreground">
-      <PlayfulPage />
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/40">
-        <div className="max-w-[1400px] mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
-          <Link to="/" className="font-mono text-xs tracking-[0.18em] text-foreground/90 hover:text-foreground transition">SM <span className="text-muted-foreground">//</span> PORTFOLIO</Link>
-          <div className="flex items-center gap-5">
-            <Link to="/" className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.18em] text-muted-foreground hover:text-foreground transition">
-              <ArrowLeft className="h-3.5 w-3.5" /> BACK TO PORTFOLIO
-            </Link>
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
-
-      <main className="max-w-[1400px] mx-auto px-8 lg:px-16">
+    <CaseShell
+      path="/spotify-loyalty-engine"
+      title="Spotify Loyalty Engine"
+      summary="Designing a gamified loyalty system to increase listening hours and premium conversion."
+      tags={["Product Strategy", "Consumer Growth", "Gamification", "Retention"]}
+      meta={[["Focus", "Product strategy"], ["Domain", "Consumer · Music"], ["Levers", "Gamification"], ["Goal", "Premium conversion"]]}
+    >
         {/* tailwind-safelist */}
         <div className="hidden bg-emerald-400/70 bg-emerald-400/80 bg-emerald-500 bg-emerald-500/10 bg-emerald-500/15 bg-emerald-500/30 border-emerald-500/30 border-emerald-500/40 border-emerald-500/60 text-emerald-100 text-emerald-200 text-emerald-300 text-emerald-400/80 text-emerald-400/90 bg-amber-400/70 bg-amber-500/10 bg-amber-500/20 bg-amber-500/30 border-amber-500/30 border-amber-500/40 text-amber-100 text-amber-200 text-amber-300 bg-sky-500/30 border-sky-500/40 text-sky-200 text-sky-300 bg-fuchsia-500/30 border-fuchsia-500/40 text-fuchsia-200 text-fuchsia-300 bg-rose-400/70 bg-rose-500/5 bg-rose-500/10 bg-rose-500/20 border-rose-500/30 border-rose-500/40 text-rose-100 text-rose-200 text-rose-300 bg-purple-400/70 text-purple-300 border-l-sky-400 border-l-amber-400 border-l-rose-400 border-t-sky-400 border-t-purple-400 border-t-emerald-400 border-t-amber-400 border-t-rose-400" />
-        {/* HERO */}
-        <section className="pt-32 pb-24 text-center">
-          <Label>CASE_STUDY_02</Label>
-          <h1 className="font-serif text-6xl md:text-7xl mb-6">Spotify Loyalty Engine</h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Designing a gamified loyalty system to increase listening hours and premium conversion.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Tag>Product Strategy</Tag><Tag>Consumer Growth</Tag><Tag>Gamification</Tag><Tag active>Retention</Tag>
-          </div>
-        </section>
-
-        <div className="border-t border-border/40" />
 
         {/* PROBLEM */}
         <section className="py-24">
@@ -187,7 +166,7 @@ function SpotifyCase() {
                 <span className="text-emerald-400/80">FLOW</span>
                 <span>Listen Time</span><ChevronRight className="h-3 w-3" /><span>Retention</span><ChevronRight className="h-3 w-3" /><span>Conversion</span><ChevronRight className="h-3 w-3" /><span className="text-emerald-300">Revenue</span>
               </div>
-              {[1,2].map((i) => (
+              {[1].map((i) => (
                 <div key={i} className="rounded-md border border-border/60 p-5 bg-card/30">
                   <div className="flex justify-between text-xs font-mono mb-3"><span className="text-muted-foreground">OPPORTUNITY SIZE</span><span className="text-emerald-400/80">MODELED</span></div>
                   <div className="flex gap-8">
@@ -629,30 +608,6 @@ function SpotifyCase() {
             ))}
           </div>
         </section>
-
-        {/* PREV / NEXT NAV */}
-        <section className="py-16 border-t border-border/50 grid sm:grid-cols-[1fr_auto_1fr] items-center gap-6">
-          <Link to="/blusmart-mumbai-expansion" className="group block">
-            <div className="label-mono mb-2">PREVIOUS</div>
-            <div className="flex items-center gap-3 font-serif italic text-xl text-muted-foreground group-hover:text-foreground transition">
-              <ArrowLeft className="h-4 w-4" /> BluSmart Mumbai Expansion
-            </div>
-          </Link>
-          <Link to="/" className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 font-mono text-xs tracking-[0.22em] hover:bg-foreground hover:text-background transition justify-self-center">
-            BACK TO PORTFOLIO
-          </Link>
-          <Link to="/whatsapp-group-engagement" className="group block sm:text-right">
-            <div className="label-mono mb-2">NEXT</div>
-            <div className="flex items-center gap-3 sm:justify-end font-serif italic text-xl text-muted-foreground group-hover:text-foreground transition">
-              WhatsApp Group Engagement <ArrowRight className="h-4 w-4" />
-            </div>
-          </Link>
-        </section>
-
-        <footer className="border-t border-border/50 py-12">
-          <div className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground/60">© 2026 SHRIYASHISH MISHRA — ALL RIGHTS RESERVED</div>
-        </footer>
-      </main>
-    </div>
+    </CaseShell>
   );
 }
