@@ -232,7 +232,7 @@ function BluSmartCaseStudy() {
           <div className="grid md:grid-cols-2 gap-5">
             <div className="border border-border/60 rounded-2xl p-8 bg-card/30">
               <div className="mb-5 text-sm font-medium">Market potential</div>
-              {[["Potential users","875K"],["Daily conversion","0.01%"],["Expected daily riders","~87.5K"]].map(([l,v]) => (
+              {[["Potential users","875K"],["Daily conversion","10%"],["Expected daily riders","~87.5K"]].map(([l,v]) => (
                 <div key={l} className="flex items-center justify-between py-4 border-b border-border/40 last:border-0">
                   <span className="text-sm">{l}</span>
                   <span className="font-serif text-xl">{v}</span>

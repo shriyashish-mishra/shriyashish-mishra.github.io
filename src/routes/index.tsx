@@ -12,9 +12,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Shriyashish Mishra · Product Manager" },
-      { name: "description", content: "Product manager working on growth, engagement and AI products in health-tech." },
+      { name: "description", content: "Product manager working on growth, engagement and AI products." },
       { property: "og:title", content: "Shriyashish Mishra · Product Manager" },
-      { property: "og:description", content: "Product manager working on growth, engagement and AI products in health-tech." },
+      { property: "og:description", content: "Product manager working on growth, engagement and AI products." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -152,7 +152,7 @@ function Home() {
 
           <h1 className="mt-10 max-w-4xl text-pretty text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.05] tracking-[-0.035em]">
             I'm Shriyashish, a product manager.
-            <span className="text-muted-foreground"> I work on growth, engagement and AI products, mostly in health-tech.</span>
+            <span className="text-muted-foreground"> I work on growth, engagement and AI products.</span>
           </h1>
 
           <p className="mt-8 max-w-xl text-pretty text-lg text-muted-foreground">
