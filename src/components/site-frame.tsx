@@ -21,7 +21,6 @@ export const CASES: {
   highlight: string;
   question: string;
   concepts: string[];
-  steps: string[];
   Art: ComponentType<{ className?: string }>;
 }[] = [
   {
@@ -30,7 +29,6 @@ export const CASES: {
     highlight: "North star: weekly active group participants",
     question: "Why do active groups go quiet, and what brings people back?",
     concepts: ["User research", "Personas", "Competitor analysis", "Feature prioritization", "North-star metric", "Rollout plan"],
-    steps: ["Problem", "Research", "4 ideas", "Prioritize", "Metric", "Risks"],
     Art: WhatsAppArt,
   },
   {
@@ -39,7 +37,6 @@ export const CASES: {
     highlight: "+8% listening hours · +2pp Premium (modeled)",
     question: "How do you give free users a real reason to upgrade?",
     concepts: ["Problem framing", "Personas", "Opportunity scoring", "Gamification", "Impact modeling", "Success metrics"],
-    steps: ["Problems", "Personas", "Score options", "Recommend", "Design", "Impact"],
     Art: SpotifyArt,
   },
   {
@@ -48,7 +45,6 @@ export const CASES: {
     highlight: "150 EVs · ~12 trips per car per day",
     question: "Where do you launch 150 EVs, and what has to be true to keep them busy?",
     concepts: ["Go-to-market", "Capacity planning", "Supply planning", "Launch sequencing", "Rider acquisition", "Risk"],
-    steps: ["Assumptions", "Capacity", "Drivers & hubs", "Where to launch", "Riders", "Risks"],
     Art: BluSmartArt,
   },
 ];

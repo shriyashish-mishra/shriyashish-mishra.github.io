@@ -117,15 +117,15 @@ function Logo({ id }: { id: string }) {
 }
 
 const aiBuilds: {
-  title: string; kind: string; body: string; url: string; cta?: string;
+  title: string; kind: string; body: string; concepts: string[]; url: string; cta?: string;
   Art: React.ComponentType<{ className?: string }>;
 }[] = [
-  { title: "Architect 2.0", kind: "Vibe coding · Platform", body: "A vibe-coding platform with two front doors: prompt an app into existence, or drop into the file tree and terminal and take over. Real auth, database and GitHub import; the agent run is simulated.", url: "https://architect-20-ten.vercel.app", Art: ArchitectArt },
-  { title: "Who Broke It?", kind: "Open source · Agents", body: "A coordination layer for teams building with humans and AI coding agents. Keeps a living graph of tasks, owners and contracts in the repo, and shows what an agent's change breaks downstream.", url: "https://github.com/shriyashish-mishra/who-broke-it", Art: WhoBrokeItArt, cta: "View on GitHub" },
-  { title: "Project Hulk", kind: "Fitness · AI", body: "An AI fitness app that ties together workouts, nutrition, recovery and progress, and turns them into personalized insights.", url: "https://project-hulk.vercel.app", Art: HulkArt },
-  { title: "RegImpact AI", kind: "RegTech · AI", body: "Checks Indian fintech products against RBI's digital lending and KYC/AML rules, with a citation for every finding.", url: "https://reg-impact-ai.vercel.app", Art: RegImpactArt },
-  { title: "ProductBattle AI", kind: "LLM · Tooling", body: "Compares products head to head and evaluates how each one is positioned.", url: "https://productbattle.lovable.app/", Art: ProductBattleArt },
-  { title: "Cooked or Hired", kind: "Career · Claude skills", body: "A brutally honest hiring simulator. Three panelists (HR, hiring manager, CEO) score your resume for a given company and role, then hand you a fix-it list and likely interview questions.", url: "https://github.com/shriyashish-mishra/Cooked-or-Hired", Art: CookedOrHiredArt, cta: "View on GitHub" },
+  { title: "Architect 2.0", concepts: ["Agentic workflows", "Prompt-to-app", "Auth & row-level security", "GitHub integration", "Product UX"], kind: "Vibe coding · Platform", body: "A vibe-coding platform with two front doors: prompt an app into existence, or drop into the file tree and terminal and take over. Real auth, database and GitHub import; the agent run is simulated.", url: "https://architect-20-ten.vercel.app", Art: ArchitectArt },
+  { title: "Who Broke It?", concepts: ["Multi-agent coordination", "Dependency graph", "Developer tooling", "Open source"], kind: "Open source · Agents", body: "A coordination layer for teams building with humans and AI coding agents. Keeps a living graph of tasks, owners and contracts in the repo, and shows what an agent's change breaks downstream.", url: "https://github.com/shriyashish-mishra/who-broke-it", Art: WhoBrokeItArt, cta: "View on GitHub" },
+  { title: "Project Hulk", concepts: ["AI coaching", "Personalization", "Habit tracking", "Mobile-first"], kind: "Fitness · AI", body: "An AI fitness app that ties together workouts, nutrition, recovery and progress, and turns them into personalized insights.", url: "https://project-hulk.vercel.app", Art: HulkArt },
+  { title: "RegImpact AI", concepts: ["RAG", "Citation-backed answers", "Regulatory analysis", "Risk scoring", "AI evaluation"], kind: "RegTech · AI", body: "Checks Indian fintech products against RBI's digital lending and KYC/AML rules, with a citation for every finding.", url: "https://reg-impact-ai.vercel.app", Art: RegImpactArt },
+  { title: "ProductBattle AI", concepts: ["LLM comparison", "Competitive analysis", "Product positioning", "Prompt design"], kind: "LLM · Tooling", body: "Compares products head to head and evaluates how each one is positioned.", url: "https://productbattle.lovable.app/", Art: ProductBattleArt },
+  { title: "Cooked or Hired", concepts: ["Prompt engineering", "Claude skills", "Multi-persona evaluation", "Resume scoring"], kind: "Career · Claude skills", body: "A brutally honest hiring simulator. Three panelists (HR, hiring manager, CEO) score your resume for a given company and role, then hand you a fix-it list and likely interview questions.", url: "https://github.com/shriyashish-mishra/Cooked-or-Hired", Art: CookedOrHiredArt, cta: "View on GitHub" },
 ];
 
 const roleTheme: Record<string, string> = { "Meril Life Sciences": "AI 0→1", "Eka Care": "Growth", "Qure.ai": "Adoption" };
@@ -150,25 +150,23 @@ function Duration({ start, end }: { start: string; end: string | null }) {
   return <span>{text}</span>;
 }
 
+function ConceptTags({ concepts }: { concepts: string[] }) {
+  return (
+    <div>
+      <div className="mb-2 font-mono text-[0.7rem] uppercase tracking-wider text-muted-foreground">Concepts covered</div>
+      <div className="flex flex-wrap gap-1.5">
+        {concepts.map((t) => <Tag key={t}>{t}</Tag>)}
+      </div>
+    </div>
+  );
+}
+
 // What a case study teaches: the question it asks, the concepts it uses, and the path through it.
 function Concepts({ c }: { c: (typeof CASES)[number] }) {
   return (
     <div className="mt-5 space-y-4 border-t border-border pt-5">
       <p className="text-sm font-medium">{c.question}</p>
-      <div>
-        <div className="mb-2 font-mono text-[0.7rem] uppercase tracking-wider text-muted-foreground">Concepts covered</div>
-        <div className="flex flex-wrap gap-1.5">
-          {c.concepts.map((t) => <Tag key={t}>{t}</Tag>)}
-        </div>
-      </div>
-      <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1 font-mono text-[0.7rem] text-muted-foreground">
-        {c.steps.map((st, i) => (
-          <li key={st} className="inline-flex items-center gap-1.5">
-            <span className="text-brand">{i + 1}</span>{st}
-            {i < c.steps.length - 1 && <span aria-hidden="true" className="ml-1 text-border">→</span>}
-          </li>
-        ))}
-      </ol>
+      <ConceptTags concepts={c.concepts} />
     </div>
   );
 }
@@ -244,6 +242,7 @@ function Home() {
                   </div>
                   <h3 className="mt-4 text-xl font-semibold tracking-tight">{b.title}</h3>
                   <p className="mt-2 text-pretty text-sm text-muted-foreground">{b.body}</p>
+                  <div className="mt-5 border-t border-border pt-5"><ConceptTags concepts={b.concepts} /></div>
                   <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium">
                     {b.cta ?? "Try it live"} <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </span>
