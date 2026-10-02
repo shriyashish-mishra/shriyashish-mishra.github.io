@@ -6,10 +6,10 @@ import { CaseShell } from "@/components/site-frame";
 export const Route = createFileRoute("/blusmart-mumbai-expansion")({
   head: () => ({
     meta: [
-      { title: "Launching BluSmart in Mumbai — Case Study" },
-      { name: "description", content: "Go-to-market strategy for launching BluSmart in Mumbai with an initial fleet of 150 Tata Ziptron EVs." },
-      { property: "og:title", content: "Launching BluSmart in Mumbai — Case Study" },
-      { property: "og:description", content: "Go-to-market strategy for launching BluSmart in Mumbai with an initial fleet of 150 Tata Ziptron EVs." },
+      { title: "Launching BluSmart in Mumbai · Case study" },
+      { name: "description", content: "How BluSmart could launch in Mumbai with 150 electric cars: zones, drivers, charging and rider acquisition." },
+      { property: "og:title", content: "Launching BluSmart in Mumbai · Case study" },
+      { property: "og:description", content: "How BluSmart could launch in Mumbai with 150 electric cars: zones, drivers, charging and rider acquisition." },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -18,11 +18,7 @@ export const Route = createFileRoute("/blusmart-mumbai-expansion")({
 });
 
 function Label({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <div className={`label-mono ${className}`}>{children}</div>;
-}
-
-function SectionTag({ v, label }: { v: string; label: string }) {
-  return <div className="mb-8 font-mono text-xs tracking-[0.18em] text-muted-foreground"><span className="text-brand">V.{v}</span> / {label}</div>;
+  return <div className={`text-xs text-muted-foreground ${className}`}>{children}</div>;
 }
 
 const challengeLeft = ["Serviceable zones", "Driver requirements", "User acquisition strategy"];
@@ -46,82 +42,82 @@ const sources = [
 ];
 
 const opMetrics = [
-  { l: "AVG_TRIP", v: "20 min" },
-  { l: "TRAFFIC", v: "15 min" },
-  { l: "WAITING", v: "20 min" },
-  { l: "CYCLE", v: "55 min" },
-  { l: "TRIPS/HR", v: "~1" },
-  { l: "TRIPS/DAY", v: "12" },
+  { l: "Average trip", v: "20 min" },
+  { l: "Traffic", v: "15 min" },
+  { l: "Waiting", v: "20 min" },
+  { l: "Full cycle", v: "55 min" },
+  { l: "Trips per hour", v: "~1" },
+  { l: "Trips per day", v: "12" },
 ];
 
 const baseline = [
-  { l: "DAILY CYCLES", v: "12", s: "Trips per vehicle per day" },
-  { l: "INITIAL FLEET", v: "150", s: "Tata Ziptron EVs" },
-  { l: "CAPACITY", v: "1800", s: "Total expected daily trips" },
+  { l: "Trips per car", v: "12", s: "Per car, per day" },
+  { l: "Fleet at launch", v: "150", s: "Tata Ziptron EVs" },
+  { l: "Daily capacity", v: "1,800", s: "Trips per day across the fleet" },
 ];
 
 const infra = [
-  { l: "TOTAL FLEET", v: "150 EVs" },
-  { l: "CAPACITY / HUB", v: "30 EVs" },
-  { l: "REQUIRED HUBS", v: "5" },
+  { l: "Fleet", v: "150 EVs" },
+  { l: "Cars per hub", v: "30" },
+  { l: "Hubs needed", v: "5" },
 ];
 
 const zones = ["Andheri","Bandra","Dadar","Worli","Goregaon","Malad","BKC","Vashi","Ghatkopar","Thane","Churchgate","Sion","Kurla"];
 
 const expansionZones = [
-  { title: "Navi Mumbai", bullets: ["Large residential population", "Lower congestion levels", "Optimized for EV operations", "High intercity potential"] },
-  { title: "Railway Hubs", sub: "HUB: Dadar, CST, Bandra Terminus", body: "Concentrated daily commuter traffic with high predictable demand peaks." },
-  { title: "Tourist Zones", sub: "LOCATIONS: Marine Drive, Wankhede", body: "Steady leisure demand from non-commuters, especially during weekends." },
+  { title: "Navi Mumbai", bullets: ["Large residential population", "Less congestion", "Well suited to EV operations", "Good intercity potential"] },
+  { title: "Railway hubs", sub: "Dadar, CST, Bandra Terminus", body: "Heavy daily commuter traffic with predictable peaks." },
+  { title: "Tourist areas", sub: "Marine Drive, Wankhede", body: "Steady leisure demand from non-commuters, especially at weekends." },
 ];
 
 const gtm = [
-  { n: "01", t: "Monsoon Positioning", b: "Reliable transport when competitors fail during Mumbai's rain seasons." },
-  { n: "02", t: "First Ride Offers", b: "Discounted entry pricing to reduce adoption friction and build trust." },
-  { n: "03", t: "Referral Program", b: "Incentivize power users to lower CAC through organic word-of-mouth." },
-  { n: "04", t: "Points-Based Rewards", b: "Tiered loyalty system to increase lifetime value and repeat ride rate." },
-  { n: "05", t: "Digital Marketing", b: "Targeted LinkedIn/Instagram ads for corporate corridors like BKC." },
+  { n: "1", t: "Monsoon positioning", b: "Reliable rides when other options fail during Mumbai's monsoon." },
+  { n: "2", t: "First-ride offers", b: "Discounted first rides to lower the barrier and build trust." },
+  { n: "3", t: "Referrals", b: "Reward regular riders for bringing friends, which keeps acquisition costs down." },
+  { n: "4", t: "Points-based rewards", b: "A tiered loyalty program to increase repeat rides and lifetime value." },
+  { n: "5", t: "Digital marketing", b: "Targeted LinkedIn and Instagram ads for business districts like BKC." },
 ];
 
 const differentiators = [
-  { t: "No cancellations", s: "RELIABILITY" },
-  { t: "Sustainable", s: "TRANSPORTATION" },
-  { t: "Clean vehicles", s: "EXPERIENCE" },
-  { t: "Fixed pricing", s: "TRANSPARENCY" },
-  { t: "Airport reliability", s: "PREMIUM" },
-  { t: "Better experience", s: "RIDER FOCUS" },
+  { t: "No cancellations", s: "Reliability" },
+  { t: "Zero-emission rides", s: "Sustainability" },
+  { t: "Clean cars", s: "Experience" },
+  { t: "Fixed pricing", s: "Transparency" },
+  { t: "Dependable airport rides", s: "Premium" },
+  { t: "A better ride overall", s: "Rider focus" },
 ];
 
 const opFramework = [
-  { t: "Fleet Allocation Logic", b: "Distribute 150 vehicles across priority zones based on demand density and trip volume. Peak hours require higher concentration in business districts (BKC, Andheri). Off-peak shifts focus to residential zones and airport routes." },
-  { t: "Charging Hub Logic", b: "5 hubs with 30-vehicle capacity each. Vehicles rotate through hubs during driver shift changes. Hubs are positioned at zone intersections to minimize dead-kilometers." },
-  { t: "Geographic Expansion Logic", b: "Phase 1 covers core Mumbai + Navi Mumbai. Phase 2 extends to Thane and western suburbs. Phase 3 adds eastern corridors. Expansion is gated by utilization rates >75% and driver supply stability." },
-  { t: "User Acquisition Approach", b: "Digital-first launch targeting airport commuters and monsoon riders. Partnerships with corporate offices in BKC for B2B bookings. Referral mechanics to lower CAC." },
+  { t: "Fleet allocation", b: "Spread the 150 cars across priority zones based on demand and trip volume. At peak hours, concentrate them in business districts like BKC and Andheri. Off-peak, shift toward residential areas and airport routes." },
+  { t: "Charging", b: "Five hubs with space for 30 cars each. Cars charge during driver shift changes, and hubs sit where zones meet to cut dead kilometers." },
+  { t: "Expanding the footprint", b: "Phase 1 covers core Mumbai and Navi Mumbai. Phase 2 adds Thane and the western suburbs, and phase 3 the eastern corridors. Each step happens only once utilization is above 75% and driver supply is stable." },
+  { t: "Acquiring riders", b: "A digital-first launch aimed at airport travelers and monsoon riders, B2B partnerships with offices in BKC, and referrals to keep acquisition costs down." },
 ];
 
 const kpis = [
-  { l: "PERFORMANCE", t: "Fleet Utilization" },
-  { l: "SUPPLY", t: "Driver Utilization" },
-  { l: "INFRA", t: "Charging Hub Use" },
-  { l: "GROWTH", t: "User Acquisition" },
-  { l: "FINANCE", t: "CAC Optimization" },
-  { l: "LOYALTY", t: "Retention Rate" },
-  { l: "LTV", t: "Repeat Ride Rate" },
-  { l: "STRATEGIC", t: "Airport Ride Share" },
+  { l: "Performance", t: "Fleet utilization" },
+  { l: "Supply", t: "Driver utilization" },
+  { l: "Infrastructure", t: "Charging hub usage" },
+  { l: "Growth", t: "New riders" },
+  { l: "Finance", t: "Acquisition cost" },
+  { l: "Loyalty", t: "Retention rate" },
+  { l: "Lifetime value", t: "Repeat ride rate" },
+  { l: "Strategic", t: "Share of airport rides" },
 ];
 
 const risks = [
-  { n: "01", t: "Insufficient charging infrastructure.", m: "Strategic hub placement at high-traffic zone intersections to minimize dead-km." },
-  { n: "02", t: "Low driver availability.", m: "Launch with 2:1 driver ratio to handle shift overlap and fatigue effectively." },
-  { n: "03", t: "Low user adoption.", m: "Aggressive monsoon-themed campaigns and high-trust corporate referrals." },
-  { n: "04", t: "Major competitor surge.", m: "Focus on fixed pricing transparency and guaranteed reliability during surge periods." },
+  { n: "1", t: "Not enough charging capacity", m: "Put hubs at busy zone intersections to cut dead kilometers." },
+  { n: "2", t: "Not enough drivers", m: "Launch with two drivers per car to cover shift overlaps and fatigue." },
+  { n: "3", t: "Slow rider adoption", m: "Monsoon-focused campaigns, plus referrals through corporate partners people already trust." },
+  { n: "4", t: "A competitor pushes hard", m: "Lean on fixed, transparent pricing and reliable service when competitors surge." },
 ];
 
 const learnings = [
-  "Market expansion requires rigorous operational planning before growth scaling.",
-  "Supply-side readiness is critical to maintaining high service levels from day one.",
-  "Charging infrastructure determines EV scalability and fleet revenue uptime.",
-  "User acquisition and fleet planning must be designed synchronously for efficiency.",
-  "Product strategy extends beyond software into the physical business operations that power the entire customer experience.",
+  "Expanding to a new city needs careful operational planning before you push for growth.",
+  "Supply has to be ready on day one, or service quality slips immediately.",
+  "Charging infrastructure decides how far an EV fleet can scale and how many hours it earns.",
+  "Rider acquisition and fleet planning have to be designed together.",
+  "Product strategy here goes well beyond software. The physical operations shape most of the rider's experience.",
 ];
 
 function BluSmartCaseStudy() {
@@ -130,20 +126,20 @@ function BluSmartCaseStudy() {
     <CaseShell
       path="/blusmart-mumbai-expansion"
       title="Launching BluSmart in Mumbai"
-      summary="A launch strategy for Mumbai with an initial fleet of 150 Tata Ziptron EVs — zones, supply, charging and user acquisition."
+      summary="How BluSmart could launch in Mumbai with 150 electric cars: where to start, how many drivers and chargers it needs, and how to win riders."
       tags={["Go-to-Market Strategy", "Market Expansion", "Operations", "Supply Strategy", "User Acquisition"]}
-      meta={[["Role", "Product Manager"], ["Focus", "Go-to-market"], ["Domain", "Mobility · EV"], ["Fleet", "150 EVs"]]}
+      meta={[["Type", "Product case study"], ["Focus", "Go-to-market"], ["Domain", "Electric mobility"], ["Fleet", "150 EVs"]]}
     >
 
 
         {/* BUSINESS CONTEXT */}
         <section className="pb-28">
-          <Label className={`mb-6 ${accent}`}>BUSINESS_CONTEXT.TXT</Label>
+          <div className="mb-4 text-sm text-muted-foreground">Background</div>
           <div className="border border-border/60 rounded-2xl p-8 md:p-12 bg-card/30 max-w-3xl">
             <p className="font-serif text-xl md:text-2xl leading-snug mb-6">
-              BluSmart plans to launch operations in Mumbai with an initial fleet of 150 Tata Ziptron EVs.
+              BluSmart is launching in Mumbai with an initial fleet of 150 Tata Ziptron EVs.
             </p>
-            <p className="text-muted-foreground mb-6">The challenge is not simply entering a new city. The challenge is determining:</p>
+            <p className="text-muted-foreground mb-6">Entering a new city is the easy part. The harder questions are about:</p>
             <div className="grid sm:grid-cols-2 gap-x-10 gap-y-3 mb-8">
               {[...challengeLeft, ...challengeRight].map((c) => (
                 <div key={c} className="flex items-center gap-3 text-sm">
@@ -152,97 +148,91 @@ function BluSmartCaseStudy() {
                 </div>
               ))}
             </div>
-            <p className="italic text-muted-foreground">...while ensuring long-term operational viability.</p>
+            <p className="text-muted-foreground">All while keeping the operation viable in the long run.</p>
           </div>
         </section>
 
         {/* V.01 PROBLEM STATEMENT */}
         <section className="pb-28 grid md:grid-cols-[2fr_1fr] gap-10">
           <div>
-            <SectionTag v="01" label="PROBLEM_STATEMENT" />
             <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-10">
-              As a Product Manager at BluSmart, design a launch strategy for Mumbai using an initial fleet of 150 Tata Ziptron EVs.
+              The brief: plan BluSmart's launch in Mumbai, starting with a fleet of 150 Tata Ziptron EVs.
             </h2>
             <ol className="space-y-3">
               {questions.map((q, i) => (
                 <li key={q} className="flex gap-4 text-sm md:text-base">
-                  <span className={`font-mono text-xs ${accent} pt-1`}>{String(i + 1).padStart(2, "0")}.</span>
+                  <span className="w-4 shrink-0 text-sm text-muted-foreground tabular-nums">{i + 1}</span>
                   <span className="text-foreground/90">{q}</span>
                 </li>
               ))}
             </ol>
           </div>
           <div className="border border-brand/40 rounded-2xl p-8 bg-brand/[0.04] self-start">
-            <div className={`label-mono mb-5 ${accent}`}>STRATEGIC OBJECTIVE</div>
+            <div className="mb-3 text-sm text-muted-foreground">Objective</div>
             <p className="font-serif text-lg leading-snug">
-              The goal is to maximize: Orders, User acquisition, User retention, Competitive conversion while maintaining operational efficiency.
+              Maximize orders, new riders, retention and conversion from competitors, while keeping operations efficient.
             </p>
           </div>
         </section>
 
         {/* V.02 APPROACH */}
         <section className="pb-28">
-          <SectionTag v="02" label="APPROACH" />
-          <h2 className="font-serif text-3xl md:text-4xl mb-12">The launch strategy was built using:</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-12">What the plan is based on</h2>
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <ul className="space-y-3">
               {sources.map((s, i) => (
                 <li key={s} className="flex items-center justify-between border border-border/60 rounded-xl px-6 py-4 bg-card/30">
                   <span>{s}</span>
-                  <span className={`font-mono text-[0.7rem] tracking-[0.18em] ${accent}`}>SOURCE_{String(i + 1).padStart(2, "0")}</span>
                 </li>
               ))}
             </ul>
             <p className="font-serif text-2xl md:text-3xl text-muted-foreground leading-snug pt-4">
-              The objective was to identify high-demand locations where BluSmart could generate maximum utilization.
+              The aim was to find the parts of the city with enough demand to keep every car busy.
             </p>
           </div>
         </section>
 
         {/* V.03 ASSUMPTIONS */}
         <section className="pb-28">
-          <SectionTag v="03" label="ASSUMPTIONS" />
-          <h2 className="font-serif text-3xl md:text-4xl mb-10">Operational Assumptions</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-10">Operating assumptions</h2>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-8">
             {opMetrics.map((m) => (
               <div key={m.l} className="border border-border/60 rounded-xl p-5 bg-card/30">
-                <div className="label-mono mb-3">{m.l}</div>
+                <div className="text-xs text-muted-foreground mb-3">{m.l}</div>
                 <div className="font-sans font-bold text-2xl">{m.v}</div>
               </div>
             ))}
           </div>
           <div className="border border-brand/40 rounded-2xl p-10 bg-brand/[0.04] text-center">
-            <div className={`label-mono mb-4 ${accent}`}>HIGHLIGHT</div>
-            <p className="font-serif text-xl md:text-2xl">In 24 hours: One cab can complete approximately 12 trips.</p>
-            <p className="font-mono text-xs text-muted-foreground mt-3 tracking-wider">These assumptions are used throughout fleet planning.</p>
+                        <p className="font-serif text-xl md:text-2xl">In a day, one car can complete about 12 trips.</p>
+            <p className="text-sm text-muted-foreground mt-3">These numbers feed into all the fleet planning below.</p>
           </div>
         </section>
 
         {/* V.04 FLEET LOGISTICS */}
         <section className="pb-28">
-          <SectionTag v="04" label="FLEET_LOGISTICS" />
-          <h2 className="font-serif text-3xl md:text-4xl mb-10">Demand & Capacity Baseline</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-10">Capacity at launch</h2>
           <div className="grid md:grid-cols-3 gap-5">
             {baseline.map((b) => (
               <div key={b.l} className="border border-border/60 rounded-2xl p-8 bg-card/30 text-center">
-                <div className="label-mono mb-6">{b.l}</div>
+                <div className="text-xs text-muted-foreground mb-6">{b.l}</div>
                 <div className={`font-serif text-6xl mb-6 ${accent}`}>{b.v}</div>
                 <div className="text-sm text-muted-foreground">{b.s}</div>
               </div>
             ))}
           </div>
-          <p className="text-center font-mono text-xs text-muted-foreground tracking-wider mt-10">
-            Establishing the volume baseline for operational logistics.
+          <p className="text-center text-sm text-muted-foreground mt-10">
+            This sets the volume the rest of the plan has to support.
           </p>
         </section>
 
         {/* V.05 SUPPLY STRATEGY */}
         <section className="pb-28">
-          <SectionTag v="05" label="SUPPLY_STRATEGY" />
+          <h2 className="font-serif text-3xl md:text-4xl mb-10">How many drivers</h2>
           <div className="grid md:grid-cols-2 gap-5">
             <div className="border border-border/60 rounded-2xl p-8 bg-card/30">
-              <div className={`label-mono mb-6 ${accent}`}>MARKET POTENTIAL</div>
-              {[["Potential User Base","875K"],["Daily Conversion","0.01%"],["Expected Daily Riders","~87.5K"]].map(([l,v]) => (
+              <div className="mb-5 text-sm font-medium">Market potential</div>
+              {[["Potential users","875K"],["Daily conversion","0.01%"],["Expected daily riders","~87.5K"]].map(([l,v]) => (
                 <div key={l} className="flex items-center justify-between py-4 border-b border-border/40 last:border-0">
                   <span className="text-sm">{l}</span>
                   <span className="font-serif text-xl">{v}</span>
@@ -250,49 +240,49 @@ function BluSmartCaseStudy() {
               ))}
             </div>
             <div className="border border-border/60 rounded-2xl p-8 bg-card/30">
-              <div className={`label-mono mb-6 ${accent}`}>CALCULATION</div>
-              {[["Target Fleet","150 Vehicles"],["Driver-to-cab Ratio","2 Drivers / Cab"]].map(([l,v]) => (
+              <div className="mb-5 text-sm font-medium">Calculation</div>
+              {[["Fleet","150 cars"],["Drivers per car","2"]].map(([l,v]) => (
                 <div key={l} className="flex items-center justify-between py-4 border-b border-border/40">
                   <span className="text-sm">{l}</span>
                   <span className="font-serif text-xl">{v}</span>
                 </div>
               ))}
               <div className="flex items-center justify-between py-4">
-                <span className={`text-sm ${accent}`}>Required Drivers</span>
+                <span className={`text-sm ${accent}`}>Drivers needed</span>
                 <span className={`font-serif text-xl ${accent}`}>300</span>
               </div>
             </div>
           </div>
           <div className="border border-brand/40 rounded-2xl p-8 bg-brand/[0.04] mt-5 grid md:grid-cols-2 gap-8">
             <div>
-              <div className={`label-mono mb-4 ${accent}`}>RECOMMENDATION</div>
-              <p className="font-serif text-xl md:text-2xl">Launch with approximately 300 driver partners.</p>
+              <div className="mb-2 text-sm text-muted-foreground">Recommendation</div>
+              <p className="font-serif text-xl md:text-2xl">Launch with about 300 driver partners.</p>
             </div>
             <div className="text-right">
-              <div className={`label-mono mb-4 ${accent}`}>REASONING</div>
-              <p className="text-muted-foreground">Dual-shift models ensure maximum ROI on vehicle uptime.</p>
+              <div className="mb-2 text-sm text-muted-foreground">Why</div>
+              <p className="text-muted-foreground">Two shifts per car keep each vehicle on the road longer, which is where the return comes from.</p>
             </div>
           </div>
         </section>
 
         {/* V.06 INFRASTRUCTURE */}
         <section className="pb-28">
-          <SectionTag v="06" label="INFRASTRUCTURE" />
+          <h2 className="font-serif text-3xl md:text-4xl mb-10">Charging hubs</h2>
           <div className="grid md:grid-cols-3 gap-5 mb-6">
             {infra.map((i) => (
               <div key={i.l} className="border border-border/60 rounded-2xl p-7 bg-card/30">
-                <div className="label-mono mb-5">{i.l}</div>
+                <div className="text-xs text-muted-foreground mb-5">{i.l}</div>
                 <div className={`font-serif text-4xl ${accent}`}>{i.v}</div>
               </div>
             ))}
           </div>
           <div className="border border-brand/40 rounded-2xl p-10 bg-brand/[0.04]">
-            <div className={`label-mono mb-5 ${accent}`}>RECOMMENDATION</div>
-            <h3 className="font-serif text-2xl md:text-3xl mb-10">Establish a minimum of 5 strategic charging hubs across Mumbai.</h3>
+            <div className="mb-2 text-sm text-muted-foreground">Recommendation</div>
+            <h3 className="font-serif text-2xl md:text-3xl mb-10">Set up at least 5 charging hubs across Mumbai.</h3>
             <div className="grid sm:grid-cols-3 gap-8">
-              {[["GOAL 01","Reduce downtime."],["GOAL 02","Maintain utilization."],["GOAL 03","Support scaling."]].map(([l,t]) => (
+              {[["Goal 1","Less downtime"],["Goal 2","Steady utilization"],["Goal 3","Room to scale"]].map(([l,t]) => (
                 <div key={l}>
-                  <div className="label-mono mb-3">{l}</div>
+                  <div className="text-xs text-muted-foreground mb-3">{l}</div>
                   <div className="font-sans font-semibold">{t}</div>
                 </div>
               ))}
@@ -302,18 +292,17 @@ function BluSmartCaseStudy() {
 
         {/* V.07 SERVICE ZONES */}
         <section className="pb-28">
-          <SectionTag v="07" label="SERVICE_ZONES" />
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="font-serif text-3xl md:text-4xl mb-6">Serviceable Zone Selection</h2>
+              <h2 className="font-serif text-3xl md:text-4xl mb-6">Where to launch</h2>
               <p className="text-muted-foreground mb-8 max-w-md">
-                Launch should not target all of Mumbai initially. Priority should be given to zones with high order density and competitor activity.
+                Don't launch across all of Mumbai at once. Start with the areas that have the most ride demand and the most competitor activity.
               </p>
-              <div className={`label-mono mb-5 ${accent}`}>KEY OBJECTIVES</div>
+              <div className="mb-4 text-sm font-medium">Objectives</div>
               <ol className="space-y-3 mb-10">
-                {["High order volume density","Convert competitor users","Improve retention rates"].map((t, i) => (
+                {["Dense ride demand","Win over competitors' riders","Better retention"].map((t, i) => (
                   <li key={t} className="flex items-center gap-4">
-                    <span className={`font-mono text-[0.65rem] rounded-full border border-brand/50 ${accent} px-2 py-0.5`}>{String(i+1).padStart(2,"0")}</span>
+                    <span className={`font-mono text-[0.65rem] rounded-full border border-brand/50 ${accent} px-2 py-0.5`}>{i+1}</span>
                     <span>{t}</span>
                   </li>
                 ))}
@@ -336,7 +325,7 @@ function BluSmartCaseStudy() {
                 </div>
               ))}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-[0.65rem] tracking-wider text-muted-foreground">
-                MUMBAI_SERVICE_MAP.LAYER
+                Launch zones (approximate)
               </div>
             </div>
           </div>
@@ -344,13 +333,12 @@ function BluSmartCaseStudy() {
 
         {/* V.08 PRIORITY AREAS */}
         <section className="pb-28">
-          <SectionTag v="08" label="PRIORITY_AREAS" />
-          <h2 className="font-serif text-3xl md:text-4xl mb-10">Targeted Expansion Zones</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-10">Priority areas</h2>
           <div className="grid md:grid-cols-3 gap-5 mb-6">
             {expansionZones.map((z) => (
               <div key={z.title} className="border border-border/60 rounded-2xl p-7 bg-card/30">
                 <h3 className={`font-serif text-2xl mb-4 ${accent}`}>{z.title}</h3>
-                {z.sub && <div className="label-mono mb-3">{z.sub}</div>}
+                {z.sub && <div className="text-xs text-muted-foreground mb-3">{z.sub}</div>}
                 {z.bullets ? (
                   <ul className="space-y-2">
                     {z.bullets.map((b) => (
@@ -365,21 +353,20 @@ function BluSmartCaseStudy() {
           </div>
           <div className="border border-brand/40 rounded-2xl p-10 bg-brand/[0.04] flex flex-wrap items-center justify-between gap-8">
             <div className="max-w-2xl">
-              <h3 className="font-serif text-3xl md:text-4xl mb-4">Airport (Primary Zone)</h3>
-              <p className="text-muted-foreground">Users are highly sensitive to surge pricing and cancellations. BluSmart's fixed pricing and guaranteed availability create massive differentiation in this high-margin segment.</p>
+              <h3 className="font-serif text-3xl md:text-4xl mb-4">The airport comes first</h3>
+              <p className="text-muted-foreground">Airport riders care most about surge pricing and cancellations. BluSmart's fixed prices and guaranteed availability stand out most here, and it's a high-margin segment.</p>
             </div>
             <div className={`h-28 w-28 rounded-full border border-brand/60 flex items-center justify-center text-center font-mono text-[0.65rem] tracking-wider ${accent}`}>
-              HIGH MARGIN<br />REVENUE
+              High<br />margin
             </div>
           </div>
         </section>
 
         {/* V.09 INFRA STRATEGY */}
         <section className="pb-28">
-          <SectionTag v="09" label="INFRA_STRATEGY" />
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="border border-border/60 rounded-2xl bg-card/20 p-8 aspect-square relative">
-              <div className="label-mono absolute top-6 left-6">DISTRIBUTED_HUB_TOPOLOGY.V1</div>
+              <div className="text-xs text-muted-foreground absolute top-6 left-6">Hub layout</div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative h-2/3 w-2/3 rounded-full border border-border/50">
                   <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4 w-4 rounded-full bg-brand`} />
@@ -395,13 +382,13 @@ function BluSmartCaseStudy() {
               </div>
             </div>
             <div>
-              <h2 className="font-serif text-3xl md:text-4xl mb-6">Charging Hub Placement Strategy</h2>
+              <h2 className="font-serif text-3xl md:text-4xl mb-6">Where to put the hubs</h2>
               <p className="text-muted-foreground mb-8">
-                Charging hubs must be distributed across key zones to minimize empty runs for charging. Strategic placement at zone intersections ensures maximum coverage.
+                Hubs should be spread across the key zones so cars don't drive empty just to charge. Placing them where zones meet gives the widest coverage.
               </p>
               <div className="border-l-2 border-brand pl-6 py-2">
-                <div className={`label-mono mb-3 ${accent}`}>CORE OBJECTIVE</div>
-                <p className="font-serif italic text-lg">"Minimize charging downtime between pickup and drop-off locations to maximize fleet revenue hours."</p>
+                <div className="mb-2 text-sm text-muted-foreground">Objective</div>
+                <p className="font-serif text-lg">Keep charging downtime between drop-offs and pickups as low as possible, so cars spend more hours earning.</p>
               </div>
             </div>
           </div>
@@ -409,13 +396,12 @@ function BluSmartCaseStudy() {
 
         {/* V.10 GTM PLAN */}
         <section className="pb-28">
-          <SectionTag v="10" label="GTM_PLAN" />
-          <h2 className="font-serif text-3xl md:text-4xl mb-3">User Acquisition & Launch</h2>
-          <p className="text-muted-foreground mb-10">Focusing on early adopters through strategic positioning and incentives.</p>
+          <h2 className="font-serif text-3xl md:text-4xl mb-3">Getting riders</h2>
+          <p className="text-muted-foreground mb-10">Focus on early adopters, with clear positioning and a few well-chosen incentives.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {gtm.map((g) => (
               <div key={g.n} className="border border-border/60 rounded-2xl p-6 bg-card/30">
-                <div className={`label-mono mb-5 ${accent}`}>STRATEGY_{g.n}</div>
+                <div className={`mb-3 text-sm tabular-nums ${accent}`}>{g.n}</div>
                 <h3 className="font-serif text-xl mb-4">{g.t}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{g.b}</p>
               </div>
@@ -425,13 +411,12 @@ function BluSmartCaseStudy() {
 
         {/* V.11 MARKET EDGE */}
         <section className="pb-28">
-          <SectionTag v="11" label="MARKET_EDGE" />
-          <h2 className="font-serif text-3xl md:text-4xl mb-10">Strategic Differentiators</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-10">Why riders would switch</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {differentiators.map((d) => (
               <div key={d.t} className="border border-border/60 rounded-2xl p-6 bg-card/30 text-center">
                 <h3 className="font-serif text-lg mb-3">{d.t}</h3>
-                <div className="label-mono">{d.s}</div>
+                <div className="text-xs text-muted-foreground">{d.s}</div>
               </div>
             ))}
           </div>
@@ -439,8 +424,7 @@ function BluSmartCaseStudy() {
 
         {/* V.12 OPERATIONAL FRAMEWORK */}
         <section className="pb-28">
-          <SectionTag v="12" label="PM_THINKING" />
-          <h2 className="font-serif text-3xl md:text-4xl mb-10">Operational Planning Framework</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-10">How the operations fit together</h2>
           <div className="grid md:grid-cols-2 gap-5">
             {opFramework.map((f) => (
               <div key={f.t} className="border border-border/60 border-l-2 border-l-brand rounded-2xl p-7 bg-card/30">
@@ -453,17 +437,16 @@ function BluSmartCaseStudy() {
 
         {/* V.13 KPI DASHBOARD */}
         <section className="pb-28">
-          <SectionTag v="13" label="KPI_DASHBOARD" />
-          <h2 className="font-serif text-3xl md:text-4xl mb-10">Success Metrics</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-10">How to measure success</h2>
           <div className="border border-brand/40 rounded-2xl p-12 md:p-16 bg-brand/[0.04] text-center mb-6">
-            <div className={`label-mono mb-6 ${accent}`}>NORTH STAR METRIC</div>
-            <h3 className="font-serif text-4xl md:text-6xl mb-6">Completed Rides per Day</h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">The primary indicator of both fleet utilization efficiency and market demand capture.</p>
+            <div className={`mb-4 text-sm ${accent}`}>North star metric</div>
+            <h3 className="font-serif text-4xl md:text-5xl mb-6">Completed rides per day</h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">The clearest single signal of how efficiently the fleet is used and how much demand the service is capturing.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {kpis.map((k) => (
               <div key={k.t} className="border border-border/60 rounded-2xl p-6 bg-card/30">
-                <div className="label-mono mb-3">{k.l}</div>
+                <div className="text-xs text-muted-foreground mb-3">{k.l}</div>
                 <h4 className="font-sans font-semibold">{k.t}</h4>
               </div>
             ))}
@@ -472,14 +455,13 @@ function BluSmartCaseStudy() {
 
         {/* V.14 RISK MANAGEMENT */}
         <section className="pb-28">
-          <SectionTag v="14" label="RISK_MANAGEMENT" />
-          <h2 className="font-serif text-3xl md:text-4xl mb-10">Risks & Mitigation</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-10">Risks</h2>
           <div className="grid md:grid-cols-2 gap-5">
             {risks.map((r) => (
               <div key={r.n} className="border border-border/60 rounded-2xl p-7 bg-card/30">
-                <div className="font-mono text-[0.7rem] tracking-[0.18em] text-[#f97066] mb-4">RISK_{r.n}</div>
+                <div className="mb-3 text-sm text-muted-foreground">Risk {r.n}</div>
                 <h3 className="font-serif text-2xl mb-6 pb-6 border-b border-border/40">{r.t}</h3>
-                <div className="font-mono text-[0.7rem] tracking-[0.18em] text-[#3ccb7f] mb-3">MITIGATION</div>
+                <div className="mb-2 text-sm font-medium">How to handle it</div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{r.m}</p>
               </div>
             ))}
@@ -488,12 +470,11 @@ function BluSmartCaseStudy() {
 
         {/* V.15 REFLECTION */}
         <section className="pb-28">
-          <SectionTag v="15" label="REFLECTION" />
-          <h2 className="font-serif text-3xl md:text-4xl mb-10">Key Learnings</h2>
+          <h2 className="font-serif text-3xl md:text-4xl mb-10">What I took away</h2>
           <div className="grid md:grid-cols-3 gap-5">
             {learnings.map((l, i) => (
               <div key={i} className="border border-border/60 rounded-2xl p-7 bg-card/30">
-                <div className={`font-serif text-3xl mb-5 ${accent}`}>{String(i + 1).padStart(2, "0")}</div>
+                <div className="mb-3 text-sm text-muted-foreground tabular-nums">{i + 1}</div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{l}</p>
               </div>
             ))}

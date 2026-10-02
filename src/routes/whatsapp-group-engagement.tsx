@@ -6,10 +6,10 @@ import { CaseShell } from "@/components/site-frame";
 export const Route = createFileRoute("/whatsapp-group-engagement")({
   head: () => ({
     meta: [
-      { title: "Increasing WhatsApp Group Engagement — Case Study" },
-      { name: "description", content: "Designing product interventions to increase participation, retention, and meaningful interactions within WhatsApp groups." },
-      { property: "og:title", content: "Increasing WhatsApp Group Engagement" },
-      { property: "og:description", content: "Product interventions to drive participation and retention inside WhatsApp groups." },
+      { title: "WhatsApp group engagement · Case study" },
+      { name: "description", content: "How WhatsApp could keep groups active without making the app more complicated." },
+      { property: "og:title", content: "WhatsApp group engagement" },
+      { property: "og:description", content: "How WhatsApp could keep groups active without making the app more complicated." },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -39,91 +39,91 @@ function SectionH({ children }: { children: React.ReactNode }) {
 
 const personas = [
   {
-    name: "Ayush Sharma", role: "STARTUP FOUNDER", color: "emerald",
-    goals: ["Team communication", "Employee coordination", "Sharing company updates", "Managing discussions efficiently"],
-    pains: ["Unorganized communication", "Important updates get buried", "File management challenges", "Repetitive communication efforts"],
-    needs: ["Structured communication", "Better discoverability", "Easier information retrieval"],
+    name: "Ayush Sharma", role: "Startup founder", color: "emerald",
+    goals: ["Keep the team in sync", "Coordinate people across functions", "Share company updates", "Run discussions without chaos"],
+    pains: ["Conversations are disorganized", "Important updates get buried", "Files are hard to find later", "Repeating the same message to different people"],
+    needs: ["More structure", "Easier to find things", "Quicker ways to look back"],
   },
   {
-    name: "Rohan Dutta", role: "STUDENT & GAMER", color: "orange",
-    goals: ["Participate in communities", "Discuss shared interests", "Coordinate events and activities"],
-    pains: ["Notification overload", "Too many irrelevant messages", "Difficulty following discussions", "Poor content discoverability"],
-    needs: ["Topic-specific discussions", "Lightweight engagement mechanisms", "Better community experiences"],
+    name: "Rohan Dutta", role: "Student and gamer", color: "orange",
+    goals: ["Be part of communities", "Talk about shared interests", "Plan events and meetups"],
+    pains: ["Too many notifications", "Most messages aren't relevant", "Hard to follow a thread", "Good posts get lost"],
+    needs: ["Topic-based discussions", "Low-effort ways to join in", "A better community experience"],
   },
 ];
 
 const insights = [
-  "Users mute groups when message volume becomes overwhelming.",
-  "Users participate more when discussions remain relevant to their interests.",
-  "Organized conversations drive higher engagement.",
-  "Users need interaction methods beyond simple messaging.",
+  "People mute groups once the message volume gets too high.",
+  "They join in when the conversation is relevant to them.",
+  "Groups with some structure stay more active.",
+  "Text alone isn't enough. People want quicker ways to respond.",
 ];
 
 const competitors = [
-  { name: "Slack", points: ["Excellent channel management", "Rich threading functionality", "Powerful integration ecosystem"], quote: "Organisation improves engagement." },
-  { name: "Discord", points: ["Deep community focus", "Modular roles and permissions", "Seamless voice/video spaces"], quote: "Communities thrive when conversations are segmented." },
-  { name: "Telegram", points: ["Massive group capabilities", "Bot platform for automation", "Public channel reach"], quote: "As communities grow, structure becomes increasingly important." },
+  { name: "Slack", points: ["Strong channel management", "Threads that keep replies together", "Lots of integrations"], quote: "Structure keeps people engaged." },
+  { name: "Discord", points: ["Built around communities", "Flexible roles and permissions", "Drop-in voice and video"], quote: "Communities do better when conversations are split by topic." },
+  { name: "Telegram", points: ["Very large groups", "Bots for automation", "Public channels for reach"], quote: "The bigger the group, the more structure it needs." },
 ];
 
 const features = [
   {
-    p: "P1 PRIMARY", color: "emerald",
-    title: "Groups and Subgroups",
-    problem: "Large groups often suffer from \"noise,\" where 90% of messages are irrelevant to any single user, leading them to mute the entire community.",
-    solution: "Introduce subgroups within a parent group, allowing users to opt into specific topics of interest while remaining part of the overall community.",
-    benefits: ["Reduces notification fatigue", "Increases relevance of discussions", "Enables better community organization"],
+    p: "Priority 1", color: "emerald",
+    title: "Subgroups",
+    problem: "In large groups, around 90% of messages aren't relevant to any one member, so people mute the whole group.",
+    solution: "Let members join topic-based subgroups inside a parent group. They follow what matters to them and still stay part of the wider community.",
+    benefits: ["Fewer notifications", "More relevant conversations", "Better-organized communities"],
   },
   {
-    p: "P2 HIGH", color: "blue",
-    title: "Native Polls",
-    problem: "Decisions in groups today require scrolling through hundreds of individual responses.",
-    solution: "Enable users to make decisions quickly without scrolling through hundreds of individual responses. Polls provide a lightweight way to engage the silent majority.",
-    benefits: ["Event planning", "Team decisions", "Community voting"],
+    p: "Priority 2", color: "blue",
+    title: "Native polls",
+    problem: "Making a decision in a group means scrolling through hundreds of replies.",
+    solution: "A poll settles it in one message, and gives quieter members an easy way to take part.",
+    benefits: ["Event planning", "Team decisions", "Community votes"],
   },
   {
-    p: "P3 UTILITY", color: "orange",
-    title: "Built-in Splitwise",
-    problem: "Groups coordinating trips and shared expenses leave WhatsApp for tracking tools.",
-    solution: "Integrated expense tracking for shared trips, roommates, and events. Bringing utility into the chat keeps users returning to WhatsApp for practical coordination.",
+    p: "Priority 3", color: "orange",
+    title: "Built-in expense splitting",
+    problem: "Groups planning trips or sharing costs move to other apps to keep track of who owes what.",
+    solution: "Expense tracking inside the chat, for trips, roommates and events. It gives the group a practical reason to come back.",
     benefits: ["Trips", "Roommates", "Events"],
   },
   {
-    p: "P4 ENGAGEMENT", color: "violet",
-    title: "In-chat Games",
-    problem: "Social groups go quiet during downtime, weakening community bonds.",
-    solution: "Lightweight games that can be played asynchronously within the chat thread. Perfect for keeping social groups active during low-conversation periods.",
-    benefits: ["Tic Tac Toe", "Trivia", "Quiz Games"],
+    p: "Priority 4", color: "violet",
+    title: "In-chat games",
+    problem: "Social groups go quiet between plans, and the group slowly loses its pull.",
+    solution: "Short turn-based games that people can play whenever they're free, to keep things going during quiet stretches.",
+    benefits: ["Tic-tac-toe", "Trivia", "Quizzes"],
   },
 ];
 
 const prioritization = [
-  { p: "P1", color: "emerald", title: "Groups & Subgroups", note: "Highest impact on reducing notification noise and increasing conversation relevance for professional and community groups." },
-  { p: "P2", color: "blue", title: "Native Polls", note: "Essential utility for quick decision-making; highly requested feature that encourages participation from passive members." },
-  { p: "P3", color: "orange", title: "Splitwise Integration", note: "Drives retention through utility; users have a specific reason to revisit the app even when there is no social conversation." },
-  { p: "P4", color: "violet", title: "In-chat Games", note: "Purely social engagement metric; builds community bond during downtime but lower priority than organization tools." },
+  { p: "P1", color: "emerald", title: "Subgroups", note: "Biggest effect on notification noise and relevance, for both work and community groups." },
+  { p: "P2", color: "blue", title: "Native polls", note: "Simple and broadly useful. Gets passive members to take part." },
+  { p: "P3", color: "orange", title: "Expense splitting", note: "Gives people a reason to open the group even when nobody is chatting." },
+  { p: "P4", color: "violet", title: "In-chat games", note: "Good for group bonding, but less important than the organization features." },
 ];
 
 const supportingMetrics = [
-  "MESSAGES PER ACTIVE GROUP",
-  "POLL PARTICIPATION RATE",
-  "WEEKLY ACTIVE GROUPS",
-  "ARCHIVED REACTIVATION RATE",
-  "30-DAY RETENTION",
+  "Messages per active group",
+  "Poll participation rate",
+  "Weekly active groups",
+  "Archived groups reactivated",
+  "30-day retention",
 ];
 
 const rollout = [
-  { phase: "PHASE 01", items: ["Polls Integration", "Pinned Messages"] },
-  { phase: "PHASE 02", items: ["Groups & Subgroups", "Topic Discovery"] },
-  { phase: "PHASE 03", items: ["Built-in Splitwise", "Shared Wallet UI"] },
-  { phase: "PHASE 04", items: ["In-chat Games", "Leaderboards"] },
+  { phase: "Phase 1", items: ["Polls", "Pinned messages"] },
+  { phase: "Phase 2", items: ["Subgroups", "Topic discovery"] },
+  { phase: "Phase 3", items: ["Expense splitting", "Shared wallet"] },
+  { phase: "Phase 4", items: ["In-chat games", "Leaderboards"] },
 ];
 
 const learnings = [
-  "Engagement problems are often organization problems.",
-  "Users participate more when discussions are relevant.",
-  "Communities need structure to scale effectively.",
-  "Utility-based features can significantly improve long-term retention beyond social triggers.",
-  "Product decisions should balance simplicity with functionality.",
+  "A lot of engagement problems are really organization problems.",
+  "Relevance drives participation.",
+  "Communities need structure to grow.",
+  "Useful features can hold retention better than purely social ones.",
+  "Every new feature has to earn its place against WhatsApp's simplicity.",
 ];
 
 const colorMap: Record<string, string> = {
@@ -137,47 +137,35 @@ function WhatsAppCase() {
   return (
     <CaseShell
       path="/whatsapp-group-engagement"
-      title="Increasing WhatsApp Group Engagement"
-      summary="Designing product interventions to increase participation, retention, and meaningful interactions within WhatsApp groups."
-      tags={["Growth Strategy", "Engagement", "Retention", "Community Building"]}
-      meta={[["Role", "Product Manager"], ["Focus", "Growth strategy"], ["Domain", "Messaging · Community"], ["Read", "6–8 min"]]}
+      title="Keeping WhatsApp groups active"
+      summary="Group chats on WhatsApp tend to go quiet over time. This case study looks at why, and proposes four features that could bring people back without making the app harder to use."
+      tags={["Growth", "Engagement", "Retention", "Communities"]}
+      meta={[["Type", "Product case study"], ["Focus", "Engagement"], ["Domain", "Messaging"], ["Read", "6–8 min"]]}
     >
         {/* tailwind-safelist */}
         <div className="hidden bg-emerald-400/70 bg-amber-400/70 bg-rose-400/70 text-emerald-200 text-emerald-300 text-amber-200 text-amber-300 text-rose-200 text-rose-300 border-emerald-500/30 border-amber-500/30 border-rose-500/30 bg-emerald-500/5 bg-emerald-500/10 bg-amber-500/10 bg-rose-500/10" />
 
-        {/* CONTEXT */}
-        <section className="py-24">
-          <Label>CONTEXT</Label>
-          <SectionH>Context</SectionH>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
-            WhatsApp is the most widely used messaging platform globally. While one-to-one messaging remains highly active, engagement within groups declines over time due to information overload, notification fatigue, and fragmented conversations.
-          </p>
-        </section>
-
-        {/* PROBLEM STATEMENT */}
+        {/* PROBLEM */}
         <section className="py-24 grid md:grid-cols-2 gap-12 items-start">
           <div>
-            <Label>PROBLEM_STATEMENT</Label>
-            <SectionH>Problem Statement</SectionH>
+            <SectionH>The problem</SectionH>
             <div className="space-y-5 text-muted-foreground leading-relaxed max-w-xl">
-              <p>WhatsApp is one of the most widely used communication platforms globally.</p>
-              <p>While one-to-one messaging remains highly active, engagement within WhatsApp Groups declines over time.</p>
-              <p>Users frequently mute groups, disengage from conversations, and struggle to find relevant discussions.</p>
+              <p>WhatsApp is the most widely used messaging app in the world. One-to-one chats stay busy, but group activity tends to fade.</p>
+              <p>There are too many messages, too many notifications, and conversations that are hard to follow. People mute the group, stop replying and, eventually, stop opening it.</p>
             </div>
           </div>
-          <div className="border border-emerald-500/30 rounded-2xl p-8 bg-emerald-500/[0.03] relative">
-            <Quote className="absolute top-5 right-5 h-5 w-5 text-emerald-400/60" />
-            <p className="font-serif italic text-2xl leading-snug">
-              "How can WhatsApp increase engagement within groups while maintaining the simplicity that users value?"
+          <div className="border border-emerald-500/30 rounded-2xl p-8 bg-emerald-500/[0.03]">
+            <div className="text-sm text-muted-foreground mb-3">The question</div>
+            <p className="text-2xl leading-snug">
+              How might WhatsApp make groups more engaging without losing the simplicity people like about it?
             </p>
           </div>
         </section>
 
         {/* USER PERSONAS */}
         <section className="py-24">
-          <Label>V.01 / USER_RESEARCH</Label>
-          <SectionH>User Personas</SectionH>
-          <p className="text-muted-foreground mb-12">Two core personas representing professional and community use cases.</p>
+          <SectionH>Who this is for</SectionH>
+          <p className="text-muted-foreground mb-12">Two personas: one uses groups for work, the other for communities.</p>
           <div className="grid md:grid-cols-2 gap-6">
             {personas.map((p) => (
               <div key={p.name} className="border border-border/60 rounded-2xl p-8 bg-card/30">
@@ -187,16 +175,16 @@ function WhatsAppCase() {
                   </div>
                   <div className="text-center">
                     <div className="font-serif text-xl">{p.name}</div>
-                    <div className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground mt-1">{p.role}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{p.role}</div>
                   </div>
                 </div>
                 {[
-                  { label: "GOALS", items: p.goals, dot: "bg-emerald-400" },
-                  { label: "PAIN POINTS", items: p.pains, dot: "bg-red-400" },
-                  { label: "NEEDS", items: p.needs, dot: "bg-blue-400" },
+                  { label: "Goals", items: p.goals, dot: "bg-emerald-400" },
+                  { label: "Frustrations", items: p.pains, dot: "bg-red-400" },
+                  { label: "Needs", items: p.needs, dot: "bg-blue-400" },
                 ].map((g) => (
                   <div key={g.label} className="mt-6">
-                    <div className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground mb-3">{g.label}</div>
+                    <div className="text-xs text-muted-foreground mb-3">{g.label}</div>
                     <ul className="space-y-2">
                       {g.items.map((it) => (
                         <li key={it} className="flex items-center gap-3 text-sm text-foreground/90">
@@ -213,12 +201,11 @@ function WhatsAppCase() {
 
         {/* INSIGHTS */}
         <section className="py-24">
-          <Label>V.02 / RESEARCH_INSIGHTS</Label>
-          <SectionH>Key Research Insights</SectionH>
+          <SectionH>What the research showed</SectionH>
           <div className="grid md:grid-cols-2 gap-6">
             {insights.map((i, idx) => (
               <div key={i} className="border border-emerald-500/20 rounded-2xl p-7 bg-emerald-500/[0.02]">
-                <div className="font-mono text-[0.65rem] tracking-[0.18em] text-emerald-400/90 mb-4">INSIGHT #{String(idx + 1).padStart(2, "0")}</div>
+                <div className="text-sm text-muted-foreground mb-2">{idx + 1}</div>
                 <p className="text-foreground/90">{i}</p>
               </div>
             ))}
@@ -227,8 +214,7 @@ function WhatsAppCase() {
 
         {/* COMPETITIVE ANALYSIS */}
         <section className="py-24">
-          <Label>V.03 / COMPETITIVE_LANDSCAPE</Label>
-          <SectionH>Competitive Analysis</SectionH>
+          <SectionH>How others handle it</SectionH>
           <div className="grid md:grid-cols-3 gap-6">
             {competitors.map((c) => (
               <div key={c.name} className="border border-border/60 rounded-2xl p-7 bg-card/30">
@@ -238,8 +224,8 @@ function WhatsAppCase() {
                     <li key={pt} className="text-sm text-muted-foreground">{pt}</li>
                   ))}
                 </ul>
-                <div className="border border-border/60 rounded-lg p-4 italic text-sm text-muted-foreground/90">
-                  {c.quote}
+                <div className="border-t border-border/60 pt-4 text-sm">
+                  <span className="text-muted-foreground">Takeaway: </span>{c.quote}
                 </div>
               </div>
             ))}
@@ -248,18 +234,17 @@ function WhatsAppCase() {
 
         {/* SOLUTIONS */}
         <section className="py-24">
-          <Label>V.04 / PRODUCT_OPPORTUNITIES</Label>
-          <SectionH>Solutions</SectionH>
-          <p className="text-muted-foreground mb-12">Proposed feature additions to solve core engagement problems.</p>
+          <SectionH>Four ideas</SectionH>
+          <p className="text-muted-foreground mb-12">Each one targets a different reason groups go quiet.</p>
           <div className="space-y-6">
             {features.map((f) => (
               <div key={f.title} className="border border-border/60 rounded-2xl p-8 md:p-10 bg-card/30">
-                <span className={`inline-block font-mono text-[0.65rem] tracking-[0.18em] rounded border px-2.5 py-1 mb-6 ${colorMap[f.color]}`}>{f.p}</span>
+                <span className={`inline-block text-xs rounded border px-2.5 py-1 mb-6 ${colorMap[f.color]}`}>{f.p}</span>
                 <h3 className="font-serif text-3xl md:text-4xl mb-6">{f.title}</h3>
                 <div className="grid md:grid-cols-[1fr_auto] gap-10 items-start">
                   <div className="space-y-4 max-w-xl">
-                    <p className="text-muted-foreground"><em className="text-foreground not-italic font-semibold">The Problem: </em>{f.problem}</p>
-                    <p className="text-muted-foreground"><em className="text-foreground not-italic font-semibold">The Solution: </em>{f.solution}</p>
+                    <p className="text-muted-foreground"><span className="text-foreground font-medium">Why: </span>{f.problem}</p>
+                    <p className="text-muted-foreground"><span className="text-foreground font-medium">What: </span>{f.solution}</p>
                     <div className="flex flex-wrap gap-2 pt-4">
                       {f.benefits.map((b) => (
                         <span key={b} className="rounded-full border border-border/70 px-3 py-1 text-xs text-muted-foreground">{b}</span>
@@ -274,15 +259,14 @@ function WhatsAppCase() {
 
         {/* PRODUCT MOCKUPS */}
         <section className="py-24">
-          <Label>V.04.1 / PRODUCT_MOCKUPS</Label>
-          <SectionH>WhatsApp In-Product Experience</SectionH>
+          <SectionH>How it could look</SectionH>
           <p className="text-muted-foreground max-w-2xl mb-14 leading-relaxed">
-            End-to-end engagement layer designed to feel native inside WhatsApp — surfacing health, nudges, prompts, and milestones without breaking the chat-first metaphor.
+            Concept screens for the ideas above. Each one is meant to feel like part of WhatsApp, not a separate tool added on top of the chat.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                label: "GROUP HEALTH DASHBOARD", title: "Family Trip Planning",
+                label: "Group health", title: "Family Trip Planning",
                 render: () => (
                   <div className="p-3 space-y-3 text-[10px]">
                     <div className="flex items-center justify-between">
@@ -303,7 +287,7 @@ function WhatsAppCase() {
                 ),
               },
               {
-                label: "ENGAGEMENT INSIGHTS", title: "Weekly Pulse",
+                label: "Weekly summary", title: "Weekly Pulse",
                 render: () => (
                   <div className="p-3 space-y-2 text-[10px]">
                     <div className="text-white font-semibold text-xs mb-1">Top Contributors</div>
@@ -318,7 +302,7 @@ function WhatsAppCase() {
                 ),
               },
               {
-                label: "SUGGESTED PROMPTS", title: "Conversation Starters",
+                label: "Conversation starters", title: "Conversation Starters",
                 render: () => (
                   <div className="p-3 space-y-2 text-[10px]">
                     <div className="text-white font-semibold text-xs">For your group</div>
@@ -330,7 +314,7 @@ function WhatsAppCase() {
                 ),
               },
               {
-                label: "SMART NUDGES", title: "Re-engage gently",
+                label: "Nudging quiet members", title: "Re-engage gently",
                 render: () => (
                   <div className="p-3 space-y-2 text-[10px]">
                     <div className="rounded-lg bg-amber-500/10 border border-amber-500/30 p-2.5">
@@ -349,7 +333,7 @@ function WhatsAppCase() {
                 ),
               },
               {
-                label: "ADMIN ANALYTICS", title: "Group Operator View",
+                label: "Admin view", title: "Group Operator View",
                 render: () => (
                   <div className="p-3 space-y-2 text-[10px]">
                     <div className="text-white font-semibold text-xs">Last 30 days</div>
@@ -368,7 +352,7 @@ function WhatsAppCase() {
                 ),
               },
               {
-                label: "DORMANT RE-ENGAGEMENT", title: "Win back members",
+                label: "Winning people back", title: "Win back members",
                 render: () => (
                   <div className="p-3 space-y-2 text-[10px]">
                     <div className="rounded-lg bg-rose-500/10 border border-rose-500/30 p-2.5">
@@ -376,13 +360,13 @@ function WhatsAppCase() {
                       <div className="text-rose-100/70">Inactive 14+ days</div>
                     </div>
                     <div className="text-white/60">Suggested DM:</div>
-                    <div className="rounded-lg bg-white/5 p-2 text-white/80 italic">"Hey! Group missed you this week — Priya shared trip photos. Catch up here →"</div>
+                    <div className="rounded-lg bg-white/5 p-2 text-white/80 italic">"Hey! The group missed you this week. Priya shared the trip photos, catch up here →"</div>
                     <button className="w-full rounded-lg bg-emerald-500 text-black font-semibold py-1.5">Send personalised</button>
                   </div>
                 ),
               },
               {
-                label: "COMMUNITY MILESTONES", title: "Celebrate together",
+                label: "Milestones", title: "Celebrate together",
                 render: () => (
                   <div className="p-3 space-y-2 text-[10px]">
                     <div className="text-center py-2">
@@ -401,7 +385,7 @@ function WhatsAppCase() {
                 ),
               },
               {
-                label: "CHAT INTEGRATION", title: "In-thread surfacing",
+                label: "Polls in the chat", title: "In-thread surfacing",
                 render: () => (
                   <div className="p-3 space-y-1.5 text-[10px]">
                     <div className="self-start max-w-[80%] rounded-lg rounded-tl-none bg-white/10 p-2 text-white/90">Anyone up for chai later?</div>
@@ -419,7 +403,7 @@ function WhatsAppCase() {
               },
             ].map((s) => (
               <div key={s.label} className="space-y-3">
-                <div className="font-mono text-[0.6rem] tracking-[0.18em] text-emerald-400/80">{s.label}</div>
+                <div className="text-sm text-muted-foreground">{s.label}</div>
                 <div className="mockup mx-auto w-full max-w-[240px] rounded-[2rem] border border-border bg-[#0a0a0a] p-2 shadow-2xl">
                   <div className="rounded-[1.6rem] overflow-hidden bg-[#0b141a] border border-white/5">
                     <div className="flex items-center justify-between px-3 py-2 bg-[#1f2c33] text-white/90 text-[10px]">
@@ -438,14 +422,13 @@ function WhatsAppCase() {
 
         {/* PRIORITIZATION */}
         <section className="py-24">
-          <Label>V.05 / PRIORITIZATION</Label>
-          <SectionH>Prioritization</SectionH>
+          <SectionH>What to build first</SectionH>
           <div className="space-y-3">
             {prioritization.map((r) => (
               <div key={r.p} className="border border-border/60 rounded-xl p-5 bg-card/30 grid md:grid-cols-[auto_240px_1fr] items-center gap-6">
                 <span className={`font-mono text-xs rounded border px-2.5 py-1 ${colorMap[r.color]}`}>{r.p}</span>
                 <div className="font-sans font-semibold text-lg">{r.title}</div>
-                <p className="italic text-sm text-muted-foreground border-l border-border/60 pl-6">{r.note}</p>
+                <p className="text-sm text-muted-foreground border-l border-border/60 pl-6">{r.note}</p>
               </div>
             ))}
           </div>
@@ -453,21 +436,18 @@ function WhatsAppCase() {
 
         {/* SUCCESS METRICS */}
         <section className="py-24">
-          <Label>V.06 / SUCCESS_METRICS</Label>
-          <SectionH>Success Metrics</SectionH>
+          <SectionH>How to measure it</SectionH>
           <div className="border border-emerald-500/30 rounded-2xl p-10 bg-emerald-500/[0.03] mb-8">
-            <div className="font-mono text-[0.65rem] tracking-[0.22em] text-emerald-400/90 mb-6">◎ NORTH STAR METRIC</div>
-            <h3 className="font-serif text-4xl md:text-6xl mb-4">Weekly Active Group Participants</h3>
-            <div className="font-mono text-[0.7rem] tracking-[0.18em] text-emerald-400/80 mb-5">WAGP_ENGAGEMENT_CORE</div>
+            <div className="text-sm text-emerald-500 mb-4">North star metric</div>
+            <h3 className="font-serif text-4xl md:text-5xl mb-4">Weekly active group participants</h3>
             <p className="text-muted-foreground max-w-3xl">
-              The primary indicator of success will be the number of unique users who perform at least one meaningful interaction (message, poll vote, game move) within a group setting per week.
+              Unique people who do at least one meaningful thing in a group each week: send a message, vote in a poll or take a turn in a game.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             {supportingMetrics.map((m) => (
               <div key={m} className="border border-border/60 rounded-lg p-5 bg-card/30">
-                <div className="font-mono text-[0.6rem] tracking-[0.18em] text-muted-foreground mb-3">SUPPORTING METRIC</div>
-                <div className="font-mono text-xs tracking-[0.12em] text-foreground/90">{m}</div>
+                <div className="text-sm">{m}</div>
               </div>
             ))}
           </div>
@@ -475,14 +455,13 @@ function WhatsAppCase() {
 
         {/* RISKS & TRADEOFFS */}
         <section className="py-24">
-          <Label>V.07 / RISKS_TRADEOFFS</Label>
-          <SectionH>Risks & Tradeoffs</SectionH>
+          <SectionH>Risks and trade-offs</SectionH>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              ["Feature Creep", "Adding utility and games risks turning WhatsApp into a bloated app, undermining the simplicity users value."],
-              ["Adoption Curve", "Subgroups and polls may confuse passive users; onboarding must be progressive and contextual."],
-              ["Moderation Load", "More structure means more configuration; admins need lightweight controls that don't require ongoing effort."],
-              ["Privacy Perception", "Splitwise and games introduce richer data; communication must emphasize end-to-end privacy guarantees."],
+              ["Feature creep", "Utilities and games could make WhatsApp feel bloated and undo the simplicity people value."],
+              ["Learning curve", "Subgroups and polls may confuse less active users, so they should be introduced gradually and in context."],
+              ["Admin effort", "More structure means more setup. Admin controls need to be light and mostly set-and-forget."],
+              ["Privacy", "Expenses and games put more data in chats. It needs to be clear that end-to-end encryption still applies."],
             ].map(([t, b]) => (
               <div key={t} className="border border-border/60 rounded-2xl p-7 bg-card/30">
                 <h3 className="font-sans font-semibold text-lg mb-3">{t}</h3>
@@ -495,27 +474,25 @@ function WhatsAppCase() {
         {/* PRODUCT THINKING */}
         <section className="py-24 grid md:grid-cols-[1fr_2fr] gap-12">
           <div>
-            <Label>V.08 / PM_THINKING</Label>
-            <h2 className="font-serif italic text-4xl">Product Thinking</h2>
+            <h2 className="font-serif text-4xl">The thinking behind it</h2>
           </div>
           <div className="space-y-5 text-muted-foreground leading-relaxed max-w-2xl">
-            <p>Engagement is rarely a single-feature problem. In a product as ubiquitous as WhatsApp, the right answer is rarely "add more." It is usually <span className="text-foreground">"organize better, then add purposefully."</span></p>
-            <p>Subgroups, polls, utility, and play each target a specific stage of the participation loop: <em className="text-foreground">discover relevance → contribute easily → return with purpose → stay through play</em>.</p>
-            <p>Each intervention preserves WhatsApp's minimalism while unlocking depth for the users who want it.</p>
+            <p>Engagement is rarely fixed by a single feature. In a product as widely used as WhatsApp, the answer is usually <span className="text-foreground">to organize better first, then add features carefully.</span></p>
+            <p>Each idea covers a different step in how people take part: finding what's relevant, contributing easily, coming back for a reason, and staying because it's fun.</p>
+            <p>None of them change the basic chat. They add depth for the people who want it and stay out of the way for everyone else.</p>
           </div>
         </section>
 
         {/* ROLLOUT */}
         <section className="py-24">
-          <Label>V.09 / ROLLOUT_PLAN</Label>
-          <SectionH>Future Journey · Rollout Plan</SectionH>
+          <SectionH>Rollout</SectionH>
           <div className="grid md:grid-cols-4 gap-5">
             {rollout.map((r) => (
               <div key={r.phase} className="border border-emerald-500/20 rounded-2xl p-6 bg-emerald-500/[0.02]">
-                <div className="font-mono text-[0.65rem] tracking-[0.22em] text-emerald-400/90 mb-5">{r.phase}</div>
+                <div className="text-sm text-emerald-500 mb-4">{r.phase}</div>
                 <ul className="space-y-2">
                   {r.items.map((i) => (
-                    <li key={i} className="text-sm text-foreground/90">— {i}</li>
+                    <li key={i} className="text-sm text-foreground/90">{i}</li>
                   ))}
                 </ul>
               </div>
@@ -525,23 +502,21 @@ function WhatsAppCase() {
 
         {/* KEY LEARNINGS */}
         <section className="py-24">
-          <Label>V.10 / KEY_LEARNINGS</Label>
-          <SectionH>Key Learnings</SectionH>
-          <div className="grid md:grid-cols-3 gap-5">
-            {learnings.map((l) => (
-              <div key={l} className="border border-border/60 rounded-2xl p-7 bg-card/30">
-                <div className="text-yellow-400/80 mb-4">◐</div>
-                <p className="text-sm text-foreground/90 leading-relaxed">{l}</p>
-              </div>
+          <SectionH>What I took away</SectionH>
+          <ol className="max-w-3xl divide-y divide-border border-y border-border">
+            {learnings.map((l, i) => (
+              <li key={l} className="flex gap-6 py-4">
+                <span className="w-5 shrink-0 text-sm text-muted-foreground tabular-nums">{i + 1}</span>
+                <p className="text-foreground/90">{l}</p>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
 
         {/* FINAL REFLECTION */}
         <section className="py-28 text-center max-w-2xl mx-auto">
-          <Label>FINAL_REFLECTION</Label>
-          <p className="font-serif italic text-3xl md:text-4xl leading-snug">
-            The best engagement features are the ones users don't notice — they simply feel the group is alive again.
+          <p className="font-serif text-3xl md:text-4xl leading-snug">
+            The best engagement features are the ones people don't notice. The group just feels active again.
           </p>
         </section>
     </CaseShell>

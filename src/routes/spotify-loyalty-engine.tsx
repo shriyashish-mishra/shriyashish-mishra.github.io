@@ -6,10 +6,10 @@ import { CaseShell } from "@/components/site-frame";
 export const Route = createFileRoute("/spotify-loyalty-engine")({
   head: () => ({
     meta: [
-      { title: "Spotify Loyalty Engine — Case Study" },
-      { name: "description", content: "Designing a gamified loyalty system to increase listening hours and premium conversion." },
-      { property: "og:title", content: "Spotify Loyalty Engine — Case Study" },
-      { property: "og:description", content: "Gamified loyalty system for Spotify to drive listening hours and Premium conversion." },
+      { title: "Spotify loyalty program · Case study" },
+      { name: "description", content: "A loyalty program for Spotify that rewards listening and uses short Premium trials to drive upgrades." },
+      { property: "og:title", content: "Spotify loyalty program" },
+      { property: "og:description", content: "A loyalty program for Spotify that rewards listening and uses short Premium trials to drive upgrades." },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -33,7 +33,7 @@ function Tag({ children, active }: { children: React.ReactNode; active?: boolean
 function Phone({ label, title, accent = "emerald", children }: { label: string; title: string; accent?: string; children: React.ReactNode }) {
   return (
     <div className="space-y-3">
-      <div className={`font-mono text-[0.6rem] tracking-[0.18em] text-${accent}-400/80`}>{label}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
       <div className="mockup mx-auto w-full max-w-[260px] rounded-[2.2rem] border border-border bg-[#0a0a0a] p-2 shadow-2xl">
         <div className="rounded-[1.8rem] overflow-hidden bg-black border border-white/5">
           <div className="flex items-center justify-between px-4 py-2 text-white/80 text-[10px]">
@@ -48,50 +48,50 @@ function Phone({ label, title, accent = "emerald", children }: { label: string; 
 }
 
 const problemPoints = [
-  ["Listening hours plateauing", "Free-tier users are not forming daily habits at scale."],
-  ["Ad-blocker erosion", "Freemium ad revenue is under pressure from browser and DNS blocking."],
-  ["Competitive switching", "Lossless audio and bundled offerings are pulling power users away."],
-  ["Premium conversion gap", "Users lack tangible motivation to upgrade beyond removing ads."],
-  ["Artist retention risk", "Perceived low monetization is pushing artists toward direct-to-fan platforms."],
-  ["Revenue concentration", "Freemium contributes only 20–25% of revenue despite high usage volume."],
+  ["Listening hours have plateaued", "Free users aren't building a daily habit at scale."],
+  ["Ad blockers", "Browser and DNS blocking is eating into Freemium ad revenue."],
+  ["Switching to competitors", "Lossless audio and bundles are pulling power users away."],
+  ["Weak reason to upgrade", "Removing ads alone isn't enough motivation to pay."],
+  ["Artists drifting away", "Low payouts are pushing artists toward direct-to-fan platforms."],
+  ["Revenue is concentrated", "Freemium brings in only 20–25% of revenue despite most of the usage."],
 ];
 
 const issues = [
-  { t: "Issue 1: Competitor Perception", color: "border-l-sky-400",
-    problem: "Users perceive higher value in competing platforms due to lossless audio, bundled hardware, and regional catalogs.",
-    evidence: "Power-user churn surveys cite audio quality and ecosystem bundling as top-two reasons for switching.",
-    impact: "Reduction in average listening hours per active user, especially in high-ARPU demographics." },
-  { t: "Issue 2: Ad Fatigue", color: "border-l-amber-400",
-    problem: "Ad load in Freemium creates session abandonment and drives ad-blocker adoption, eroding the ad-supported model.",
-    evidence: "Session drop-off spikes after the second ad break. Freemium users with ad blockers show 40% higher retention but zero ad revenue.",
-    impact: "Lower listening hours and reduced retention in the monetizable free tier." },
-  { t: "Issue 3: Artist Ecosystem", color: "border-l-rose-400",
-    problem: "Emerging artists struggle with visibility and monetization, reducing catalog freshness and user discovery value.",
-    evidence: "Local artists report that algorithmic discovery favors global headliners, driving them to direct-to-fan platforms.",
-    impact: "Reduced listener engagement and catalog differentiation versus competitors." },
+  { t: "Competitors look better", color: "border-l-sky-400",
+    problem: "Users see more value elsewhere: lossless audio, hardware bundles and regional catalogs.",
+    evidence: "In power-user churn surveys, audio quality and ecosystem bundles are the top two reasons for switching.",
+    impact: "Fewer listening hours per active user, especially among high-ARPU users." },
+  { t: "Ad fatigue", color: "border-l-amber-400",
+    problem: "Too many ads in Freemium cut sessions short and push people to ad blockers, which undermines the ad model.",
+    evidence: "Sessions drop off after the second ad break. Freemium users with ad blockers retain 40% better but bring in no ad revenue.",
+    impact: "Lower listening hours and weaker retention in the free tier that's meant to make money." },
+  { t: "Artists struggle to be found", color: "border-l-rose-400",
+    problem: "Emerging artists get little visibility or income, so the catalog feels less fresh and discovery is less useful.",
+    evidence: "Local artists say the algorithm favors global headliners, which pushes them toward direct-to-fan platforms.",
+    impact: "Less engagement from listeners and less to set Spotify apart from competitors." },
 ];
 
 const personas = [
-  { name: "Ayush Roy", role: "Student · Heavy Freemium User", initial: "A", color: "bg-sky-500/30 text-sky-200",
-    motivations: "Wants uninterrupted study music, social sharing, and status recognition without spending.",
-    behaviors: "Streams 3+ hours daily across pop and indie. Uses ad blockers on web. Skips ads when on mobile.",
-    pains: "Ad fatigue breaks flow. No visible progress toward rewards. Premium price feels abstract without trial.",
-    barriers: "Price sensitivity, lack of perceived upgrade value, no social proof from peers." },
-  { name: "Mona Saha", role: "Singer · Emerging Local Artist", initial: "M", color: "bg-fuchsia-500/30 text-fuchsia-200",
-    motivations: "Build a loyal local fanbase, monetize through streams and live events, and break into algorithmic playlists.",
-    behaviors: "Releases singles monthly. Engages with fans on Instagram. Struggles to get featured in Spotify editorial.",
-    pains: "Algorithmic discovery favors global headliners. Low per-stream revenue. No direct fan-reward tools.",
-    barriers: "Competition with established artists, limited playlist submission slots, no gamified discovery mechanism." },
+  { name: "Ayush Roy", role: "Student, heavy Freemium user", initial: "A", color: "bg-sky-500/30 text-sky-200",
+    motivations: "Wants uninterrupted music for studying, to share what he's listening to, and some recognition, without paying.",
+    behaviors: "Streams 3+ hours a day, mostly pop and indie. Uses an ad blocker on the web and skips ads on mobile.",
+    pains: "Ads break his focus. He can't see any progress toward rewards, and Premium feels abstract without trying it.",
+    barriers: "Price-sensitive, doesn't see enough reason to upgrade, and none of his friends are on Premium." },
+  { name: "Mona Saha", role: "Singer, emerging local artist", initial: "M", color: "bg-fuchsia-500/30 text-fuchsia-200",
+    motivations: "Build a loyal local fanbase, earn from streams and live shows, and get into algorithmic playlists.",
+    behaviors: "Releases a single every month and talks to fans on Instagram. Rarely gets featured in Spotify's editorial playlists.",
+    pains: "Discovery favors global headliners. Per-stream income is low, and there's no way to reward fans directly.",
+    barriers: "Competing with established artists, few playlist submission slots, and nothing that rewards fans for discovering her." },
 ];
 
 const strategies = [
-  { n: 1, title: "Next Song Recommendation", score: 15, body: "Improve recommendations based on history, liked songs, and similar users.", tags: ["Impact: Medium","Effort: High","Confidence: High"], selected: false },
-  { n: 2, title: "Gamified Loyalty Program", score: 21, body: "Reward users for listening time and streaks with badges and temporary Premium access.", tags: ["Impact: High","Effort: Medium","Confidence: High"], selected: true },
-  { n: 3, title: "Artist Marketplace", score: 15, body: "Allow artists to launch merchandise and concert tickets within the app.", tags: ["Impact: Medium","Effort: Very High","Confidence: Low"], selected: false },
+  { n: 1, title: "Better next-song recommendations", score: 15, body: "Improve recommendations using listening history, liked songs and similar users.", tags: ["Impact: medium","Effort: high","Confidence: high"], selected: false },
+  { n: 2, title: "Gamified loyalty program", score: 21, body: "Reward listening time and streaks with badges and short Premium trials.", tags: ["Impact: high","Effort: medium","Confidence: high"], selected: true },
+  { n: 3, title: "Artist marketplace", score: 15, body: "Let artists sell merch and concert tickets inside the app.", tags: ["Impact: medium","Effort: very high","Confidence: low"], selected: false },
 ];
 
 const flowStages = [
-  ["Discovery","Find content"], ["Engagement","Build habit"], ["Accrual","Earn progress"], ["Rewards","Reinforce behavior"], ["Premium Experience","Showcase value"], ["Premium Conversion","Monetize engagement"],
+  ["Discovery","Find something to listen to"], ["Engagement","Build a habit"], ["Accrual","Earn points"], ["Rewards","Get something back"], ["Premium trial","See what Premium is like"], ["Upgrade","Convert to paid"],
 ];
 
 const levels = [
@@ -102,39 +102,39 @@ const levels = [
 ];
 
 const impactMetrics = [
-  ["+8%","LISTENING HOURS"], ["+12%","ENGAGEMENT"], ["+4pp","RETENTION"],
-  ["+2pp","PREMIUM CONVERSIONS"], ["+15%","ARTIST DISCOVERY"], ["+6%","MRR CONTRIBUTION"],
+  ["+8%","Listening hours"], ["+12%","Engagement"], ["+4pp","Retention"],
+  ["+2pp","Premium conversion"], ["+15%","Artist discovery"], ["+6%","MRR contribution"],
 ];
 
 const aarrr = [
-  { tag: "ACQUISITION", color: "border-t-sky-400", items: ["Rewards Page Visit Rate","Reward Enrollment Rate","Reward Sharing Rate"] },
-  { tag: "ACTIVATION", color: "border-t-purple-400", items: ["Listening Hours per User","Reward Claim Rate","Premium Trial Activation"] },
-  { tag: "RETENTION", color: "border-t-emerald-400", items: ["30-Day Active Listening Rate","Listener Retention Cohort","Churn Reduction"] },
-  { tag: "REFERRAL", color: "border-t-amber-400", items: ["Viral Coefficient (K-Factor)","Invite Conversion Rate","Reward Social Sharing Rate"] },
-  { tag: "REVENUE", color: "border-t-rose-400", items: ["Freemium to Premium Conversion","Customer Lifetime Value (CLV)","Monthly Recurring Revenue (MRR)"] },
+  { tag: "Acquisition", color: "border-t-sky-400", items: ["Rewards page visit rate","Enrollment rate","Reward sharing rate"] },
+  { tag: "Activation", color: "border-t-purple-400", items: ["Listening hours per user","Reward claim rate","Premium trial activation"] },
+  { tag: "Retention", color: "border-t-emerald-400", items: ["30-day active listening rate","Retention by cohort","Churn reduction"] },
+  { tag: "Referral", color: "border-t-amber-400", items: ["Viral coefficient (K-factor)","Invite conversion rate","Social sharing of rewards"] },
+  { tag: "Revenue", color: "border-t-rose-400", items: ["Freemium to Premium conversion","Customer lifetime value","Monthly recurring revenue"] },
 ];
 
 const risks = [
-  { t: "Risk 1: Reward Farming", body: "Users might game the system with low-intent listening to farm points.", l: "Medium", i: "High", m: "Points decay after 30 days of inactivity. Minimum daily listening thresholds and skip-rate detection prevent passive farming." },
-  { t: "Risk 2: Low Participation", body: "Users may ignore the program if the value proposition is unclear.", l: "Medium", i: "Medium", m: "Strong onboarding during first-session streak setup. Push notifications at natural listening moments. Social proof via friend leaderboards." },
-  { t: "Risk 3: High Implementation Effort", body: "Building a full loyalty engine requires significant backend and design investment.", l: "High", i: "Medium", m: "Launch as a lightweight MVP with manual point accrual and limited redemption catalog. Scale automation after validation." },
-  { t: "Risk 4: Short-Term Engagement Spike", body: "Novelty may fade after launch, causing participation to drop.", l: "Medium", i: "Medium", m: "Introduce seasonal challenges, evolving reward tiers, and limited-time artist collaborations to maintain long-term motivation." },
+  { t: "Reward farming", body: "People could leave music running just to collect points.", l: "Medium", i: "High", m: "Points expire after 30 days of inactivity. Minimum daily listening and skip-rate checks stop passive farming." },
+  { t: "Low participation", body: "If the value isn't obvious, people will ignore the program.", l: "Medium", i: "Medium", m: "Set up a streak in the first session, send reminders at natural listening moments, and show friends' progress on leaderboards." },
+  { t: "Build effort", body: "A full loyalty system needs real backend and design work.", l: "High", i: "Medium", m: "Start with a lightweight MVP: manual point accrual and a small rewards catalog. Automate once it's validated." },
+  { t: "Novelty wears off", body: "Participation could drop once the launch excitement fades.", l: "Medium", i: "Medium", m: "Seasonal challenges, evolving tiers and limited-time artist collaborations to keep it interesting." },
 ];
 
 const learnings = [
-  "Behavioral incentives outperform transactional incentives. Users respond to progress, not discounts.",
-  "Users convert after experiencing value, not after seeing pricing. Free trials must be structured as earned rewards.",
-  "Marketplace products require balancing user and creator incentives. A loyalty layer can serve both sides simultaneously.",
-  "Retention improvements often precede monetization improvements. Investing in engagement pays compounding returns.",
-  "Growth features need sustainable reward economics. Caps and decay prevent exploitation and preserve long-term value.",
+  "Rewarding behavior works better than discounts. People respond to progress.",
+  "People upgrade after they've felt the value, not after they've seen the price. Trials work best when they're earned.",
+  "Marketplaces have to balance both sides. A loyalty layer can serve listeners and artists at once.",
+  "Retention usually improves before revenue does, and the gains compound.",
+  "Reward economics have to be sustainable. Caps and expiry keep the system from being gamed.",
 ];
 
 function SpotifyCase() {
   return (
     <CaseShell
       path="/spotify-loyalty-engine"
-      title="Spotify Loyalty Engine"
-      summary="Designing a gamified loyalty system to increase listening hours and premium conversion."
+      title="A loyalty program for Spotify"
+      summary="Freemium listeners use Spotify a lot but rarely pay. This case study designs a loyalty program that rewards listening and uses short Premium trials to drive upgrades."
       tags={["Product Strategy", "Consumer Growth", "Gamification", "Retention"]}
       meta={[["Focus", "Product strategy"], ["Domain", "Consumer · Music"], ["Levers", "Gamification"], ["Goal", "Premium conversion"]]}
     >
@@ -144,13 +144,13 @@ function SpotifyCase() {
         {/* PROBLEM */}
         <section className="py-24">
           <p className="text-muted-foreground max-w-3xl mb-14 leading-relaxed">
-            Freemium users drive engagement but monetize poorly. To improve Lifetime Value, Spotify must increase both listening hours and Premium conversion without eroding the artist ecosystem or increasing Customer Acquisition Cost.
+            Freemium users listen a lot but bring in little revenue. To raise lifetime value, Spotify needs more listening hours and more Premium upgrades, without hurting artists or raising acquisition costs.
           </p>
           <div className="grid lg:grid-cols-2 gap-12">
             <ol className="space-y-5">
               {problemPoints.map(([t, b], i) => (
                 <li key={t} className="grid grid-cols-[28px_1fr] gap-4">
-                  <span className="font-mono text-xs text-emerald-400/80">{String(i+1).padStart(2,"0")}</span>
+                  <span className="text-sm text-muted-foreground tabular-nums">{i+1}</span>
                   <div>
                     <div className="text-white font-semibold text-sm mb-1">{t}</div>
                     <div className="text-muted-foreground text-sm leading-relaxed">{b}</div>
@@ -160,18 +160,18 @@ function SpotifyCase() {
             </ol>
             <div className="space-y-6">
               <div className="border-l-2 border-emerald-500/60 rounded-md p-6 bg-card/40">
-                <p className="font-serif italic text-xl leading-snug">"How can Spotify increase listening hours while simultaneously increasing conversion from Freemium to Premium?"</p>
+                <div className="text-sm text-muted-foreground mb-2">The question</div><p className="font-serif text-xl leading-snug">How can Spotify grow listening hours and, at the same time, convert more Freemium users to Premium?</p>
               </div>
               <div className="rounded-md border border-border/60 p-5 bg-card/30 flex flex-wrap items-center gap-3 text-xs font-mono text-muted-foreground">
-                <span className="text-emerald-400/80">FLOW</span>
-                <span>Listen Time</span><ChevronRight className="h-3 w-3" /><span>Retention</span><ChevronRight className="h-3 w-3" /><span>Conversion</span><ChevronRight className="h-3 w-3" /><span className="text-emerald-300">Revenue</span>
+                <span className="text-emerald-500">The chain</span>
+                <span>Listening time</span><ChevronRight className="h-3 w-3" /><span>Retention</span><ChevronRight className="h-3 w-3" /><span>Conversion</span><ChevronRight className="h-3 w-3" /><span className="text-emerald-300">Revenue</span>
               </div>
               {[1].map((i) => (
                 <div key={i} className="rounded-md border border-border/60 p-5 bg-card/30">
-                  <div className="flex justify-between text-xs font-mono mb-3"><span className="text-muted-foreground">OPPORTUNITY SIZE</span><span className="text-emerald-400/80">MODELED</span></div>
+                  <div className="flex justify-between text-xs font-mono mb-3"><span className="text-muted-foreground font-sans text-sm">Opportunity</span><span className="text-muted-foreground font-sans text-sm">Modeled</span></div>
                   <div className="flex gap-8">
-                    <div><div className="text-3xl font-serif">+8%</div><div className="text-xs text-muted-foreground">Listening Hours</div></div>
-                    <div><div className="text-3xl font-serif">+2pp</div><div className="text-xs text-muted-foreground">Premium Conv.</div></div>
+                    <div><div className="text-3xl font-serif">+8%</div><div className="text-xs text-muted-foreground">Listening hours</div></div>
+                    <div><div className="text-3xl font-serif">+2pp</div><div className="text-xs text-muted-foreground">Premium conversion</div></div>
                   </div>
                 </div>
               ))}
@@ -181,15 +181,15 @@ function SpotifyCase() {
 
         {/* PROBLEM VALIDATION */}
         <section className="py-24">
-          <Label>V.01 / PROBLEM_VALIDATION</Label>
+          <SectionH>Three problems underneath</SectionH>
           <div className="grid md:grid-cols-3 gap-5">
             {issues.map((it) => (
               <div key={it.t} className={`rounded-xl border border-border/60 bg-card/40 p-6 border-l-2 ${it.color}`}>
                 <h3 className="font-sans font-semibold text-base mb-4">{it.t}</h3>
                 <div className="space-y-3 text-sm">
-                  <div><div className="font-mono text-[0.65rem] tracking-[0.18em] text-sky-300 mb-1">PROBLEM</div><p className="text-muted-foreground leading-relaxed">{it.problem}</p></div>
-                  <div><div className="font-mono text-[0.65rem] tracking-[0.18em] text-purple-300 mb-1">EVIDENCE</div><p className="text-muted-foreground leading-relaxed">{it.evidence}</p></div>
-                  <div><div className="font-mono text-[0.65rem] tracking-[0.18em] text-amber-300 mb-1">IMPACT</div><p className="text-muted-foreground leading-relaxed">{it.impact}</p></div>
+                  <div><div className="text-xs font-medium text-foreground mb-1">Problem</div><p className="text-muted-foreground leading-relaxed">{it.problem}</p></div>
+                  <div><div className="text-xs font-medium text-foreground mb-1">Evidence</div><p className="text-muted-foreground leading-relaxed">{it.evidence}</p></div>
+                  <div><div className="text-xs font-medium text-foreground mb-1">Impact</div><p className="text-muted-foreground leading-relaxed">{it.impact}</p></div>
                 </div>
               </div>
             ))}
@@ -198,69 +198,69 @@ function SpotifyCase() {
 
         {/* MARKET RESEARCH */}
         <section className="py-24">
-          <Label>V.02 / MARKET_RESEARCH</Label>
+          <SectionH>Three groups to keep happy</SectionH>
           <div className="flex flex-col items-center text-center">
-            <div className="rounded-md border border-emerald-500/40 px-4 py-1.5 font-mono text-xs text-emerald-300">LISTENERS</div>
+            <div className="rounded-md border border-emerald-500/40 px-4 py-1.5 font-mono text-xs text-emerald-300">Listeners</div>
             <svg viewBox="0 0 320 160" className="w-full max-w-md my-4 stroke-border" fill="none" strokeWidth="1">
               <path d="M160 10 L40 150 L280 150 Z" />
             </svg>
             <div className="flex gap-32 -mt-6">
-              <div className="rounded-md border border-fuchsia-500/40 px-4 py-1.5 font-mono text-xs text-fuchsia-300">ARTISTS</div>
-              <div className="rounded-md border border-sky-500/40 px-4 py-1.5 font-mono text-xs text-sky-300">SPOTIFY</div>
+              <div className="rounded-md border border-fuchsia-500/40 px-4 py-1.5 font-mono text-xs text-fuchsia-300">Artists</div>
+              <div className="rounded-md border border-sky-500/40 px-4 py-1.5 font-mono text-xs text-sky-300">Spotify</div>
             </div>
           </div>
           <div className="mt-12 grid md:grid-cols-3 gap-5">
             {[
-              ["LISTENERS","Want uninterrupted music, social recognition, and clear upgrade value."],
-              ["ARTISTS","Need visibility, discovery mechanics, and sustainable fan relationships."],
-              ["SPOTIFY","Needs engagement growth, Premium conversion, and healthy creator economics."],
+              ["Listeners","Want uninterrupted music, some recognition, and a clear reason to upgrade."],
+              ["Artists","Need visibility, ways to be discovered, and lasting relationships with fans."],
+              ["Spotify","Needs more engagement, more Premium upgrades, and healthy creator economics."],
             ].map(([t,b]) => (
               <div key={t} className="rounded-xl border border-border/60 bg-card/40 p-6 text-center">
-                <div className="font-mono text-[0.65rem] tracking-[0.22em] text-muted-foreground mb-3">{t}</div>
+                <div className="text-sm font-medium mb-2">{t}</div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{b}</p>
               </div>
             ))}
           </div>
-          <p className="mt-10 text-center font-serif italic text-muted-foreground max-w-2xl mx-auto">"The proposed solution must create value for all three stakeholders. A loyalty layer rewards listeners, promotes artists, and improves Spotify's unit economics simultaneously."</p>
+          <p className="mt-10 text-center text-muted-foreground max-w-2xl mx-auto">The solution has to work for all three. A loyalty layer can reward listeners, promote artists and improve Spotify's unit economics at the same time.</p>
         </section>
 
         {/* USER SEGMENTATION */}
         <section className="py-24">
-          <Label>V.03 / USER_SEGMENTATION</Label>
+          <SectionH>Who to focus on</SectionH>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="rounded-xl border border-border/60 bg-card/40 p-6">
-              <div className="font-mono text-[0.65rem] tracking-[0.22em] text-muted-foreground mb-4">LISTENERS</div>
+              <div className="text-sm font-medium mb-4">Listeners</div>
               <div className="space-y-2">
-                {[["Heavy Freemium Users","FOCUS","emerald"],["Casual Freemium Users","SECONDARY","sky"],["Premium Subscribers","RETENTION","amber"],["Dormant Users","REACTIVATION","rose"]].map(([n,t,c]) => (
+                {[["Heavy Freemium users","Focus","emerald"],["Casual Freemium users","Secondary","sky"],["Premium subscribers","Retain","amber"],["Dormant users","Reactivate","rose"]].map(([n,t,c]) => (
                   <div key={n} className="flex justify-between items-center rounded-lg bg-white/5 px-4 py-3">
                     <span className="text-sm text-white/90">{n}</span>
-                    <span className={`font-mono text-[0.6rem] tracking-[0.18em] text-${c}-300`}>{t}</span>
+                    <span className={`text-xs text-${c}-300`}>{t}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-muted-foreground mt-4 leading-relaxed">Heavy Freemium users show high session frequency but low conversion intent. They are the highest-leverage segment for listening-hour growth and Premium upgrade.</p>
+              <p className="text-xs text-muted-foreground mt-4 leading-relaxed">Heavy Freemium users open the app often but rarely think about paying. They have the most room to grow, in both listening hours and upgrades.</p>
             </div>
             <div className="rounded-xl border border-border/60 bg-card/40 p-6">
-              <div className="font-mono text-[0.65rem] tracking-[0.22em] text-muted-foreground mb-4">ARTISTS</div>
+              <div className="text-sm font-medium mb-4">Artists</div>
               <div className="space-y-2">
-                {[["Established Artists","CATALOG","sky"],["Emerging / Local Artists","FOCUS","emerald"]].map(([n,t,c]) => (
+                {[["Established artists","Catalog","sky"],["Emerging and local artists","Focus","emerald"]].map(([n,t,c]) => (
                   <div key={n} className="flex justify-between items-center rounded-lg bg-white/5 px-4 py-3">
                     <span className="text-sm text-white/90">{n}</span>
-                    <span className={`font-mono text-[0.6rem] tracking-[0.18em] text-${c}-300`}>{t}</span>
+                    <span className={`text-xs text-${c}-300`}>{t}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-muted-foreground mt-4 leading-relaxed">Local artists provide high differentiation in emerging markets. Discovery rewards can surface their catalogs to high-intent listeners.</p>
+              <p className="text-xs text-muted-foreground mt-4 leading-relaxed">Local artists are what makes Spotify different in emerging markets. Discovery rewards can put their music in front of engaged listeners.</p>
             </div>
           </div>
           <div className="mt-8 rounded-xl border border-border/60 bg-card/30 px-6 py-4 text-center text-sm">
-            Focus Segment: <span className="text-emerald-300 font-mono">Freemium Users and Local Artists</span>
+            Focus: <span className="text-emerald-500">heavy Freemium listeners and local artists</span>
           </div>
         </section>
 
         {/* PERSONAS */}
         <section className="py-24">
-          <Label>V.04 / PERSONAS</Label>
+          <SectionH>Two personas</SectionH>
           <div className="grid md:grid-cols-2 gap-6">
             {personas.map((p) => (
               <div key={p.name} className="rounded-xl border border-border/60 bg-card/40 p-7">
@@ -272,9 +272,9 @@ function SpotifyCase() {
                   </div>
                 </div>
                 <div className="space-y-4 text-sm">
-                  {[["MOTIVATIONS",p.motivations,"emerald"],["BEHAVIORS",p.behaviors,"sky"],["PAIN POINTS",p.pains,"rose"],[p.name==="Mona Saha"?"VISIBILITY BARRIERS":"CONVERSION BARRIERS",p.barriers,"amber"]].map(([t,b,c]) => (
+                  {[["Motivations",p.motivations,"emerald"],["Behavior",p.behaviors,"sky"],["Frustrations",p.pains,"rose"],[p.name==="Mona Saha"?"What holds her back":"Why he hasn't upgraded",p.barriers,"amber"]].map(([t,b,c]) => (
                     <div key={t as string}>
-                      <div className={`font-mono text-[0.6rem] tracking-[0.22em] text-${c}-300 mb-1`}>{t}</div>
+                      <div className="text-xs font-medium text-foreground mb-1">{t}</div>
                       <p className="text-muted-foreground leading-relaxed">{b}</p>
                     </div>
                   ))}
@@ -286,29 +286,29 @@ function SpotifyCase() {
 
         {/* KEY INSIGHT */}
         <section className="py-20">
-          <Label>V.05 / KEY_INSIGHT</Label>
+          <SectionH>The key insight</SectionH>
           <div className="rounded-xl border border-border/60 bg-card/40 p-12 text-center">
-            <p className="font-serif text-3xl md:text-4xl leading-snug max-w-3xl mx-auto">"Users invest more time when progress, status, and reward are visible. By making engagement itself the currency, Spotify turns listening into a conversion funnel."</p>
-            <div className="mt-8 font-mono text-[0.65rem] tracking-[0.22em] text-muted-foreground">INSIGHT: REWARD THE BEHAVIOR, NOT THE TRANSACTION. THE REWARD IS A TASTE OF PREMIUM.</div>
+            <p className="font-serif text-3xl md:text-4xl leading-snug max-w-3xl mx-auto">People put in more time when they can see their progress, status and rewards. If engagement itself becomes the currency, listening turns into a path to Premium.</p>
+            <div className="mt-6 text-muted-foreground">Reward the behavior, not the purchase. The reward is a taste of Premium.</div>
           </div>
         </section>
 
         {/* STRATEGIES */}
         <section className="py-24">
-          <Label>V.06 / STRATEGIES</Label>
+          <SectionH>Options considered</SectionH>
           <div className="grid md:grid-cols-3 gap-5">
             {strategies.map((s) => (
               <div key={s.n} className={`relative rounded-xl border p-6 bg-card/40 ${s.selected ? "border-emerald-500/60 shadow-[0_0_0_1px_rgba(16,185,129,0.4)]" : "border-border/60"}`}>
-                {s.selected && <div className="absolute -top-3 right-4 rounded bg-emerald-500 text-black font-mono text-[0.6rem] px-2 py-0.5 tracking-[0.18em]">SELECTED</div>}
-                <div className="flex justify-between font-mono text-[0.65rem] tracking-[0.22em] text-muted-foreground mb-3">
-                  <span>STRATEGY {s.n}</span><span className="text-emerald-300">SCORE: {s.score}</span>
+                {s.selected && <div className="absolute -top-3 right-4 rounded bg-emerald-500 text-black text-xs px-2 py-0.5">Chosen</div>}
+                <div className="flex justify-between text-xs text-muted-foreground mb-3">
+                  <span>Option {s.n}</span><span className="text-emerald-500">Score {s.score}</span>
                 </div>
                 <h3 className="font-sans font-semibold text-lg mb-3">{s.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">{s.body}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {s.tags.map((t) => <span key={t} className="font-mono text-[0.6rem] tracking-[0.18em] text-muted-foreground border border-border/60 rounded px-2 py-0.5">{t}</span>)}
+                  {s.tags.map((t) => <span key={t} className="text-xs text-muted-foreground border border-border/60 rounded px-2 py-0.5">{t}</span>)}
                 </div>
-                <div className={`font-mono text-[0.65rem] tracking-[0.22em] ${s.selected ? "text-emerald-300" : "text-muted-foreground/60"}`}>{s.selected ? "SELECTED" : "NOT SELECTED"}</div>
+                <div className={`text-sm ${s.selected ? "text-emerald-300" : "text-muted-foreground/60"}`}>{s.selected ? "Chosen" : "Not chosen"}</div>
               </div>
             ))}
           </div>
@@ -316,14 +316,14 @@ function SpotifyCase() {
 
         {/* RECOMMENDATION */}
         <section className="py-24">
-          <Label>V.07 / RECOMMENDATION</Label>
+          <SectionH>The recommendation</SectionH>
           <div className="rounded-xl border border-border/60 bg-card/40 p-8">
-            <h3 className="font-serif text-3xl mb-4">Selected Strategy: Gamified Loyalty Program</h3>
-            <p className="text-muted-foreground leading-relaxed mb-8">Reason: Highest combined score across Listening Hours, User Engagement, User Acquisition, Revenue Generation, and Market Value. This strategy directly addresses the drop in listening hours while creating a bridge for Freemium users to experience Premium benefits risk-free.</p>
+            <h3 className="font-serif text-3xl mb-4">Build a gamified loyalty program</h3>
+            <p className="text-muted-foreground leading-relaxed mb-8">It scored highest across listening hours, engagement, acquisition, revenue and market value. It tackles the drop in listening hours directly, and lets Freemium users try Premium with no risk.</p>
             <div className="grid md:grid-cols-4 gap-4">
-              {[["USER VALUE","Free rewards, status recognition, and Premium previews."],["BUSINESS VALUE","Higher retention, lower CAC, improved conversion."],["ARTIST VALUE","Discovery boost and direct fan engagement."],["COMPLEXITY","Medium — existing points system can be extended."]].map(([t,b]) => (
+              {[["For listeners","Free rewards, recognition and Premium previews."],["For Spotify","Better retention, lower acquisition cost, higher conversion."],["For artists","More discovery and direct fan engagement."],["Effort","Medium. The existing points system can be extended."]].map(([t,b]) => (
                 <div key={t} className="rounded-lg border border-border/60 bg-card/30 p-4">
-                  <div className="font-mono text-[0.6rem] tracking-[0.22em] text-emerald-300 mb-2">{t}</div>
+                  <div className="text-sm font-medium mb-1">{t}</div>
                   <p className="text-xs text-muted-foreground leading-relaxed">{b}</p>
                 </div>
               ))}
@@ -333,9 +333,8 @@ function SpotifyCase() {
 
         {/* SOLUTION DESIGN */}
         <section className="py-24">
-          <Label>V.08 / SOLUTION_DESIGN</Label>
-          <SectionH>Core Concept</SectionH>
-          <p className="font-serif italic text-lg text-muted-foreground mb-10">"Reward users for listening. The more users listen, the more value they unlock."</p>
+          <SectionH>How it works</SectionH>
+          <p className="text-lg text-muted-foreground mb-10">Reward people for listening. The more they listen, the more they unlock.</p>
           <div className="flex flex-wrap items-center gap-2">
             {flowStages.map(([t], i) => (
               <div key={t} className="flex items-center gap-2">
@@ -347,7 +346,7 @@ function SpotifyCase() {
           <div className="mt-6 grid grid-cols-3 md:grid-cols-6 gap-4 text-center">
             {flowStages.map(([t,sub], i) => (
               <div key={t}>
-                <div className="font-mono text-[0.6rem] tracking-[0.22em] text-muted-foreground mb-1">STAGE {i+1}</div>
+                <div className="text-xs text-muted-foreground mb-1">Step {i+1}</div>
                 <div className="text-sm">{sub}</div>
               </div>
             ))}
@@ -357,44 +356,43 @@ function SpotifyCase() {
         {/* MECHANICS */}
         <section className="py-24 grid md:grid-cols-2 gap-12">
           <div>
-            <Label>V.09 / MECHANICS</Label>
-            <div className="font-mono text-[0.65rem] tracking-[0.22em] text-muted-foreground mb-4">ACCRUAL MECHANICS</div>
+            <SectionH>Points, levels and rewards</SectionH>
+            <div className="text-sm font-medium mb-4">Earning points</div>
             <ul className="space-y-3 text-sm">
-              {["Listening hours (1 pt / 10 min)","Daily streaks (10 pt bonus)","Discovery challenges (50 pt bonus)"].map((t) => (
+              {["Listening: 1 point per 10 minutes","Daily streaks: 10-point bonus","Discovery challenges: 50-point bonus"].map((t) => (
                 <li key={t} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400" />{t}</li>
               ))}
             </ul>
-            <div className="font-mono text-[0.65rem] tracking-[0.22em] text-muted-foreground mt-8 mb-3">SUSTAINABILITY GUARDRAILS</div>
-            <p className="text-sm text-muted-foreground leading-relaxed">Premium trials are capped at 3 days per month. Points decay after 30 days of inactivity to prevent farming. Rewards require minimum daily listening to enforce genuine engagement.</p>
+            <div className="text-sm font-medium mt-8 mb-3">Guardrails</div>
+            <p className="text-sm text-muted-foreground leading-relaxed">Premium trials are capped at 3 days a month. Points expire after 30 days of inactivity so they can't be stockpiled, and rewards need a minimum amount of real daily listening.</p>
           </div>
           <div>
-            <div className="font-mono text-[0.65rem] tracking-[0.22em] text-muted-foreground mb-4">LEVELS & BADGES</div>
+            <div className="text-sm font-medium mb-4">Levels</div>
             <div className="space-y-2 mb-6">
               {levels.map((l) => (
                 <div key={l.name} className={`flex justify-between items-center rounded-lg border px-4 py-3 ${l.color}`}>
                   <span className="text-sm">{l.name}</span>
-                  <span className="font-mono text-[0.65rem] tracking-[0.18em]">{l.pts}</span>
+                  <span className="text-xs">{l.pts}</span>
                 </div>
               ))}
             </div>
-            <div className="font-mono text-[0.65rem] tracking-[0.22em] text-muted-foreground mb-3">REDEMPTION CATALOG</div>
+            <div className="text-sm font-medium mb-3">What points buy</div>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              {["Ad-free listening (1 day — 500 pts)","Exclusive playlists (800 pts)","Artist experience entries (1,500 pts)","Early feature access (2,000 pts)"].map((t) => (
+              {["A day of ad-free listening: 500 pts","Exclusive playlists: 800 pts","Entry to artist experiences: 1,500 pts","Early access to features: 2,000 pts"].map((t) => (
                 <li key={t} className="flex gap-2"><span>•</span>{t}</li>
               ))}
             </ul>
-            <p className="mt-4 font-serif italic text-sm text-emerald-300/90">Temporary Premium access is the primary conversion driver. Users who taste Premium show 3x higher upgrade intent.</p>
+            <p className="mt-4 text-sm text-foreground">Short Premium trials are the main conversion lever. Users who try Premium show 3x higher intent to upgrade.</p>
           </div>
         </section>
 
         {/* USER JOURNEY + MOBILE MOCKUPS */}
         <section className="py-24">
-          <Label>V.10 / USER_JOURNEY</Label>
-          <SectionH>User Journey & Product Experience</SectionH>
-          <p className="text-muted-foreground max-w-2xl mb-14">End-to-end rewards experience designed as a native Spotify feature.</p>
+          <SectionH>The experience, screen by screen</SectionH>
+          <p className="text-muted-foreground max-w-2xl mb-14">The full rewards flow, designed to sit inside Spotify as a native feature.</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Phone label="SCREEN 1 / LOYALTY ENGINE HOME" title="Rewards Hub">
+            <Phone label="1. Rewards home" title="Rewards Hub">
               <div className="space-y-3 text-[10px]">
                 <div className="grid grid-cols-2 gap-2">
                   <div className="rounded-lg bg-white/5 p-3"><div className="text-white/50">Streak</div><div className="text-white font-semibold text-lg">12 Days</div></div>
@@ -415,7 +413,7 @@ function SpotifyCase() {
               </div>
             </Phone>
 
-            <Phone label="SCREEN 2 / LEVEL PROGRESSION" title="Your Journey">
+            <Phone label="2. Levels" title="Your Journey">
               <div className="space-y-2 text-[10px]">
                 {[
                   ["Listener","0h listening","white/5",""],
@@ -439,7 +437,7 @@ function SpotifyCase() {
               </div>
             </Phone>
 
-            <Phone label="SCREEN 3 / LISTENING STREAKS" title="Quest Hub">
+            <Phone label="3. Streaks and daily quests" title="Quest Hub">
               <div className="space-y-3 text-[10px]">
                 <div className="rounded-lg bg-gradient-to-br from-emerald-500/30 to-emerald-700/10 border border-emerald-500/40 p-3">
                   <div className="text-emerald-200/80">Current Streak</div>
@@ -461,7 +459,7 @@ function SpotifyCase() {
               </div>
             </Phone>
 
-            <Phone label="SCREEN 4 / DISCOVERY CHALLENGES" title="Active Challenge">
+            <Phone label="4. A discovery challenge" title="Active Challenge">
               <div className="space-y-3 text-[10px]">
                 <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/30 p-3">
                   <div className="flex items-center gap-2 text-emerald-300"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /><span className="font-mono text-[9px] tracking-[0.18em]">ACTIVE CHALLENGE</span></div>
@@ -481,7 +479,7 @@ function SpotifyCase() {
               </div>
             </Phone>
 
-            <Phone label="SCREEN 5 / ACHIEVEMENT BADGES" title="Rewards Unlock">
+            <Phone label="5. Unlocking a reward" title="Rewards Unlock">
               <div className="space-y-3 text-[10px]">
                 <div className="rounded-2xl bg-gradient-to-br from-amber-500/20 via-amber-700/10 to-black/40 border border-amber-500/30 p-6 text-center">
                   <div className="mx-auto h-14 w-14 rounded-full bg-amber-500/30 grid place-items-center"><Star className="h-7 w-7 text-amber-300" /></div>
@@ -494,7 +492,7 @@ function SpotifyCase() {
               </div>
             </Phone>
 
-            <Phone label="SCREEN 6 / REWARDS MARKETPLACE" title="Marketplace">
+            <Phone label="6. Spending points" title="Marketplace">
               <div className="grid grid-cols-2 gap-2 text-[10px]">
                 {[
                   ["⚡","1 Day Premium","500 PTS","white"],
@@ -512,7 +510,7 @@ function SpotifyCase() {
               </div>
             </Phone>
 
-            <Phone label="SCREEN 7 / PREMIUM UNLOCK JOURNEY" title="Reward Activated!">
+            <Phone label="7. The trial starts" title="Reward Activated!">
               <div className="text-center space-y-3 text-[10px]">
                 <div className="mx-auto h-16 w-16 rounded-full border-2 border-emerald-400 grid place-items-center mt-2"><Check className="h-8 w-8 text-emerald-400" /></div>
                 <div className="text-white font-semibold text-sm">Reward Activated!</div>
@@ -522,7 +520,7 @@ function SpotifyCase() {
               </div>
             </Phone>
 
-            <Phone label="SCREEN 8 / CONVERSION FLOW" title="Premium Preview · Currently Unlocked">
+            <Phone label="8. Asking for the upgrade" title="Premium Preview · Currently Unlocked">
               <div className="space-y-2 text-[10px]">
                 <div className="flex items-center gap-2 text-emerald-300"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /><span className="font-mono text-[9px] tracking-[0.18em]">PREMIUM ACTIVE</span></div>
                 {[[Music,"Ad-Free Listening","No interruptions. Just music."],[Play,"Unlimited Skips","Play any song you want."],[Download,"Offline Downloads","Listen anywhere without data."],[Headphones,"Better Audio Quality","Experience higher fidelity."]].map(([I,t,d],i) => {
@@ -551,13 +549,13 @@ function SpotifyCase() {
 
         {/* IMPACT */}
         <section className="py-24">
-          <Label>V.11 / IMPACT</Label>
+          <SectionH>Expected impact</SectionH>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {impactMetrics.map(([v,t]) => (
               <div key={t} className="rounded-xl border border-border/60 bg-card/40 p-8 text-center">
                 <div className="font-serif text-4xl md:text-5xl text-emerald-300">{v}</div>
-                <div className="font-mono text-[0.65rem] tracking-[0.22em] text-muted-foreground mt-3">{t}</div>
-                <div className="font-mono text-[0.55rem] tracking-[0.18em] text-muted-foreground/60 mt-1">MODELED</div>
+                <div className="text-sm text-muted-foreground mt-2">{t}</div>
+                <div className="text-xs text-muted-foreground/70 mt-0.5">modeled</div>
               </div>
             ))}
           </div>
@@ -565,12 +563,11 @@ function SpotifyCase() {
 
         {/* AARRR */}
         <section className="py-24">
-          <Label>V.12 / METRICS</Label>
-          <SectionH>AARRR Framework</SectionH>
+          <SectionH>What to track</SectionH>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {aarrr.map((c) => (
               <div key={c.tag} className={`rounded-xl border border-border/60 bg-card/40 p-5 border-t-2 ${c.color}`}>
-                <div className="font-mono text-[0.6rem] tracking-[0.22em] text-muted-foreground mb-4">{c.tag}</div>
+                <div className="text-sm font-medium mb-4">{c.tag}</div>
                 <ul className="space-y-3 text-sm">
                   {c.items.map((i) => <li key={i} className="text-muted-foreground leading-snug">{i}</li>)}
                 </ul>
@@ -581,7 +578,7 @@ function SpotifyCase() {
 
         {/* RISKS */}
         <section className="py-24">
-          <Label>V.13 / RISKS</Label>
+          <SectionH>Risks</SectionH>
           <div className="grid md:grid-cols-2 gap-5">
             {risks.map((r) => (
               <div key={r.t} className="rounded-xl border border-border/60 bg-card/40 p-6 border-l-2 border-l-rose-400">
@@ -589,7 +586,7 @@ function SpotifyCase() {
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{r.body}</p>
                 <div className="flex justify-between text-xs font-mono mb-1"><span className="text-muted-foreground">Likelihood</span><span>{r.l}</span></div>
                 <div className="flex justify-between text-xs font-mono mb-4"><span className="text-muted-foreground">Impact</span><span>{r.i}</span></div>
-                <div className="font-mono text-[0.6rem] tracking-[0.22em] text-emerald-300 mb-1">MITIGATION</div>
+                <div className="text-xs font-medium text-foreground mb-1">How to handle it</div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{r.m}</p>
               </div>
             ))}
@@ -598,11 +595,11 @@ function SpotifyCase() {
 
         {/* LEARNINGS */}
         <section className="py-24">
-          <Label>V.14 / LEARNINGS</Label>
+          <SectionH>What I took away</SectionH>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {learnings.map((l, i) => (
               <div key={l} className="rounded-xl border border-border/60 bg-card/40 p-5">
-                <div className="font-serif text-2xl text-emerald-300/90 mb-3">{String(i+1).padStart(2,"0")}</div>
+                <div className="text-sm text-muted-foreground mb-2 tabular-nums">{i+1}</div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{l}</p>
               </div>
             ))}

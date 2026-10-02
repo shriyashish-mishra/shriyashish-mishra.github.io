@@ -11,10 +11,10 @@ import portrait from "@/assets/shriyashish-playful-original.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Shriyashish Mishra — Product Manager Portfolio" },
-      { name: "description", content: "Product Manager building products through strategy, experimentation, execution, and AI." },
-      { property: "og:title", content: "Shriyashish Mishra — Portfolio" },
-      { property: "og:description", content: "Product Manager building products through strategy, experimentation, execution, and AI." },
+      { title: "Shriyashish Mishra · Product Manager" },
+      { name: "description", content: "Product manager working on growth, engagement and AI products in health-tech." },
+      { property: "og:title", content: "Shriyashish Mishra · Product Manager" },
+      { property: "og:description", content: "Product manager working on growth, engagement and AI products in health-tech." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -23,17 +23,17 @@ export const Route = createFileRoute("/")({
 });
 
 const principles = [
-  { num: "01", tag: "DISCOVERY", title: "Problem Discovery", body: "Understanding deep user needs and technical constraints before jumping into solutioning." },
-  { num: "02", tag: "VALIDATION", title: "Experimentation", body: "Rigorous testing of assumptions through MVPs and data before committing to scale." },
-  { num: "03", tag: "DELIVERY", title: "Execution", body: "Turning strategy into shipped products with a focus on quality and cross-functional alignment." },
-  { num: "04", tag: "FRONTIER", title: "AI as a Lever", body: "Leveraging LLMs and agentic workflows to amplify outcomes and automate complex tasks." },
+  { num: "01", tag: "DISCOVERY", title: "Problem discovery", body: "Understand what users need and what's technically possible before jumping to solutions." },
+  { num: "02", tag: "VALIDATION", title: "Experimentation", body: "Test assumptions with MVPs and data before committing to scale." },
+  { num: "03", tag: "DELIVERY", title: "Execution", body: "Turn strategy into shipped product, with quality in check and the whole team aligned." },
+  { num: "04", tag: "FRONTIER", title: "AI where it helps", body: "Use LLMs and agentic workflows where they clearly improve outcomes or remove manual work." },
 ];
 
 const metrics = [
-  { value: "60%", src: "Eka Care", title: "Increase in Activated Users", body: "Achieved through streamlined onboarding flows and targeted growth experiments during expansion phases." },
-  { value: "40%", src: "Qure.ai", title: "Product Adoption Lift", body: "Optimization of core product features and data-driven improvements in the user journey." },
-  { value: "20%", src: "Eka Care", title: "Lead Conversion Growth", body: "Refining the funnel through API-driven integrations and enhanced engagement strategies." },
-  { value: "3+", src: "Since 2023", title: "Years in Product Management", body: "Of dedicated experience leading cross-functional teams from discovery to global rollout." },
+  { value: "60%", src: "Eka Care", title: "Increase in activated users", body: "Achieved through streamlined onboarding flows and targeted growth experiments during expansion phases." },
+  { value: "40%", src: "Qure.ai", title: "Lift in product adoption", body: "Optimization of core product features and data-driven improvements in the user journey." },
+  { value: "20%", src: "Eka Care", title: "Growth in lead conversion", body: "Refining the funnel through API-driven integrations and enhanced engagement strategies." },
+  { value: "3+", src: "Since 2023", title: "Years in product management", body: "Of dedicated experience leading cross-functional teams from discovery to global rollout." },
 ];
 
 const capabilities = [
@@ -52,14 +52,14 @@ const experience = [
     scope: "Leading AI product development for next-generation clinical and enterprise workflows.",
     responsibilities: ["AI Product Discovery", "Agentic Workflow Design", "User Research", "Clinical AI Strategy"],
     initiatives: [
-      "Defined high-impact AI opportunities through structured user research",
-      "Designed complex workflow systems integrated with agentic AI models",
-      "Established architectural evaluation for mission-critical AI use cases",
+      "Identified high-impact AI opportunities through structured user research",
+      "Designed workflow systems built around agentic AI models",
+      "Set up architecture reviews for high-stakes clinical AI use cases",
     ],
     stats: [
-      { value: "0 → 1", label: "AI Product Charter", context: "Building AI-native clinical workflows from first principles" },
-      { value: "Enterprise", label: "Clinical Scale", context: "Agentic workflow systems across enterprise healthcare" },
-      { value: "Mission-Critical", label: "AI Evaluation", context: "Architectural evaluation for regulated clinical use cases" },
+      { value: "0 → 1", label: "AI product charter", context: "Building AI-native clinical workflows from first principles" },
+      { value: "Enterprise", label: "Clinical scale", context: "Agentic workflow systems across enterprise healthcare" },
+      { value: "Regulated", label: "AI evaluation", context: "Architectural evaluation for regulated clinical use cases" },
     ],
   },
   {
@@ -67,14 +67,14 @@ const experience = [
     scope: "Owned CRM product and growth charter across healthcare providers and clinical partners.",
     responsibilities: ["CRM Product", "Growth Initiatives", "Enterprise Workflows", "Lead Funnel Optimization"],
     initiatives: [
-      "Shipped major platform features across the full product lifecycle",
+      "Shipped major platform features end to end",
       "Scaled enterprise workflows for healthcare and clinical partners",
-      "Optimized CRM latency and reporting pipelines with engineering",
+      "Worked with engineering to speed up the CRM and its reporting pipelines",
     ],
     stats: [
-      { value: "+60%", label: "Activated Users", context: "Increase in user activation through onboarding and engagement" },
-      { value: "3,000–4,000", label: "Monthly Leads", context: "CRM managing 3,000–4,000 monthly leads at scale" },
-      { value: "+20%", label: "Lead Conversion", context: "Increase in lead conversion through refined funnels" },
+      { value: "+60%", label: "Activated users", context: "Increase in user activation through onboarding and engagement" },
+      { value: "3,000–4,000", label: "Monthly leads", context: "CRM managing 3,000–4,000 monthly leads at scale" },
+      { value: "+20%", label: "Lead conversion", context: "Increase in lead conversion through refined funnels" },
     ],
   },
   {
@@ -83,21 +83,21 @@ const experience = [
     responsibilities: ["Product Adoption", "Global Rollouts", "Workflow Optimization", "Cross-Functional Alignment"],
     initiatives: [
       "Led global product rollouts across Tier-1 markets",
-      "Reduced operational bottlenecks through workflow optimization",
+      "Removed operational bottlenecks by reworking workflows",
       "Aligned technical, clinical, and sales teams on delivery",
     ],
     stats: [
-      { value: "+40%", label: "Product Adoption", context: "Increase in product adoption across radiology workflows" },
-      { value: "20+", label: "Agile Sprints", context: "Delivered across 20+ agile sprints with global stakeholders" },
+      { value: "+40%", label: "Product adoption", context: "Increase in product adoption across radiology workflows" },
+      { value: "20+", label: "Agile sprints", context: "Delivered across 20+ agile sprints with global stakeholders" },
       { value: "Global", label: "Deployments", context: "Screening and diagnostic program deployments worldwide" },
     ],
   },
 ];
 
 const aiBuilds = [
-  { title: "Project Hulk", kind: "Fitness · AI", body: "An AI fitness operating system that connects workouts, nutrition, recovery and progress into personalised insights.", url: "https://project-hulk.vercel.app", Art: HulkArt },
-  { title: "RegImpact AI", kind: "RegTech · AI", body: "Evidence-backed compliance findings for modern fintech.", url: "https://reg-impact-ai.vercel.app", Art: RegImpactArt },
-  { title: "ProductBattle AI", kind: "LLM · Tooling", body: "A competitive-analysis engine that evaluates product positioning.", url: "https://productbattle.lovable.app/", Art: ProductBattleArt },
+  { title: "Project Hulk", kind: "Fitness · AI", body: "An AI fitness app that ties together workouts, nutrition, recovery and progress, and turns them into personalized insights.", url: "https://project-hulk.vercel.app", Art: HulkArt },
+  { title: "RegImpact AI", kind: "RegTech · AI", body: "Checks Indian fintech products against RBI's digital lending and KYC/AML rules, with a citation for every finding.", url: "https://reg-impact-ai.vercel.app", Art: RegImpactArt },
+  { title: "ProductBattle AI", kind: "LLM · Tooling", body: "Compares products head to head and evaluates how each one is positioned.", url: "https://productbattle.lovable.app/", Art: ProductBattleArt },
 ];
 
 const roleTheme: Record<string, string> = { "Meril Life Sciences": "AI 0→1", "Eka Care": "Growth", "Qure.ai": "Adoption" };
@@ -151,13 +151,13 @@ function Home() {
           </div>
 
           <h1 className="mt-10 max-w-4xl text-pretty text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.05] tracking-[-0.035em]">
-            Building products that matter
-            <span className="text-muted-foreground"> — through strategy, experimentation, execution and AI.</span>
+            I'm Shriyashish, a product manager.
+            <span className="text-muted-foreground"> I work on growth, engagement and AI products, mostly in health-tech.</span>
           </h1>
 
           <p className="mt-8 max-w-xl text-pretty text-lg text-muted-foreground">
-            I enjoy ambiguous problems: understanding how people behave, then shipping the thing that measurably changes it.
-            Growth, engagement and AI-native products across health-tech and consumer.
+            Right now I lead AI product development for clinical and enterprise workflows at Meril Life Sciences.
+            Before that I owned the CRM and growth charter at Eka Care, and drove adoption of radiology AI at Qure.ai.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -175,7 +175,7 @@ function Home() {
 
         {/* Selected work */}
         <section className={`${container} pb-24`}>
-          <SectionHeading id="work" eyebrow="01 — Work" aside={<span className="font-mono text-xs text-muted-foreground">3 case studies · 3 AI builds</span>}>
+          <SectionHeading id="work" eyebrow="Work" aside={<span className="font-mono text-xs text-muted-foreground">3 case studies · 3 AI builds</span>}>
             Selected work
           </SectionHeading>
 
@@ -211,7 +211,7 @@ function Home() {
 
           <div className="mt-16 mb-6 flex items-baseline justify-between">
             <h3 className="text-lg font-semibold tracking-tight">AI builds</h3>
-            <span className="font-mono text-xs text-muted-foreground">shipped side projects</span>
+            <span className="font-mono text-xs text-muted-foreground">side projects</span>
           </div>
           <div className="grid gap-5 sm:grid-cols-3">
             {aiBuilds.map((b) => (
@@ -245,15 +245,15 @@ function Home() {
 
         {/* About + experience */}
         <section className={`${container} py-24`}>
-          <SectionHeading id="about" eyebrow="02 — About">A bit about how I work</SectionHeading>
+          <SectionHeading id="about" eyebrow="About">A bit about how I work</SectionHeading>
           <div className="grid gap-14 md:grid-cols-[1fr_1.15fr]">
             <div>
               <p className="text-pretty text-lg leading-relaxed">
-                I work where user behaviour, business outcomes and emerging technology meet — from operational
-                challenges and growth systems to AI-powered experiences.
+                I like problems that are still fuzzy: working out what users actually do, what the business needs,
+                and where new technology genuinely helps.
               </p>
               <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-                My focus stays the same: understand deeply, validate rigorously, execute relentlessly.
+                My approach is simple: understand the problem properly, test assumptions before scaling, and ship with care.
               </p>
 
               <ol className="mt-10 space-y-5">
@@ -322,9 +322,9 @@ function Home() {
           <div className="relative overflow-hidden rounded-3xl border border-border px-6 py-14 md:px-12 md:py-20">
             <div className="grid-pattern absolute inset-0 opacity-60" />
             <div className="relative">
-              <div className="font-mono text-xs text-muted-foreground">03 — Contact</div>
+              <div className="font-mono text-xs text-muted-foreground">Contact</div>
               <h2 className="mt-4 max-w-2xl text-balance text-3xl font-semibold tracking-tight md:text-5xl">
-                Always up for product conversations, ambitious teams and difficult problems.
+                Hiring, or working on a hard product problem? Let's talk.
               </h2>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90">

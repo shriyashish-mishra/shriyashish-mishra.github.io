@@ -21,18 +21,18 @@ export const CASES: {
   Art: ComponentType<{ className?: string }>;
 }[] = [
   {
-    n: "01", to: "/whatsapp-group-engagement", title: "WhatsApp Group Engagement", kind: "Growth · Engagement",
-    blurb: "Product interventions that bring noisy, muted groups back to life — subgroups, native polls and shared utilities.",
+    n: "01", to: "/whatsapp-group-engagement", title: "Keeping WhatsApp groups active", kind: "Engagement",
+    blurb: "Why WhatsApp groups go quiet over time, and four features that could bring people back without complicating the app.",
     highlight: "North star: weekly active group participants", Art: WhatsAppArt,
   },
   {
-    n: "02", to: "/spotify-loyalty-engine", title: "Spotify Loyalty Engine", kind: "Consumer · Gamification",
-    blurb: "A loyalty layer that rewards listening streaks and turns earned Premium time into conversion.",
+    n: "02", to: "/spotify-loyalty-engine", title: "A loyalty program for Spotify", kind: "Consumer growth",
+    blurb: "Rewarding listening with points and short Premium trials, so free users get a real reason to upgrade.",
     highlight: "+8% listening hours · +2pp Premium (modeled)", Art: SpotifyArt,
   },
   {
-    n: "03", to: "/blusmart-mumbai-expansion", title: "BluSmart Mumbai Launch", kind: "Mobility · Go-to-market",
-    blurb: "Where to launch, how many drivers and chargers, and how to win riders — for a 150-EV fleet in Mumbai.",
+    n: "03", to: "/blusmart-mumbai-expansion", title: "Launching BluSmart in Mumbai", kind: "Go-to-market",
+    blurb: "A launch plan for a 150-car EV fleet: which areas to start in, how many drivers and chargers, and how to win riders.",
     highlight: "150 EVs · ~12 trips per car per day", Art: BluSmartArt,
   },
 ];
