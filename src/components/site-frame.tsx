@@ -28,7 +28,7 @@ export const CASES: {
     blurb: "Why WhatsApp groups go quiet over time, and four features that could bring people back without complicating the app.",
     highlight: "North star: weekly active group participants",
     question: "Why do active groups go quiet, and what brings people back?",
-    concepts: ["User research", "Personas", "Competitor analysis", "Feature prioritization", "North-star metric", "Rollout plan"],
+    concepts: ["User research", "Personas", "Competitor analysis", "Feature prioritization", "Retention", "North-star metric", "Risks & trade-offs", "Rollout plan"],
     Art: WhatsAppArt,
   },
   {
@@ -36,7 +36,7 @@ export const CASES: {
     blurb: "Rewarding listening with points and short Premium trials, so free users get a real reason to upgrade.",
     highlight: "+8% listening hours · +2pp Premium (modeled)",
     question: "How do you give free users a real reason to upgrade?",
-    concepts: ["Problem framing", "Personas", "Opportunity scoring", "Gamification", "Impact modeling", "Success metrics"],
+    concepts: ["Problem framing", "Personas", "Opportunity scoring", "Impact / effort / confidence", "Gamification", "Freemium conversion", "Impact modeling", "Success metrics", "Risks"],
     Art: SpotifyArt,
   },
   {
@@ -44,7 +44,7 @@ export const CASES: {
     blurb: "A launch plan for a 150-car EV fleet: which areas to start in, how many drivers and chargers, and how to win riders.",
     highlight: "150 EVs · ~12 trips per car per day",
     question: "Where do you launch 150 EVs, and what has to be true to keep them busy?",
-    concepts: ["Go-to-market", "Capacity planning", "Supply planning", "Launch sequencing", "Rider acquisition", "Risk"],
+    concepts: ["Go-to-market", "Operating assumptions", "Capacity planning", "Supply planning", "Launch sequencing", "Rider acquisition", "Success metrics", "Risk analysis"],
     Art: BluSmartArt,
   },
 ];
