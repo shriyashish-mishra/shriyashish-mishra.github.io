@@ -154,22 +154,22 @@ export function RegImpactArt({ className }: ArtProps) {
 
 // Head-to-head: two products scored on the same dimensions, with a verdict.
 export function ProductBattleArt({ className }: ArtProps) {
-  const rows: [string, number, number][] = [["Onboarding", 78, 52], ["Pricing", 44, 70], ["Retention", 66, 88]];
+  const rows: [string, number, number][] = [["Delivery speed", 80, 62], ["Ratings", 70, 66], ["Pricing", 64, 52]];
   return (
     <Frame className={className}>
       <rect x="40" y="30" width="320" height="180" rx="10" stroke="currentColor" strokeOpacity="0.45" />
-      <text x="90" y="58" textAnchor="middle" fontSize="11" fontWeight="600" fill="currentColor">Product A</text>
+      <text x="90" y="58" textAnchor="middle" fontSize="11" fontWeight="600" fill="currentColor">Blinkit 7.8</text>
       <text x="200" y="58" textAnchor="middle" fontSize="10" className="fill-brand" fontFamily="ui-monospace, monospace">VS</text>
-      <text x="310" y="58" textAnchor="middle" fontSize="11" fontWeight="600" fill="currentColor">Product B</text>
+      <text x="310" y="58" textAnchor="middle" fontSize="11" fontWeight="600" fill="currentColor">Zepto 6.9</text>
       {rows.map(([label, a, b], i) => (
         <g key={label}>
           <text x="200" y={90 + i * 34} textAnchor="middle" fontSize="9" fill="currentColor" fillOpacity="0.55" fontFamily="ui-monospace, monospace">{label}</text>
-          <rect x={190 - a} y={96 + i * 34} width={a} height="8" rx="4" fill="currentColor" fillOpacity={a > b ? 0.55 : 0.2} />
-          <rect x="210" y={96 + i * 34} width={b} height="8" rx="4" className={b > a ? "art-rise fill-brand" : ""} fill={b > a ? undefined : "currentColor"} fillOpacity={b > a ? undefined : 0.2} />
+          <rect x={190 - a} y={96 + i * 34} width={a} height="8" rx="4" className={a > b ? "art-rise fill-brand" : ""} fill={a > b ? undefined : "currentColor"} fillOpacity={a > b ? undefined : 0.3} />
+          <rect x="210" y={96 + i * 34} width={b} height="8" rx="4" fill="currentColor" fillOpacity="0.3" />
         </g>
       ))}
       <rect x="60" y="184" width="280" height="18" rx="9" className="fill-brand" fillOpacity="0.18" />
-      <text x="200" y="196.5" textAnchor="middle" fontSize="9" className="fill-brand" fontFamily="ui-monospace, monospace">Verdict: B wins on retention and pricing</text>
+      <text x="200" y="196.5" textAnchor="middle" fontSize="9" className="fill-brand" fontFamily="ui-monospace, monospace">Verdict: Blinkit wins, 7.8 / 10</text>
     </Frame>
   );
 }

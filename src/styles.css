@@ -31,16 +31,16 @@
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.52 0 0);
-  --border: oklch(0.922 0 0);
+  --muted-foreground: oklch(0.4 0 0);
+  --border: oklch(0.84 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.145 0 0);
   --primary: oklch(0.145 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --brand: oklch(0.62 0.15 162);
-  --brand-soft: oklch(0.62 0.15 162 / 12%);
+  --brand: oklch(0.5 0.13 162);
+  --brand-soft: oklch(0.5 0.13 162 / 12%);
   --hatch: oklch(0.145 0 0 / 7%);
 
   --page-bg: var(--background);
@@ -285,6 +285,9 @@
 .cover svg .art-rise { transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1); }
 .card:hover .cover svg .art-drift { transform: translateX(6px); }
 .card:hover .cover svg .art-rise { transform: translateY(-6px); }
+/* Cover art is drawn with low-opacity currentColor, which turns faint on a white page. */
+:root:not(.dark) .cover svg [stroke-opacity] { stroke-opacity: 0.75; }
+:root:not(.dark) .cover svg text[fill-opacity] { fill-opacity: 0.9; }
 .cover svg .art-hatch {
   fill: color-mix(in oklab, var(--foreground) 6%, transparent);
 }
