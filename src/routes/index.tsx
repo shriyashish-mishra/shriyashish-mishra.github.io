@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight, ArrowUpRight, Github, Linkedin, Mail, Plus } from "lucide-react";
 import { CountUp } from "@/components/playful-page";
-import { HulkArt, ProductBattleArt, RegImpactArt } from "@/components/case-art";
+import { ArchitectArt, CookedOrHiredArt, HulkArt, ProductBattleArt, RegImpactArt, WhoBrokeItArt } from "@/components/case-art";
 import {
   CASES, Cover, EMAIL, GITHUB_URL, LINKEDIN_URL, RESUME_URL, SectionHeading, SiteFooter, SiteHeader, Tag, container,
 } from "@/components/site-frame";
@@ -12,9 +12,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Shriyashish Mishra · Product Manager" },
-      { name: "description", content: "Product manager working on growth, engagement and AI products." },
+      { name: "description", content: "Product manager building AI products, with a background in growth and engagement." },
       { property: "og:title", content: "Shriyashish Mishra · Product Manager" },
-      { property: "og:description", content: "Product manager working on growth, engagement and AI products." },
+      { property: "og:description", content: "Product manager building AI products, with a background in growth and engagement." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -95,9 +95,12 @@ const experience = [
 ];
 
 const aiBuilds = [
+  { title: "Architect 2.0", kind: "Vibe coding · Platform", body: "A vibe-coding platform with two front doors: prompt an app into existence, or drop into the file tree and terminal and take over. Real auth, database and GitHub import; the agent run is simulated.", url: "https://architect-20-ten.vercel.app", Art: ArchitectArt },
+  { title: "Who Broke It?", kind: "Open source · Agents", body: "A coordination layer for teams building with humans and AI coding agents. Keeps a living graph of tasks, owners and contracts in the repo, and shows what an agent's change breaks downstream.", url: "https://github.com/shriyashish-mishra/who-broke-it", Art: WhoBrokeItArt, cta: "View on GitHub" },
   { title: "Project Hulk", kind: "Fitness · AI", body: "An AI fitness app that ties together workouts, nutrition, recovery and progress, and turns them into personalized insights.", url: "https://project-hulk.vercel.app", Art: HulkArt },
   { title: "RegImpact AI", kind: "RegTech · AI", body: "Checks Indian fintech products against RBI's digital lending and KYC/AML rules, with a citation for every finding.", url: "https://reg-impact-ai.vercel.app", Art: RegImpactArt },
   { title: "ProductBattle AI", kind: "LLM · Tooling", body: "Compares products head to head and evaluates how each one is positioned.", url: "https://productbattle.lovable.app/", Art: ProductBattleArt },
+  { title: "Cooked or Hired", kind: "Career · Claude skills", body: "A brutally honest hiring simulator. Three panelists (HR, hiring manager, CEO) score your resume for a given company and role, then hand you a fix-it list and likely interview questions.", url: "https://github.com/shriyashish-mishra/Cooked-or-Hired", Art: CookedOrHiredArt, cta: "View on GitHub" },
 ];
 
 const roleTheme: Record<string, string> = { "Meril Life Sciences": "AI 0→1", "Eka Care": "Growth", "Qure.ai": "Adoption" };
@@ -127,6 +130,7 @@ function Home() {
   return (
     <div className="min-h-screen overflow-x-clip text-foreground">
       <SiteHeader>
+        <a href="#ai" className="hidden transition-colors hover:text-foreground sm:inline">AI</a>
         <a href="#work" className="hidden transition-colors hover:text-foreground sm:inline">Work</a>
         <a href="#about" className="hidden transition-colors hover:text-foreground sm:inline">About</a>
         <a href="#contact" className="hidden transition-colors hover:text-foreground sm:inline">Contact</a>
@@ -152,7 +156,7 @@ function Home() {
 
           <h1 className="mt-10 max-w-4xl text-pretty text-[clamp(2.25rem,5.2vw,4rem)] font-semibold leading-[1.05] tracking-[-0.035em]">
             I'm Shriyashish, a product manager.
-            <span className="text-muted-foreground"> I work on growth, engagement and AI products.</span>
+            <span className="text-muted-foreground"> I build AI products, and I work on growth and engagement.</span>
           </h1>
 
           <p className="mt-8 max-w-xl text-pretty text-lg text-muted-foreground">
@@ -161,8 +165,8 @@ function Home() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <a href="#work" className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90">
-              See selected work <ArrowDown className="size-4" />
+            <a href="#ai" className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90">
+              See my AI products <ArrowDown className="size-4" />
             </a>
             <a href={RESUME_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-accent">
               Resume <ArrowUpRight className="size-4" />
@@ -176,10 +180,32 @@ function Home() {
           </div>
         </section>
 
+        {/* AI builds */}
+        <section className={`${container} pb-24`}>
+          <SectionHeading id="ai" eyebrow="AI" aside={<span className="font-mono text-xs text-muted-foreground">6 builds · shipped and open source</span>}>
+            AI products I've built
+          </SectionHeading>
+          <div className="grid gap-5 md:grid-cols-3">
+            {aiBuilds.map((b) => (
+              <a key={b.title} href={b.url} target="_blank" rel="noreferrer" className="card group flex flex-col overflow-hidden rounded-3xl border border-border">
+                <Cover Art={b.Art} className="aspect-[16/10]" />
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="font-mono text-xs text-muted-foreground">{b.kind}</div>
+                  <h3 className="mt-3 text-xl font-semibold tracking-tight">{b.title}</h3>
+                  <p className="mt-2 text-pretty text-sm text-muted-foreground">{b.body}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium">
+                    {b.cta ?? "Try it live"} <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
         {/* Selected work */}
         <section className={`${container} pb-24`}>
-          <SectionHeading id="work" eyebrow="Work" aside={<span className="font-mono text-xs text-muted-foreground">3 case studies · 3 AI builds</span>}>
-            Selected work
+          <SectionHeading id="work" eyebrow="Work" aside={<span className="font-mono text-xs text-muted-foreground">3 product case studies</span>}>
+            Product case studies
           </SectionHeading>
 
           <div className="grid gap-5 md:grid-cols-2">
@@ -209,26 +235,6 @@ function Home() {
                   </div>
                 </div>
               </Link>
-            ))}
-          </div>
-
-          <div className="mt-16 mb-6 flex items-baseline justify-between">
-            <h3 className="text-lg font-semibold tracking-tight">AI builds</h3>
-            <span className="font-mono text-xs text-muted-foreground">side projects</span>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-3">
-            {aiBuilds.map((b) => (
-              <a key={b.title} href={b.url} target="_blank" rel="noreferrer" className="card group flex flex-col overflow-hidden rounded-2xl border border-border">
-                <Cover Art={b.Art} className="aspect-[16/9]" />
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex items-center justify-between">
-                    <h4 className="font-semibold tracking-tight">{b.title}</h4>
-                    <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
-                  </div>
-                  <div className="mt-0.5 font-mono text-xs text-muted-foreground">{b.kind}</div>
-                  <p className="mt-3 text-sm text-muted-foreground">{b.body}</p>
-                </div>
-              </a>
             ))}
           </div>
         </section>

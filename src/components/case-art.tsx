@@ -139,3 +139,48 @@ export function ProductBattleArt({ className }: ArtProps) {
     </Frame>
   );
 }
+
+export function ArchitectArt({ className }: ArtProps) {
+  return (
+    <Frame className={className}>
+      <rect x="70" y="50" width="110" height="140" rx="8" stroke="currentColor" strokeOpacity="0.5" />
+      {[0, 1, 2, 3].map((i) => (
+        <line key={i} x1="86" y1={76 + i * 28} x2={150 - (i % 2) * 24} y2={76 + i * 28} stroke="currentColor" strokeOpacity="0.35" strokeWidth="4" strokeLinecap="round" />
+      ))}
+      <rect x="210" y="50" width="120" height="140" rx="8" className="art-rise stroke-brand" strokeWidth="2" />
+      <rect x="226" y="68" width="88" height="30" rx="4" className="fill-brand" fillOpacity="0.25" />
+      <rect x="226" y="108" width="40" height="64" rx="4" stroke="currentColor" strokeOpacity="0.4" />
+      <rect x="274" y="108" width="40" height="64" rx="4" stroke="currentColor" strokeOpacity="0.4" />
+    </Frame>
+  );
+}
+
+export function WhoBrokeItArt({ className }: ArtProps) {
+  const nodes: [number, number][] = [[200, 50], [120, 120], [280, 120], [80, 190], [160, 190], [320, 190]];
+  const edges: [number, number][] = [[0, 1], [0, 2], [1, 3], [1, 4], [2, 5]];
+  return (
+    <Frame className={className}>
+      {edges.map(([a, b], i) => (
+        <line key={i} x1={nodes[a][0]} y1={nodes[a][1]} x2={nodes[b][0]} y2={nodes[b][1]} stroke="currentColor" strokeOpacity="0.35" strokeWidth="2" />
+      ))}
+      {nodes.map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r={i === 2 ? 9 : 7} className={i === 2 ? "art-rise fill-brand" : ""} stroke="currentColor" strokeOpacity={i === 2 ? 0 : 0.5} strokeWidth="2" />
+      ))}
+    </Frame>
+  );
+}
+
+export function CookedOrHiredArt({ className }: ArtProps) {
+  const scores = [70, 48, 90];
+  return (
+    <Frame className={className}>
+      {scores.map((h, i) => (
+        <g key={i}>
+          <circle cx={120 + i * 80} cy="70" r="14" stroke="currentColor" strokeOpacity="0.5" strokeWidth="2" />
+          <rect x={106 + i * 80} y={200 - h} width="28" height={h} rx="4" className={i === 2 ? "art-rise fill-brand" : ""} fill={i === 2 ? undefined : "currentColor"} fillOpacity={i === 2 ? undefined : 0.2} />
+        </g>
+      ))}
+      <line x1="90" y1="200" x2="330" y2="200" stroke="currentColor" strokeOpacity="0.3" />
+    </Frame>
+  );
+}
