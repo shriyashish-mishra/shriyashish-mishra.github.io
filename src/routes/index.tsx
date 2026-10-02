@@ -150,6 +150,29 @@ function Duration({ start, end }: { start: string; end: string | null }) {
   return <span>{text}</span>;
 }
 
+// What a case study teaches: the question it asks, the concepts it uses, and the path through it.
+function Concepts({ c }: { c: (typeof CASES)[number] }) {
+  return (
+    <div className="mt-5 space-y-4 border-t border-border pt-5">
+      <p className="text-sm font-medium">{c.question}</p>
+      <div>
+        <div className="mb-2 font-mono text-[0.7rem] uppercase tracking-wider text-muted-foreground">Concepts covered</div>
+        <div className="flex flex-wrap gap-1.5">
+          {c.concepts.map((t) => <Tag key={t}>{t}</Tag>)}
+        </div>
+      </div>
+      <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1 font-mono text-[0.7rem] text-muted-foreground">
+        {c.steps.map((st, i) => (
+          <li key={st} className="inline-flex items-center gap-1.5">
+            <span className="text-brand">{i + 1}</span>{st}
+            {i < c.steps.length - 1 && <span aria-hidden="true" className="ml-1 text-border">→</span>}
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 function Home() {
   const [featured, ...rest] = CASES;
   return (
@@ -232,7 +255,7 @@ function Home() {
 
         {/* Selected work */}
         <section className={`${container} pb-24`}>
-          <SectionHeading id="work" eyebrow="Work" aside={<span className="font-mono text-xs text-muted-foreground">3 product case studies</span>}>
+          <SectionHeading id="work" eyebrow="Work" aside={<span className="font-mono text-xs text-muted-foreground">3 case studies · strategy, growth, go-to-market</span>}>
             Product case studies
           </SectionHeading>
 
@@ -243,6 +266,7 @@ function Home() {
                 <div className="font-mono text-xs text-muted-foreground">{featured.n} · {featured.kind}</div>
                 <h3 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">{featured.title}</h3>
                 <p className="mt-3 text-pretty text-muted-foreground">{featured.blurb}</p>
+                <Concepts c={featured} />
                 <div className="mt-6 text-sm"><span className="text-brand">●</span> {featured.highlight}</div>
                 <span className="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-medium">
                   Read case study <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -257,6 +281,7 @@ function Home() {
                   <div className="font-mono text-xs text-muted-foreground">{c.n} · {c.kind}</div>
                   <h3 className="mt-3 text-xl font-semibold tracking-tight">{c.title}</h3>
                   <p className="mt-2 text-pretty text-sm text-muted-foreground">{c.blurb}</p>
+                  <Concepts c={c} />
                   <div className="mt-auto flex items-center justify-between gap-4 pt-6 text-sm">
                     <span><span className="text-brand">●</span> {c.highlight}</span>
                     <ArrowRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />

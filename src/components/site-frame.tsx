@@ -19,22 +19,37 @@ export const CASES: {
   kind: string;
   blurb: string;
   highlight: string;
+  question: string;
+  concepts: string[];
+  steps: string[];
   Art: ComponentType<{ className?: string }>;
 }[] = [
   {
     n: "01", to: "/whatsapp-group-engagement", title: "Keeping WhatsApp groups active", kind: "Engagement",
     blurb: "Why WhatsApp groups go quiet over time, and four features that could bring people back without complicating the app.",
-    highlight: "North star: weekly active group participants", Art: WhatsAppArt,
+    highlight: "North star: weekly active group participants",
+    question: "Why do active groups go quiet, and what brings people back?",
+    concepts: ["User research", "Personas", "Competitor analysis", "Feature prioritization", "North-star metric", "Rollout plan"],
+    steps: ["Problem", "Research", "4 ideas", "Prioritize", "Metric", "Risks"],
+    Art: WhatsAppArt,
   },
   {
     n: "02", to: "/spotify-loyalty-engine", title: "A loyalty program for Spotify", kind: "Consumer growth",
     blurb: "Rewarding listening with points and short Premium trials, so free users get a real reason to upgrade.",
-    highlight: "+8% listening hours · +2pp Premium (modeled)", Art: SpotifyArt,
+    highlight: "+8% listening hours · +2pp Premium (modeled)",
+    question: "How do you give free users a real reason to upgrade?",
+    concepts: ["Problem framing", "Personas", "Opportunity scoring", "Gamification", "Impact modeling", "Success metrics"],
+    steps: ["Problems", "Personas", "Score options", "Recommend", "Design", "Impact"],
+    Art: SpotifyArt,
   },
   {
     n: "03", to: "/blusmart-mumbai-expansion", title: "Launching BluSmart in Mumbai", kind: "Go-to-market",
     blurb: "A launch plan for a 150-car EV fleet: which areas to start in, how many drivers and chargers, and how to win riders.",
-    highlight: "150 EVs · ~12 trips per car per day", Art: BluSmartArt,
+    highlight: "150 EVs · ~12 trips per car per day",
+    question: "Where do you launch 150 EVs, and what has to be true to keep them busy?",
+    concepts: ["Go-to-market", "Capacity planning", "Supply planning", "Launch sequencing", "Rider acquisition", "Risk"],
+    steps: ["Assumptions", "Capacity", "Drivers & hubs", "Where to launch", "Riders", "Risks"],
+    Art: BluSmartArt,
   },
 ];
 
