@@ -6,6 +6,9 @@ import { ArchitectArt, CookedOrHiredArt, HulkArt, ProductBattleArt, RegImpactArt
 import {
   CASES, Cover, EMAIL, GITHUB_URL, LINKEDIN_URL, RESUME_URL, SectionHeading, SiteFooter, SiteHeader, Tag, container,
 } from "@/components/site-frame";
+import hulkShot from "@/assets/projects/hulk.png";
+import regImpactShot from "@/assets/projects/regimpact.png";
+import architectShot from "@/assets/projects/architect.png";
 import portrait from "@/assets/shriyashish-playful-original.png";
 
 export const Route = createFileRoute("/")({
@@ -94,11 +97,33 @@ const experience = [
   },
 ];
 
-const aiBuilds = [
-  { title: "Architect 2.0", kind: "Vibe coding · Platform", body: "A vibe-coding platform with two front doors: prompt an app into existence, or drop into the file tree and terminal and take over. Real auth, database and GitHub import; the agent run is simulated.", url: "https://architect-20-ten.vercel.app", Art: ArchitectArt },
+// Small brand marks for each build, drawn to echo the product's own logo.
+function Logo({ id }: { id: string }) {
+  const base = "inline-flex size-9 shrink-0 items-center justify-center font-mono text-xs font-bold";
+  switch (id) {
+    case "Architect 2.0":
+      return <span className={`${base} rounded-lg bg-[#f5a83a] text-[#14110a]`} aria-hidden="true"><svg viewBox="0 0 24 24" className="size-5" fill="currentColor"><path d="M12 3 21 20h-5l-4-8-4 8H3z" /></svg></span>;
+    case "Project Hulk":
+      return <span className={`${base} rounded-full bg-[#34e5b8] text-[#04130f]`} aria-hidden="true">PH</span>;
+    case "RegImpact AI":
+      return <span className={`${base} rounded-lg bg-[#34d399] font-serif text-sm text-[#04130f]`} aria-hidden="true">R</span>;
+    case "ProductBattle AI":
+      return <span className={`${base} rounded-lg bg-[#7f1d1d] text-white`} aria-hidden="true">PB</span>;
+    case "Who Broke It?":
+      return <span className={`${base} rounded-lg bg-foreground text-background`} aria-hidden="true"><svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="5" r="2.2" /><circle cx="6" cy="19" r="2.2" /><circle cx="18" cy="19" r="2.2" /><path d="M12 7v4M12 11 6 17M12 11l6 6" /></svg></span>;
+    default:
+      return <span className={`${base} rounded-lg bg-brand text-background`} aria-hidden="true">🔥</span>;
+  }
+}
+
+const aiBuilds: {
+  title: string; kind: string; body: string; url: string; cta?: string; shot?: string;
+  Art: React.ComponentType<{ className?: string }>;
+}[] = [
+  { title: "Architect 2.0", kind: "Vibe coding · Platform", body: "A vibe-coding platform with two front doors: prompt an app into existence, or drop into the file tree and terminal and take over. Real auth, database and GitHub import; the agent run is simulated.", url: "https://architect-20-ten.vercel.app", Art: ArchitectArt, shot: architectShot },
   { title: "Who Broke It?", kind: "Open source · Agents", body: "A coordination layer for teams building with humans and AI coding agents. Keeps a living graph of tasks, owners and contracts in the repo, and shows what an agent's change breaks downstream.", url: "https://github.com/shriyashish-mishra/who-broke-it", Art: WhoBrokeItArt, cta: "View on GitHub" },
-  { title: "Project Hulk", kind: "Fitness · AI", body: "An AI fitness app that ties together workouts, nutrition, recovery and progress, and turns them into personalized insights.", url: "https://project-hulk.vercel.app", Art: HulkArt },
-  { title: "RegImpact AI", kind: "RegTech · AI", body: "Checks Indian fintech products against RBI's digital lending and KYC/AML rules, with a citation for every finding.", url: "https://reg-impact-ai.vercel.app", Art: RegImpactArt },
+  { title: "Project Hulk", kind: "Fitness · AI", body: "An AI fitness app that ties together workouts, nutrition, recovery and progress, and turns them into personalized insights.", url: "https://project-hulk.vercel.app", Art: HulkArt, shot: hulkShot },
+  { title: "RegImpact AI", kind: "RegTech · AI", body: "Checks Indian fintech products against RBI's digital lending and KYC/AML rules, with a citation for every finding.", url: "https://reg-impact-ai.vercel.app", Art: RegImpactArt, shot: regImpactShot },
   { title: "ProductBattle AI", kind: "LLM · Tooling", body: "Compares products head to head and evaluates how each one is positioned.", url: "https://productbattle.lovable.app/", Art: ProductBattleArt },
   { title: "Cooked or Hired", kind: "Career · Claude skills", body: "A brutally honest hiring simulator. Three panelists (HR, hiring manager, CEO) score your resume for a given company and role, then hand you a fix-it list and likely interview questions.", url: "https://github.com/shriyashish-mishra/Cooked-or-Hired", Art: CookedOrHiredArt, cta: "View on GitHub" },
 ];
@@ -188,10 +213,19 @@ function Home() {
           <div className="grid gap-5 md:grid-cols-3">
             {aiBuilds.map((b) => (
               <a key={b.title} href={b.url} target="_blank" rel="noreferrer" className="card group flex flex-col overflow-hidden rounded-3xl border border-border">
-                <Cover Art={b.Art} className="aspect-[16/10]" />
+                {b.shot ? (
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-muted/50">
+                    <img src={b.shot} alt={`${b.title} screenshot`} loading="lazy" className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                  </div>
+                ) : (
+                  <Cover Art={b.Art} className="aspect-[16/10]" />
+                )}
                 <div className="flex flex-1 flex-col p-6">
-                  <div className="font-mono text-xs text-muted-foreground">{b.kind}</div>
-                  <h3 className="mt-3 text-xl font-semibold tracking-tight">{b.title}</h3>
+                  <div className="flex items-center gap-3">
+                    <Logo id={b.title} />
+                    <div className="font-mono text-xs text-muted-foreground">{b.kind}</div>
+                  </div>
+                  <h3 className="mt-4 text-xl font-semibold tracking-tight">{b.title}</h3>
                   <p className="mt-2 text-pretty text-sm text-muted-foreground">{b.body}</p>
                   <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-medium">
                     {b.cta ?? "Try it live"} <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
