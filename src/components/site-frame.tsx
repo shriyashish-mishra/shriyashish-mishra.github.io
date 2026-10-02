@@ -7,6 +7,7 @@ import { BluSmartArt, SpotifyArt, WhatsAppArt } from "@/components/case-art";
 
 export const RESUME_URL = "https://drive.google.com/file/d/19mbhHCeIVmJ8NG_GDBZqh_mZI0tt4TjD/view?usp=sharing";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/shriyashish-mishra/";
+export const GITHUB_URL = "https://github.com/shriyashish-mishra";
 export const EMAIL = "shriyashishm@gmail.com";
 
 /* Case studies, in reading order. The homepage cards, case heroes and
@@ -87,6 +88,7 @@ export function SiteFooter() {
         <span>© 2026 Shriyashish Mishra</span>
         <span className="flex gap-5">
           <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="hover:text-foreground">LinkedIn</a>
+          <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="hover:text-foreground">GitHub</a>
           <a href={`mailto:${EMAIL}`} className="hover:text-foreground">Email</a>
           <a href={RESUME_URL} target="_blank" rel="noreferrer" className="hover:text-foreground">Resume</a>
         </span>

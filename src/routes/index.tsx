@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, ArrowUpRight, Linkedin, Mail, Plus } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, Github, Linkedin, Mail, Plus } from "lucide-react";
 import { CountUp } from "@/components/playful-page";
 import { HulkArt, ProductBattleArt, RegImpactArt } from "@/components/case-art";
 import {
-  CASES, Cover, EMAIL, LINKEDIN_URL, RESUME_URL, SectionHeading, SiteFooter, SiteHeader, Tag, container,
+  CASES, Cover, EMAIL, GITHUB_URL, LINKEDIN_URL, RESUME_URL, SectionHeading, SiteFooter, SiteHeader, Tag, container,
 } from "@/components/site-frame";
 import portrait from "@/assets/shriyashish-playful-original.png";
 
@@ -170,6 +170,9 @@ function Home() {
             <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="inline-flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:bg-accent">
               <Linkedin className="size-4" />
             </a>
+            <a href={GITHUB_URL} target="_blank" rel="noreferrer" aria-label="GitHub" className="inline-flex size-10 items-center justify-center rounded-full border border-border transition-colors hover:bg-accent">
+              <Github className="size-4" />
+            </a>
           </div>
         </section>
 
@@ -332,6 +335,9 @@ function Home() {
                 </a>
                 <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium transition-colors hover:bg-accent">
                   LinkedIn <ArrowUpRight className="size-4" />
+                </a>
+                <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium transition-colors hover:bg-accent">
+                  GitHub <ArrowUpRight className="size-4" />
                 </a>
               </div>
             </div>
