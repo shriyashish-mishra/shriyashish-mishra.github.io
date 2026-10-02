@@ -1,8 +1,8 @@
 # Project Memory
 
 ## Core
-Homepage personality is playful and professional, using neon mint accents, Outfit/Figtree, and broken-grid composition.
+Portfolio style is a clean resume-style single column: Geist, monochrome, hairline rows, light and dark themes.
 
 ## Memories
-- [Homepage visual direction](mem://design/homepage-personality) — Playful visual system and interaction rules
+- [Homepage visual direction](mem://design/homepage-personality) — Clean visual system and interaction rules
 - [Portfolio portrait](mem://features/portrait) — User photo used as a playful homepage visual

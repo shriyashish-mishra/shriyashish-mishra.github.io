@@ -1,6 +1,7 @@
 ---
 name: Homepage visual direction
-description: Playful portfolio styling with neon mint, Outfit/Figtree, and broken-grid composition
+description: Resume-style single column: Geist/Geist Mono, monochrome, hairline rows, hatched section gaps, light and dark themes
  type: design
 ---
-Use Neon Mint (#0d1b2a, #1b4332, #2dd4a8, #73ffb8), Outfit headings, Figtree body, and broken-grid compositions. Keep it professional and recruiter-scannable while adding playful offsets, tactile cards, dotted patterns, outlined display type, and restrained motion.
+
+Homepage is a resume-style single column (max-w-3xl) framed by vertical guide lines. Every row spans the viewport with a hairline rule (Row component); sections are separated by a diagonal-hatched band (Gap / .hatch). Typography is Geist with Geist Mono for metadata; colours are monochrome with mint used only for small status dots. Content is presented as rows: experience as company → role timeline with dates, live duration, bullets, a stat strip and tag chips; projects/case studies as list rows; principles and stack as two-column tables; contact as a metadata grid. Avoid decorative extras (offset shadows, scribbles, sparkles, stickers, tickers, cursor effects, grain). Check every change in both themes.

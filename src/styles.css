@@ -7,9 +7,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-serif: 'Outfit', system-ui, sans-serif;
-  --font-sans: 'Figtree', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Geist', system-ui, sans-serif;
+  --font-sans: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -28,24 +28,22 @@
 
 /* Light theme (Zamp-like: warm off-white, hairline rules, blue accent) */
 :root {
-  --background: oklch(0.985 0.002 90);
-  --foreground: oklch(0.17 0.005 260);
-  --muted: oklch(0.96 0.003 90);
-  --muted-foreground: oklch(0.52 0.008 260);
-  --border: oklch(0.2 0.01 260 / 12%);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.52 0 0);
+  --border: oklch(0.922 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.17 0.005 260);
-  --accent: oklch(0.955 0.004 260);
-  --accent-foreground: oklch(0.17 0.005 260);
-  --primary: oklch(0.17 0.005 260);
-  --primary-foreground: oklch(0.99 0 0);
-  --brand: oklch(0.7 0.16 166);
-  --brand-soft: oklch(0.7 0.16 166 / 13%);
+  --card-foreground: oklch(0.145 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.145 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --brand: oklch(0.62 0.15 162);
+  --brand-soft: oklch(0.62 0.15 162 / 12%);
+  --hatch: oklch(0.145 0 0 / 7%);
 
-  --page-bg: oklch(0.985 0.009 165);
-  --dot-color: rgba(0, 0, 0, 0.05);
-  --grain-opacity: 0.25;
-  --grain-rgb: 0 0 0;
+  --page-bg: var(--background);
   --surface-tint: rgba(0, 0, 0, 0.02);
   --play-coral: oklch(0.69 0.19 28);
   --play-sky: oklch(0.67 0.14 235);
@@ -53,24 +51,22 @@
 }
 
 .dark {
-  --background: oklch(0.04 0 0);
-  --foreground: oklch(0.97 0 0);
-  --muted: oklch(0.12 0 0);
-  --muted-foreground: oklch(0.62 0 0);
-  --border: oklch(0.22 0 0 / 50%);
-  --card: oklch(0.07 0 0);
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --muted: oklch(0.205 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --border: oklch(1 0 0 / 11%);
+  --card: oklch(0.175 0 0);
   --card-foreground: oklch(0.97 0 0);
-  --accent: oklch(0.15 0 0);
-  --accent-foreground: oklch(0.97 0 0);
-  --primary: oklch(0.97 0 0);
-  --primary-foreground: oklch(0.04 0 0);
-  --brand: oklch(0.82 0.16 160);
-  --brand-soft: oklch(0.82 0.16 160 / 14%);
+  --accent: oklch(0.22 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.145 0 0);
+  --brand: oklch(0.78 0.15 160);
+  --brand-soft: oklch(0.78 0.15 160 / 14%);
+  --hatch: oklch(1 0 0 / 7%);
 
-  --page-bg: oklch(0.16 0.035 230);
-  --dot-color: rgba(255, 255, 255, 0.025);
-  --grain-opacity: 0.4;
-  --grain-rgb: 1 1 1;
+  --page-bg: var(--background);
   --surface-tint: rgba(255, 255, 255, 0.02);
   --play-coral: oklch(0.75 0.17 28);
   --play-sky: oklch(0.75 0.12 235);
@@ -84,23 +80,11 @@
     background-color: var(--page-bg);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-weight: 300;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
-    background-image:
-      radial-gradient(circle at 1px 1px, var(--dot-color) 1px, transparent 0);
-    background-size: 32px 32px;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    opacity: var(--grain-opacity);
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  }
-  h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; letter-spacing: 0; }
+  h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; letter-spacing: -0.02em; }
 }
 
 @layer utilities {
@@ -113,6 +97,37 @@
     text-transform: uppercase;
     color: var(--color-muted-foreground);
   }
+  /* Diagonal-hatched band used between homepage sections */
+  .hatch {
+    background-image: repeating-linear-gradient(-45deg, var(--hatch) 0 1px, transparent 1px 8px);
+  }
+
+  /* Faint square grid behind the profile header */
+  .grid-pattern {
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: -1px -1px;
+    mask-image: linear-gradient(to bottom, black, transparent);
+  }
+
+  .bullet {
+    position: relative;
+    padding-left: 1rem;
+  }
+  .bullet::before {
+    position: absolute;
+    top: 0.65em;
+    left: 0.15rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 9999px;
+    background: var(--muted-foreground);
+    opacity: 0.6;
+    content: "";
+  }
+
   .fade-up {
     animation: fadeUp 0.9s cubic-bezier(0.2,0.7,0.2,1) both;
   }
@@ -121,201 +136,62 @@
     to { opacity: 1; transform: none; }
   }
 
-  .playful-home {
-    --play-line: color-mix(in oklab, var(--brand) 34%, var(--border));
-  }
-
-  .playful-home section {
-    position: relative;
-  }
+  /* Clean layer: the class names below come from the earlier "playful" pass;
+     they now carry a quiet, aligned style that works in both themes. */
+  .playful-home section { position: relative; }
 
   .playful-home .playful-heading {
     font-family: var(--font-serif);
     font-weight: 700;
-    letter-spacing: 0;
-    line-height: 0.96;
+    letter-spacing: -0.02em;
+    line-height: 1;
   }
-
-  .playful-home .playful-heading::after,
-  .case-playful h2::after {
-    display: block;
-    width: min(7rem, 28%);
-    height: 0.55rem;
-    margin-top: 0.45rem;
-    background: repeating-linear-gradient(-12deg, transparent 0 5px, var(--brand) 5px 7px, transparent 7px 11px);
-    content: "";
-    transform: skewX(-15deg);
-    transform-origin: left;
-    transition: width 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  .playful-home section:hover .playful-heading::after,
-  .case-playful section:hover h2::after { width: min(11rem, 42%); }
 
   .playful-home .play-card {
-    border: 1px solid var(--play-line);
-    background: color-mix(in oklab, var(--card) 88%, var(--brand-soft));
-    box-shadow: 7px 7px 0 var(--brand-soft);
-    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    border: 1px solid var(--border);
+    background: var(--card);
+    transition: border-color 200ms ease, background-color 200ms ease;
   }
 
   .playful-home .play-card:hover {
-    transform: translate(-3px, -3px) rotate(-0.35deg);
-    box-shadow: 11px 11px 0 var(--brand-soft);
-    border-color: var(--brand);
+    border-color: color-mix(in oklab, var(--brand) 45%, var(--border));
   }
 
   .playful-home .play-card:focus-visible,
   .case-playful a:focus-visible {
     outline: 2px solid var(--brand);
-    outline-offset: 5px;
+    outline-offset: 4px;
   }
 
   .playful-home .play-chip {
-    border: 1px solid var(--play-line);
-    background: var(--brand-soft);
-    color: var(--foreground);
-    box-shadow: 3px 3px 0 color-mix(in oklab, var(--brand) 30%, transparent);
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted-foreground);
   }
 
   .playful-home .play-icon-stage {
-    background-color: var(--brand-soft);
-    background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--brand) 35%, transparent) 1px, transparent 0);
-    background-size: 18px 18px;
+    background: var(--muted);
+    border-bottom: 1px solid var(--border);
   }
+
+  .playful-home .play-icon-stage svg { transition: color 200ms ease; }
+  .playful-home .play-card:hover .play-icon-stage svg { color: var(--brand); }
 
   .playful-home .play-index {
     color: var(--brand);
     font-family: var(--font-serif);
-    font-weight: 800;
-  }
-
-  .playful-home .hero-word-mark {
-    -webkit-text-stroke: 1px var(--brand);
-    color: transparent;
-  }
-
-  .playful-home .portrait-wrap {
-    animation: portrait-float 5s ease-in-out infinite;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .playful-home .portrait-frame {
-    position: relative;
     overflow: hidden;
-    border: 1px solid var(--brand);
-    border-radius: 0.25rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
     background: var(--card);
-    box-shadow: 10px 10px 0 var(--brand-soft);
-    transform: rotate(2deg);
-    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 400ms ease;
   }
 
-  .playful-home .portrait-frame::after {
-    position: absolute;
-    inset: 0;
-    border: 8px solid color-mix(in oklab, var(--background) 72%, transparent);
-    content: "";
-    pointer-events: none;
-  }
-
-  .playful-home .portrait-wrap:hover .portrait-frame {
-    box-shadow: 15px 15px 0 var(--brand-soft);
-    transform: translateY(-5px) rotate(-1deg);
-  }
-
-  .playful-home .portrait-frame img {
-    display: block;
-    transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  .playful-home .portrait-wrap:hover .portrait-frame img { transform: scale(1.025); }
-
-  .playful-home .portrait-caption {
-    position: absolute;
-    right: -6%;
-    bottom: 3%;
-    z-index: 20;
-    transform: rotate(-4deg);
-    border: 1px solid var(--brand);
-    background: var(--background);
-    padding: 0.55rem 0.7rem;
-    color: var(--foreground);
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.08em;
-    box-shadow: 4px 4px 0 var(--brand-soft);
-  }
-
-  .playful-home .portrait-caption span { color: var(--brand); }
-
-  .playful-home .hero-sticker {
-    animation: sticker-wiggle 4s ease-in-out infinite;
-  }
-
-  .playful-home .play-icon-stage svg {
-    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1), color 250ms ease;
-  }
-
-  .playful-home .play-card:hover .play-icon-stage svg {
-    color: var(--brand);
-    transform: rotate(-8deg) scale(1.15);
-  }
-
-  .playful-home .play-chip {
-    transition: transform 180ms ease, background-color 180ms ease;
-  }
-
-  .playful-home .play-chip:hover {
-    transform: translateY(-4px) rotate(-2deg);
-    background: color-mix(in oklab, var(--brand-soft) 75%, var(--card));
-  }
-
-  .playful-home .section-spark::before {
-    position: absolute;
-    top: 5rem;
-    left: -1.4rem;
-    color: var(--play-coral);
-    content: "✦";
-    font-size: 2.2rem;
-    animation: sparkle-turn 6s linear infinite;
-  }
-
-  .playful-home .section-spark-right::before { right: -1rem; left: auto; color: var(--play-yellow); }
-
-  .playful-home .experience-stop {
-    position: relative;
-  }
-
-  .playful-home .experience-stop::before {
-    position: absolute;
-    top: -2.4rem;
-    left: 1.75rem;
-    z-index: 2;
-    display: grid;
-    width: 2rem;
-    height: 2rem;
-    place-items: center;
-    border: 1px solid var(--brand);
-    border-radius: 50%;
-    background: var(--background);
-    color: var(--brand);
-    content: counter(journey);
-    counter-increment: journey;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    box-shadow: 3px 3px 0 var(--brand-soft);
-  }
-
-  .playful-home #experience .space-y-14 { position: relative; counter-reset: journey; }
-  .playful-home #experience .space-y-14::before {
-    position: absolute;
-    top: -1.4rem;
-    bottom: 0;
-    left: 2.7rem;
-    width: 1px;
-    background: repeating-linear-gradient(to bottom, var(--brand) 0 7px, transparent 7px 13px);
-    content: "";
-  }
+  .playful-home .portrait-frame img { display: block; }
 
   .playful-home .project-action {
     display: flex;
@@ -329,44 +205,8 @@
     letter-spacing: 0.1em;
   }
 
-  .playful-home .project-action svg { transition: transform 220ms ease; }
-  .playful-home .play-card:hover .project-action svg { transform: translate(3px, -3px) rotate(4deg); }
-
-  .playful-home .play-ticker {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    overflow: hidden;
-    border-block: 1px solid var(--brand);
-    background: var(--brand);
-    color: var(--background);
-    transform: rotate(-1deg);
-  }
-
-  .playful-home .play-ticker > div {
-    display: flex;
-    width: max-content;
-    align-items: center;
-    gap: 2rem;
-    padding: 0.8rem 0;
-    animation: ticker-roll 24s linear infinite;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    white-space: nowrap;
-  }
-
-  .playful-home .play-ticker i { font-style: normal; }
-
-  .playful-home .play-finale::before {
-    position: absolute;
-    inset: 16% 4%;
-    z-index: -1;
-    border: 1px dashed var(--brand);
-    border-radius: 50%;
-    content: "";
-    animation: finale-breathe 7s ease-in-out infinite;
-  }
+  .playful-home .project-action svg { transition: transform 200ms ease; }
+  .playful-home .play-card:hover .project-action svg { transform: translateX(3px); }
 
   .playful-home .availability-pulse {
     display: flex;
@@ -379,31 +219,14 @@
   }
 
   .playful-home .availability-pulse span {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.4rem;
+    height: 0.4rem;
     border-radius: 50%;
     background: var(--brand);
-    box-shadow: 0 0 0 0 var(--brand-soft);
-    animation: availability-ping 2s ease-out infinite;
   }
 
-  .playful-home .play-contact a { position: relative; transition: color 180ms ease, transform 180ms ease; }
-  .playful-home .play-contact a:hover { color: var(--brand); transform: translateY(-2px); }
-
-  @keyframes portrait-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  @keyframes sticker-wiggle {
-    0%, 100% { transform: rotate(6deg) translateY(0); }
-    50% { transform: rotate(3deg) translateY(-5px); }
-  }
-
-  @keyframes sparkle-turn { to { transform: rotate(360deg); } }
-  @keyframes ticker-roll { to { transform: translateX(-50%); } }
-  @keyframes finale-breathe { 50% { transform: scale(1.035) rotate(1deg); } }
-  @keyframes availability-ping { 70% { box-shadow: 0 0 0 8px transparent; } }
+  .playful-home .play-contact a { transition: color 180ms ease; }
+  .playful-home .play-contact a:hover { color: var(--brand); }
 }
 
 .play-progress {
@@ -412,126 +235,42 @@
   right: 0;
   left: 0;
   z-index: 100;
-  height: 3px;
+  height: 2px;
   pointer-events: none;
 }
 
 .play-progress > div {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, var(--brand), var(--play-yellow), var(--play-coral));
+  background: var(--brand);
   transform: scaleX(0);
   transform-origin: left;
   will-change: transform;
 }
 
-.play-cursor {
-  position: fixed;
-  top: -1.1rem;
-  left: -1.1rem;
-  z-index: 90;
-  display: none;
-  width: 2.2rem;
-  height: 2.2rem;
-  place-items: center;
-  border: 1px solid var(--brand);
-  border-radius: 50%;
-  background: color-mix(in oklab, var(--background) 72%, transparent);
-  color: var(--brand);
-  pointer-events: none;
-  transition: width 180ms ease, height 180ms ease, margin 180ms ease, background-color 180ms ease;
-  backdrop-filter: blur(4px);
-  will-change: transform;
-}
-
-.play-cursor span { opacity: 0; font-family: var(--font-mono); font-size: 0.7rem; transition: opacity 150ms ease; }
-.play-cursor.is-active { width: 3.2rem; height: 3.2rem; margin: -0.5rem; background: var(--brand); color: var(--background); }
-.play-cursor.is-active span { opacity: 1; }
-
 .play-reveal {
   opacity: 0;
-  transform: translateY(30px) rotate(0.2deg);
-  transition: opacity 750ms ease var(--reveal-delay, 0ms), transform 750ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+  transition: opacity 600ms ease var(--reveal-delay, 0ms);
 }
 
-.play-reveal.is-visible { opacity: 1; transform: none; }
-
-.case-playful {
-  --case-accent: var(--brand);
-  --case-soft: var(--brand-soft);
-}
-
-.case-spotify { --case-accent: var(--play-yellow); --case-soft: color-mix(in oklab, var(--play-yellow) 12%, transparent); }
-.case-blusmart { --case-accent: var(--play-sky); --case-soft: color-mix(in oklab, var(--play-sky) 12%, transparent); }
+.play-reveal.is-visible { opacity: 1; }
 
 .case-playful main > section { position: relative; }
-.case-playful main > section::before {
-  position: absolute;
-  top: 1rem;
-  right: 0;
-  color: color-mix(in oklab, var(--case-accent) 55%, transparent);
-  content: "✦";
-  font-size: 1rem;
-  transition: transform 350ms ease, color 350ms ease;
-}
-.case-playful main > section:hover::before { color: var(--case-accent); transform: rotate(45deg) scale(1.35); }
-
-.case-playful h1 {
-  position: relative;
-  text-wrap: balance;
-}
-
-.case-playful h1::after {
-  display: block;
-  width: 5.5rem;
-  height: 0.55rem;
-  margin-top: 1.25rem;
-  background: var(--case-accent);
-  content: "";
-  transform: rotate(-2deg);
-  box-shadow: 5px 5px 0 var(--case-soft);
-}
-
-.case-spotify h1::after { margin-inline: auto; }
+.case-playful h1 { text-wrap: balance; }
 
 .case-playful main [class*="rounded"]:not(.mockup):not(.mockup *) {
-  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+  transition: border-color 200ms ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .play-cursor { display: grid; }
-  .case-playful main [class*="rounded"]:not(.mockup):not(.mockup *):hover {
-    border-color: var(--case-accent);
-    box-shadow: 7px 7px 0 var(--case-soft);
-    transform: translate(-2px, -2px);
+  .case-playful main [class*="rounded"][class*="border"]:not(.mockup):not(.mockup *):hover {
+    border-color: color-mix(in oklab, var(--brand) 40%, var(--border));
   }
-  .case-playful .mockup { transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 300ms ease; }
-  .case-playful .mockup:hover { transform: translateY(-8px) rotate(-1deg); box-shadow: 12px 18px 0 var(--case-soft); }
-}
-
-.case-playful main svg:not(.mockup svg) { transition: transform 320ms ease; }
-.case-playful main section:hover > svg:not(.mockup svg) { transform: scale(1.015); }
-
-@media (min-width: 768px) {
-  .playful-home .broken-grid > :nth-child(2) { transform: translateY(2rem); }
-  .playful-home .broken-grid > :nth-child(3) { transform: translateY(-0.75rem); }
-  .playful-home .metric-grid > :nth-child(even) { transform: translateY(2rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .playful-home .play-card,
-  .playful-home .fade-up,
-  .playful-home .portrait-wrap,
-  .playful-home .hero-sticker,
-  .playful-home .play-ticker > div,
-  .playful-home .section-spark::before,
-  .playful-home .play-finale::before,
-  .playful-home .availability-pulse span { animation: none; transition: none; }
-  .playful-home .play-card:hover { transform: none; }
-  .play-reveal { opacity: 1; transform: none; transition: none; }
-  .play-cursor { display: none; }
-  .case-playful main [class*="rounded"]:not(.mockup):not(.mockup *),
-  .case-playful .mockup { transition: none; }
+  .playful-home .fade-up { animation: none; }
+  .play-reveal { opacity: 1; transition: none; }
 }
 
 /* Zamp-style eyebrow: blue mono label with a leading dot */

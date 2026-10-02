@@ -1,14 +1,10 @@
 import { useEffect, useRef } from "react";
 
 export function PlayfulPage() {
-  const cursorRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const finePointer = window.matchMedia("(pointer: fine)").matches;
     const sections = Array.from(document.querySelectorAll<HTMLElement>("main section"));
-    const interactive = Array.from(document.querySelectorAll<HTMLElement>(".play-card, .case-playful main a, .case-playful main [data-play]"));
 
     sections.forEach((section, index) => {
       section.classList.add("play-reveal");
@@ -33,37 +29,17 @@ export function PlayfulPage() {
       progressRef.current?.style.setProperty("transform", `scaleX(${progress})`);
     };
 
-    const moveCursor = (event: PointerEvent) => {
-      cursorRef.current?.style.setProperty("transform", `translate3d(${event.clientX}px, ${event.clientY}px, 0)`);
-    };
-
-    const enterInteractive = () => cursorRef.current?.classList.add("is-active");
-    const leaveInteractive = () => cursorRef.current?.classList.remove("is-active");
-    interactive.forEach((element) => {
-      element.addEventListener("pointerenter", enterInteractive);
-      element.addEventListener("pointerleave", leaveInteractive);
-    });
-
     window.addEventListener("scroll", updateProgress, { passive: true });
-    if (finePointer && !reducedMotion) window.addEventListener("pointermove", moveCursor, { passive: true });
     updateProgress();
 
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("pointermove", moveCursor);
-      interactive.forEach((element) => {
-        element.removeEventListener("pointerenter", enterInteractive);
-        element.removeEventListener("pointerleave", leaveInteractive);
-      });
     };
   }, []);
 
   return (
-    <>
-      <div className="play-progress" aria-hidden="true"><div ref={progressRef} /></div>
-      <div ref={cursorRef} className="play-cursor" aria-hidden="true"><span>↗</span></div>
-    </>
+    <div className="play-progress" aria-hidden="true"><div ref={progressRef} /></div>
   );
 }
 
