@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, ArrowUpRight, Github, Linkedin, Mail, Plus } from "lucide-react";
+import {
+  ArrowDown, ArrowRight, ArrowUpRight, Blocks, Dumbbell, Flame, Github, Linkedin, Mail, Network, Plus, ShieldCheck, Swords,
+  type LucideIcon,
+} from "lucide-react";
 import { CountUp } from "@/components/playful-page";
 import { ArchitectArt, CookedOrHiredArt, HulkArt, ProductBattleArt, RegImpactArt, WhoBrokeItArt } from "@/components/case-art";
 import {
@@ -94,23 +97,23 @@ const experience = [
   },
 ];
 
-// Small brand marks for each build, drawn to echo the product's own logo.
+// One mark style for every build: same chip, same line icon, single colour.
+const logoIcons: Record<string, LucideIcon> = {
+  "Architect 2.0": Blocks,
+  "Who Broke It?": Network,
+  "Project Hulk": Dumbbell,
+  "RegImpact AI": ShieldCheck,
+  "ProductBattle AI": Swords,
+  "Cooked or Hired": Flame,
+};
+
 function Logo({ id }: { id: string }) {
-  const base = "inline-flex size-9 shrink-0 items-center justify-center font-mono text-xs font-bold";
-  switch (id) {
-    case "Architect 2.0":
-      return <span className={`${base} rounded-lg bg-[#f5a83a] text-[#14110a]`} aria-hidden="true"><svg viewBox="0 0 24 24" className="size-5" fill="currentColor"><path d="M12 3 21 20h-5l-4-8-4 8H3z" /></svg></span>;
-    case "Project Hulk":
-      return <span className={`${base} rounded-full bg-[#34e5b8] text-[#04130f]`} aria-hidden="true">PH</span>;
-    case "RegImpact AI":
-      return <span className={`${base} rounded-lg bg-[#34d399] font-serif text-sm text-[#04130f]`} aria-hidden="true">R</span>;
-    case "ProductBattle AI":
-      return <span className={`${base} rounded-lg bg-[#7f1d1d] text-white`} aria-hidden="true">PB</span>;
-    case "Who Broke It?":
-      return <span className={`${base} rounded-lg bg-foreground text-background`} aria-hidden="true"><svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="5" r="2.2" /><circle cx="6" cy="19" r="2.2" /><circle cx="18" cy="19" r="2.2" /><path d="M12 7v4M12 11 6 17M12 11l6 6" /></svg></span>;
-    default:
-      return <span className={`${base} rounded-lg bg-brand text-background`} aria-hidden="true">🔥</span>;
-  }
+  const Icon = logoIcons[id];
+  return (
+    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg border border-border bg-muted/60 text-foreground" aria-hidden="true">
+      <Icon className="size-[18px]" strokeWidth={1.75} />
+    </span>
+  );
 }
 
 const aiBuilds: {
